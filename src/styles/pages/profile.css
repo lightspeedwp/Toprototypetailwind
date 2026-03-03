@@ -1,0 +1,33 @@
+/**
+ * Profile Page - WordPress BEM CSS
+ * 
+ * Custom grid layouts for ProfilePage converted from Tailwind responsive classes
+ * to WordPress BEM naming convention with CSS variable-based styling.
+ * 
+ * All layouts use CSS Grid with mobile-first responsive breakpoints:
+ * - Mobile: 2 columns for stats
+ * - Tablet (md): 4 columns for stats
+ * 
+ * @since 2026-02-27
+ */
+
+/* ==========================================================================
+   Profile Stats Grid - 2/4 column responsive grid
+   ========================================================================== */
+
+/**
+ * Profile statistics grid
+ * Mobile: 2 columns, Tablet+: 4 columns
+ * Used for: Trip count, countries visited, reviews written, wishlist size
+ */
+.wp-pattern-profile__stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-4, 1rem);
+}
+
+@media (min-width: 768px) {
+  .wp-pattern-profile__stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

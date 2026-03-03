@@ -1,0 +1,213 @@
+/**
+ * Feature Card - WordPress Pattern Component
+ * 
+ * BEM Structure: .wp-pattern-feature-card__*
+ * 
+ * Handles light/dark mode using CSS variables aligned with WordPress theme.json.
+ * NO dark: Tailwind classes - uses .dark selector instead.
+ * 
+ * All colors, typography, spacing, borders, and radius values use CSS variables
+ * from theme-light.css and theme-dark.css for complete design system compliance.
+ * 
+ * Typography: ONLY uses defined fonts (Lora for title, Noto Sans for description)
+ * 
+ * @version 1.0
+ * @see /src/styles/theme-light.css
+ * @see /src/styles/theme-dark.css
+ * @see /src/app/components/patterns/FeatureCard.tsx
+ */
+
+/* ============================================
+   BASE CARD
+   ============================================ */
+
+.wp-pattern-feature-card {
+  padding: 1.5rem;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevation-sm);
+  transition: all 200ms ease;
+}
+
+.wp-pattern-feature-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--elevation-md);
+}
+
+/* ============================================
+   ICON WRAPPER
+   ============================================ */
+
+.wp-pattern-feature-card__icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  background-color: rgba(74, 115, 17, 0.1); /* Light mode: primary with 10% opacity */
+  border-radius: var(--radius-lg);
+  transition: background-color 200ms ease;
+}
+
+.dark .wp-pattern-feature-card__icon-wrapper {
+  background-color: rgba(144, 186, 72, 0.1); /* Dark mode: primary with 10% opacity */
+}
+
+/* ============================================
+   ICON
+   ============================================ */
+
+.wp-pattern-feature-card__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   TITLE
+   ============================================ */
+
+.wp-pattern-feature-card__title {
+  font-family: var(--font-family-lora);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--card-foreground);
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   DESCRIPTION
+   ============================================ */
+
+.wp-pattern-feature-card__description {
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--muted-foreground);
+  margin-bottom: 0;
+}
+
+/* ============================================
+   VARIANT: PRIMARY
+   ============================================ */
+
+.wp-pattern-feature-card--primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.wp-pattern-feature-card--primary:hover {
+  border-color: var(--primary);
+  opacity: 0.95;
+}
+
+.wp-pattern-feature-card--primary .wp-pattern-feature-card__icon-wrapper {
+  background-color: rgba(255, 255, 255, 0.2); /* Light mode: white 20% */
+}
+
+.dark .wp-pattern-feature-card--primary .wp-pattern-feature-card__icon-wrapper {
+  background-color: rgba(0, 0, 0, 0.2); /* Dark mode: black 20% */
+}
+
+.wp-pattern-feature-card--primary .wp-pattern-feature-card__icon {
+  color: var(--primary-foreground);
+}
+
+.wp-pattern-feature-card--primary .wp-pattern-feature-card__title {
+  color: var(--primary-foreground);
+}
+
+.wp-pattern-feature-card--primary .wp-pattern-feature-card__description {
+  color: var(--primary-foreground);
+  opacity: 0.9;
+}
+
+/* ============================================
+   VARIANT: ACCENT
+   ============================================ */
+
+.wp-pattern-feature-card--accent {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.wp-pattern-feature-card--accent:hover {
+  border-color: var(--accent);
+  opacity: 0.95;
+}
+
+.wp-pattern-feature-card--accent .wp-pattern-feature-card__icon-wrapper {
+  background-color: rgba(255, 255, 255, 0.2); /* Light mode: white 20% */
+}
+
+.dark .wp-pattern-feature-card--accent .wp-pattern-feature-card__icon-wrapper {
+  background-color: rgba(0, 0, 0, 0.2); /* Dark mode: black 20% */
+}
+
+.wp-pattern-feature-card--accent .wp-pattern-feature-card__icon {
+  color: var(--accent-foreground);
+}
+
+.wp-pattern-feature-card--accent .wp-pattern-feature-card__title {
+  color: var(--accent-foreground);
+}
+
+.wp-pattern-feature-card--accent .wp-pattern-feature-card__description {
+  color: var(--accent-foreground);
+  opacity: 0.9;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .wp-pattern-feature-card {
+    padding: 1rem;
+  }
+  
+  .wp-pattern-feature-card__icon-wrapper {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .wp-pattern-feature-card__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .wp-pattern-feature-card__title {
+    font-size: var(--text-lg);
+  }
+  
+  .wp-pattern-feature-card__description {
+    font-size: var(--text-xs);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.wp-pattern-feature-card:focus-within {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .wp-pattern-feature-card,
+  .wp-pattern-feature-card__icon-wrapper {
+    transition: none;
+  }
+  
+  .wp-pattern-feature-card:hover {
+    transform: none;
+  }
+}

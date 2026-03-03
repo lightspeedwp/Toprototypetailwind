@@ -1,0 +1,226 @@
+/**
+ * Card Grid Pattern Styles
+ * WordPress Pattern: lightspeed/card-grid
+ * 
+ * Component: /src/app/components/patterns/CardGrid.tsx
+ * Corresponds to: patterns/card-grid-*.php in WordPress
+ * 
+ * All styles use CSS custom properties from theme.css for design system compliance.
+ * 
+ * @version 1.0.0
+ */
+
+/* ============================================
+   CARD GRID BASE STYLES
+   Foundation for responsive grid layouts
+   ============================================ */
+
+.wp-pattern-card-grid {
+  padding-block: var(--spacing-section-sm);
+}
+
+/* ============================================
+   GRID CONTAINER
+   Responsive grid with column variants
+   ============================================ */
+
+.wp-pattern-card-grid__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-gap-md);
+}
+
+/* Gap variants - now fluid */
+.wp-pattern-card-grid__container--gap-sm {
+  gap: var(--spacing-gap-xs);
+}
+
+.wp-pattern-card-grid__container--gap-md {
+  gap: var(--spacing-gap-md);
+}
+
+.wp-pattern-card-grid__container--gap-lg {
+  gap: var(--spacing-gap-lg);
+}
+
+/* ============================================
+   RESPONSIVE COLUMNS
+   Multi-breakpoint scaling from 320px to 1920px
+   ============================================ */
+
+/* 2-column grid */
+@media (min-width: 480px) {
+  .wp-pattern-card-grid__container--cols-2,
+  .wp-pattern-card-grid__container--cols-3,
+  .wp-pattern-card-grid__container--cols-4,
+  .wp-pattern-card-grid__container--cols-5,
+  .wp-pattern-card-grid__container--cols-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3-column grid */
+@media (min-width: 768px) {
+  .wp-pattern-card-grid__container--cols-3,
+  .wp-pattern-card-grid__container--cols-4,
+  .wp-pattern-card-grid__container--cols-5,
+  .wp-pattern-card-grid__container--cols-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 4-column grid */
+@media (min-width: 1024px) {
+  .wp-pattern-card-grid__container--cols-4,
+  .wp-pattern-card-grid__container--cols-5,
+  .wp-pattern-card-grid__container--cols-6 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 5-column grid */
+@media (min-width: 1440px) {
+  .wp-pattern-card-grid__container--cols-5,
+  .wp-pattern-card-grid__container--cols-6 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* 6-column grid */
+@media (min-width: 1600px) {
+  .wp-pattern-card-grid__container--cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* ============================================
+   LIST LAYOUT
+   Alternative single-column layout
+   ============================================ */
+
+.wp-pattern-card-grid__container--list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* 24px - space-y-6 */
+}
+
+/* ============================================
+   CARD ITEM WRAPPER
+   Individual card container (for animations)
+   ============================================ */
+
+.wp-pattern-card-grid__item {
+  /* Handled by Motion component */
+  /* Cards are passed as children */
+}
+
+/* ============================================
+   EMPTY STATE
+   No cards to display
+   ============================================ */
+
+.wp-pattern-card-grid__empty {
+  padding-block: var(--spacing-section-md);
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+.wp-pattern-card-grid__empty-icon {
+  margin-block-end: 1rem;
+  color: var(--muted-foreground);
+}
+
+.wp-pattern-card-grid__empty-title {
+  margin-block-end: 0.5rem;
+  font-family: var(--font-family-lora);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--foreground);
+}
+
+.wp-pattern-card-grid__empty-description {
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-base);
+  color: var(--muted-foreground);
+  max-width: 32rem;
+  margin-inline: auto;
+}
+
+/* ============================================
+   LOADING STATE
+   Loading skeleton grid
+   ============================================ */
+
+.wp-pattern-card-grid__loading {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .wp-pattern-card-grid__loading {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .wp-pattern-card-grid__loading--cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .wp-pattern-card-grid__loading--cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.wp-pattern-card-grid__skeleton {
+  height: 24rem; /* 384px - approximate card height */
+  background-color: var(--muted);
+  border-radius: var(--radius-lg);
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   Mobile optimizations
+   ============================================ */
+
+@media (max-width: 640px) {
+  .wp-pattern-card-grid {
+    padding-block: var(--spacing-section-xs);
+  }
+
+  .wp-pattern-card-grid__container {
+    gap: 1rem; /* Reduce gap on mobile */
+  }
+}
+
+/* ============================================
+   ANIMATION STATES
+   Stagger animations (handled by Motion)
+   ============================================ */
+
+/* These are handled by Motion in the component */
+/* CSS provides fallback styles for non-animated state */
+
+/* ============================================
+   ACCESSIBILITY
+   Focus and keyboard navigation
+   ============================================ */
+
+.wp-pattern-card-grid__item:focus-within {
+  /* Let card components handle their own focus states */
+}
+
+/* ============================================
+   END OF CARD GRID PATTERN STYLES
+   ============================================ */

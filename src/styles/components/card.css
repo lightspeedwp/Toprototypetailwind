@@ -1,0 +1,113 @@
+/**
+ * Card Component Styles
+ * 
+ * BEM Structure: .wp-block-card, .card__header, .card__content, etc.
+ * 
+ * Card component styles using CSS variables for complete customization.
+ * All colors, typography, and spacing use design system tokens.
+ * 
+ * @version 1.0
+ * @see /src/styles/theme-light.css
+ * @see /src/styles/theme-dark.css
+ */
+
+/* ============================================
+   BASE CARD
+   ============================================ */
+
+.wp-block-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.wp-block-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--elevation-sm);
+}
+
+/* ============================================
+   CARD HEADER
+   ============================================ */
+
+.card__header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ============================================
+   CARD TITLE
+   ============================================ */
+
+.card__title {
+  font-family: var(--font-family-lora);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--card-foreground);
+  margin: 0;
+}
+
+/* ============================================
+   CARD DESCRIPTION
+   ============================================ */
+
+.card__description {
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--muted-foreground);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* ============================================
+   CARD CONTENT
+   ============================================ */
+
+.card__content {
+  padding: 1.5rem;
+}
+
+/* ============================================
+   CARD FOOTER
+   ============================================ */
+
+.card__footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+  background-color: rgba(245, 245, 245, 0.3); /* muted with 30% opacity */
+}
+
+.dark .card__footer {
+  background-color: rgba(38, 38, 38, 0.3); /* dark mode muted 30% */
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .card__header,
+  .card__content,
+  .card__footer {
+    padding: 1rem;
+  }
+  
+  .card__title {
+    font-size: var(--text-lg);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .wp-block-card {
+    transition: none;
+  }
+}

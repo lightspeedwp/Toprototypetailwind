@@ -1,0 +1,118 @@
+import { cn } from "../../../lib/utils";
+
+/**
+ * GroupBlock - Versatile container for grouping blocks
+ * 
+ * WordPress Equivalent: core/group
+ * 
+ * CRITICAL: This block is used to wrap patterns with section styles.
+ * Every pattern must be wrapped in a GroupBlock with appropriate section style class.
+ * 
+ * Features:
+ * - Section style application (e.g., section-hero-primary)
+ * - Background color/image support
+ * - Flexible spacing controls
+ * - Semantic HTML tag options
+ */
+
+export interface GroupBlockProps {
+  /** Child content */
+  children: React.ReactNode;
+  
+  /** Optional custom classes */
+  className?: string;
+  
+  /** Section style class (e.g., "section-hero-primary") */
+  sectionStyle?: string;
+  
+  /** Background options */
+  backgroundColor?: string;  // Semantic token (e.g., "muted", "accent")
+  backgroundImage?: string;
+  backgroundOverlay?: boolean;
+  overlayOpacity?: number;
+  
+  /** Spacing overrides */
+  paddingTop?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  paddingBottom?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  
+  /** Layout */
+  fullWidth?: boolean;
+  
+  /** Semantic HTML tag */
+  tagName?: 'section' | 'article' | 'aside' | 'div';
+  
+  /** Accessibility */
+  ariaLabel?: string;
+  id?: string;
+}
+
+const paddingMap = {
+  none: '0',
+  xs: '4',
+  sm: '8',
+  md: '12',
+  lg: '16',
+  xl: '24',
+};
+
+export function GroupBlock({
+  children,
+  className,
+  sectionStyle,
+  backgroundColor,
+  backgroundImage,
+  backgroundOverlay = false,
+  overlayOpacity = 0.5,
+  paddingTop,
+  paddingBottom,
+  fullWidth = false,
+  tagName: Tag = 'section',
+  ariaLabel,
+  id,
+}: GroupBlockProps) {
+  const paddingClasses = {
+    top: paddingTop ? `pt-${paddingMap[paddingTop]}` : '',
+    bottom: paddingBottom ? `pb-${paddingMap[paddingBottom]}` : '',
+  };
+  
+  return (
+    <Tag
+      id={id}
+      className={cn(
+        // Section style (primary styling source)
+        sectionStyle,
+        // Background color (semantic token)
+        backgroundColor && `bg-${backgroundColor}`,
+        // Padding overrides
+        paddingClasses.top,
+        paddingClasses.bottom,
+        // Full width
+        fullWidth && 'w-full',
+        // Background image positioning
+        backgroundImage && 'relative bg-cover bg-center',
+        // Custom classes
+        className
+      )}
+      aria-label={ariaLabel}
+      style={{
+        backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
+      }}
+    >
+      {/* Background overlay */}
+      {backgroundOverlay && backgroundImage && (
+        <div 
+          className="absolute inset-0 bg-black" 
+          style={{ opacity: overlayOpacity }}
+          aria-hidden="true"
+        />
+      )}
+      
+      {/* Content */}
+      <div className={cn(
+        backgroundImage && "relative z-10"
+      )}>
+        {children}
+      </div>
+    </Tag>
+  );
+}

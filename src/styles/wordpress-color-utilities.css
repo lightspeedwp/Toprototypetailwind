@@ -1,0 +1,615 @@
+/**
+ * WordPress Utility Classes - Color Backgrounds & Accents
+ * 
+ * BEM Structure: .wp-bg-*, .wp-accent-*
+ * 
+ * Handles light/dark mode using CSS variables aligned with WordPress theme.json.
+ * NO dark: Tailwind classes - uses .dark selector instead.
+ * 
+ * All colors use CSS variables from theme-light.css and theme-dark.css
+ * for complete design system compliance.
+ * 
+ * Common patterns extracted from component usage:
+ * - Primary accents (10%, 5%, etc.)
+ * - Muted backgrounds (30%, 20%, etc.)
+ * - Accent backgrounds
+ * - Interactive states (hover)
+ * 
+ * @version 1.0
+ * @see /src/styles/theme-light.css
+ * @see /src/styles/theme-dark.css
+ */
+
+/* ============================================
+   PRIMARY COLOR UTILITIES
+   ============================================ */
+
+/* Primary background - 5% opacity */
+.wp-bg-primary-subtle {
+  background-color: rgba(74, 115, 17, 0.05); /* Light mode */
+}
+
+.dark .wp-bg-primary-subtle {
+  background-color: rgba(144, 186, 72, 0.1); /* Dark mode */
+}
+
+/* Primary background - 10% opacity */
+.wp-bg-primary-soft {
+  background-color: rgba(74, 115, 17, 0.1); /* Light mode */
+}
+
+.dark .wp-bg-primary-soft {
+  background-color: rgba(144, 186, 72, 0.15); /* Dark mode */
+}
+
+/* Primary background - 20% opacity (for badges/pills) */
+.wp-bg-primary-medium {
+  background-color: rgba(74, 115, 17, 0.2); /* Light mode */
+}
+
+.dark .wp-bg-primary-medium {
+  background-color: rgba(144, 186, 72, 0.25); /* Dark mode */
+}
+
+/* Primary hover state - 90% opacity */
+.wp-bg-primary-hover:hover {
+  background-color: rgba(74, 115, 17, 0.9); /* Light mode */
+}
+
+.dark .wp-bg-primary-hover:hover {
+  background-color: rgba(144, 186, 72, 0.9); /* Dark mode */
+}
+
+/* ============================================
+   ACCENT COLOR UTILITIES
+   ============================================ */
+
+/* Accent background - 10% opacity */
+.wp-bg-accent-subtle {
+  background-color: rgba(184, 122, 0, 0.1); /* Light mode */
+}
+
+.dark .wp-bg-accent-subtle {
+  background-color: rgba(255, 183, 64, 0.15); /* Dark mode */
+}
+
+/* Accent background - 20% opacity */
+.wp-bg-accent-soft {
+  background-color: rgba(184, 122, 0, 0.2); /* Light mode */
+}
+
+.dark .wp-bg-accent-soft {
+  background-color: rgba(255, 183, 64, 0.25); /* Dark mode */
+}
+
+/* Accent background - 50% opacity (for highlighted areas) */
+.wp-bg-accent-medium {
+  background-color: rgba(184, 122, 0, 0.5); /* Light mode */
+}
+
+.dark .wp-bg-accent-medium {
+  background-color: rgba(255, 183, 64, 0.5); /* Dark mode */
+}
+
+/* ============================================
+   MUTED COLOR UTILITIES
+   ============================================ */
+
+/* Muted background - 20% opacity */
+.wp-bg-muted-subtle {
+  background-color: rgba(245, 245, 245, 0.2); /* Light mode */
+}
+
+.dark .wp-bg-muted-subtle {
+  background-color: rgba(38, 38, 38, 0.2); /* Dark mode */
+}
+
+/* Muted background - 30% opacity (common for sections) */
+.wp-bg-muted-soft {
+  background-color: rgba(245, 245, 245, 0.3); /* Light mode */
+}
+
+.dark .wp-bg-muted-soft {
+  background-color: rgba(38, 38, 38, 0.3); /* Dark mode */
+}
+
+/* Muted background - 40% opacity */
+.wp-bg-muted-medium {
+  background-color: rgba(245, 245, 245, 0.4); /* Light mode */
+}
+
+.dark .wp-bg-muted-medium {
+  background-color: rgba(38, 38, 38, 0.4); /* Dark mode */
+}
+
+/* Muted ultra-light background - 30% opacity (for subtle divisions) */
+.wp-bg-muted-ultralight {
+  background-color: rgba(245, 245, 245, 0.3); /* Light mode */
+}
+
+.dark .wp-bg-muted-ultralight {
+  background-color: rgba(38, 38, 38, 0.3); /* Dark mode */
+}
+
+/* Muted light background - 50% opacity (for subtle info boxes) */
+.wp-bg-muted-light {
+  background-color: rgba(245, 245, 245, 0.5); /* Light mode */
+}
+
+.dark .wp-bg-muted-light {
+  background-color: rgba(38, 38, 38, 0.5); /* Dark mode */
+}
+
+/* Muted hover state - 80% opacity */
+.wp-bg-muted-hover:hover {
+  background-color: rgba(245, 245, 245, 0.8); /* Light mode */
+}
+
+.dark .wp-bg-muted-hover:hover {
+  background-color: rgba(38, 38, 38, 0.8); /* Dark mode */
+}
+
+/* Primary light background - 10% opacity (for status badges) */
+.wp-bg-primary-light {
+  background-color: rgba(74, 115, 17, 0.1); /* Light mode */
+  color: var(--primary);
+}
+
+.dark .wp-bg-primary-light {
+  background-color: rgba(144, 186, 72, 0.15); /* Dark mode */
+}
+
+/* Primary hover state - 20% opacity */
+.wp-bg-primary-hover:hover {
+  background-color: rgba(74, 115, 17, 0.2); /* Light mode */
+}
+
+.dark .wp-bg-primary-hover:hover {
+  background-color: rgba(144, 186, 72, 0.25); /* Dark mode */
+}
+
+/* Primary medium background - 20% opacity (for progress bars) */
+.wp-bg-primary-medium {
+  background-color: rgba(74, 115, 17, 0.2); /* Light mode */
+}
+
+.dark .wp-bg-primary-medium {
+  background-color: rgba(144, 186, 72, 0.25); /* Dark mode */
+}
+
+/* Accent hover state - 50% opacity */
+.wp-bg-accent-hover:hover {
+  background-color: rgba(184, 122, 0, 0.5); /* Light mode */
+}
+
+.dark .wp-bg-accent-hover:hover {
+  background-color: rgba(255, 183, 64, 0.5); /* Dark mode */
+}
+
+/* Accent active/open state - 30% opacity */
+.wp-bg-accent-active {
+  background-color: rgba(184, 122, 0, 0.3); /* Light mode */
+}
+
+.dark .wp-bg-accent-active {
+  background-color: rgba(255, 183, 64, 0.3); /* Dark mode */
+}
+
+/* Accent ultra-light background - 10% opacity (for subtle highlights) */
+.wp-bg-accent-ultralight {
+  background-color: rgba(184, 122, 0, 0.1); /* Light mode */
+  color: var(--accent);
+}
+
+.dark .wp-bg-accent-ultralight {
+  background-color: rgba(255, 183, 64, 0.1); /* Dark mode */
+}
+
+/* Accent light background - 20% opacity (for info boxes, tips) */
+.wp-bg-accent-light {
+  background-color: rgba(184, 122, 0, 0.2); /* Light mode */
+}
+
+.dark .wp-bg-accent-light {
+  background-color: rgba(255, 183, 64, 0.2); /* Dark mode */
+}
+
+/* Accent medium background - 50% opacity (for status, warnings) */
+.wp-bg-accent-medium {
+  background-color: rgba(184, 122, 0, 0.5); /* Light mode */
+  color: var(--accent-foreground);
+}
+
+.dark .wp-bg-accent-medium {
+  background-color: rgba(255, 183, 64, 0.5); /* Dark mode */
+}
+
+/* ============================================
+   BORDER COLOR UTILITIES
+   ============================================ */
+
+/* Primary border - 20% opacity */
+.wp-border-primary-soft {
+  border-color: rgba(74, 115, 17, 0.2); /* Light mode */
+}
+
+.dark .wp-border-primary-soft {
+  border-color: rgba(144, 186, 72, 0.2); /* Dark mode */
+}
+
+/* Primary border - 30% opacity (hover states) */
+.wp-border-primary-medium {
+  border-color: rgba(74, 115, 17, 0.3); /* Light mode */
+}
+
+.dark .wp-border-primary-medium {
+  border-color: rgba(144, 186, 72, 0.3); /* Dark mode */
+}
+
+/* Primary border - 50% opacity (hover states) */
+.wp-border-primary-hover:hover {
+  border-color: rgba(74, 115, 17, 0.5); /* Light mode */
+}
+
+.dark .wp-border-primary-hover:hover {
+  border-color: rgba(144, 186, 72, 0.5); /* Dark mode */
+}
+
+/* ============================================
+   COMBINED STATE UTILITIES (common patterns)
+   ============================================ */
+
+/* Primary selection state (for buttons, tabs, filters) */
+.wp-state-primary-selected {
+  background-color: rgba(74, 115, 17, 0.1); /* Light mode */
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.dark .wp-state-primary-selected {
+  background-color: rgba(144, 186, 72, 0.1); /* Dark mode */
+}
+
+/* Muted hover state (for cards, buttons) */
+.wp-state-muted-hover {
+  background-color: var(--card);
+  border-color: var(--border);
+  transition: all 200ms ease;
+}
+
+.wp-state-muted-hover:hover {
+  background-color: var(--muted);
+}
+
+/* Primary highlight state (for active links, selected items) */
+.wp-state-primary-active {
+  background-color: rgba(74, 115, 17, 0.05); /* Light mode */
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.dark .wp-state-primary-active {
+  background-color: rgba(144, 186, 72, 0.1); /* Dark mode */
+}
+
+/* ============================================
+   ICON CONTAINER UTILITIES
+   ============================================ */
+
+/* Icon container with primary soft background (common pattern) */
+.wp-icon-container-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem; /* 48px */
+  height: 3rem; /* 48px */
+  border-radius: var(--radius-lg);
+  background-color: rgba(74, 115, 17, 0.1); /* Light mode */
+  color: var(--primary);
+}
+
+.dark .wp-icon-container-primary {
+  background-color: rgba(144, 186, 72, 0.15); /* Dark mode */
+}
+
+/* Icon container with primary soft background - large variant */
+.wp-icon-container-primary-lg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem; /* 64px */
+  height: 4rem; /* 64px */
+  border-radius: var(--radius-lg);
+  background-color: rgba(74, 115, 17, 0.1); /* Light mode */
+  color: var(--primary);
+}
+
+.dark .wp-icon-container-primary-lg {
+  background-color: rgba(144, 186, 72, 0.15); /* Dark mode */
+}
+
+/* Icon container - Accent colored background */
+.wp-icon-container-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem; /* 64px */
+  height: 4rem; /* 64px */
+  border-radius: var(--radius-lg);
+  background-color: rgba(184, 122, 0, 0.1); /* Light mode */
+  color: var(--accent);
+}
+
+.dark .wp-icon-container-accent {
+  background-color: rgba(255, 183, 64, 0.1); /* Dark mode */
+}
+
+/* Icon container - Destructive colored background */
+.wp-icon-container-destructive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem; /* 64px */
+  height: 4rem; /* 64px */
+  border-radius: var(--radius-full);
+  background-color: rgba(220, 38, 38, 0.1); /* Light mode */
+  color: var(--destructive);
+}
+
+.dark .wp-icon-container-destructive {
+  background-color: rgba(248, 113, 113, 0.15); /* Dark mode */
+}
+
+/* Icon container with hover state (for interactive cards) */
+.wp-icon-container-primary-hover {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 3rem; /* 48px */
+  height: 3rem; /* 48px */
+  border-radius: var(--radius-full);
+  background-color: rgba(74, 115, 17, 0.1); /* Light mode */
+  color: var(--primary);
+  transition: background-color 200ms ease;
+}
+
+/* Group hover variant - applies when parent has .group class */
+.group:hover .wp-icon-container-primary-hover {
+  background-color: rgba(74, 115, 17, 0.2); /* Light mode - 20% on hover */
+}
+
+.dark .wp-icon-container-primary-hover {
+  background-color: rgba(144, 186, 72, 0.15); /* Dark mode */
+}
+
+.dark .group:hover .wp-icon-container-primary-hover {
+  background-color: rgba(144, 186, 72, 0.25); /* Dark mode - 25% on hover */
+}
+
+/* Icon container with muted background */
+.wp-icon-container-muted {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem; /* 48px */
+  height: 3rem; /* 48px */
+  border-radius: var(--radius-lg);
+  background-color: var(--muted);
+  color: var(--muted-foreground);
+}
+
+/* Icon container with accent background - large variant */
+.wp-icon-container-accent-lg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem; /* 64px */
+  height: 4rem; /* 64px */
+  border-radius: var(--radius-lg);
+  background-color: rgba(184, 122, 0, 0.1); /* Light mode */
+  color: var(--accent);
+}
+
+.dark .wp-icon-container-accent-lg {
+  background-color: rgba(255, 183, 64, 0.15); /* Dark mode */
+}
+
+/* ============================================
+   SECTION UTILITIES
+   ============================================ */
+
+/* Section header with muted background */
+.wp-section-header-muted {
+  padding: 1rem 1.5rem;
+  background-color: rgba(245, 245, 245, 0.3); /* Light mode */
+  border-bottom: 1px solid var(--border);
+}
+
+.dark .wp-section-header-muted {
+  background-color: rgba(38, 38, 38, 0.3); /* Dark mode */
+}
+
+/* Section footer with muted background */
+.wp-section-footer-muted {
+  padding: 1rem 1.5rem;
+  background-color: rgba(245, 245, 245, 0.3); /* Light mode */
+  border-top: 1px solid var(--border);
+}
+
+.dark .wp-section-footer-muted {
+  background-color: rgba(38, 38, 38, 0.3); /* Dark mode */
+}
+
+/* ============================================
+   BADGE/PILL UTILITIES
+   ============================================ */
+
+/* Badge with primary background */
+.wp-badge-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  background-color: rgba(74, 115, 17, 0.1); /* Light mode */
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.dark .wp-badge-primary {
+  background-color: rgba(144, 186, 72, 0.15); /* Dark mode */
+}
+
+/* Badge with primary background - small variant */
+.wp-badge-primary-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(74, 115, 17, 0.1); /* Light mode */
+  color: var(--primary);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.dark .wp-badge-primary-sm {
+  background-color: rgba(144, 186, 72, 0.15); /* Dark mode */
+}
+
+/* Badge with accent background */
+.wp-badge-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  background-color: rgba(184, 122, 0, 0.2); /* Light mode */
+  color: var(--accent);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.dark .wp-badge-accent {
+  background-color: rgba(255, 183, 64, 0.25); /* Dark mode */
+}
+
+/* Badge with accent background and border */
+.wp-badge-accent-bordered {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(184, 122, 0, 0.5); /* Light mode */
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.dark .wp-badge-accent-bordered {
+  background-color: rgba(255, 183, 64, 0.5); /* Dark mode */
+}
+
+/* Badge with destructive/error background - small variant */
+.wp-badge-destructive-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(220, 38, 38, 0.1); /* Light mode */
+  color: var(--destructive);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.dark .wp-badge-destructive-sm {
+  background-color: rgba(248, 113, 113, 0.15); /* Dark mode */
+}
+
+/* Destructive background for alerts/errors */
+.wp-bg-destructive-light {
+  background-color: rgba(220, 38, 38, 0.1); /* Light mode */
+  color: var(--destructive);
+}
+
+.dark .wp-bg-destructive-light {
+  background-color: rgba(248, 113, 113, 0.15); /* Dark mode */
+}
+
+/* Destructive border - 20% opacity */
+.wp-border-destructive-soft {
+  border-color: rgba(220, 38, 38, 0.2); /* Light mode */
+}
+
+.dark .wp-border-destructive-soft {
+  border-color: rgba(248, 113, 113, 0.2); /* Dark mode */
+}
+
+/* Accent border - 20% opacity */
+.wp-border-accent-soft {
+  border-color: rgba(184, 122, 0, 0.2); /* Light mode */
+}
+
+.dark .wp-border-accent-soft {
+  border-color: rgba(255, 183, 64, 0.2); /* Dark mode */
+}
+
+/* ============================================
+   CALLOUT/ALERT UTILITIES
+   ============================================ */
+
+/* Success callout */
+.wp-callout-success {
+  padding: 1rem;
+  background-color: rgba(74, 115, 17, 0.1); /* Light mode - primary as success */
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-lg);
+}
+
+.dark .wp-callout-success {
+  background-color: rgba(144, 186, 72, 0.15); /* Dark mode */
+}
+
+/* Info callout with accent */
+.wp-callout-accent {
+  padding: 1rem;
+  background-color: rgba(184, 122, 0, 0.5); /* Light mode */
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-lg);
+}
+
+.dark .wp-callout-accent {
+  background-color: rgba(255, 183, 64, 0.5); /* Dark mode */
+}
+
+/* Info callout with accent - no border variant */
+.wp-callout-accent-soft {
+  padding: 1rem;
+  background-color: rgba(184, 122, 0, 0.5); /* Light mode */
+  border-radius: var(--radius-lg);
+}
+
+.dark .wp-callout-accent-soft {
+  background-color: rgba(255, 183, 64, 0.5); /* Dark mode */
+}
+
+/* Muted callout */
+.wp-callout-muted {
+  padding: 1rem;
+  background-color: rgba(245, 245, 245, 0.3); /* Light mode */
+  border-radius: var(--radius-lg);
+}
+
+.dark .wp-callout-muted {
+  background-color: rgba(38, 38, 38, 0.3); /* Dark mode */
+}
