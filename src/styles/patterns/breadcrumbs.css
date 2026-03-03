@@ -23,6 +23,27 @@
   border-bottom: 1px solid var(--border);
 }
 
+.wp-pattern-breadcrumbs--full-width {
+  padding: 0;
+  border-bottom: none;
+}
+
+.wp-pattern-breadcrumbs--full-width .wp-pattern-breadcrumbs__list {
+  padding-inline: var(--spacing-container-sm);
+}
+
+@media (min-width: 768px) {
+  .wp-pattern-breadcrumbs--full-width .wp-pattern-breadcrumbs__list {
+    padding-inline: var(--spacing-container-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .wp-pattern-breadcrumbs--full-width .wp-pattern-breadcrumbs__list {
+    padding-inline: var(--spacing-container-lg);
+  }
+}
+
 /* ============================================
    BREADCRUMBS LIST
    Horizontal list with separators

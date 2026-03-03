@@ -98,10 +98,11 @@
 
 /* Content Section */
 .wp-card--blog .wp-card__content {
-  padding: 2rem;
+  padding: var(--spacing-element-md);
   display: flex;
   flex-direction: column;
   flex: 1;
+  gap: var(--spacing-element-xs);
 }
 
 /* Meta Section */
@@ -109,9 +110,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
   font-family: var(--font-family-noto-sans);
-  font-size: 10px;
+  font-size: var(--text-xs);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -137,7 +137,6 @@
   font-size: var(--text-2xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--leading-snug);
-  margin-bottom: 1rem;
   transition: color 300ms ease;
 }
 
@@ -151,7 +150,6 @@
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted-foreground);
-  margin-bottom: 2rem;
   flex: 1;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -164,8 +162,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1.5rem;
-  border-top: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  padding-block-start: var(--spacing-element-xs);
+  border-block-start: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
 }
 
 /* Author Info */

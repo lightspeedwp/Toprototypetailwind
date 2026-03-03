@@ -37,8 +37,9 @@ export function ReviewSingle() {
         items={[
           { label: "Home", href: "/", onClick: () => navigateTo("/") },
           { label: "Traveler Reviews", href: "/reviews", onClick: () => navigateTo("/reviews") },
-          { label: review.title },
+          { label: review.title, isCurrent: true },
         ]}
+        fullWidth={true}
       />
 
       {/* Hero */}
@@ -49,6 +50,15 @@ export function ReviewSingle() {
         image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800"
         height="small"
         overlay="medium"
+        primaryCTA={{
+          label: "View This Tour",
+          onClick: () => navigateTo("/tours")
+        }}
+        secondaryCTA={{
+          label: "All Reviews",
+          onClick: () => navigateTo("/reviews"),
+          variant: "outline"
+        }}
       />
 
       {/* Review Content */}

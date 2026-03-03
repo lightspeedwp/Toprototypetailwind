@@ -54,14 +54,13 @@ export function ArchiveAccommodationTemplate() {
 
   return (
     <main className="wp-template-archive-accommodation">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Accommodations", isCurrent: true }
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Accommodations", isCurrent: true }
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={heroData?.title || "Exquisite Sanctuaries"}
@@ -70,6 +69,15 @@ export function ArchiveAccommodationTemplate() {
         height="medium"
         overlay="medium"
         animated
+        primaryCTA={{
+          label: "View All Properties",
+          onClick: () => navigateTo("/accommodation")
+        }}
+        secondaryCTA={{
+          label: "Browse Destinations",
+          onClick: () => navigateTo("/destinations"),
+          variant: "outline"
+        }}
       />
 
       <TaxonomyNav

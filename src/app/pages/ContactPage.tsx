@@ -23,14 +23,13 @@ export function ContactPage() {
 
   return (
     <article className="wp-template-page">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Contact Us", isCurrent: true }
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Contact Us", isCurrent: true }
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={heroData?.title || "How Can We Help?"}
@@ -38,6 +37,18 @@ export function ContactPage() {
         image={heroData?.image || "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=1200"}
         height="small"
         overlay="medium"
+        primaryCTA={{
+          label: "Send an Inquiry",
+          onClick: () => {
+            const el = document.getElementById('contact-form');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+        secondaryCTA={{
+          label: "Trip Planner",
+          onClick: () => navigateTo("/trip-planner"),
+          variant: "outline"
+        }}
       />
 
       {/* Trust & Support Highlights */}

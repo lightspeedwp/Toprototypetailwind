@@ -51,16 +51,15 @@ export function DestinationSingle() {
 
   return (
     <article className="wp-template-single-destination bg-background">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Territories", href: "/destinations", onClick: () => navigateTo("/destinations") },
-            ...(parentDestination ? [{ label: parentDestination.title, href: `/destinations/${parentDestination.slug}` }] : []),
-            { label: destination.title },
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Territories", href: "/destinations", onClick: () => navigateTo("/destinations") },
+          ...(parentDestination ? [{ label: parentDestination.title, href: `/destinations/${parentDestination.slug}` }] : []),
+          { label: destination.title },
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={destination.title}
@@ -69,6 +68,7 @@ export function DestinationSingle() {
         image={destination.featuredImage}
         height="large"
         primaryCTA={{ label: "View Expeditions", onClick: () => document.getElementById('tours-section')?.scrollIntoView({ behavior: 'smooth' }) }}
+        secondaryCTA={{ label: "Plan My Trip", onClick: () => navigateTo("/trip-planner"), variant: "outline" }}
         animated
       />
 

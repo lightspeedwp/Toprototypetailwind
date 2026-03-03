@@ -53,14 +53,13 @@ export function ArchiveBlogTemplate() {
 
   return (
     <main className="wp-template-archive-blog">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Blog", isCurrent: true },
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Blog", isCurrent: true },
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={heroData?.title || "Safari Chronicles"}
@@ -69,6 +68,15 @@ export function ArchiveBlogTemplate() {
         height="medium"
         overlay="medium"
         animated
+        primaryCTA={{
+          label: "Explore Destinations",
+          onClick: () => navigateTo("/destinations")
+        }}
+        secondaryCTA={{
+          label: "Why Choose Us?",
+          onClick: () => navigateTo("/why-book-with-us"),
+          variant: "outline"
+        }}
       />
 
       <TaxonomyNav

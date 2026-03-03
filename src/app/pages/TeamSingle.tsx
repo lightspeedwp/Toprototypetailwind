@@ -74,8 +74,9 @@ export function TeamSingle() {
         items={[
           { label: "Home", href: "/", onClick: () => navigateTo("/") },
           { label: "Our Team", href: "/team", onClick: () => navigateTo("/team") },
-          { label: teamMember.name },
+          { label: teamMember.name, isCurrent: true },
         ]}
+        fullWidth={true}
       />
 
       {/* Hero */}
@@ -87,6 +88,11 @@ export function TeamSingle() {
         primaryCTA={{ 
           label: "Contact Me",
           onClick: () => navigateTo("/contact")
+        }}
+        secondaryCTA={{
+          label: "View All Team",
+          onClick: () => navigateTo("/team"),
+          variant: "outline"
         }}
       />
 

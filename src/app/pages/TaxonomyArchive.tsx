@@ -173,6 +173,7 @@ export function TaxonomyArchive() {
           { label: data.parentLabel, href: data.parentPath, onClick: () => navigateTo(data.parentPath) },
           { label: displayName },
         ]}
+        fullWidth={true}
       />
 
       {/* Archive Header */}

@@ -43,14 +43,13 @@ export function WhyBookWithUsPage() {
 
   return (
     <article className="wp-template-page">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Why Choose Us", isCurrent: true }
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Why Choose Us", isCurrent: true }
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={heroData?.title || "Absolute Confidence in Every Mile"}
@@ -58,10 +57,14 @@ export function WhyBookWithUsPage() {
         image={heroData?.image || "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600"}
         height="medium"
         overlay="medium"
-        badges={trustBadges}
         primaryCTA={{
           label: "Request a Proposal",
           onClick: () => navigateTo("/contact")
+        }}
+        secondaryCTA={{
+          label: "Explore Tours",
+          onClick: () => navigateTo("/tours"),
+          variant: "outline"
         }}
       />
 

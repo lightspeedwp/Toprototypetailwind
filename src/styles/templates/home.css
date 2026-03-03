@@ -109,9 +109,33 @@
 
 .wp-template-home__section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  padding-block-end: var(--spacing-element-lg);
   max-width: 48rem;
   margin-inline: auto;
+}
+
+.wp-template-home__section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding-block-end: var(--spacing-element-xs);
+}
+
+.wp-template-home__section-eyebrow-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--primary);
+}
+
+.wp-template-home__section-eyebrow-text {
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
 }
 
 .wp-template-home__section-title {
@@ -120,7 +144,7 @@
   font-weight: var(--font-weight-semibold);
   line-height: var(--leading-tight);
   color: var(--foreground);
-  margin-bottom: 1rem;
+  padding-block-end: var(--spacing-element-xs);
 }
 
 .wp-template-home__section-description {
@@ -128,6 +152,8 @@
   font-size: var(--text-lg);
   color: var(--muted-foreground);
   line-height: var(--leading-relaxed);
+  max-width: 42rem;
+  margin-inline: auto;
 }
 
 /* CTA section has light text */

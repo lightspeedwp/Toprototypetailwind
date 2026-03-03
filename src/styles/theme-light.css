@@ -134,7 +134,7 @@
   --logo-url:      url('/public/logos/logo-dark.svg');
   --logo-icon-url: url('/public/logos/logo-icon-dark.svg');
 
-  /* — Hero Overlay (Light Mode) — 
+  /* — Hero Overlay & Text (Light Mode) — 
      Ensures readability of dark text on image
   */
   --hero-overlay-bg: linear-gradient(
@@ -143,4 +143,8 @@
     rgba(255, 255, 255, 0.4) 50%,
     rgba(255, 255, 255, 0.7) 100%
   );
+  --hero-text-color: var(--foreground);
+  --hero-intro-color: var(--muted-foreground);
+  --hero-button-secondary-text: var(--foreground);
+  --hero-button-secondary-border: var(--border);
 }

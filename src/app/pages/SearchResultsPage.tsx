@@ -82,8 +82,9 @@ export function SearchResultsPage() {
       <BreadcrumbsPattern
         items={[
           { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Search Results" }
+          { label: "Search Results", isCurrent: true }
         ]}
+        fullWidth={true}
       />
 
       {/* Hero */}
@@ -92,6 +93,15 @@ export function SearchResultsPage() {
         intro={hasSearched ? `We found ${totalResults} matches for your search across our collection.` : "Discover tours, destinations, and expert travel insights."}
         height="small"
         overlay="medium"
+        primaryCTA={{
+          label: "View All Tours",
+          onClick: () => navigateTo("/tours")
+        }}
+        secondaryCTA={{
+          label: "Need Help?",
+          onClick: () => navigateTo("/contact"),
+          variant: "outline"
+        }}
       />
 
       {/* Search Bar & Filter */}

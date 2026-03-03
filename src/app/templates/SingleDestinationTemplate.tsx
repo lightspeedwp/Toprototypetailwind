@@ -201,16 +201,15 @@ function SingleDestinationTemplate() {
   return (
     <main>
       {/* Breadcrumbs */}
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Destinations", href: "/destinations", onClick: () => navigateTo("/destinations") },
-            ...(parentDestination ? [{ label: parentDestination.title, href: `/destinations/${parentDestination.slug}`, onClick: () => navigateToDestination(parentDestination.slug) }] : []),
-            { label: destination.title, isCurrent: true },
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Destinations", href: "/destinations", onClick: () => navigateTo("/destinations") },
+          ...(parentDestination ? [{ label: parentDestination.title, href: `/destinations/${parentDestination.slug}`, onClick: () => navigateToDestination(parentDestination.slug) }] : []),
+          { label: destination.title, isCurrent: true },
+        ]}
+        fullWidth={true}
+      />
 
       {/* Hero Section */}
       <Hero

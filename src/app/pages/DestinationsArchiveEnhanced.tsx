@@ -24,7 +24,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router";
 import { Search, Grid3x3, Grid2x2, List, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import { Container } from "../components/common/Container";
-import { Hero } from "../components/patterns/Hero";
+import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
 import { DESTINATIONS, CONTINENTS } from "../data/mock";
 
 const ITEMS_PER_PAGE = 12;
@@ -201,16 +201,31 @@ function DestinationsArchiveEnhanced() {
 
   return (
     <>
+      {/* Breadcrumbs */}
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Destinations", isCurrent: true },
+        ]}
+        fullWidth={true}
+      />
+
       {/* Hero Section */}
       <Hero
-        title="Explore Our Destinations"
+        title="Explore Our Territories"
         subtitle="Discover incredible places across the globe, from vibrant cities to remote wilderness"
         height="large"
         overlay="medium"
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Destinations" },
-        ]}
+        image="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200"
+        primaryCTA={{
+          label: "View All Tours",
+          onClick: () => window.location.href = "/tours"
+        }}
+        secondaryCTA={{
+          label: "Plan My Trip",
+          onClick: () => window.location.href = "/trip-planner",
+          variant: "outline"
+        }}
       />
 
       {/* Featured Countries Section */}

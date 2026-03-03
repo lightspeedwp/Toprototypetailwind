@@ -60,16 +60,15 @@ export function SingleAccommodationTemplate() {
 
   return (
     <main className="wp-template-single-accommodation bg-background">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Our Sanctuaries", href: "/accommodation", onClick: () => navigateTo("/accommodation") },
-            ...(destination ? [{ label: destination.title, href: `/destinations/${destination.slug}`, onClick: () => navigateToDestination(destination.slug) }] : []),
-            { label: accommodation.title, isCurrent: true },
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Our Sanctuaries", href: "/accommodation", onClick: () => navigateTo("/accommodation") },
+          ...(destination ? [{ label: destination.title, href: `/destinations/${destination.slug}`, onClick: () => navigateToDestination(destination.slug) }] : []),
+          { label: accommodation.title, isCurrent: true },
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={accommodation.title}
@@ -81,7 +80,11 @@ export function SingleAccommodationTemplate() {
           label: "Inquire About Availability",
           onClick: () => document.getElementById('rooms-section')?.scrollIntoView({ behavior: 'smooth' })
         }}
-        secondaryCTA={{ label: "Personalized Concierge", onClick: () => navigateTo("/contact") }}
+        secondaryCTA={{
+          label: "Personalized Concierge",
+          onClick: () => navigateTo("/contact"),
+          variant: "outline"
+        }}
         animated
       />
 

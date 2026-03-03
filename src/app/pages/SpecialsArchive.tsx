@@ -99,6 +99,7 @@ export function SpecialsArchive() {
           { label: "Home", href: "/", onClick: () => navigateTo("/") },
           { label: "Exclusive Offers", isCurrent: true }
         ]}
+        fullWidth={true}
       />
 
       {/* Hero */}
@@ -111,6 +112,11 @@ export function SpecialsArchive() {
         primaryCTA={{
           label: "Get Deal Alerts",
           onClick: () => navigateTo("/contact"),
+        }}
+        secondaryCTA={{
+          label: "Browse All Tours",
+          onClick: () => navigateTo("/tours"),
+          variant: "outline"
         }}
       />
 

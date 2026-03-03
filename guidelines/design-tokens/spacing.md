@@ -1,5 +1,33 @@
 # Spacing Design Tokens
 
+**DEPRECATED:** This document describes the legacy spacing system.
+**Current System:** See [MODERN-SPACING.md](MODERN-SPACING.md) for the modern fluid spacing system (v4.0).
+
+**Critical:**
+- **NEVER hardcode spacing values** — Use only CSS variables from `theme-base.css`
+- **NEVER use inline `style={{ padding: ... }}`** — All spacing via CSS classes
+- **ZERO MARGIN policy** — Use `gap` and `padding` for layout, not margins
+
+---
+
+## Migration Notice
+
+**Date:** March 2026
+**Status:** Legacy — Maintained for reference only
+**Action Required:** Use the modern fluid spacing system for all new development
+
+The spacing system has been upgraded to:
+- Fluid `clamp()` values (was fixed px values)
+- Zero-margin layout policy (was margin-based)
+- WordPress `--wp--preset--spacing--*` alignment
+- Multi-breakpoint column progression (1-6 columns)
+- Dedicated section, container, element, and gap token categories
+
+**[View Modern Spacing System](MODERN-SPACING.md)**
+**[View Breakpoints System](breakpoints.md)**
+
+---
+
 ## Purpose
 
 This document defines the **spacing system** used throughout the LightSpeed Tour Operator plugin prototype. Spacing creates visual rhythm, hierarchy, and breathing room in the interface.

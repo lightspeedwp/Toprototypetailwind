@@ -39,15 +39,14 @@ export function SpecialSingle() {
 
   return (
     <article className="wp-template-single-special bg-background">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Exclusive Offers", href: "/specials", onClick: () => navigateTo("/specials") },
-            { label: special.title },
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Exclusive Offers", href: "/specials", onClick: () => navigateTo("/specials") },
+          { label: special.title, isCurrent: true },
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={special.title}
@@ -56,6 +55,7 @@ export function SpecialSingle() {
         context="A Moment of Opportunity"
         height="large"
         primaryCTA={{ label: "Claim Exclusive Offer", onClick: () => document.getElementById('offer-details')?.scrollIntoView({ behavior: 'smooth' }) }}
+        secondaryCTA={{ label: "View All Specials", onClick: () => navigateTo("/specials"), variant: "outline" }}
         animated
       />
 

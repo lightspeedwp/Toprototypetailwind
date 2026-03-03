@@ -29,14 +29,13 @@ export function AboutPage() {
 
   return (
     <article className="wp-template-page">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Our Story", isCurrent: true }
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Our Story", isCurrent: true }
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={heroData?.title || "Crafting Legends Since 2010"}
@@ -44,6 +43,15 @@ export function AboutPage() {
         image={heroData?.image || "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200"}
         height="medium"
         overlay="medium"
+        primaryCTA={{
+          label: "View Our Team",
+          onClick: () => navigateTo("/team")
+        }}
+        secondaryCTA={{
+          label: "Our Expeditions",
+          onClick: () => navigateTo("/tours"),
+          variant: "outline"
+        }}
       />
 
       {/* Our Mission Statement */}

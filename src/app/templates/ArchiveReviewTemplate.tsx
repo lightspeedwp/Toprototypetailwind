@@ -73,15 +73,13 @@ export function ArchiveReviewTemplate() {
 
   return (
     <article className="wp-template-archive-review">
-      {/* Breadcrumbs */}
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Traveler Reviews", isCurrent: true }
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Traveler Reviews", isCurrent: true }
+        ]}
+        fullWidth={true}
+      />
 
       {/* Hero */}
       <Hero
@@ -91,6 +89,15 @@ export function ArchiveReviewTemplate() {
         height="medium"
         overlay="medium"
         animated
+        primaryCTA={{
+          label: "Submit a Review",
+          onClick: () => navigateTo("/contact")
+        }}
+        secondaryCTA={{
+          label: "Browse Expeditions",
+          onClick: () => navigateTo("/tours"),
+          variant: "outline"
+        }}
       />
 
       {/* Statistics */}

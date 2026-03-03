@@ -71,6 +71,9 @@ export interface BreadcrumbsPatternProps {
   /** Separator between items */
   separator?: 'chevron' | 'slash' | 'arrow';
   
+  /** Whether the breadcrumbs should be full width (no container max-width) */
+  fullWidth?: boolean;
+  
   /** Optional custom classes */
   className?: string;
 }
@@ -92,6 +95,7 @@ export function BreadcrumbsPattern({
   items,
   showHomeIcon = true,
   separator = 'chevron',
+  fullWidth = false,
   className,
 }: BreadcrumbsPatternProps) {
   const renderSeparator = () => {
@@ -107,9 +111,13 @@ export function BreadcrumbsPattern({
   return (
     <nav 
       aria-label="Breadcrumb"
-      className={cn("wp-pattern-breadcrumbs", className)}
+      className={cn(
+        "wp-pattern-breadcrumbs",
+        fullWidth && "wp-pattern-breadcrumbs--full-width",
+        className
+      )}
     >
-      <Container>
+      <Container maxWidth={fullWidth ? "full" : "xl"}>
         <ol className="wp-pattern-breadcrumbs__list">
           {items.map((item, index) => {
             const isLast = index === items.length - 1;

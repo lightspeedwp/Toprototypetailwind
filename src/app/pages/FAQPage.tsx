@@ -55,14 +55,13 @@ export function FAQPage() {
 
   return (
     <article className="wp-template-page">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "FAQs", isCurrent: true }
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "FAQs", isCurrent: true }
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={heroData?.title || "How Can We Help?"}
@@ -70,6 +69,15 @@ export function FAQPage() {
         image={heroData?.image || "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200"}
         height="small"
         overlay="medium"
+        primaryCTA={{
+          label: "Contact Support",
+          onClick: () => navigateTo("/contact")
+        }}
+        secondaryCTA={{
+          label: "Trip Planner",
+          onClick: () => navigateTo("/trip-planner"),
+          variant: "outline"
+        }}
       />
 
       <TableOfContentsPattern

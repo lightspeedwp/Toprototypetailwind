@@ -34,15 +34,13 @@ export function ArchiveTeamTemplate() {
 
   return (
     <article className="wp-template-archive-team">
-      {/* Breadcrumbs */}
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Our Team", isCurrent: true }
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Our Team", isCurrent: true }
+        ]}
+        fullWidth={true}
+      />
 
       {/* Hero */}
       <Hero
@@ -52,6 +50,15 @@ export function ArchiveTeamTemplate() {
         height="medium"
         overlay="medium"
         animated
+        primaryCTA={{
+          label: "Talk to a Specialist",
+          onClick: () => navigateTo("/contact")
+        }}
+        secondaryCTA={{
+          label: "Browse Tours",
+          onClick: () => navigateTo("/tours"),
+          variant: "outline"
+        }}
       />
 
       {/* Content Section */}

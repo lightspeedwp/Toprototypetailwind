@@ -44,15 +44,14 @@ export function SingleBlogTemplate() {
 
   return (
     <main className="wp-template-single-post bg-background">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Chronicles", href: "/blog", onClick: () => navigateTo("/blog") },
-            { label: post.title, isCurrent: true },
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Chronicles", href: "/blog", onClick: () => navigateTo("/blog") },
+          { label: post.title, isCurrent: true },
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={post.title}
@@ -61,6 +60,15 @@ export function SingleBlogTemplate() {
         image={post.featuredImage}
         height="medium"
         animated
+        primaryCTA={{
+          label: "Back to Chronicles",
+          onClick: () => navigateTo("/blog")
+        }}
+        secondaryCTA={{
+          label: "Book a Similar Trip",
+          onClick: () => navigateTo("/tours"),
+          variant: "outline"
+        }}
       />
 
       {/* Post Meta Strip */}

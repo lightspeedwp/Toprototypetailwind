@@ -34,6 +34,11 @@ export function NotFoundPage() {
           onClick: () => navigateTo("/"),
           icon: Home
         }}
+        secondaryCTA={{
+          label: "Browse Tours",
+          onClick: () => navigateTo("/tours"),
+          variant: "outline"
+        }}
       />
 
       {/* Quick Navigation Grid */}

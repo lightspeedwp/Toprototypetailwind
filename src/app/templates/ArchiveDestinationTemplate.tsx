@@ -47,14 +47,13 @@ export function ArchiveDestinationTemplate() {
 
   return (
     <main className="wp-template-archive-destination">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Our Territories", isCurrent: true },
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Our Territories", isCurrent: true },
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={heroData?.title || "Legendary Territories"}
@@ -62,6 +61,15 @@ export function ArchiveDestinationTemplate() {
         image={heroData?.image || "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200"}
         height="medium"
         animated
+        primaryCTA={{
+          label: "Browse Destinations",
+          onClick: () => navigateTo("/destinations")
+        }}
+        secondaryCTA={{
+          label: "View All Tours",
+          onClick: () => navigateTo("/tours"),
+          variant: "outline"
+        }}
       />
 
       {/* Continent Navigation Bar */}

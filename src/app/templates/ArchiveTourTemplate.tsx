@@ -50,14 +50,13 @@ export function ArchiveTourTemplate() {
 
   return (
     <main className="wp-template-archive-tours">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Our Expeditions", isCurrent: true },
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Our Expeditions", isCurrent: true },
+        ]}
+        fullWidth={true}
+      />
 
       <Hero
         title={heroData?.title || "Signature Expeditions"}
@@ -65,6 +64,15 @@ export function ArchiveTourTemplate() {
         image={heroData?.image || "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200"}
         height="medium"
         animated
+        primaryCTA={{
+          label: "Book Your Journey",
+          onClick: () => navigateTo("/contact")
+        }}
+        secondaryCTA={{
+          label: "View All Destinations",
+          onClick: () => navigateTo("/destinations"),
+          variant: "outline"
+        }}
       />
 
       {/* Advanced Control Bar */}

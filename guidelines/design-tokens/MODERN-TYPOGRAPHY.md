@@ -1,108 +1,143 @@
 # Modern Fluid Typography System
 
-**Version:** 2.0 - December 2024  
-**Status:** ✅ Production Ready  
-**Philosophy:** Modern, fluid, accessible, responsive
+**Version:** 3.0 — March 2026
+**Status:** Production Ready
+**Source of Truth:** `/src/styles/theme-base.css`
 
 ---
 
 ## Overview
 
-This document defines the **modern fluid typography system** for the LightSpeed Tour Operator plugin prototype. The system uses responsive, fluid font sizes with `clamp()` to provide a beautiful, scalable typography experience across all devices.
+This document defines the **modern fluid typography system** for the LightSpeed Tour Operator plugin prototype. All type sizes use `clamp()` for smooth, breakpoint-free responsive scaling between **320px** (mobile) and **1920px** (large desktop).
 
 ---
 
 ## Key Principles
 
-### 1. **Fluid Typography**
-- All font sizes use `clamp()` for responsive scaling
-- Smooth transitions across viewport sizes
-- No breakpoint-based jumps
+### 1. Clamp-First Scaling
+- All font sizes use `clamp(min, preferred, max)` for fluid viewport-responsive sizing
+- Smooth transitions across all viewport widths — no breakpoint jumps
+- Media queries are reserved for **structural layout changes** only (grid columns, nav switches)
 
-### 2. **Proper Hierarchy**
-- Complete H1-H6 heading scale
-- Clear visual distinction between levels
+### 2. Three Font Families Only
+Only these three font stacks are permitted in this project:
+
+| Variable | Stack | Usage |
+|----------|-------|-------|
+| `var(--font-family-lora)` | `'Lora', Georgia, 'Times New Roman', serif` | Headings (H1-H6), labels, blockquotes, editorial |
+| `var(--font-family-noto-sans)` | `'Noto Sans', Arial, Helvetica, sans-serif` | Body text, paragraphs, buttons, inputs, UI elements |
+| `var(--font-family-mono)` | `'Courier New', Courier, monospace` | Code blocks, technical values (booking IDs, reference codes) |
+
+**NO OTHER FONTS ARE ALLOWED.**
+
+### 3. Proper Hierarchy
+- Complete H1-H6 heading scale with clear visual distinction
+- H1 targets up to **96px** at large desktop (per Q&A decision #1)
 - Consistent spacing and rhythm
 
-### 3. **Modern Design**
-- Tighter letter-spacing for large headings (tracking-tighter)
-- Optimized line heights for readability
-- Professional font weights (300-700 scale)
-
-### 4. **Accessibility First**
-- WCAG 2.1 AA compliant
-- Minimum 16px body text
+### 4. Accessibility First
+- WCAG 2.1 AA compliant minimum sizes
+- Minimum 16px body text (1rem)
 - Readable line heights (1.5 minimum for body)
 - Sufficient contrast ratios
 
 ---
 
-## Typography Scale
+## Typography Scale (Source of Truth)
 
-### Heading Sizes (Fluid)
+These are the **exact values** from `/src/styles/theme-base.css`:
 
-All headings use fluid scaling with `clamp(min, preferred, max)`:
+### Heading Scale
 
 ```css
-/* H1 - Page title, hero headline */
---text-6xl: clamp(3rem, 5vw + 1rem, 4.5rem);       
-/* Mobile: 48px → Desktop: 72px */
+/* H1 — Primary page title */
+--text-6xl: clamp(3rem, 6vw + 1rem, 6rem);         /* 48px -> 96px */
 
-/* Display/Hero - Special large text */
---text-5xl: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); 
-/* Mobile: 36px → Desktop: 60px */
+/* Hero / Display — Special large text */
+--text-5xl: clamp(2.5rem, 5vw + 1rem, 5rem);       /* 40px -> 80px */
 
-/* H2 - Major section heading */
---text-4xl: clamp(1.875rem, 3vw + 0.5rem, 3rem);   
-/* Mobile: 30px → Desktop: 48px */
+/* H2 — Major section heading */
+--text-4xl: clamp(2rem, 4vw + 0.5rem, 4rem);       /* 32px -> 64px */
 
-/* H3 - Subsection heading */
---text-3xl: clamp(1.5rem, 2.5vw + 0.5rem, 2.25rem);
-/* Mobile: 24px → Desktop: 36px */
+/* H3 — Subsection heading */
+--text-3xl: clamp(1.75rem, 3vw + 0.5rem, 3rem);    /* 28px -> 48px */
 
-/* H4 - Minor heading */
---text-2xl: clamp(1.25rem, 2vw + 0.25rem, 1.875rem);
-/* Mobile: 20px → Desktop: 30px */
+/* H4 — Minor heading */
+--text-2xl: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);  /* 24px -> 36px */
 
-/* H5 - Small heading */
---text-xl: clamp(1.125rem, 1.5vw + 0.25rem, 1.5rem);
-/* Mobile: 18px → Desktop: 24px */
+/* H5 — Small heading */
+--text-xl:  clamp(1.125rem, 1.5vw + 0.25rem, 1.75rem); /* ~18px -> 28px */
 
-/* H6 - Smallest heading */
---text-lg: clamp(1rem, 1vw + 0.125rem, 1.25rem);   
-/* Mobile: 16px → Desktop: 20px */
+/* H6 — Smallest heading */
+--text-lg:  clamp(1.125rem, 1vw + 0.125rem, 1.5rem);   /* 18px -> 24px */
 ```
+
+### Body Scale
+
+```css
+/* Body text — Primary content */
+--text-base: clamp(1rem, 0.4vw + 0.9rem, 1.25rem);     /* 16px -> 20px */
+
+/* Small text — Captions, metadata */
+--text-sm:   clamp(0.875rem, 0.3vw + 0.8rem, 1.125rem); /* 14px -> 18px */
+
+/* Tiny text — Labels, fine print */
+--text-xs:   clamp(0.75rem, 0.2vw + 0.7rem, 1rem);      /* 12px -> 16px */
+```
+
+### Responsive Behaviour Summary
+
+| Token | Variable | Mobile (320px) | Tablet (768px) | Desktop (1440px) | Large (1920px) |
+|-------|----------|----------------|----------------|------------------|----------------|
+| H1 | `--text-6xl` | 48px | ~65px | ~91px | 96px |
+| Hero | `--text-5xl` | 40px | ~54px | ~77px | 80px |
+| H2 | `--text-4xl` | 32px | ~43px | ~62px | 64px |
+| H3 | `--text-3xl` | 28px | ~37px | ~47px | 48px |
+| H4 | `--text-2xl` | 24px | ~28px | ~33px | 36px |
+| H5 | `--text-xl` | ~18px | ~22px | ~26px | 28px |
+| H6 | `--text-lg` | 18px | ~20px | ~23px | 24px |
+| Body | `--text-base` | 16px | ~17px | ~19px | 20px |
+| Small | `--text-sm` | 14px | ~15px | ~17px | 18px |
+| Tiny | `--text-xs` | 12px | ~13px | ~15px | 16px |
 
 ---
 
-### Body Text Sizes (Fluid)
+## Font Weights
+
+Complete professional scale from `/src/styles/theme-base.css`:
 
 ```css
-/* Body text - Primary content */
---text-base: clamp(1rem, 0.5vw + 0.875rem, 1.125rem); 
-/* Mobile: 16px → Desktop: 18px */
-
-/* Small text - Captions, metadata */
---text-sm: clamp(0.875rem, 0.5vw + 0.75rem, 1rem);    
-/* Mobile: 14px → Desktop: 16px */
-
-/* Tiny text - Fine print */
---text-xs: clamp(0.75rem, 0.25vw + 0.6875rem, 0.875rem); 
-/* Mobile: 12px → Desktop: 14px */
+--font-weight-light:    300;   /* Light emphasis (use sparingly) */
+--font-weight-normal:   400;   /* Body text, paragraphs */
+--font-weight-medium:   500;   /* Buttons, labels, H4-H6 */
+--font-weight-semibold: 600;   /* H2-H3, strong emphasis */
+--font-weight-bold:     700;   /* H1, maximum impact */
 ```
+
+### Weight Mapping
+
+| Element | Weight | Variable | Rationale |
+|---------|--------|----------|-----------|
+| H1 | 700 (Bold) | `--font-weight-bold` | Maximum visual impact |
+| H2-H3 | 600 (Semibold) | `--font-weight-semibold` | Strong hierarchy |
+| H4-H6 | 500 (Medium) | `--font-weight-medium` | Modern, clean appearance |
+| Labels | 500 (Medium) | `--font-weight-medium` | UI emphasis |
+| Buttons | 500 (Medium) | `--font-weight-medium` | Clickable clarity |
+| Body/p | 400 (Normal) | `--font-weight-normal` | Optimal readability |
+| `<strong>`, `<b>` | 600 (Semibold) | `--font-weight-semibold` | Emphasis within text |
 
 ---
 
 ## Line Heights (Leading)
 
-Optimized for modern, readable design:
+From `/src/styles/theme-base.css`:
 
 ```css
---leading-tight: 1.2;       /* Headings (H1-H2) */
---leading-snug: 1.375;      /* Subheadings (H3-H5) */
---leading-normal: 1.5;      /* Body text, H6 */
---leading-relaxed: 1.625;   /* Long-form content, blockquotes */
---leading-loose: 1.75;      /* Spacious layouts */
+--leading-tight:   1.2;     /* Headings (H1-H2) */
+--leading-snug:    1.375;   /* Sub-headings (H3-H5) */
+--leading-normal:  1.5;     /* Body text, H6 */
+--leading-relaxed: 1.625;   /* Long-form / editorial content */
+--leading-loose:   1.75;    /* Spacious / airy layouts */
 ```
 
 ### Usage Guidelines
@@ -119,14 +154,14 @@ Optimized for modern, readable design:
 
 ## Letter Spacing (Tracking)
 
-Modern, professional letter spacing:
+From `/src/styles/theme-base.css`:
 
 ```css
---tracking-tighter: -0.05em;   /* Large headings (H1) */
---tracking-tight: -0.025em;    /* Medium headings (H2-H3) */
---tracking-normal: 0em;        /* Body text, small headings */
---tracking-wide: 0.025em;      /* Labels, small caps */
---tracking-wider: 0.05em;      /* Uppercase text */
+--tracking-tighter: -0.05em;  /* Large display headings (H1) */
+--tracking-tight:   -0.025em; /* H2-H3 headings */
+--tracking-normal:  0em;       /* Body text, H4-H6 */
+--tracking-wide:    0.025em;   /* Labels, small caps */
+--tracking-wider:   0.05em;    /* All-caps, eyebrow text */
 ```
 
 ### Usage Guidelines
@@ -136,413 +171,208 @@ Modern, professional letter spacing:
 | `tighter` (-0.05em) | H1, large display text | Improves readability at large sizes |
 | `tight` (-0.025em) | H2, H3 | Subtle tightening for emphasis |
 | `normal` (0em) | Body text, H4-H6 | Standard spacing |
-| `wide` (0.025em) | Labels, UI text | Improves legibility for small text |
+| `wide` (0.025em) | Labels, small UI text | Improves legibility for small text |
 | `wider` (0.05em) | ALL CAPS text | Essential for uppercase readability |
 
 ---
 
-## Font Weights
+## Complete Semantic HTML Mapping
 
-Complete professional scale:
+The design system automatically styles bare HTML elements via `theme.css @layer base`. **Do NOT add Tailwind size/weight classes to these elements** — override only when a specific deviation is intentional.
 
-```css
---font-weight-light: 300;      /* Light emphasis */
---font-weight-normal: 400;     /* Body text */
---font-weight-medium: 500;     /* Buttons, labels */
---font-weight-semibold: 600;   /* H2-H6 */
---font-weight-bold: 700;       /* H1, strong emphasis */
-```
-
-### Weight Mapping
-
-| Element | Font Weight | Variable | Usage |
-|---------|-------------|----------|-------|
-| H1 | 700 (Bold) | `--font-weight-bold` | Maximum visual impact |
-| H2-H4 | 600 (Semibold) | `--font-weight-semibold` | Clear hierarchy |
-| H5-H6 | 500 (Medium) | `--font-weight-medium` | Subtle headings |
-| Labels | 500 (Medium) | `--font-weight-medium` | UI emphasis |
-| Buttons | 500 (Medium) | `--font-weight-medium` | Clickable clarity |
-| Body text | 400 (Normal) | `--font-weight-normal` | Readable content |
-| Emphasized | 600 (Semibold) | `--font-weight-semibold` | `<strong>`, `<b>` |
-
----
-
-## Complete Heading Hierarchy
-
-### H1 - Page Title
+### H1 — Page Title
 
 ```css
 h1 {
-  font-family: var(--font-family-lora);      /* Serif */
-  font-size: var(--text-6xl);                /* 48px - 72px */
-  font-weight: var(--font-weight-bold);      /* 700 */
-  line-height: var(--leading-tight);         /* 1.2 */
-  letter-spacing: var(--tracking-tighter);   /* -0.05em */
+  font-family: var(--font-family-lora);
+  font-size: var(--text-6xl);           /* 48px -> 96px */
+  font-weight: var(--font-weight-bold); /* 700 */
+  line-height: var(--leading-tight);    /* 1.2 */
+  letter-spacing: var(--tracking-tighter); /* -0.05em */
+  margin-bottom: 1.5rem;
 }
 ```
 
-**Usage:**
-- Page titles
-- Hero headlines
-- Primary CTAs
-
-**Example:**
-```html
-<h1>Explore Iceland's Natural Wonders</h1>
-```
-
----
-
-### H2 - Major Section
+### H2 — Section Heading
 
 ```css
 h2 {
-  font-family: var(--font-family-lora);      /* Serif */
-  font-size: var(--text-4xl);                /* 30px - 48px */
-  font-weight: var(--font-weight-semibold);  /* 600 */
-  line-height: var(--leading-tight);         /* 1.2 */
-  letter-spacing: var(--tracking-tight);     /* -0.025em */
+  font-family: var(--font-family-lora);
+  font-size: var(--text-4xl);               /* 32px -> 64px */
+  font-weight: var(--font-weight-semibold); /* 600 */
+  line-height: var(--leading-tight);        /* 1.2 */
+  letter-spacing: var(--tracking-tight);    /* -0.025em */
+  margin-bottom: 1.25rem;
 }
 ```
 
-**Usage:**
-- Major section headings
-- Page section titles
-- Primary content blocks
-
-**Example:**
-```html
-<h2>Popular Tours</h2>
-<h2>What Our Customers Say</h2>
-```
-
----
-
-### H3 - Subsection
+### H3 — Subsection Heading
 
 ```css
 h3 {
-  font-family: var(--font-family-lora);      /* Serif */
-  font-size: var(--text-3xl);                /* 24px - 36px */
-  font-weight: var(--font-weight-semibold);  /* 600 */
-  line-height: var(--leading-snug);          /* 1.375 */
-  letter-spacing: var(--tracking-tight);     /* -0.025em */
+  font-family: var(--font-family-lora);
+  font-size: var(--text-3xl);               /* 28px -> 48px */
+  font-weight: var(--font-weight-semibold); /* 600 */
+  line-height: var(--leading-snug);         /* 1.375 */
+  letter-spacing: var(--tracking-tight);    /* -0.025em */
+  margin-bottom: 1rem;
 }
 ```
 
-**Usage:**
-- Subsection titles
-- Card headings (featured)
-- Content block titles
-
-**Example:**
-```html
-<h3>Tour Highlights</h3>
-<h3>Itinerary Overview</h3>
-```
-
----
-
-### H4 - Minor Heading
+### H4 — Card / Block Heading
 
 ```css
 h4 {
-  font-family: var(--font-family-lora);      /* Serif */
-  font-size: var(--text-2xl);                /* 20px - 30px */
-  font-weight: var(--font-weight-semibold);  /* 600 */
-  line-height: var(--leading-snug);          /* 1.375 */
-  letter-spacing: var(--tracking-normal);    /* 0em */
+  font-family: var(--font-family-lora);
+  font-size: var(--text-2xl);             /* 24px -> 36px */
+  font-weight: var(--font-weight-medium); /* 500 */
+  line-height: var(--leading-snug);       /* 1.375 */
+  letter-spacing: var(--tracking-normal); /* 0em */
+  margin-bottom: 0.75rem;
 }
 ```
 
-**Usage:**
-- Minor headings
-- Card titles (standard)
-- List section titles
-
-**Example:**
-```html
-<h4>Iceland Explorer</h4>
-<h4>Day 1: Arrival in Reykjavik</h4>
-```
-
----
-
-### H5 - Small Heading
+### H5 — Minor Heading
 
 ```css
 h5 {
-  font-family: var(--font-family-lora);      /* Serif */
-  font-size: var(--text-xl);                 /* 18px - 24px */
-  font-weight: var(--font-weight-medium);    /* 500 */
-  line-height: var(--leading-snug);          /* 1.375 */
-  letter-spacing: var(--tracking-normal);    /* 0em */
+  font-family: var(--font-family-lora);
+  font-size: var(--text-xl);              /* ~18px -> 28px */
+  font-weight: var(--font-weight-medium); /* 500 */
+  line-height: var(--leading-snug);       /* 1.375 */
+  letter-spacing: var(--tracking-normal); /* 0em */
+  margin-bottom: 0.5rem;
 }
 ```
 
-**Usage:**
-- Small headings
-- Sidebar titles
-- Widget headings
-- Meta information titles
-
-**Example:**
-```html
-<h5>Tour Details</h5>
-<h5>What's Included</h5>
-```
-
----
-
-### H6 - Smallest Heading
+### H6 — Smallest Heading
 
 ```css
 h6 {
-  font-family: var(--font-family-lora);      /* Serif */
-  font-size: var(--text-lg);                 /* 16px - 20px */
-  font-weight: var(--font-weight-medium);    /* 500 */
-  line-height: var(--leading-normal);        /* 1.5 */
-  letter-spacing: var(--tracking-normal);    /* 0em */
+  font-family: var(--font-family-lora);
+  font-size: var(--text-lg);              /* 18px -> 24px */
+  font-weight: var(--font-weight-medium); /* 500 */
+  line-height: var(--leading-normal);     /* 1.5 */
+  letter-spacing: var(--tracking-normal); /* 0em */
+  margin-bottom: 0.5rem;
 }
 ```
-
-**Usage:**
-- Smallest headings
-- Inline section titles
-- Label-like headings
-- Footnote titles
-
-**Example:**
-```html
-<h6>Additional Notes</h6>
-<h6>Terms & Conditions</h6>
-```
-
----
-
-## Body Text Elements
 
 ### Paragraph
 
 ```css
 p {
-  font-family: var(--font-family-noto-sans); /* Sans-serif */
-  font-size: var(--text-base);               /* 16px - 18px */
-  font-weight: var(--font-weight-normal);    /* 400 */
-  line-height: var(--leading-normal);        /* 1.5 */
-  letter-spacing: var(--tracking-normal);    /* 0em */
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-base);             /* 16px -> 20px */
+  font-weight: var(--font-weight-normal);  /* 400 */
+  line-height: var(--leading-normal);      /* 1.5 */
+  letter-spacing: var(--tracking-normal);  /* 0em */
+  margin-bottom: 1rem;
 }
 ```
-
-**Usage:**
-- All body text
-- Descriptions
-- Content blocks
-
----
 
 ### Label
 
 ```css
 label {
-  font-family: var(--font-family-lora);      /* Serif */
-  font-size: var(--text-base);               /* 16px - 18px */
-  font-weight: var(--font-weight-medium);    /* 500 */
-  line-height: var(--leading-normal);        /* 1.5 */
-  letter-spacing: var(--tracking-normal);    /* 0em */
+  font-family: var(--font-family-lora);
+  font-size: var(--text-base);             /* 16px -> 20px */
+  font-weight: var(--font-weight-medium);  /* 500 */
+  line-height: var(--leading-normal);      /* 1.5 */
 }
 ```
-
-**Usage:**
-- Form labels
-- UI labels
-- Metadata labels
-
----
 
 ### Button
 
 ```css
 button {
-  font-family: var(--font-family-noto-sans); /* Sans-serif */
-  font-size: var(--text-base);               /* 16px - 18px */
-  font-weight: var(--font-weight-medium);    /* 500 */
-  line-height: var(--leading-normal);        /* 1.5 */
-  letter-spacing: var(--tracking-normal);    /* 0em */
+  font-family: var(--font-family-noto-sans);
+  font-size: var(--text-base);             /* 16px -> 20px */
+  font-weight: var(--font-weight-medium);  /* 500 */
+  line-height: var(--leading-normal);      /* 1.5 */
 }
 ```
-
-**Usage:**
-- All buttons
-- CTAs
-- Interactive elements
-
----
-
-### Small Text
-
-```css
-small {
-  font-size: var(--text-sm);                 /* 14px - 16px */
-  line-height: var(--leading-normal);        /* 1.5 */
-}
-```
-
-**Usage:**
-- Captions
-- Metadata
-- Secondary information
-- Timestamps
-
----
 
 ### Blockquote
 
 ```css
 blockquote {
-  font-family: var(--font-family-lora);      /* Serif */
-  font-size: var(--text-xl);                 /* 18px - 24px */
-  font-weight: var(--font-weight-normal);    /* 400 */
-  line-height: var(--leading-relaxed);       /* 1.625 */
+  font-family: var(--font-family-lora);
+  font-size: var(--text-xl);              /* ~18px -> 28px */
+  font-weight: var(--font-weight-normal); /* 400 */
   font-style: italic;
+  line-height: var(--leading-relaxed);    /* 1.625 */
+  border-left: 4px solid var(--primary);
+  padding-left: 1.5rem;
 }
 ```
 
-**Usage:**
-- Testimonials
-- Pull quotes
-- Featured quotes
+### Code
 
----
-
-## Typography by Component Type
-
-### Hero Section
-
-```html
-<section class="hero">
-  <h1>Discover Iceland</h1>              <!-- 48-72px, bold, tight -->
-  <p class="lead">Experience...</p>       <!-- 16-18px, normal -->
-</section>
-```
-
-**Typography:**
-- H1: `--text-6xl`, bold (700), tight leading, tighter tracking
-- Lead paragraph: `--text-base`, normal weight
-
----
-
-### Card Grid
-
-```html
-<div class="card">
-  <h3>Iceland Explorer</h3>              <!-- 24-36px, semibold -->
-  <p>Explore the land of fire...</p>     <!-- 16-18px, normal -->
-  <small>8 days • From $2,499</small>    <!-- 14-16px, normal -->
-</div>
-```
-
-**Typography:**
-- Card title (H3): `--text-3xl`, semibold (600)
-- Description (p): `--text-base`, normal (400)
-- Metadata (small): `--text-sm`, normal (400)
-
----
-
-### Archive Header
-
-```html
-<header class="archive-header">
-  <h1>All Tours</h1>                     <!-- 48-72px, bold -->
-  <p>Discover our complete...</p>        <!-- 16-18px, normal -->
-</header>
-```
-
-**Typography:**
-- Page title (H1): `--text-6xl`, bold (700)
-- Description (p): `--text-base`, normal (400)
-
----
-
-### Section with Subsections
-
-```html
-<section>
-  <h2>Tour Details</h2>                  <!-- 30-48px, semibold -->
-  
-  <div>
-    <h3>Itinerary</h3>                   <!-- 24-36px, semibold -->
-    <h4>Day 1: Arrival</h4>              <!-- 20-30px, semibold -->
-    <p>Arrive in Reykjavik...</p>        <!-- 16-18px, normal -->
-  </div>
-  
-  <div>
-    <h3>What's Included</h3>             <!-- 24-36px, semibold -->
-    <h5>Accommodation</h5>               <!-- 18-24px, medium -->
-    <p>7 nights in hotels...</p>         <!-- 16-18px, normal -->
-  </div>
-</section>
+```css
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  background-color: var(--muted);
+  color: var(--foreground);
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--radius-sm);
+}
 ```
 
 ---
 
-## Accessibility Requirements
+## WordPress Preset Mapping
 
-### Minimum Font Sizes
+From `/src/styles/theme-variables.css`:
 
-✅ **Body text:** 16px minimum (1rem)  
-✅ **Small text:** 14px minimum (0.875rem)  
-✅ **Tiny text:** 12px minimum (0.75rem)
+```css
+--wp--preset--font-size--small:     var(--text-sm);    /* 14px -> 18px */
+--wp--preset--font-size--medium:    var(--text-base);  /* 16px -> 20px */
+--wp--preset--font-size--large:     var(--text-lg);    /* 18px -> 24px */
+--wp--preset--font-size--x-large:   var(--text-xl);    /* ~18px -> 28px */
+--wp--preset--font-size--xx-large:  var(--text-2xl);   /* 24px -> 36px */
+--wp--preset--font-size--heading-3: var(--text-3xl);   /* 28px -> 48px */
+--wp--preset--font-size--heading-2: var(--text-4xl);   /* 32px -> 64px */
+--wp--preset--font-size--heading-1: var(--text-6xl);   /* 48px -> 96px */
 
-### Line Height Requirements
-
-✅ **Headings:** 1.2 minimum (tight)  
-✅ **Body text:** 1.5 minimum (normal)  
-✅ **Long-form:** 1.625 recommended (relaxed)
-
-### Contrast Ratios
-
-All text must meet WCAG 2.1 AA standards:
-
-✅ **Normal text (16px):** 4.5:1 minimum  
-✅ **Large text (18px+):** 3:1 minimum  
-✅ **Headings (24px+):** 3:1 minimum
+--wp--preset--font-family--lora:      var(--font-family-lora);
+--wp--preset--font-family--noto-sans: var(--font-family-noto-sans);
+--wp--preset--font-family--mono:      var(--font-family-mono);
+```
 
 ---
 
-## Responsive Behavior
+## Fluid Utility Classes
 
-### Mobile (< 768px)
+From `theme.css @layer utilities`:
 
-- H1: 48px
-- H2: 30px
-- H3: 24px
-- H4: 20px
-- H5: 18px
-- H6: 16px
-- Body: 16px
+```css
+.text-fluid-6xl  { font-size: var(--text-6xl); }
+.text-fluid-5xl  { font-size: var(--text-5xl); }
+.text-fluid-4xl  { font-size: var(--text-4xl); }
+.text-fluid-3xl  { font-size: var(--text-3xl); }
+.text-fluid-2xl  { font-size: var(--text-2xl); }
+.text-fluid-xl   { font-size: var(--text-xl);  }
+.text-fluid-lg   { font-size: var(--text-lg);  }
+.text-fluid-base { font-size: var(--text-base);}
+.text-fluid-sm   { font-size: var(--text-sm);  }
+.text-fluid-xs   { font-size: var(--text-xs);  }
+```
 
-### Tablet (768px - 1024px)
+Use these when you need to explicitly set a fluid size on an element that doesn't receive it from semantic HTML defaults.
 
-- H1: 54px (interpolated)
-- H2: 36px (interpolated)
-- H3: 28px (interpolated)
-- H4: 23px (interpolated)
-- H5: 20px (interpolated)
-- H6: 17px (interpolated)
-- Body: 17px (interpolated)
+---
 
-### Desktop (> 1024px)
+## Optimal Reading Width
 
-- H1: 72px
-- H2: 48px
-- H3: 36px
-- H4: 30px
-- H5: 24px
-- H6: 20px
-- Body: 18px
+```css
+max-width: 65ch; /* 65 characters per line — optimal readability */
+```
 
-**Note:** Fluid scaling happens smoothly between these sizes using `clamp()`.
+- Ideal line length: 45-75 characters
+- Blog/article content: 55-70 characters
+- Mobile: full width with appropriate horizontal padding
 
 ---
 
@@ -550,135 +380,48 @@ All text must meet WCAG 2.1 AA standards:
 
 ### Rule 1: Use Semantic HTML
 
-✅ **Always use proper heading hierarchy:**
+Let the design system do the work:
 
 ```html
-<h1>Page Title</h1>
-  <h2>Section</h2>
-    <h3>Subsection</h3>
-      <h4>Detail</h4>
-        <h5>Minor Detail</h5>
-          <h6>Fine Print</h6>
+<!-- Correct: Automatic typography from theme.css -->
+<h1>Explore Iceland's Natural Wonders</h1>
+<h2>Popular Tours</h2>
+<p>Discover the land of fire and ice...</p>
 ```
-
-❌ **Never skip levels:**
 
 ```html
-<h1>Page Title</h1>
-  <h3>Section</h3>  <!-- BAD: Skipped H2 -->
+<!-- WRONG: Unnecessary Tailwind overrides -->
+<div class="text-4xl font-bold">Explore Iceland</div>
 ```
-
----
 
 ### Rule 2: One H1 Per Page
 
-✅ **One and only one:**
+Every page must have exactly one `<h1>`. Use `<h2>` through `<h6>` for subsections.
+
+### Rule 3: No Skipped Heading Levels
 
 ```html
-<h1>Tours Archive</h1>  <!-- Single H1 -->
-<h2>Featured Tours</h2>
-<h2>All Tours</h2>
+<!-- Correct -->
+<h1>Page Title</h1>
+  <h2>Section</h2>
+    <h3>Subsection</h3>
+
+<!-- WRONG: Skipped H2 -->
+<h1>Page Title</h1>
+  <h3>Section</h3>
 ```
 
-❌ **Never multiple H1s:**
+### Rule 4: Don't Override Unless Intentional
 
-```html
-<h1>Tours</h1>
-<h1>Destinations</h1>  <!-- BAD: Second H1 -->
-```
-
----
-
-### Rule 3: Don't Override Typography Classes
-
-The design system automatically styles HTML elements. Only override when intentionally deviating.
-
-✅ **Let semantic HTML work:**
-
-```html
-<h2>Section Title</h2>  <!-- Gets 30-48px, 600 weight automatically -->
-```
-
-❌ **Don't add unnecessary classes:**
-
-```html
-<h2 class="text-4xl font-semibold">  <!-- Redundant -->
-```
-
----
-
-### Rule 4: Use CSS Variables
-
-When you need to override, use CSS variables:
-
-✅ **Correct:**
+Only use Tailwind text classes when **intentionally deviating** from defaults:
 
 ```tsx
-<h3 style={{
-  fontSize: 'var(--text-3xl)',
-  fontWeight: 'var(--font-weight-semibold)',
-  lineHeight: 'var(--leading-snug)'
-}}>
-  Custom Heading
-</h3>
+// Allowed: intentional small print
+<p className="text-fluid-sm text-muted-foreground">Terms apply</p>
+
+// Allowed: feature stat number
+<span className="text-fluid-6xl">500+</span>
 ```
-
-❌ **Avoid:**
-
-```tsx
-<h3 style={{ fontSize: '36px', fontWeight: '600' }}>
-  <!-- Hardcoded values -->
-</h3>
-```
-
----
-
-## Modern Typography Checklist
-
-Before deploying any component:
-
-- [ ] Proper heading hierarchy (H1-H6)
-- [ ] One H1 per page
-- [ ] Semantic HTML used
-- [ ] No skipped heading levels
-- [ ] Fluid font sizes (`clamp()` in CSS)
-- [ ] Appropriate line heights
-- [ ] Correct letter-spacing
-- [ ] Proper font weights
-- [ ] WCAG AA contrast met
-- [ ] Minimum 16px body text
-- [ ] Mobile-tested (responsive)
-- [ ] Desktop-tested (large screens)
-- [ ] Dark mode tested
-
----
-
-## Benefits of Fluid Typography
-
-### 1. **Responsive Without Breakpoints**
-- Smooth scaling across all screen sizes
-- No jarring jumps at breakpoints
-- Perfect for any viewport
-
-### 2. **Improved Readability**
-- Optimized for mobile and desktop
-- Proper sizing for all devices
-- Better user experience
-
-### 3. **Modern Aesthetic**
-- Professional, polished look
-- Contemporary design trends
-- Matches user expectations
-
-### 4. **Easier Maintenance**
-- One system, all devices
-- Less CSS code
-- Simpler debugging
-
-### 5. **Accessibility Built-In**
-- Minimum sizes guaranteed
-- Readable line heights
-- User zoom friendly
 
 ---
 
@@ -687,37 +430,82 @@ Before deploying any component:
 ### Old Fixed Sizes (Deprecated)
 
 ```css
-/* OLD - Don't use */
---text-4xl: 60px;  /* Fixed */
---text-2xl: 32px;  /* Fixed */
---text-xl: 20px;   /* Fixed */
---text-lg: 16px;   /* Fixed */
+/* OLD — Do NOT use */
+--text-4xl: 60px;
+--text-2xl: 32px;
+--text-xl: 20px;
+--text-lg: 16px;
 ```
 
-### New Fluid Sizes (Current)
+### New Fluid Sizes (Current — from theme-base.css)
 
 ```css
-/* NEW - Use these */
---text-6xl: clamp(3rem, 5vw + 1rem, 4.5rem);       /* Fluid H1 */
---text-4xl: clamp(1.875rem, 3vw + 0.5rem, 3rem);   /* Fluid H2 */
---text-3xl: clamp(1.5rem, 2.5vw + 0.5rem, 2.25rem);/* Fluid H3 */
---text-2xl: clamp(1.25rem, 2vw + 0.25rem, 1.875rem);/* Fluid H4 */
---text-xl: clamp(1.125rem, 1.5vw + 0.25rem, 1.5rem);/* Fluid H5 */
---text-lg: clamp(1rem, 1vw + 0.125rem, 1.25rem);   /* Fluid H6 */
+/* CURRENT — Use these */
+--text-6xl: clamp(3rem, 6vw + 1rem, 6rem);
+--text-5xl: clamp(2.5rem, 5vw + 1rem, 5rem);
+--text-4xl: clamp(2rem, 4vw + 0.5rem, 4rem);
+--text-3xl: clamp(1.75rem, 3vw + 0.5rem, 3rem);
+--text-2xl: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);
+--text-xl:  clamp(1.125rem, 1.5vw + 0.25rem, 1.75rem);
+--text-lg:  clamp(1.125rem, 1vw + 0.125rem, 1.5rem);
+--text-base: clamp(1rem, 0.4vw + 0.9rem, 1.25rem);
+--text-sm:  clamp(0.875rem, 0.3vw + 0.8rem, 1.125rem);
+--text-xs:  clamp(0.75rem, 0.2vw + 0.7rem, 1rem);
 ```
+
+---
+
+## Accessibility Requirements
+
+### Minimum Font Sizes
+
+- Body text: 16px minimum (1rem)
+- Small text: 14px minimum (0.875rem)
+- Tiny text: 12px minimum (0.75rem)
+
+### Line Height Requirements
+
+- Headings: 1.2 minimum (tight)
+- Body text: 1.5 minimum (normal)
+- Long-form: 1.625 recommended (relaxed)
+
+### Contrast Ratios (WCAG 2.1 AA)
+
+- Normal text (16px): 4.5:1 minimum
+- Large text (18px+): 3:1 minimum
+- Headings (24px+): 3:1 minimum
+
+---
+
+## Compliance Checklist
+
+Before deploying any component:
+
+- [ ] Proper heading hierarchy (H1-H6)
+- [ ] One H1 per page
+- [ ] Semantic HTML used (not Tailwind size classes)
+- [ ] No skipped heading levels
+- [ ] Fluid font sizes confirmed (not hardcoded px)
+- [ ] Correct line heights for element type
+- [ ] Correct letter-spacing for element type
+- [ ] Correct font weights per mapping
+- [ ] WCAG AA contrast met in both light and dark modes
+- [ ] Minimum 16px body text
+- [ ] Mobile tested (320px)
+- [ ] Large desktop tested (1920px)
+- [ ] Only Lora, Noto Sans, or Courier New used
 
 ---
 
 ## Related Documentation
 
-- [design-tokens/colors.md](colors.md) - Color system
-- [design-tokens/spacing.md](spacing.md) - Spacing system
-- [overview-components.md](../overview-components.md) - Component usage
-- [components/Hero.md](../components/Hero.md) - Hero typography
-- [components/EditorialContent.md](../components/EditorialContent.md) - Content typography
+- [spacing.md](spacing.md) / [MODERN-SPACING.md](MODERN-SPACING.md) — Spacing system
+- [colors.md](colors.md) — Color tokens
+- [breakpoints.md](breakpoints.md) — Responsive breakpoints
+- [typography.md](typography.md) — Legacy reference (deprecated)
 
 ---
 
-**Last Updated:** December 25, 2024  
-**Version:** 2.0  
-**Author:** LightSpeed Design System Team
+**Version:** 3.0
+**Last Updated:** March 2026
+**Source of Truth:** `/src/styles/theme-base.css`

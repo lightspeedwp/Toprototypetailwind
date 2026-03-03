@@ -1,20 +1,29 @@
 # Task List - Master Checklist
 
-**Last Updated:** February 27, 2026  
-**Status:** Active - All Primary Tasks Complete
+**Last Updated:** March 3, 2026  
+**Status:** Active - Design System Contract Audit Complete
 
 ---
 
-## 📖 **TASK FILE INDEX**
+## TASK FILE INDEX
 
 For a complete index of all task files ordered by priority/sequence, see:
 - **[TASK-FILES-INDEX.md](TASK-FILES-INDEX.md)** - Complete task file hierarchy with execution commands
 
 ---
 
-## 📋 Open Task Lists
+## Open Task Lists
 
-### Active Tasks
+### Active Tasks — Design System Contract (NEW March 2026)
+- [ ] **Design System Contract Compliance:** Full CSS audit against updated WP-preset-first token contract, zero-margin policy, 320-1920 responsive ladder, and 1-6 archive grid progression.
+  - *Prompt:* [/prompts/design-system-contract-audit.md](/prompts/design-system-contract-audit.md)
+  - *Audit Report:* [/reports/2026-03-03-design-system-contract-audit.md](/reports/2026-03-03-design-system-contract-audit.md)
+  - *Task List:* [design-system-contract-tasks.md](design-system-contract-tasks.md)
+  - *Human Review:* [design-system-human-review.md](design-system-human-review.md)
+  - *Status:* Audit Complete | Implementation Pending
+  - *Findings:* 3 Critical, 63 High, 31 Medium, 21 Low
+
+### Active Tasks — Prior Audit (February 2026)
 - [ ] **Styles, Links & Assets Refactor:** Fix inline styles, broken links, and missing alt text.
   - *Task List:* [styles-links-assets-refactor-tasks.md](styles-links-assets-refactor-tasks.md)
   - *Status:* 0% Complete (Audit Finished)
@@ -267,4 +276,4 @@ All completed task lists have been moved to `/tasks/archive/`:
 **Status:** ✅ **ALL PRIMARY TASKS COMPLETE** (100%)  
 **Root Cleanup:** ✅ 100% | **CSS Migration:** ✅ 100%  
 **Created:** February 25, 2026  
-**Last Updated:** February 27, 2026
+**Last Updated:** March 3, 2026

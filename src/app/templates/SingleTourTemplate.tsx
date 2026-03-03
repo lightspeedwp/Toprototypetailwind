@@ -40,7 +40,7 @@ import {
   Mail,
 } from "lucide-react";
 import { Container } from "../components/common/Container";
-import { Breadcrumbs } from "../components/common/Breadcrumbs";
+import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
 import { Hero } from "../components/patterns/Hero";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
@@ -293,15 +293,14 @@ function SingleTourTemplate() {
   return (
     <main>
       {/* Breadcrumbs */}
-      <Container className="single-tour__breadcrumbs">
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Tours", href: "/tours", onClick: () => navigateTo("/tours") },
-            { label: tour.title, isCurrent: true },
-          ]}
-        />
-      </Container>
+      <BreadcrumbsPattern
+        items={[
+          { label: "Home", href: "/", onClick: () => navigateTo("/") },
+          { label: "Tours", href: "/tours", onClick: () => navigateTo("/tours") },
+          { label: tour.title, isCurrent: true },
+        ]}
+        fullWidth={true}
+      />
 
       {/* Hero Section */}
       <Hero

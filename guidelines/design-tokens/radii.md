@@ -40,26 +40,22 @@ Tailwind provides these radius utilities, which map to CSS variables:
 | `rounded-md` | 4px | `var(--radius-md)` | Default rounding (cards, inputs) |
 | `rounded-lg` | 6px | `var(--radius-lg)` | Prominent rounding (large cards, modals) |
 | `rounded-xl` | 8px | `var(--radius-xl)` | Extra prominent (hero sections, feature cards) |
+| `rounded-2xl` | 12px | `var(--radius-2xl)` | Large containers, featured sections |
+| `rounded-3xl` | 16px | `var(--radius-3xl)` | Maximum rounding for decorative elements |
+| `rounded-full` | 9999px | `var(--radius-full)` | Pills, circles, avatars |
 
-### CSS Variable Definitions
+### CSS Variable Definitions (Source of Truth: `/src/styles/theme-base.css`)
 
 ```css
 :root {
-  --radius: 4px;                          /* Base radius */
-  --radius-sm: calc(var(--radius) - 2px); /* 2px */
-  --radius-md: var(--radius);             /* 4px */
-  --radius-lg: calc(var(--radius) + 2px); /* 6px */
-  --radius-xl: calc(var(--radius) + 4px); /* 8px */
-}
-```
-
-**Tailwind Theme Inline:**
-```css
-@theme inline {
-  --radius-sm: calc(var(--radius) - 2px);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) + 2px);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius:      4px;    /* Base radius */
+  --radius-sm:   2px;    /* Subtle */
+  --radius-md:   4px;    /* Default */
+  --radius-lg:   6px;    /* Prominent */
+  --radius-xl:   8px;    /* Extra prominent */
+  --radius-2xl:  12px;   /* Large containers */
+  --radius-3xl:  16px;   /* Maximum */
+  --radius-full: 9999px; /* Pills / circles */
 }
 ```
 

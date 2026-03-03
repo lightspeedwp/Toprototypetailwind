@@ -82,6 +82,15 @@
 @import './patterns/search-filter.css';
 @import './patterns/sitemap-grid.css';
 @import './patterns/feature-card.css';
+@import './patterns/notification-banner.css';
+@import './patterns/featured-section.css';
+@import './patterns/team-card.css';
+@import './patterns/blog-card.css';
+
+/* ============================================
+   COMMON COMPONENT STYLES (ADDITIONAL)
+   ============================================ */
+@import './common/section-header.css';
 
 /* ============================================
    TEMPLATE STYLES

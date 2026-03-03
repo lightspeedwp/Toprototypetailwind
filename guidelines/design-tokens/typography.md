@@ -1,32 +1,33 @@
 # Typography Design Tokens
 
-**⚠️ DEPRECATED:** This document describes the legacy typography system.  
-**✅ Current System:** See [MODERN-TYPOGRAPHY.md](MODERN-TYPOGRAPHY.md) for the modern fluid typography system (v2.0).
+**DEPRECATED:** This document describes the legacy typography system.
+**Current System:** See [MODERN-TYPOGRAPHY.md](MODERN-TYPOGRAPHY.md) for the modern fluid typography system (v3.0).
 
-**🎨 CRITICAL:**  
-- **NEVER hardcode font families** - Use only `var(--font-family-lora)` or `var(--font-family-noto-sans)`
-- **NEVER use inline `style={{ fontSize: ... }}`** - All typography must be applied via CSS classes
+**CRITICAL:**
+- **NEVER hardcode font families** — Use only `var(--font-family-lora)`, `var(--font-family-noto-sans)`, or `var(--font-family-mono)`
+- **NEVER use inline `style={{ fontSize: ... }}`** — All typography must be applied via CSS classes
 - **NEVER use Tailwind text classes** (text-2xl, font-bold) unless intentionally deviating
 - **ALWAYS use semantic HTML** (h1-h6, p) for automatic typography styling
-- **Font families are defined in CSS** - Lora for headings, Noto Sans for body
+- **Font families are defined in CSS** — Lora for headings, Noto Sans for body, Courier New for code/technical
 
 ---
 
 ## Migration Notice
 
-**Date:** December 25, 2024  
-**Status:** Legacy - Maintained for reference only  
+**Date:** March 2026
+**Status:** Legacy — Maintained for reference only
 **Action Required:** Use the modern fluid typography system for all new development
 
-The typography system has been upgraded to a modern, fluid design with:
-- ✅ H1-H6 complete hierarchy (was H1-H4 only)
-- ✅ Fluid responsive font sizes using `clamp()` (was fixed px values)
-- ✅ Modern letter-spacing (tracking) for better readability
-- ✅ Expanded font weight scale (300-700)
-- ✅ Optimized line heights for all text types
-- ✅ Better mobile-to-desktop scaling
+The typography system has been upgraded to:
+- H1-H6 complete hierarchy with fluid `clamp()` sizing (48px-96px for H1 at large desktop)
+- Three font families: Lora (headings), Noto Sans (body/UI), Courier New (code/technical)
+- Modern letter-spacing (tracking) for better readability
+- Expanded font weight scale (300-700)
+- Optimized line heights for all text types
+- Better mobile-to-desktop scaling (320px to 1920px)
 
-**[→ View Modern Typography System](MODERN-TYPOGRAPHY.md)**
+**[View Modern Typography System](MODERN-TYPOGRAPHY.md)**
+**[View Breakpoints System](breakpoints.md)**
 
 ---
 
@@ -53,6 +54,7 @@ This document defines the **typography system** used throughout the LightSpeed T
 ```css
 --font-family-lora: 'Lora', serif;
 --font-family-noto-sans: 'Noto Sans', sans-serif;
+--font-family-mono: 'Courier New', monospace;
 ```
 
 **Lora (Serif):**
@@ -64,6 +66,11 @@ This document defines the **typography system** used throughout the LightSpeed T
 - Used for: Body text, buttons, inputs
 - Character: Clean, readable, modern
 - Loaded from Google Fonts
+
+**Courier New (Monospace):**
+- Used for: Code snippets, technical text
+- Character: Clear, precise, technical
+- Loaded from system fonts
 
 ---
 
