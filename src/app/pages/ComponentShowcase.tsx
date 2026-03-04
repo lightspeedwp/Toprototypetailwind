@@ -892,10 +892,11 @@ export default function ComponentShowcase() {
                     <CardContent className="p-0">
                       <div className="flex justify-center overflow-auto bg-background p-8">
                         <div
+                          className="max-w-full"
                           style={{
-                            width: VIEWPORTS.find(v => v.value === viewport)?.width,
-                            maxWidth: "100%",
-                          }}
+                            '--viewport-width': VIEWPORTS.find(v => v.value === viewport)?.width,
+                            width: 'var(--viewport-width)',
+                          } as React.CSSProperties}
                         >
                           {renderComponent()}
                         </div>
@@ -1081,18 +1082,15 @@ export default function ComponentShowcase() {
                         Quick Links
                       </h3>
                       <div className="space-y-2">
-                        <a 
-                          href="#"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            // The Template Browser is accessible via the floating button
-                            // This just shows a helpful message
+                        <button 
+                          type="button"
+                          onClick={() => {
                             alert('Use the "Templates" button in the top-left corner to browse all page templates!');
                           }}
-                          className="block text-sm text-primary hover:underline font-sans font-medium"
+                          className="block text-sm text-primary hover:underline font-sans font-medium cursor-pointer bg-transparent border-none p-0"
                         >
                           Template Browser →
-                        </a>
+                        </button>
                         <p className="text-xs text-muted-foreground">
                           Browse all {filteredComponents.length === COMPONENTS.length ? COMPONENTS.length : `${filteredComponents.length}/${COMPONENTS.length}`} components with advanced filtering
                         </p>

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the **border width and style system** used throughout the LightSpeed Tour Operator plugin prototype. All border styles are defined as CSS custom properties and Tailwind utilities in `/src/styles/theme.css`.
+This document defines the **border width and style system** used throughout the LightSpeed Tour Operator plugin prototype. All border styles are defined as CSS custom properties in `/src/styles/theme-light.css` and `/src/styles/theme-dark.css`, with Tailwind utilities in `/src/styles/theme.css`.
 
 ---
 
@@ -54,8 +54,8 @@ Tailwind provides the following border width utilities:
 ### Border Color
 
 ```css
---border: rgba(117, 117, 117, 1);        /* Light mode: Medium gray */
---border: rgba(80, 80, 80, 1);           /* Dark mode: Lighter gray */
+--border: #BDBDBD;                        /* Light mode: Visible but subtle divider */
+--border: #404040;                        /* Dark mode: Dark grey divider */
 ```
 
 **Usage:** Default border color for all elements
@@ -421,8 +421,8 @@ Borders should not be the only indicator of state:
 
 Border colors must have sufficient contrast with backgrounds:
 
-- **Light mode:** `--border` (rgba(117, 117, 117, 1)) provides 3:1 contrast on white
-- **Dark mode:** `--border` (rgba(80, 80, 80, 1)) provides 3:1 contrast on dark backgrounds
+- **Light mode:** `--border` (`#BDBDBD`) provides 3:1 contrast on white
+- **Dark mode:** `--border` (`#404040`) provides 3:1 contrast on dark backgrounds
 
 ---
 

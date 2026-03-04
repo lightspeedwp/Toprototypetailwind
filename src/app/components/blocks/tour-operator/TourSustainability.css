@@ -30,7 +30,7 @@
 
 .lsx-tour-sustainability__commitments {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--spacing-gap-md);
   margin-bottom: var(--spacing-section-sm);
 }
@@ -52,8 +52,8 @@
 
 .lsx-tour-sustainability__commitment-icon {
   flex-shrink: 0;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: var(--radius-full);
   background-color: var(--primary);
   color: var(--primary-foreground);
@@ -83,13 +83,24 @@
   margin: 0;
 }
 
+@media (min-width: 641px) {
+  .lsx-tour-sustainability__commitments {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .lsx-tour-sustainability__commitment-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
 /* ============================================
    PROJECTS SECTION
    ============================================ */
 
 .lsx-tour-sustainability__projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--spacing-gap-lg);
 }
 
@@ -178,21 +189,13 @@
   margin-right: 0.5rem;
 }
 
-/* ============================================
-   RESPONSIVE ADJUSTMENTS
-   ============================================ */
-
-@media (max-width: 640px) {
-  .lsx-tour-sustainability__commitments {
-    grid-template-columns: 1fr;
-  }
-  
+@media (min-width: 641px) {
   .lsx-tour-sustainability__projects {
-    grid-template-columns: 1fr;
-  }
-  
-  .lsx-tour-sustainability__commitment-icon {
-    width: 2.5rem;
-    height: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 }
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
+   ============================================ */

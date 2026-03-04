@@ -47,7 +47,7 @@ export function TestimonialsSection({ reviews, section, onNavigate }: Testimonia
         prefix: "wp-template-home__section",
       }}
       items={reviews}
-      gridClassName="grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+      gridClassName="wp-featured-section__grid--cols-3"
       renderCard={(review) => (
         <ReviewCard
           review={review}

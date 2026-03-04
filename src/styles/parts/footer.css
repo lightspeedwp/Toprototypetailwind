@@ -27,8 +27,8 @@
 .wp-part-footer {
   border-top: 1px solid var(--color-border);
   background-color: color-mix(in srgb, var(--muted) 30%, transparent);
-  padding-top: 3rem;
-  padding-bottom: 1.5rem;
+  padding-top: var(--spacing-section-md);
+  padding-bottom: var(--spacing-element-md);
 }
 
 /* ================================================================== */
@@ -37,8 +37,8 @@
 
 .wp-part-footer__main {
   display: grid;
-  gap: 2.5rem;
-  margin-bottom: 3rem;
+  gap: var(--spacing-gap-lg);
+  padding-bottom: var(--spacing-section-md);
 }
 
 /* Responsive grid columns */
@@ -65,8 +65,8 @@
 /* Brand Logo */
 .wp-part-footer__logo {
   display: inline-block;
-  margin-bottom: 1rem;
-  transition: opacity 0.2s ease;
+  padding-bottom: var(--spacing-element-sm);
+  transition: opacity var(--transition-base);
   background: none;
   border: none;
   padding: 0;
@@ -84,16 +84,16 @@
 .wp-part-footer__logo:focus-visible {
   outline: 2px solid var(--color-ring);
   outline-offset: 2px;
-  border-radius: 0.125rem;
+  border-radius: var(--radius-sm);
 }
 
 /* Brand Description */
 .wp-part-footer__description {
   font-family: var(--font-family-noto-sans);
-  font-size: 0.9375rem;
+  font-size: var(--text-sm);
   color: var(--color-muted-foreground);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: var(--leading-relaxed);
+  padding-bottom: var(--spacing-element-md);
 }
 
 /* ================================================================== */
@@ -101,35 +101,35 @@
 /* ================================================================== */
 
 .wp-part-footer__newsletter {
-  margin-bottom: 1rem;
+  padding-bottom: var(--spacing-element-sm);
 }
 
 .wp-part-footer__newsletter-title {
   font-family: var(--font-family-noto-sans);
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   color: color-mix(in srgb, var(--foreground) 80%, transparent);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
+  letter-spacing: var(--tracking-wide);
+  padding-bottom: var(--spacing-element-sm);
 }
 
 /* Newsletter Form */
 .wp-part-footer__newsletter-form {
   display: flex;
-  gap: 0.5rem;
+  gap: var(--spacing-element-xs);
 }
 
 .wp-part-footer__newsletter-input {
   flex: 1;
-  padding: 0.5rem 0.75rem;
+  padding: var(--spacing-element-xs) var(--spacing-element-sm);
   font-family: var(--font-family-noto-sans);
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: var(--color-foreground);
   background-color: var(--color-background);
   border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
-  transition: all 0.2s ease;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
 }
 
 .wp-part-footer__newsletter-input::placeholder {
@@ -147,13 +147,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
+  padding: var(--spacing-element-xs) var(--spacing-element-sm);
   background-color: var(--color-primary);
   color: var(--color-primary-foreground);
   border: none;
-  border-radius: 0.375rem;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-base);
 }
 
 .wp-part-footer__newsletter-submit:hover {
@@ -174,12 +174,12 @@
 .wp-part-footer__newsletter-success {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  font-size: 0.875rem;
+  gap: var(--spacing-element-xs);
+  padding: var(--spacing-element-sm) var(--spacing-element-sm);
+  font-size: var(--text-sm);
   color: var(--color-primary);
   background-color: color-mix(in srgb, var(--primary) 10%, transparent);
-  border-radius: 0.375rem;
+  border-radius: var(--radius-md);
 }
 
 /* ================================================================== */
@@ -193,19 +193,19 @@
 /* Column Title */
 .wp-part-footer__column-title {
   font-family: var(--font-family-noto-sans);
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   color: color-mix(in srgb, var(--foreground) 80%, transparent);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 1rem;
+  letter-spacing: var(--tracking-wide);
+  padding-bottom: var(--spacing-element-sm);
 }
 
 /* Navigation List */
 .wp-part-footer__nav-list {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: var(--spacing-element-xs);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -215,9 +215,9 @@
 .wp-part-footer__nav-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-element-xs);
   font-family: var(--font-family-noto-sans);
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: var(--color-muted-foreground);
   text-decoration: none;
   background: none;
@@ -225,7 +225,7 @@
   padding: 0;
   cursor: pointer;
   text-align: left;
-  transition: color 0.2s ease;
+  transition: color var(--transition-base);
 }
 
 .wp-part-footer__nav-link:hover {
@@ -235,8 +235,8 @@
 /* Nav Link Badge */
 .wp-part-footer__nav-badge {
   display: inline-flex;
-  padding: 0.125rem 0.5rem;
-  font-size: 0.6875rem;
+  padding: var(--spacing-element-xxs) var(--spacing-element-xs);
+  font-size: var(--text-xs);
   font-weight: var(--font-weight-medium);
   color: var(--color-primary);
   background-color: color-mix(in srgb, var(--primary) 10%, transparent);
@@ -248,39 +248,39 @@
 /* ================================================================== */
 
 .wp-part-footer__contact {
-  margin-bottom: 1.5rem;
+  padding-bottom: var(--spacing-element-md);
 }
 
 .wp-part-footer__contact-list {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: var(--spacing-element-xs);
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: var(--color-muted-foreground);
 }
 
 .wp-part-footer__contact-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: var(--spacing-element-xs);
 }
 
 .wp-part-footer__contact-icon {
   flex-shrink: 0;
-  margin-top: 0.125rem;
+  padding-top: var(--spacing-element-xxs);
   color: var(--color-primary);
 }
 
 .wp-part-footer__contact-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-element-xs);
   color: var(--color-muted-foreground);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition-base);
 }
 
 .wp-part-footer__contact-link:hover {
@@ -296,8 +296,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  padding-top: 1.5rem;
+  gap: var(--spacing-element-md);
+  padding-top: var(--spacing-element-md);
   border-top: 1px solid var(--color-border);
 }
 
@@ -315,9 +315,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--spacing-element-sm);
   font-family: var(--font-family-noto-sans);
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: var(--color-muted-foreground);
 }
 
@@ -346,7 +346,7 @@
 .wp-part-footer__dev-tools {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--spacing-element-sm);
 }
 
 .wp-part-footer__dev-link {
@@ -359,8 +359,8 @@
   padding: 0;
   cursor: pointer;
   font-family: var(--font-family-noto-sans);
-  font-size: 0.875rem;
-  transition: color 0.2s ease;
+  font-size: var(--text-sm);
+  transition: color var(--transition-base);
 }
 
 .wp-part-footer__dev-link:hover {
@@ -374,15 +374,15 @@
 .wp-part-footer__legal {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  font-size: 0.875rem;
+  gap: var(--spacing-element-sm);
+  font-size: var(--text-sm);
   color: var(--color-muted-foreground);
 }
 
 .wp-part-footer__legal-link {
   color: var(--color-muted-foreground);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition-base);
 }
 
 .wp-part-footer__legal-link:hover {
@@ -396,7 +396,7 @@
 .wp-part-footer__social {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--spacing-element-sm);
 }
 
 .wp-part-footer__social-link {
@@ -408,7 +408,7 @@
   color: var(--color-foreground);
   background-color: var(--color-muted);
   border-radius: 9999px;
-  transition: all 0.2s ease;
+  transition: all var(--transition-base);
 }
 
 .wp-part-footer__social-link:hover {

@@ -67,6 +67,7 @@ export function SiteLogo({
 
   // External image logos when src is provided
   const renderExternalLogo = () => {
+    const logoStyle = { '--logo-width': width, ...style } as React.CSSProperties;
     if (srcDark) {
       return (
         <>
@@ -75,14 +76,14 @@ export function SiteLogo({
             src={src}
             alt={alt}
             className="wp-common-logo wp-common-logo--light"
-            style={{ width, ...style }}
+            style={logoStyle}
           />
           {/* Dark mode image (hidden in light mode, visible in dark mode) */}
           <img
             src={srcDark}
             alt={alt}
             className="wp-common-logo wp-common-logo--dark"
-            style={{ width, ...style }}
+            style={logoStyle}
           />
         </>
       );
@@ -92,7 +93,7 @@ export function SiteLogo({
         src={src}
         alt={alt}
         className="wp-common-logo"
-        style={{ width, ...style }}
+        style={logoStyle}
       />
     );
   };

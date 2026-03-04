@@ -54,9 +54,17 @@
 
 .lsx-best-time-to-visit__label {
   font-family: var(--font-family-noto-sans);
-  font-size: var(--text-xs);
+  font-size: 10px;
   color: var(--muted-foreground);
   font-weight: var(--font-weight-normal);
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 481px) {
+  .lsx-best-time-to-visit__label {
+    font-size: var(--text-xs);
+    letter-spacing: normal;
+  }
 }
 
 .lsx-best-time-to-visit__month--recommended .lsx-best-time-to-visit__label {
@@ -77,11 +85,5 @@
 
 /* ============================================
    RESPONSIVE
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 480px) {
-  .lsx-best-time-to-visit__label {
-    font-size: 10px;
-    letter-spacing: -0.02em;
-  }
-}

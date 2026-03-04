@@ -36,21 +36,33 @@
 
 .wp-template-page-faq__title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-5xl);
+  font-size: var(--text-4xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--leading-tight);
   color: var(--foreground);
   margin-bottom: 1rem;
 }
 
+@media (min-width: 768px) {
+  .wp-template-page-faq__title {
+    font-size: var(--text-5xl);
+  }
+}
+
 .wp-template-page-faq__subtitle {
   font-family: var(--font-family-noto-sans);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted-foreground);
   max-width: 42rem;
   margin-inline: auto;
   margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-faq__subtitle {
+    font-size: var(--text-xl);
+  }
 }
 
 /* Search bar */
@@ -105,7 +117,7 @@
   background-color: var(--background);
   border-bottom: 1px solid var(--border);
   position: sticky;
-  top: 64px; /* Below header */
+  top: 64px; /* Mobile header height as base */
   z-index: 30;
   backdrop-filter: blur(8px);
   background-color: rgba(var(--background), 0.95);
@@ -260,12 +272,18 @@
 
 .wp-template-page-faq__section-title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid var(--border);
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-faq__section-title {
+    font-size: var(--text-3xl);
+  }
 }
 
 .wp-template-page-faq__section-description {
@@ -309,10 +327,16 @@
 
 .wp-template-page-faq__accordion-question {
   font-family: var(--font-family-lora);
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   color: var(--foreground);
   flex: 1;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-faq__accordion-question {
+    font-size: var(--text-lg);
+  }
 }
 
 .wp-template-page-faq__accordion-icon {
@@ -480,40 +504,8 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile-specific overrides
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 1023px) {
-  .wp-template-page-faq__layout {
-    grid-template-columns: 1fr;
-  }
-
-  .wp-template-page-faq__categories {
-    display: block;
-  }
-}
-
-@media (max-width: 767px) {
-  .wp-template-page-faq__title {
-    font-size: var(--text-4xl);
-  }
-
-  .wp-template-page-faq__subtitle {
-    font-size: var(--text-lg);
-  }
-
-  .wp-template-page-faq__section-title {
-    font-size: var(--text-2xl);
-  }
-
-  .wp-template-page-faq__accordion-question {
-    font-size: var(--text-base);
-  }
-
-  .wp-template-page-faq__categories {
-    top: 64px;
-  }
-}
 
 /* ============================================
    END OF FAQ PAGE STYLES

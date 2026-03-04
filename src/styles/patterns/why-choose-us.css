@@ -15,7 +15,7 @@
    ============================================ */
 
 .wp-pattern-why-choose-us {
-  padding-block: var(--spacing-section-md);
+  /* Pattern does not set its own padding — the parent section wrapper handles it */
 }
 
 /* ============================================

@@ -199,7 +199,7 @@ export function ReviewsHubPage() {
                     <div className="wp-review-entry__avatar">
                       <img 
                         src={`https://i.pravatar.cc/150?u=${review.id}`} 
-                        alt="" 
+                        alt={`Photo of ${review.author}`} 
                         className="wp-review-entry__avatar-img" 
                       />
                     </div>

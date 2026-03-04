@@ -120,13 +120,14 @@
 .wp-template-archive-tours__search-wrapper {
   position: relative;
   flex: 1;
-  max-width: 20rem;
+  max-width: none;
+  width: 100%;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   .wp-template-archive-tours__search-wrapper {
-    max-width: none;
-    width: 100%;
+    max-width: 20rem;
+    width: auto;
   }
 }
 
@@ -312,10 +313,19 @@
 
 .wp-template-archive-tours__results-header {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 1rem;
   padding-block: 1rem;
   border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+  .wp-template-archive-tours__results-header {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .wp-template-archive-tours__results-count {
@@ -328,6 +338,13 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .wp-template-archive-tours__sort-controls {
+    width: auto;
+  }
 }
 
 /* ============================================
@@ -477,24 +494,8 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile-specific overrides
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 767px) {
-  .wp-template-archive-tours__filters {
-    top: 64px; /* Mobile header height */
-  }
-
-  .wp-template-archive-tours__results-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .wp-template-archive-tours__sort-controls {
-    width: 100%;
-  }
-}
 
 /* ============================================
    END OF TOURS ARCHIVE STYLES

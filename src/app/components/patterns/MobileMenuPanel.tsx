@@ -390,18 +390,15 @@ export function MobileMenuPanel({
             </a>
 
             {/* Address */}
-            <a
-              href="#"
+            <div
               className={cn(
                 "flex items-center gap-3 p-3 rounded-lg",
-                "hover:bg-background",
-                "transition-colors duration-200",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                "text-foreground"
               )}
             >
               <MapPin className="h-5 w-5 text-primary" />
               <span>123 Travel St, Adventure City</span>
-            </a>
+            </div>
           </div>
         </div>
 

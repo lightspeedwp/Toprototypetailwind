@@ -181,14 +181,14 @@ export function Pagination({
           <ul className="wp-pattern-pagination__list">
             {/* Previous Button */}
             <li className="wp-pattern-pagination__item">
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
+              <button
+                type="button"
+                onClick={() => {
                   if (currentPage > 1) {
                     onPageChange(currentPage - 1);
                   }
                 }}
+                disabled={currentPage === 1}
                 aria-disabled={currentPage === 1}
                 className={cn(
                   "wp-pattern-pagination__link",
@@ -198,7 +198,7 @@ export function Pagination({
               >
                 <ChevronLeft className="wp-pattern-pagination__icon" />
                 <span>Previous</span>
-              </a>
+              </button>
             </li>
 
             {/* Page Numbers */}
@@ -207,12 +207,9 @@ export function Pagination({
                 {page === "ellipsis" ? (
                   <span className="wp-pattern-pagination__ellipsis">…</span>
                 ) : (
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      onPageChange(page);
-                    }}
+                  <button
+                    type="button"
+                    onClick={() => onPageChange(page)}
                     aria-current={page === currentPage ? "page" : undefined}
                     className={cn(
                       "wp-pattern-pagination__link",
@@ -220,21 +217,21 @@ export function Pagination({
                     )}
                   >
                     {page}
-                  </a>
+                  </button>
                 )}
               </li>
             ))}
 
             {/* Next Button */}
             <li className="wp-pattern-pagination__item">
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
+              <button
+                type="button"
+                onClick={() => {
                   if (currentPage < totalPages) {
                     onPageChange(currentPage + 1);
                   }
                 }}
+                disabled={currentPage === totalPages}
                 aria-disabled={currentPage === totalPages}
                 className={cn(
                   "wp-pattern-pagination__link",
@@ -244,7 +241,7 @@ export function Pagination({
               >
                 <span>Next</span>
                 <ChevronRight className="wp-pattern-pagination__icon" />
-              </a>
+              </button>
             </li>
           </ul>
         </nav>

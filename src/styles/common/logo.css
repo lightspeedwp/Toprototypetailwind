@@ -12,7 +12,7 @@
    ============================================ */
 
 .wp-common-logo {
-  width: auto;
+  width: var(--logo-width, auto);
   color: var(--color-foreground);
   object-fit: contain;
 }

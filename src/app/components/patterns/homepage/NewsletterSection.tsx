@@ -4,8 +4,8 @@
  * This section provides a signup form for the company newsletter.
  *
  * **WordPress CSS:**
- * Uses BEM classes for consistent styling:
- * - .wp-template-home__newsletter
+ * Uses BEM classes from `/src/styles/patterns/newsletter.css`
+ * Section background from `/src/styles/templates/home.css`
  *
  * @module NewsletterSection
  * @category components/patterns/homepage
@@ -32,7 +32,7 @@ interface NewsletterSectionProps {
  */
 export function NewsletterSection({ newsletter, onSubmit }: NewsletterSectionProps) {
   return (
-    <section className="wp-template-home__newsletter py-section-md bg-primary/5">
+    <section className="wp-template-home__newsletter">
       <Container>
         <NewsletterSignupPattern
           title={newsletter.title}

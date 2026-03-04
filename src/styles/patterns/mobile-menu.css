@@ -113,7 +113,7 @@
   color: var(--foreground);
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-base);
-  transition: border-color 150ms, box-shadow 150ms;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .wp-block-lts-mobile-menu__search-input:focus {
@@ -157,7 +157,7 @@
   padding-inline: 1rem;
   padding-block: 0.75rem;
   border-radius: var(--radius-md);
-  transition: background-color 150ms, color 150ms;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -192,7 +192,7 @@
 /* Section chevron */
 .wp-block-lts-mobile-menu__section-chevron {
   color: var(--muted-foreground);
-  transition: transform 200ms;
+  transition: transform var(--transition-base);
 }
 
 .wp-block-lts-mobile-menu__section-chevron--open {
@@ -210,13 +210,13 @@
 
 /* Submenu list */
 .wp-block-lts-mobile-menu__submenu-list {
-  margin-top: 0.25rem;
-  margin-left: 1rem;
-  padding-left: 1rem;
+  padding-top: var(--spacing-element-xxs);
+  padding-left: var(--spacing-element-sm);
+  margin-left: var(--spacing-element-sm);
   border-left: 2px solid var(--border);
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
+  gap: var(--spacing-element-xxs);
 }
 
 /* ============================================
@@ -230,7 +230,7 @@
   padding-inline: 1rem;
   padding-block: 0.75rem;
   border-radius: var(--radius-md);
-  transition: background-color 150ms, color 150ms;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -299,8 +299,7 @@
 .wp-block-lts-mobile-menu__link-description {
   font-size: var(--text-sm);
   color: var(--muted-foreground);
-  margin-top: 0.125rem;
-  margin-bottom: 0;
+  padding-top: var(--spacing-element-xxs);
 }
 
 /* ============================================
@@ -323,7 +322,7 @@
   border-radius: var(--radius-md);
   background-color: var(--primary);
   color: var(--primary-foreground);
-  transition: all 200ms;
+  transition: all var(--transition-base);
   border: none;
   cursor: pointer;
   font-family: var(--font-family-noto-sans);
@@ -352,7 +351,7 @@
    ============================================ */
 
 .wp-block-lts-mobile-menu__contact {
-  margin-top: 0.75rem;
+  padding-top: var(--spacing-element-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -368,7 +367,7 @@
   gap: 0.5rem;
   color: var(--muted-foreground);
   text-decoration: none;
-  transition: color 150ms;
+  transition: color var(--transition-fast);
 }
 
 .wp-block-lts-mobile-menu__contact-link:hover {

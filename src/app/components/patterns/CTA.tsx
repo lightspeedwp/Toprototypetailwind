@@ -57,7 +57,7 @@ export function CTA({
         {/* Background Image/Pattern */}
         {backgroundImage && (
           <div className="wp-pattern-cta__background">
-            <img src={backgroundImage} alt="" className="wp-pattern-cta__background-image" />
+            <img src={backgroundImage} alt="" aria-hidden="true" className="wp-pattern-cta__background-image" />
             <div className="wp-pattern-cta__overlay" />
           </div>
         )}

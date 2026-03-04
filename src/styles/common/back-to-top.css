@@ -20,8 +20,8 @@
 
 .wp-common-back-to-top {
   position: fixed;
-  bottom: 1.5rem; /* 24px */
-  right: 1.5rem; /* 24px */
+  bottom: 1rem; /* 16px - mobile base */
+  right: 1rem; /* 16px - mobile base */
   z-index: 60;
   display: flex;
   height: 3rem; /* 48px */
@@ -45,11 +45,11 @@
   outline-offset: 2px;
 }
 
-/* Mobile positioning */
-@media (max-width: 639px) {
+/* Desktop positioning */
+@media (min-width: 640px) {
   .wp-common-back-to-top {
-    bottom: 1rem; /* 16px */
-    right: 1rem; /* 16px */
+    bottom: 1.5rem; /* 24px */
+    right: 1.5rem; /* 24px */
   }
 }
 

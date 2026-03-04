@@ -17,6 +17,15 @@
 .wp-section-hero {
   background-color: var(--primary);
   color: var(--primary-foreground);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 769px) {
+  .wp-section-hero {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
 }
 
 .wp-section-hero h1 {
@@ -68,11 +77,17 @@
 
 .wp-stat-number {
   font-family: var(--font-family-lora);
-  font-size: var(--text-6xl);
+  font-size: var(--text-4xl);
   font-weight: var(--font-weight-bold);
   line-height: 1;
   color: var(--primary);
   margin-bottom: 0.5rem;
+}
+
+@media (min-width: 769px) {
+  .wp-stat-number {
+    font-size: var(--text-6xl);
+  }
 }
 
 .wp-stat-label {
@@ -87,11 +102,17 @@
    ============================================ */
 
 .wp-how-it-works-card {
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   transition: all 200ms ease;
+}
+
+@media (min-width: 769px) {
+  .wp-how-it-works-card {
+    padding: 2rem;
+  }
 }
 
 .wp-how-it-works-card:hover {
@@ -199,8 +220,16 @@
 }
 
 .wp-code-showcase__content {
-  padding: 1.5rem;
+  padding: 1rem;
   overflow-x: auto;
+  font-size: var(--text-xs);
+}
+
+@media (min-width: 769px) {
+  .wp-code-showcase__content {
+    padding: 1.5rem;
+    font-size: var(--text-sm);
+  }
 }
 
 .wp-code-showcase__content pre {
@@ -222,7 +251,7 @@
 
 .wp-cta-box {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 2rem 1rem;
   background: linear-gradient(
     135deg,
     rgba(74, 115, 17, 0.1) 0%,
@@ -240,6 +269,12 @@
   );
 }
 
+@media (min-width: 769px) {
+  .wp-cta-box {
+    padding: 4rem 2rem;
+  }
+}
+
 .wp-cta-box h2 {
   color: var(--foreground);
 }
@@ -253,21 +288,33 @@
    ============================================ */
 
 .wp-testimonial {
-  padding: 3rem;
+  padding: 2rem;
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   box-shadow: var(--elevation-lg);
 }
 
+@media (min-width: 769px) {
+  .wp-testimonial {
+    padding: 3rem;
+  }
+}
+
 .wp-testimonial__quote {
   font-family: var(--font-family-lora);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-weight-normal);
   line-height: var(--leading-relaxed);
   color: var(--card-foreground);
   margin-bottom: 2rem;
   position: relative;
+}
+
+@media (min-width: 769px) {
+  .wp-testimonial__quote {
+    font-size: var(--text-xl);
+  }
 }
 
 .wp-testimonial__quote::before {
@@ -318,39 +365,8 @@
 
 /* ============================================
    RESPONSIVE
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 768px) {
-  .wp-section-hero {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-  
-  .wp-stat-number {
-    font-size: var(--text-4xl);
-  }
-  
-  .wp-how-it-works-card {
-    padding: 1.5rem;
-  }
-  
-  .wp-code-showcase__content {
-    padding: 1rem;
-    font-size: var(--text-xs);
-  }
-  
-  .wp-cta-box {
-    padding: 2rem 1rem;
-  }
-  
-  .wp-testimonial {
-    padding: 2rem;
-  }
-  
-  .wp-testimonial__quote {
-    font-size: var(--text-lg);
-  }
-}
 
 /* ============================================
    ACCESSIBILITY

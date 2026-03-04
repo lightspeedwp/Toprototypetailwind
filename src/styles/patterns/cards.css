@@ -134,8 +134,14 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: var(--spacing-element-md);
+  padding: var(--spacing-element-sm);
   gap: var(--spacing-element-xs);
+}
+
+@media (min-width: 641px) {
+  .wp-card__content {
+    padding: var(--spacing-element-md);
+  }
 }
 
 /* ============================================
@@ -160,10 +166,16 @@
 
 .wp-card__title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-weight-semibold);
   line-height: var(--leading-snug);
   color: var(--foreground);
+}
+
+@media (min-width: 641px) {
+  .wp-card__title {
+    font-size: var(--text-xl);
+  }
 }
 
 .wp-card__title a {
@@ -217,9 +229,15 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   padding-block-start: 0.75rem;
   border-block-start: 1px solid var(--border);
+}
+
+@media (min-width: 641px) {
+  .wp-card__meta {
+    gap: 1rem;
+  }
 }
 
 .wp-card__meta-item {
@@ -258,11 +276,21 @@
 
 .wp-card__footer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
   padding-block-start: var(--spacing-element-xs);
   margin-block-start: auto;
   border-block-start: 1px solid var(--border);
+}
+
+@media (min-width: 641px) {
+  .wp-card__footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+  }
 }
 
 .wp-card__price {
@@ -305,6 +333,15 @@
   text-decoration: none;
   white-space: nowrap;
   transition: background-color var(--transition-base);
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 641px) {
+  .wp-card__action {
+    width: auto;
+    justify-content: flex-start;
+  }
 }
 
 .wp-card__action:hover {
@@ -323,23 +360,23 @@
 
 /* Horizontal card (for list view) */
 .wp-card--horizontal {
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .wp-card--horizontal .wp-card__image-wrapper {
-  width: 40%;
-  aspect-ratio: 4 / 3;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   flex-shrink: 0;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 641px) {
   .wp-card--horizontal {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .wp-card--horizontal .wp-card__image-wrapper {
-    width: 100%;
-    aspect-ratio: 16 / 9;
+    width: 40%;
+    aspect-ratio: 4 / 3;
   }
 }
 
@@ -589,33 +626,8 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile optimizations
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 640px) {
-  .wp-card__content {
-    padding: 1rem;
-  }
-
-  .wp-card__title {
-    font-size: var(--text-lg);
-  }
-
-  .wp-card__meta {
-    gap: 0.5rem;
-  }
-
-  .wp-card__footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .wp-card__action {
-    width: 100%;
-    justify-content: center;
-  }
-}
 
 /* ============================================
    ANIMATION STATES

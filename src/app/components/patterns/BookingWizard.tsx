@@ -715,11 +715,11 @@ export function BookingWizard({
                   />
                   <label htmlFor="terms" className="text-sm cursor-pointer">
                     I accept the{" "}
-                    <a href="#" className="text-primary hover:underline">
+                    <a href="/terms-conditions" className="text-primary hover:underline">
                       Terms & Conditions
                     </a>{" "}
                     and{" "}
-                    <a href="#" className="text-primary hover:underline">
+                    <a href="/privacy-policy" className="text-primary hover:underline">
                       Privacy Policy
                     </a>
                   </label>

@@ -19,7 +19,13 @@
 .wp-pattern-cta {
   position: relative;
   overflow: hidden;
-  padding-block: var(--spacing-section-md);
+  padding-block: var(--spacing-section-sm);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-cta {
+    padding-block: var(--spacing-section-md);
+  }
 }
 
 /* ============================================
@@ -100,9 +106,15 @@
 .wp-pattern-cta__title {
   margin-block-end: 1.5rem;
   font-family: var(--font-family-lora);
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-cta__title {
+    font-size: var(--text-3xl);
+  }
 }
 
 @media (min-width: 768px) {
@@ -119,10 +131,16 @@
 .wp-pattern-cta__description {
   margin-block-end: 2rem;
   font-family: var(--font-family-noto-sans);
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   color: var(--muted-foreground);
   max-width: 42rem; /* 672px - 2xl */
   margin-inline: auto;
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-cta__description {
+    font-size: var(--text-lg);
+  }
 }
 
 @media (min-width: 768px) {
@@ -168,6 +186,7 @@
   box-shadow: var(--elevation-md);
   cursor: pointer;
   border: none;
+  width: 100%;
 }
 
 .wp-pattern-cta__button-primary:hover {
@@ -198,6 +217,7 @@
   font-weight: var(--font-weight-medium);
   transition: all 200ms ease;
   cursor: pointer;
+  width: 100%;
 }
 
 .wp-pattern-cta__button-secondary:hover {
@@ -312,30 +332,18 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile optimizations
+   Mobile-first — base styles are mobile, enhanced at breakpoints
    ============================================ */
 
-@media (max-width: 640px) {
-  .wp-pattern-cta {
-    padding-block: var(--spacing-section-sm);
-  }
-
-  .wp-pattern-cta__title {
-    font-size: var(--text-2xl);
-  }
-
-  .wp-pattern-cta__description {
-    font-size: var(--text-base);
-  }
-
+@media (min-width: 641px) {
   .wp-pattern-cta__button-primary,
   .wp-pattern-cta__button-secondary {
-    width: 100%;
+    width: auto;
   }
 
   .wp-pattern-cta__form-input,
   .wp-pattern-cta__form-submit {
-    width: 100%;
+    width: auto;
   }
 }
 

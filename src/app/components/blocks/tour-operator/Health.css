@@ -12,10 +12,16 @@
   flex-direction: column;
   gap: var(--spacing-element-sm);
   margin-block-end: var(--spacing-element-md);
-  padding: var(--spacing-element-md);
+  padding: var(--spacing-element-sm);
   background-color: var(--muted);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
+}
+
+@media (min-width: 641px) {
+  .lsx-tour-health {
+    padding: var(--spacing-element-md);
+  }
 }
 
 .lsx-tour-health__header {
@@ -46,10 +52,5 @@
 
 /* ============================================
    RESPONSIVE
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 640px) {
-  .lsx-tour-health {
-    padding: var(--spacing-element-sm);
-  }
-}

@@ -135,7 +135,7 @@
 }
 
 .wp-block-lts-container--wide {
-  max-width: 1440px;
+  max-width: var(--container-max-width);
 }
 
 .wp-block-lts-container--full {

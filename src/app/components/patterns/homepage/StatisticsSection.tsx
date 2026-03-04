@@ -4,14 +4,12 @@
  * This section displays key performance metrics and stats.
  *
  * **WordPress CSS:**
- * Uses BEM classes for consistent styling:
- * - .wp-template-home__statistics
+ * Uses BEM classes from `/src/styles/patterns/statistics.css`
  *
  * @module StatisticsSection
  * @category components/patterns/homepage
  */
 
-import { Container } from "../../common/Container";
 import { StatisticsMetricsPattern } from "../StatisticsMetricsPattern";
 import type { LucideIcon } from "lucide-react";
 
@@ -49,7 +47,6 @@ export function StatisticsSection({ statistics, section }: StatisticsSectionProp
         description={section.description}
         statistics={statistics}
         columns={4}
-        className="border-none! bg-transparent!" // Use the internal pattern styling but clear section-specific borders if needed
       />
     </section>
   );

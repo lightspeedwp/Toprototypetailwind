@@ -76,8 +76,15 @@
 .section-hero-primary {
   background-color: var(--muted);
   border-bottom: 1px solid var(--border);
-  padding-top: var(--spacing-section-xl);
-  padding-bottom: var(--spacing-section-xl);
+  padding-top: var(--spacing-section-lg);
+  padding-bottom: var(--spacing-section-lg);
+}
+
+@media (min-width: 769px) {
+  .section-hero-primary {
+    padding-top: var(--spacing-section-xl);
+    padding-bottom: var(--spacing-section-xl);
+  }
 }
 
 /**
@@ -92,8 +99,15 @@
 .section-hero-secondary {
   background-color: var(--background);
   border-bottom: 1px solid var(--border);
-  padding-top: var(--spacing-section-lg);
-  padding-bottom: var(--spacing-section-lg);
+  padding-top: var(--spacing-section-md);
+  padding-bottom: var(--spacing-section-md);
+}
+
+@media (min-width: 769px) {
+  .section-hero-secondary {
+    padding-top: var(--spacing-section-lg);
+    padding-bottom: var(--spacing-section-lg);
+  }
 }
 
 /**
@@ -144,8 +158,15 @@
   position: relative;
   background-size: cover;
   background-position: center;
-  padding-top: var(--spacing-section-xl);
-  padding-bottom: var(--spacing-section-xl);
+  padding-top: var(--spacing-section-lg);
+  padding-bottom: var(--spacing-section-lg);
+}
+
+@media (min-width: 769px) {
+  .section-hero-image {
+    padding-top: var(--spacing-section-xl);
+    padding-bottom: var(--spacing-section-xl);
+  }
 }
 
 .section-hero-image::before {
@@ -257,12 +278,13 @@
 .section-cta .cta-button-primary,
 .section-cta .cta-button-secondary {
   min-width: 200px;
+  width: 100%;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 641px) {
   .section-cta .cta-button-primary,
   .section-cta .cta-button-secondary {
-    width: 100%;
+    width: auto;
   }
 }
 
@@ -883,23 +905,12 @@
    ========================================================================= */
 
 /**
- * Reduce spacing on mobile for hero sections.
+ * Responsive Hero Spacing
+ * Mobile-first — base styles are mobile, enhanced at breakpoints above.
  * The fluid clamp() in the --spacing-section-* variables handles
- * most responsive scaling, but hero sections get an explicit
- * downgrade to --spacing-section-lg on small screens.
+ * most responsive scaling, but hero sections get explicit
+ * upgrades at larger screens.
  */
-@media (max-width: 768px) {
-  .section-hero-primary,
-  .section-hero-image {
-    padding-top: var(--spacing-section-lg);
-    padding-bottom: var(--spacing-section-lg);
-  }
-
-  .section-hero-secondary {
-    padding-top: var(--spacing-section-md);
-    padding-bottom: var(--spacing-section-md);
-  }
-}
 
 /* ============================================================================
    DARK MODE ENHANCEMENTS

@@ -12,8 +12,15 @@
    ============================================ */
 
 .wp-pattern-section {
-  padding-top: var(--spacing-section-md);
-  padding-bottom: var(--spacing-section-md);
+  padding-top: var(--spacing-section-sm);
+  padding-bottom: var(--spacing-section-sm);
+}
+
+@media (min-width: 769px) {
+  .wp-pattern-section {
+    padding-top: var(--spacing-section-md);
+    padding-bottom: var(--spacing-section-md);
+  }
 }
 
 .wp-pattern-section--primary {
@@ -34,15 +41,4 @@
 
 .dark .wp-pattern-section--primary code {
   background-color: rgba(0, 0, 0, 0.2);
-}
-
-/* ============================================
-   RESPONSIVE SPACING
-   ============================================ */
-
-@media (max-width: 768px) {
-  .wp-pattern-section {
-    padding-top: var(--spacing-section-sm);
-    padding-bottom: var(--spacing-section-sm);
-  }
 }

@@ -1,12 +1,16 @@
 /**
  * Newsletter Signup Pattern Component
- * 
+ *
  * Email capture form with premium design.
- * Strictly adheres to design system tokens and BEM naming.
+ *
+ * **WordPress CSS:**
+ * Uses BEM classes from `/src/styles/patterns/newsletter.css`
+ *
+ * @module NewsletterSignupPattern
+ * @category patterns
  */
 
 import { useState } from "react";
-import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
 import { Button } from "../blocks/design/Button";
@@ -21,6 +25,7 @@ export interface NewsletterSignupPatternProps {
   privacyNote?: string;
   variant?: 'default' | 'minimal';
   className?: string;
+  onSubmit?: (email: string) => Promise<boolean>;
 }
 
 export function NewsletterSignupPattern({
@@ -30,6 +35,7 @@ export function NewsletterSignupPattern({
   privacyNote = "Your data is handled with absolute discretion. Unsubscribe at your convenience.",
   variant = 'default',
   className,
+  onSubmit,
 }: NewsletterSignupPatternProps) {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -38,44 +44,50 @@ export function NewsletterSignupPattern({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) return;
-    
+
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    if (onSubmit) {
+      await onSubmit(email);
+    } else {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500));
+    }
     setIsLoading(false);
     setIsSubmitted(true);
   };
 
   return (
-    <div className={cn("wp-pattern-lts-newsletter", className)}>
+    <div className={cn("wp-pattern-newsletter", className)}>
       <AnimatePresence mode="wait">
         {isSubmitted ? (
-          <motion.div 
+          <motion.div
             key="success"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-8"
+            className="wp-pattern-newsletter__success"
           >
-            <div className="size-20 rounded-3xl bg-success/10 flex items-center justify-center text-success mx-auto mb-8 shadow-sm">
-              <CheckCircle2 className="size-10" />
+            <div className="wp-pattern-newsletter__success-icon-wrapper">
+              <CheckCircle2 className="wp-pattern-newsletter__success-icon" />
             </div>
-            <h3 className="text-3xl font-bold font-serif mb-4">Welcome to the Collection</h3>
-            <p className="text-muted-foreground text-lg">Your first edition of the Safari Insider is on its way.</p>
+            <h3 className="wp-pattern-newsletter__success-title">Welcome to the Collection</h3>
+            <p className="wp-pattern-newsletter__success-message">
+              Your first edition of the Safari Insider is on its way.
+            </p>
           </motion.div>
         ) : (
           <motion.div key="form" exit={{ opacity: 0, y: -20 }}>
-            <div className="text-center mb-12">
-              <HeadingBlock level={2} textAlign="center" className="text-3xl md:text-4xl">
+            <div className="wp-pattern-newsletter__header">
+              <HeadingBlock level={2} textAlign="center">
                 {title}
               </HeadingBlock>
-              <ParagraphBlock className="text-muted-foreground text-lg max-w-lg mx-auto">
+              <ParagraphBlock className="wp-pattern-newsletter__description" size="lg">
                 {description}
               </ParagraphBlock>
             </div>
 
-            <form onSubmit={handleSubmit} className="relative max-w-xl mx-auto group">
-              <div className="relative">
-                <Mail className="absolute left-6 top-1/2 -translate-y-1/2 size-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
+            <form onSubmit={handleSubmit} className="wp-pattern-newsletter__form">
+              <div className="wp-pattern-newsletter__input-wrapper">
+                <Mail className="wp-pattern-newsletter__input-icon" />
                 <input
                   type="email"
                   value={email}
@@ -83,18 +95,17 @@ export function NewsletterSignupPattern({
                   placeholder="Enter your professional email..."
                   required
                   disabled={isLoading}
-                  className="w-full pl-16 pr-48 py-5 rounded-2xl bg-card border-2 border-border focus:border-primary/30 outline-none font-bold text-sm shadow-sm transition-all"
+                  className="wp-pattern-newsletter__input"
                 />
-                <div className="absolute right-2 top-2 bottom-2">
+                <div className="wp-pattern-newsletter__submit-wrapper">
                   <Button
                     type="submit"
                     variant="primary"
                     disabled={isLoading}
-                    className="h-full px-8 rounded-xl font-bold gap-2 shadow-lg"
                   >
                     {isLoading ? "Processing..." : (
                       <>
-                        {buttonText} <ArrowRight className="size-4" />
+                        {buttonText} <ArrowRight className="wp-card__action-icon" />
                       </>
                     )}
                   </Button>
@@ -102,7 +113,7 @@ export function NewsletterSignupPattern({
               </div>
             </form>
 
-            <p className="text-center text-xs font-bold uppercase tracking-wider text-muted-foreground/60 mt-8">
+            <p className="wp-pattern-newsletter__privacy">
               {privacyNote}
             </p>
           </motion.div>

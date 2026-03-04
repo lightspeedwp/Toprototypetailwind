@@ -33,6 +33,14 @@
   padding-block: var(--spacing-section-sm);
   background-color: var(--card);
   border-block: 1px solid var(--border);
+  position: static; /* Not sticky on mobile */
+}
+
+@media (min-width: 769px) {
+  .wp-template-page__toc {
+    position: sticky;
+    top: var(--header-bar-height);
+  }
 }
 
 /* ============================================
@@ -52,8 +60,14 @@
    ============================================ */
 
 .wp-template-page__stats {
-  padding-block: var(--spacing-section-sm);
+  padding-block: var(--spacing-section-xs);
   background-color: var(--background);
+}
+
+@media (min-width: 769px) {
+  .wp-template-page__stats {
+    padding-block: var(--spacing-section-sm);
+  }
 }
 
 /* ============================================
@@ -62,9 +76,15 @@
    ============================================ */
 
 .wp-template-page__form {
-  padding-block: var(--spacing-section-md);
+  padding-block: var(--spacing-section-sm);
   background-color: var(--card);
   border-block: 1px solid var(--border);
+}
+
+@media (min-width: 769px) {
+  .wp-template-page__form {
+    padding-block: var(--spacing-section-md);
+  }
 }
 
 /* ============================================
@@ -73,8 +93,14 @@
    ============================================ */
 
 .wp-template-page__info {
-  padding-block: var(--spacing-section-md);
+  padding-block: var(--spacing-section-sm);
   background-color: var(--muted);
+}
+
+@media (min-width: 769px) {
+  .wp-template-page__info {
+    padding-block: var(--spacing-section-md);
+  }
 }
 
 /* ============================================
@@ -83,8 +109,14 @@
    ============================================ */
 
 .wp-template-page__content {
-  padding-block: var(--spacing-section-lg);
+  padding-block: var(--spacing-section-sm);
   background-color: var(--background);
+}
+
+@media (min-width: 769px) {
+  .wp-template-page__content {
+    padding-block: var(--spacing-section-lg);
+  }
 }
 
 /* ============================================
@@ -93,9 +125,15 @@
    ============================================ */
 
 .wp-template-page__map {
-  padding-block: var(--spacing-section-md);
+  padding-block: var(--spacing-section-sm);
   background-color: var(--card);
   border-block: 1px solid var(--border);
+}
+
+@media (min-width: 769px) {
+  .wp-template-page__map {
+    padding-block: var(--spacing-section-md);
+  }
 }
 
 /* ============================================
@@ -111,25 +149,8 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile and tablet optimizations
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 768px) {
-  .wp-template-page__stats {
-    padding-block: var(--spacing-section-xs);
-  }
-
-  .wp-template-page__toc {
-    position: static; /* Remove sticky on mobile */
-  }
-
-  .wp-template-page__form,
-  .wp-template-page__info,
-  .wp-template-page__content,
-  .wp-template-page__map {
-    padding-block: var(--spacing-section-sm);
-  }
-}
 
 /* ============================================
    END OF PAGE STYLES

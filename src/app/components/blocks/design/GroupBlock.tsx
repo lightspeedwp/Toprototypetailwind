@@ -1,4 +1,5 @@
 import { cn } from "../../../lib/utils";
+import './GroupBlock.css';
 
 /**
  * GroupBlock - Versatile container for grouping blocks
@@ -95,14 +96,14 @@ export function GroupBlock({
       )}
       aria-label={ariaLabel}
       style={{
-        backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
-      }}
+        '--group-bg-image': backgroundImage ? `url(${backgroundImage})` : undefined,
+        '--overlay-opacity': overlayOpacity,
+      } as React.CSSProperties}
     >
       {/* Background overlay */}
       {backgroundOverlay && backgroundImage && (
         <div 
-          className="absolute inset-0 bg-black" 
-          style={{ opacity: overlayOpacity }}
+          className="wp-group-block__overlay" 
           aria-hidden="true"
         />
       )}

@@ -1,0 +1,21 @@
+/**
+ * Related Regions Block Styles
+ * WordPress Block: lsx-tour-operator/related-regions
+ *
+ * Uses CSS custom property --grid-columns for dynamic column count.
+ * All values reference CSS custom properties from the design system.
+ *
+ * @see /src/app/components/blocks/tour-operator/RelatedRegionsBlock.tsx
+ */
+
+/* Mobile-first: single column base */
+.grid[style*="--grid-columns"] {
+  grid-template-columns: 1fr;
+}
+
+/* Desktop: use dynamic column count */
+@media (min-width: 641px) {
+  .grid[style*="--grid-columns"] {
+    grid-template-columns: repeat(var(--grid-columns, 3), minmax(0, 1fr));
+  }
+}

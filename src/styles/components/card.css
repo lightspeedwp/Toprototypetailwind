@@ -33,8 +33,14 @@
    ============================================ */
 
 .card__header {
-  padding: 1.5rem;
+  padding: 1rem;
   border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 769px) {
+  .card__header {
+    padding: 1.5rem;
+  }
 }
 
 /* ============================================
@@ -43,11 +49,17 @@
 
 .card__title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-weight-semibold);
   line-height: var(--leading-snug);
   color: var(--card-foreground);
   margin: 0;
+}
+
+@media (min-width: 769px) {
+  .card__title {
+    font-size: var(--text-xl);
+  }
 }
 
 /* ============================================
@@ -69,7 +81,13 @@
    ============================================ */
 
 .card__content {
-  padding: 1.5rem;
+  padding: 1rem;
+}
+
+@media (min-width: 769px) {
+  .card__content {
+    padding: 1.5rem;
+  }
 }
 
 /* ============================================
@@ -77,7 +95,7 @@
    ============================================ */
 
 .card__footer {
-  padding: 1.5rem;
+  padding: 1rem;
   border-top: 1px solid var(--border);
   background-color: rgba(245, 245, 245, 0.3); /* muted with 30% opacity */
 }
@@ -86,21 +104,16 @@
   background-color: rgba(38, 38, 38, 0.3); /* dark mode muted 30% */
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
-@media (max-width: 768px) {
-  .card__header,
-  .card__content,
+@media (min-width: 769px) {
   .card__footer {
-    padding: 1rem;
-  }
-  
-  .card__title {
-    font-size: var(--text-lg);
+    padding: 1.5rem;
   }
 }
+
+/* ============================================
+   RESPONSIVE
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
+   ============================================ */
 
 /* ============================================
    ACCESSIBILITY

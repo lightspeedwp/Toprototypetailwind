@@ -55,8 +55,20 @@ export function FooterNew({ currentPage, onNavigate }: FooterNewProps) {
               </div>
               
               <div className="flex gap-4">
-                {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
-                  <a key={i} href="#" className="size-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all shadow-sm">
+                {[
+                  { Icon: Facebook, label: 'Facebook', href: 'https://facebook.com' },
+                  { Icon: Instagram, label: 'Instagram', href: 'https://instagram.com' },
+                  { Icon: Twitter, label: 'X (Twitter)', href: 'https://x.com' },
+                  { Icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
+                ].map(({ Icon, label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="size-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all shadow-sm"
+                  >
                     <Icon className="size-4" />
                   </a>
                 ))}

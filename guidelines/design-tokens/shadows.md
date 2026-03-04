@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the **elevation/shadow system** used throughout the LightSpeed Tour Operator plugin prototype. All shadow values are defined as CSS custom properties in `/src/styles/theme.css`.
+This document defines the **elevation/shadow system** used throughout the LightSpeed Tour Operator plugin prototype. All shadow values are defined as CSS custom properties in `/src/styles/theme-light.css` (light mode) and `/src/styles/theme-dark.css` (dark mode).
 
 ---
 
@@ -12,20 +12,20 @@ This document defines the **elevation/shadow system** used throughout the LightS
 
 **Consistent elevation:** Shadows are used sparingly and consistently to communicate depth and layering.
 
-**Brutalist aesthetic:** The default shadow uses a **hard drop shadow** (no blur) to maintain a clean, structured appearance appropriate for WordPress block themes.
+**Soft depth:** The default shadow uses a **subtle soft shadow** (low opacity, slight blur) to maintain a clean, modern appearance appropriate for WordPress block themes.
 
 ---
 
-## Core Shadow Token
+## Core Shadow Tokens
 
 ### Elevation Small (Default)
 
 ```css
---elevation-sm: 0px 4px 0px 0px rgba(0, 0, 0, 1);        /* Light mode */
---elevation-sm: 0px 4px 0px 0px rgba(0, 0, 0, 0.5);      /* Dark mode */
+--elevation-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);     /* Light mode */
+--elevation-sm: 0px 1px 3px 0px rgba(0, 0, 0, 0.50);     /* Dark mode */
 ```
 
-**Visual Effect:** Hard drop shadow with 4px offset, no blur
+**Visual Effect:** Subtle soft shadow with 1-2px offset, minimal blur
 
 **Tailwind Class:** `shadow-sm`
 
@@ -38,6 +38,39 @@ This document defines the **elevation/shadow system** used throughout the LightS
 </div>
 ```
 
+### Elevation Medium
+
+```css
+--elevation-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.10);    /* Light mode */
+--elevation-md: 0px 4px 8px -2px rgba(0, 0, 0, 0.50);    /* Dark mode */
+```
+
+**Visual Effect:** Moderate depth shadow for lifted elements
+
+**Usage:** Dropdowns, active cards, focused elements
+
+### Elevation Large
+
+```css
+--elevation-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.10);  /* Light mode */
+--elevation-lg: 0px 10px 20px -5px rgba(0, 0, 0, 0.50);  /* Dark mode */
+```
+
+**Visual Effect:** Prominent shadow for modal/overlay elevation
+
+**Usage:** Modals, popovers, dialogs
+
+### Elevation Extra Large
+
+```css
+--elevation-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.10);  /* Light mode */
+--elevation-xl: 0px 20px 30px -8px rgba(0, 0, 0, 0.50);  /* Dark mode */
+```
+
+**Visual Effect:** Maximum depth for highest-level overlays
+
+**Usage:** Full-screen modals, critical dialogs
+
 ---
 
 ## Tailwind Shadow Utilities
@@ -47,13 +80,13 @@ Tailwind provides a complete shadow scale. For this project, we primarily use:
 | Utility | Shadow Definition | Usage |
 |---------|-------------------|-------|
 | `shadow-none` | `box-shadow: none` | Remove all shadows |
-| `shadow-sm` | `0px 4px 0px 0px rgba(0, 0, 0, 1)` | Default elevation (cards, buttons) |
+| `shadow-sm` | `0px 1px 2px 0px rgba(0, 0, 0, 0.05)` | Default elevation (cards, buttons) |
 | `shadow` | Default Tailwind shadow | Alternative soft shadow (if needed) |
 | `shadow-md` | Default Tailwind shadow-md | Medium elevation (modals, dropdowns) |
 | `shadow-lg` | Default Tailwind shadow-lg | Large elevation (dialogs, popovers) |
 | `shadow-xl` | Default Tailwind shadow-xl | Extra large elevation (modals) |
 
-**Note:** The custom `--elevation-sm` token overrides Tailwind's default `shadow-sm` to provide the brutalist hard shadow aesthetic.
+**Note:** The custom elevation tokens (`--elevation-sm` through `--elevation-xl`) are defined per mode — light mode uses subtle opacity (0.05–0.10), dark mode uses higher opacity (0.50) since dark surfaces need more pronounced shadows to maintain depth perception.
 
 ---
 
@@ -405,24 +438,30 @@ Shadows should not be the only indicator of interactive state:
 
 Shadows must be visible in both light and dark modes:
 
-- **Light mode:** `rgba(0, 0, 0, 1)` - Full black shadow
-- **Dark mode:** `rgba(0, 0, 0, 0.5)` - Semi-transparent black shadow
+- **Light mode:** `rgba(0, 0, 0, 0.05–0.10)` — Subtle soft shadows
+- **Dark mode:** `rgba(0, 0, 0, 0.50)` — Higher opacity for depth on dark surfaces
 
 ---
 
 ## Dark Mode Behavior
 
-The `--elevation-sm` shadow automatically adapts to dark mode:
+The elevation tokens automatically adapt to dark mode:
 
 ```css
 /* Light mode */
 :root {
-  --elevation-sm: 0px 4px 0px 0px rgba(0, 0, 0, 1);
+  --elevation-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  --elevation-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.10);
+  --elevation-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.10);
+  --elevation-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.10);
 }
 
 /* Dark mode */
 .dark {
-  --elevation-sm: 0px 4px 0px 0px rgba(0, 0, 0, 0.5);
+  --elevation-sm: 0px 1px 3px 0px rgba(0, 0, 0, 0.50);
+  --elevation-md: 0px 4px 8px -2px rgba(0, 0, 0, 0.50);
+  --elevation-lg: 0px 10px 20px -5px rgba(0, 0, 0, 0.50);
+  --elevation-xl: 0px 20px 30px -8px rgba(0, 0, 0, 0.50);
 }
 ```
 
@@ -500,17 +539,22 @@ In WordPress `theme.json`, shadows would be defined as:
         {
           "name": "Small",
           "slug": "sm",
-          "shadow": "0px 4px 0px 0px rgba(0, 0, 0, 1)"
+          "shadow": "0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
         },
         {
           "name": "Medium",
           "slug": "md",
-          "shadow": "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
+          "shadow": "0px 4px 6px -1px rgba(0, 0, 0, 0.10)"
         },
         {
           "name": "Large",
           "slug": "lg",
-          "shadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+          "shadow": "0px 10px 15px -3px rgba(0, 0, 0, 0.10)"
+        },
+        {
+          "name": "Extra Large",
+          "slug": "xl",
+          "shadow": "0px 20px 25px -5px rgba(0, 0, 0, 0.10)"
         }
       ]
     }

@@ -86,6 +86,10 @@
 @import './patterns/featured-section.css';
 @import './patterns/team-card.css';
 @import './patterns/blog-card.css';
+@import './patterns/conservation-section.css';
+@import './patterns/why-choose-us.css';
+@import './patterns/statistics.css';
+@import './patterns/newsletter.css';
 
 /* ============================================
    COMMON COMPONENT STYLES (ADDITIONAL)
@@ -245,7 +249,7 @@ body {
 .wp-element-link {
   color: var(--primary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition-base);
 }
 
 .wp-element-link:hover {
@@ -256,7 +260,7 @@ body {
 .wp-element-link:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
 /* WordPress Block Editor Quote Classes */
@@ -268,8 +272,8 @@ body {
   line-height: var(--leading-relaxed);
   color: var(--muted-foreground);
   border-left: 4px solid var(--primary);
-  padding-left: 1.5rem;
-  margin: 1.5rem 0;
+  padding-left: var(--spacing-element-md);
+  margin: var(--spacing-element-md) 0;
 }
 
 /* WordPress Block Editor Code Classes */
@@ -279,7 +283,7 @@ body {
   background-color: var(--muted);
   color: var(--foreground);
   padding: 0.125rem 0.25rem;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
 /* ============================================
@@ -289,7 +293,7 @@ body {
 /* Container */
 .container, .wp-block-container {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--container-max-width);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--spacing-container-sm);
@@ -297,11 +301,11 @@ body {
 }
 
 .container--narrow {
-  max-width: 768px;
+  max-width: var(--container-max-width-narrow);
 }
 
 .container--wide {
-  max-width: 1600px;
+  max-width: var(--container-max-width-wide);
 }
 
 /* Section */
@@ -385,16 +389,16 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--spacing-element-xs);
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   line-height: 1;
-  padding: 0.75rem 1.5rem;
+  padding: var(--spacing-element-sm) var(--spacing-element-md);
   border-radius: var(--radius);
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-base);
   text-decoration: none;
   min-height: 44px; /* WCAG touch target */
 }
@@ -448,13 +452,13 @@ body {
 }
 
 .button--sm {
-  padding: 0.5rem 1rem;
+  padding: var(--spacing-element-xs) var(--spacing-element-sm);
   font-size: var(--text-sm);
   min-height: 36px;
 }
 
 .button--lg {
-  padding: 1rem 2rem;
+  padding: var(--spacing-element-sm) var(--spacing-element-md);
   font-size: var(--text-lg);
   min-height: 52px;
 }
@@ -481,9 +485,9 @@ body {
   color: var(--card-foreground);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: var(--spacing-element-md);
   box-shadow: var(--elevation-sm);
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
 .wp-block-card:hover {
@@ -491,7 +495,7 @@ body {
 }
 
 .card__header {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-element-sm);
 }
 
 .card__title {
@@ -499,7 +503,7 @@ body {
   font-size: var(--text-xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-element-xs);
 }
 
 .card__description {
@@ -510,13 +514,13 @@ body {
 }
 
 .card__content {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-element-sm);
 }
 
 .card__footer {
   border-top: 1px solid var(--border);
-  padding-top: 1rem;
-  margin-top: 1rem;
+  padding-top: var(--spacing-element-sm);
+  margin-top: var(--spacing-element-sm);
 }
 
 /* ============================================
@@ -528,7 +532,7 @@ body {
 }
 
 .form__group {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-element-md);
 }
 
 .form__label {
@@ -537,7 +541,7 @@ body {
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   color: var(--foreground);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-element-xs);
 }
 
 .form__input,
@@ -550,9 +554,9 @@ body {
   background-color: var(--input-background);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 0.75rem 1rem;
+  padding: var(--spacing-element-sm) var(--spacing-element-sm);
   min-height: 44px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .form__input:focus,
@@ -594,7 +598,7 @@ body {
   border: 2px solid var(--border);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color var(--transition-base), background-color var(--transition-base);
 }
 
 .form__radio {
@@ -643,7 +647,7 @@ body {
   font-size: var(--text-sm);
   color: var(--muted-foreground);
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: var(--spacing-element-xs);
 }
 
 /* ============================================
@@ -726,7 +730,7 @@ body {
   .header-desktop-nav {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: var(--spacing-element-xs);
   }
 }
 
@@ -769,11 +773,11 @@ body {
   position: absolute;
   left: 0;
   top: 100%;
-  margin-top: 0.5rem;
+  margin-top: var(--spacing-element-xs);
   width: max-content;
   min-width: 400px;
   max-width: 42rem;
-  z-index: 50;
+  z-index: var(--z-dropdown);
 }
 
 /* Right-aligned variant for items near the right edge (e.g. About) */
@@ -807,7 +811,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 40;
+  z-index: var(--z-overlay);
 }
 
 /* Panel fills from below header to bottom of viewport */
@@ -817,7 +821,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 40;
+  z-index: var(--z-overlay);
   display: flex;
   flex-direction: column;
   overflow: hidden;

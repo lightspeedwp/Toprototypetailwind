@@ -1,8 +1,11 @@
 /**
  * Why Choose Us Pattern - WordPress BEM CSS Version
- * 
+ *
  * Displays value propositions and benefits in a responsive grid.
- * 
+ *
+ * **WordPress CSS:**
+ * Uses BEM classes from `/src/styles/patterns/why-choose-us.css`
+ *
  * @module WhyChooseUsPattern
  * @category patterns
  */
@@ -43,51 +46,47 @@ export function WhyChooseUsPattern({
     description: reason.description,
   }));
 
-  const gridColumns = {
-    2: "grid-cols-1 md:grid-cols-2",
-    3: "grid-cols-1 md:grid-cols-3",
-    4: "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
-  }[columns];
+  const gridModifier = `wp-pattern-why-choose-us__grid--cols-${columns}`;
 
   return (
-    <section className={cn("py-section-md", className)}>
+    <section className={cn("wp-pattern-why-choose-us", className)}>
       <Container>
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="wp-pattern-why-choose-us__header">
           <HeadingBlock level={2} textAlign="center">
             {title}
           </HeadingBlock>
           {description && (
-            <ParagraphBlock className="text-muted-foreground max-w-2xl mx-auto mt-4" size="lg">
+            <ParagraphBlock className="wp-pattern-why-choose-us__description" size="lg">
               {description}
             </ParagraphBlock>
           )}
         </div>
 
         {/* Features Grid */}
-        <div className={cn("grid gap-12 md:gap-8", gridColumns)}>
+        <div className={cn("wp-pattern-why-choose-us__grid", gridModifier)}>
           {features.map((feature, index) => {
             const Icon = feature.icon;
-            
+
             return (
-              <div key={index} className="flex flex-col items-center text-center group">
+              <div key={index} className="wp-pattern-why-choose-us__feature">
                 {/* Icon Circle */}
                 {Icon && (
-                  <div className="mb-6 relative">
-                    <div className="w-20 h-20 rounded-2xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 transform group-hover:rotate-6">
+                  <div className="wp-pattern-why-choose-us__icon-wrapper">
+                    <div className="wp-pattern-why-choose-us__icon">
                       <Icon size={40} strokeWidth={1.5} />
                     </div>
                     {/* Decorative element */}
-                    <div className="absolute -inset-2 bg-primary/10 rounded-2xl -z-10 group-hover:rotate-12 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
+                    <div className="wp-pattern-why-choose-us__icon-decoration" />
                   </div>
                 )}
 
                 {/* Content */}
-                <HeadingBlock level={4} textAlign="center" className="mb-3">
+                <HeadingBlock level={4} textAlign="center" className="wp-pattern-why-choose-us__feature-title">
                   {feature.title}
                 </HeadingBlock>
 
-                <ParagraphBlock className="text-muted-foreground">
+                <ParagraphBlock className="wp-pattern-why-choose-us__feature-description">
                   {feature.description}
                 </ParagraphBlock>
               </div>

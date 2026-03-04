@@ -19,8 +19,14 @@
    ============================================ */
 
 .wp-pattern-editorial {
-  padding-block: var(--spacing-section-md);
+  padding-block: var(--spacing-section-sm);
   background-color: var(--background);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-editorial {
+    padding-block: var(--spacing-section-md);
+  }
 }
 
 /* ============================================
@@ -98,9 +104,15 @@
 
 .wp-pattern-editorial__prose {
   font-family: var(--font-family-noto-sans);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
   color: var(--foreground);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-editorial__prose {
+    font-size: var(--text-base);
+  }
 }
 
 /* Headings within prose */
@@ -108,18 +120,30 @@
   margin-block-start: 2rem;
   margin-block-end: 1rem;
   font-family: var(--font-family-lora);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-editorial__prose h2 {
+    font-size: var(--text-2xl);
+  }
 }
 
 .wp-pattern-editorial__prose h3 {
   margin-block-start: 1.5rem;
   margin-block-end: 0.75rem;
   font-family: var(--font-family-lora);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-weight-medium);
   color: var(--foreground);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-editorial__prose h3 {
+    font-size: var(--text-xl);
+  }
 }
 
 .wp-pattern-editorial__prose h4 {
@@ -170,12 +194,19 @@
 /* Blockquotes */
 .wp-pattern-editorial__prose blockquote {
   margin-block: 1.5rem;
-  padding-inline-start: 1.5rem;
+  padding-inline-start: var(--spacing-element-sm);
   border-inline-start: 4px solid var(--primary);
   font-family: var(--font-family-lora);
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   font-style: italic;
   color: var(--muted-foreground);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-editorial__prose blockquote {
+    font-size: var(--text-lg);
+    padding-inline-start: var(--spacing-element-md);
+  }
 }
 
 .wp-pattern-editorial__prose blockquote cite {
@@ -285,10 +316,16 @@
 
 .wp-pattern-editorial__pullquote-text {
   font-family: var(--font-family-lora);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: var(--font-weight-medium);
   line-height: var(--leading-snug);
   color: var(--foreground);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-editorial__pullquote-text {
+    font-size: var(--text-2xl);
+  }
 }
 
 .wp-pattern-editorial__pullquote-cite {
@@ -343,35 +380,8 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile optimizations
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 640px) {
-  .wp-pattern-editorial {
-    padding-block: var(--spacing-section-sm);
-  }
-
-  .wp-pattern-editorial__prose {
-    font-size: var(--text-sm);
-  }
-
-  .wp-pattern-editorial__prose h2 {
-    font-size: var(--text-xl);
-  }
-
-  .wp-pattern-editorial__prose h3 {
-    font-size: var(--text-lg);
-  }
-
-  .wp-pattern-editorial__prose blockquote {
-    font-size: var(--text-base);
-    padding-inline-start: 1rem;
-  }
-
-  .wp-pattern-editorial__pullquote-text {
-    font-size: var(--text-xl);
-  }
-}
 
 /* ============================================
    ANIMATION STATES

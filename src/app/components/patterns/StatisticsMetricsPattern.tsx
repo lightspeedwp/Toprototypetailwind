@@ -1,8 +1,11 @@
 /**
  * Statistics & Metrics Pattern - WordPress BEM CSS Version
- * 
+ *
  * Displays key metrics and achievements in a high-impact responsive grid.
- * 
+ *
+ * **WordPress CSS:**
+ * Uses BEM classes from `/src/styles/patterns/statistics.css`
+ *
  * @module StatisticsMetricsPattern
  * @category patterns
  */
@@ -47,25 +50,21 @@ export function StatisticsMetricsPattern({
     icon: undefined,
   }));
 
-  const gridColumns = {
-    2: "grid-cols-1 md:grid-cols-2",
-    3: "grid-cols-1 md:grid-cols-3",
-    4: "grid-cols-2 md:grid-cols-4",
-  }[columns];
+  const gridModifier = `wp-pattern-statistics__grid--cols-${columns}`;
 
   return (
-    <section className={cn("py-section-md bg-muted/30 border-y border-border/50", className)}>
+    <section className={cn("wp-pattern-statistics", className)}>
       <Container>
         {/* Section Header */}
         {(title || description) && (
-          <div className="text-center mb-16">
+          <div className="wp-pattern-statistics__header">
             {title && (
               <HeadingBlock level={2} textAlign="center">
                 {title}
               </HeadingBlock>
             )}
             {description && (
-              <ParagraphBlock className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              <ParagraphBlock className="wp-pattern-statistics__description">
                 {description}
               </ParagraphBlock>
             )}
@@ -73,36 +72,42 @@ export function StatisticsMetricsPattern({
         )}
 
         {/* Statistics Grid */}
-        <div className={cn("grid gap-12 md:gap-8", gridColumns)}>
+        <div className={cn("wp-pattern-statistics__grid", gridModifier)}>
           {statistics.map((stat, index) => {
             const Icon = stat.icon;
-            
+
             return (
-              <div key={index} className="flex flex-col items-center text-center group">
+              <div key={index} className="wp-pattern-statistics__item">
                 {/* Icon (optional) */}
                 {Icon && (
-                  <div className="flex justify-center mb-6">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                  <div className="wp-pattern-statistics__icon-wrapper">
+                    <div className="wp-pattern-statistics__icon">
                       <Icon size={24} />
                     </div>
                   </div>
                 )}
 
                 {/* Statistic Value */}
-                <div className="mb-2 relative">
-                  <span 
-                    className="text-primary text-fluid-5xl md:text-fluid-6xl font-bold leading-none font-serif tracking-tighter"
-                  >
-                    {stat.prefix && <span className="text-fluid-3xl md:text-fluid-4xl mr-1 opacity-60 font-sans">{stat.prefix}</span>}
+                <div className="wp-pattern-statistics__value-wrapper">
+                  <span className="wp-pattern-statistics__value">
+                    {stat.prefix && (
+                      <span className="wp-pattern-statistics__value-affix wp-pattern-statistics__value-affix--prefix">
+                        {stat.prefix}
+                      </span>
+                    )}
                     {stat.value}
-                    {stat.suffix && <span className="text-fluid-3xl md:text-fluid-4xl ml-1 opacity-60 font-sans">{stat.suffix}</span>}
+                    {stat.suffix && (
+                      <span className="wp-pattern-statistics__value-affix wp-pattern-statistics__value-affix--suffix">
+                        {stat.suffix}
+                      </span>
+                    )}
                   </span>
                   {/* Underline decorative element */}
-                  <div className="h-1.5 w-12 bg-accent/30 mx-auto mt-4 rounded-full group-hover:w-20 transition-all duration-500" />
+                  <div className="wp-pattern-statistics__underline" />
                 </div>
 
                 {/* Statistic Label */}
-                <p className="text-muted-foreground font-sans font-semibold text-xs md:text-sm uppercase tracking-widest mt-4">
+                <p className="wp-pattern-statistics__label">
                   {stat.label}
                 </p>
               </div>

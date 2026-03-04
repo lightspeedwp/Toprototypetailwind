@@ -28,7 +28,7 @@
    ============================================ */
 
 .wp-template-single-tour__hero {
-  min-height: 60vh;
+  min-height: 50vh;
   display: flex;
   align-items: flex-end;
   padding-block: var(--spacing-section-lg);
@@ -48,6 +48,12 @@
   position: relative;
   z-index: 2;
   color: white;
+}
+
+@media (min-width: 768px) {
+  .wp-template-single-tour__hero {
+    min-height: 60vh;
+  }
 }
 
 /* ============================================
@@ -72,7 +78,7 @@
 
 .wp-template-single-tour__layout {
   display: grid;
-  gap: 2rem;
+  gap: var(--spacing-gap-lg);
   grid-template-columns: 1fr;
 }
 
@@ -80,7 +86,7 @@
 @media (min-width: 1024px) {
   .wp-template-single-tour__layout {
     grid-template-columns: 2fr 1fr;
-    gap: 3rem;
+    gap: var(--spacing-gap-xl);
   }
 }
 
@@ -95,15 +101,21 @@
 
 /* Overview section */
 .wp-template-single-tour__overview {
-  margin-bottom: 3rem;
+  padding-bottom: var(--spacing-section-sm);
 }
 
 .wp-template-single-tour__overview-title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-element-md);
+}
+
+@media (min-width: 768px) {
+  .wp-template-single-tour__overview-title {
+    font-size: var(--text-3xl);
+  }
 }
 
 .wp-template-single-tour__overview-content {
@@ -115,7 +127,7 @@
 
 /* Itinerary section */
 .wp-template-single-tour__itinerary {
-  margin-bottom: 3rem;
+  padding-bottom: var(--spacing-section-sm);
 }
 
 .wp-template-single-tour__itinerary-title {
@@ -123,12 +135,12 @@
   font-size: var(--text-3xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-element-md);
 }
 
 /* Inclusions/Exclusions */
 .wp-template-single-tour__inclusions {
-  margin-bottom: 3rem;
+  padding-bottom: var(--spacing-section-sm);
 }
 
 .wp-template-single-tour__inclusions-title {
@@ -136,12 +148,12 @@
   font-size: var(--text-3xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-element-md);
 }
 
 /* Gallery section */
 .wp-template-single-tour__gallery {
-  margin-bottom: 3rem;
+  padding-bottom: var(--spacing-section-sm);
 }
 
 .wp-template-single-tour__gallery-title {
@@ -149,7 +161,7 @@
   font-size: var(--text-3xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-element-md);
 }
 
 /* ============================================
@@ -158,18 +170,24 @@
    ============================================ */
 
 .wp-template-single-tour__sidebar {
-  /* Sidebar column */
+  order: -1; /* Sidebar above content on mobile */
+}
+
+@media (min-width: 1024px) {
+  .wp-template-single-tour__sidebar {
+    order: 0; /* Normal order on desktop */
+  }
 }
 
 /* Sticky wrapper for booking card */
 .wp-template-single-tour__sidebar-sticky {
-  position: sticky;
-  top: calc(64px + 1rem); /* Below header + gap */
+  position: static; /* Not sticky on mobile */
 }
 
 @media (min-width: 1024px) {
   .wp-template-single-tour__sidebar-sticky {
-    top: calc(80px + 1rem); /* Desktop header height + gap */
+    position: sticky;
+    top: calc(var(--header-bar-height) + var(--spacing-element-sm));
   }
 }
 
@@ -178,9 +196,9 @@
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: var(--spacing-element-md);
   box-shadow: var(--elevation-sm);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-element-md);
 }
 
 .wp-template-single-tour__booking-price {
@@ -188,19 +206,19 @@
   font-size: var(--text-3xl);
   font-weight: var(--font-weight-bold);
   color: var(--primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-element-xs);
 }
 
 .wp-template-single-tour__booking-price-label {
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-sm);
   color: var(--muted-foreground);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-element-md);
 }
 
 .wp-template-single-tour__booking-button {
   width: 100%;
-  padding-block: 1rem;
+  padding-block: var(--spacing-element-sm);
   background-color: var(--primary);
   color: var(--primary-foreground);
   border-radius: var(--radius-md);
@@ -209,12 +227,12 @@
   font-weight: var(--font-weight-medium);
   border: none;
   cursor: pointer;
-  transition: all 200ms;
+  transition: all var(--transition-base);
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--spacing-element-xs);
   min-height: 48px;
 }
 
@@ -227,8 +245,8 @@
 .wp-template-single-tour__info-card {
   background-color: var(--muted);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: var(--spacing-element-md);
+  margin-bottom: var(--spacing-element-md);
 }
 
 .wp-template-single-tour__info-title {
@@ -236,7 +254,7 @@
   font-size: var(--text-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-element-sm);
 }
 
 .wp-template-single-tour__info-list {
@@ -245,13 +263,13 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--spacing-element-sm);
 }
 
 .wp-template-single-tour__info-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
+  gap: var(--spacing-element-sm);
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-sm);
   color: var(--foreground);
@@ -260,7 +278,7 @@
 .wp-template-single-tour__info-icon {
   color: var(--primary);
   flex-shrink: 0;
-  margin-top: 0.125rem;
+  padding-top: var(--spacing-element-xxs);
 }
 
 /* ============================================
@@ -279,13 +297,13 @@
   font-size: var(--text-3xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-element-lg);
   text-align: center;
 }
 
 .wp-template-single-tour__related-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: var(--spacing-gap-md);
   grid-template-columns: 1fr;
 }
 
@@ -329,46 +347,15 @@
    ============================================ */
 
 .wp-template-single-tour__breadcrumbs {
-  padding-block: 1rem;
+  padding-block: var(--spacing-element-sm);
   background-color: var(--muted);
   border-bottom: 1px solid var(--border);
 }
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile-specific overrides
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 1023px) {
-  .wp-template-single-tour__layout {
-    grid-template-columns: 1fr;
-  }
-
-  .wp-template-single-tour__sidebar {
-    order: -1; /* Sidebar above content on mobile */
-  }
-
-  .wp-template-single-tour__sidebar-sticky {
-    position: static; /* Not sticky on mobile */
-  }
-}
-
-@media (max-width: 767px) {
-  .wp-template-single-tour__hero {
-    min-height: 50vh;
-  }
-
-  .wp-template-single-tour__overview-title,
-  .wp-template-single-tour__itinerary-title,
-  .wp-template-single-tour__inclusions-title,
-  .wp-template-single-tour__gallery-title {
-    font-size: var(--text-2xl);
-  }
-
-  .wp-template-single-tour__related-title {
-    font-size: var(--text-2xl);
-  }
-}
 
 /* ============================================
    END OF TOUR SINGLE STYLES

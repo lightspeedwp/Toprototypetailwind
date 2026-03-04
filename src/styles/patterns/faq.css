@@ -17,8 +17,14 @@
    ============================================ */
 
 .wp-pattern-faq {
-  padding-block: var(--spacing-section-sm);
+  padding-block: var(--spacing-section-xs);
   background-color: var(--background);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-faq {
+    padding-block: var(--spacing-section-sm);
+  }
 }
 
 @media (min-width: 768px) {
@@ -40,9 +46,15 @@
 .wp-pattern-faq__title {
   margin-block-end: 1rem;
   font-family: var(--font-family-lora);
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-faq__title {
+    font-size: var(--text-3xl);
+  }
 }
 
 .wp-pattern-faq__intro {
@@ -72,12 +84,18 @@
    ============================================ */
 
 .wp-pattern-faq__item {
-  padding-inline: 1.5rem;
+  padding-inline: var(--spacing-element-sm);
   background-color: var(--card);
   color: var(--card-foreground);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--elevation-sm);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-faq__item {
+    padding-inline: var(--spacing-element-md);
+  }
 }
 
 /* ============================================
@@ -92,7 +110,7 @@
   width: 100%;
   padding-block: 1rem;
   font-family: var(--font-family-lora);
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   color: var(--foreground);
   text-align: left;
@@ -100,6 +118,12 @@
   transition: color 200ms ease;
   border: none;
   background: transparent;
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-faq__trigger {
+    font-size: var(--text-lg);
+  }
 }
 
 .wp-pattern-faq__trigger:hover {
@@ -139,9 +163,15 @@
   overflow: hidden;
   padding-block-end: 1rem;
   font-family: var(--font-family-noto-sans);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted-foreground);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-faq__content {
+    font-size: var(--text-base);
+  }
 }
 
 /* Animation states (handled by Radix UI) */
@@ -244,30 +274,8 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile optimizations
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 640px) {
-  .wp-pattern-faq {
-    padding-block: var(--spacing-section-xs);
-  }
-
-  .wp-pattern-faq__title {
-    font-size: var(--text-2xl);
-  }
-
-  .wp-pattern-faq__item {
-    padding-inline: 1rem;
-  }
-
-  .wp-pattern-faq__trigger {
-    font-size: var(--text-base);
-  }
-
-  .wp-pattern-faq__content {
-    font-size: var(--text-sm);
-  }
-}
 
 /* ============================================
    ACCESSIBILITY

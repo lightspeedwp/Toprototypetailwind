@@ -55,7 +55,7 @@ export function ViewAllButton({
         variant={variant}
         size="default"
         onClick={onClick}
-        icon={<ArrowRight className="w-4 h-4" />}
+        icon={<ArrowRight className="wp-view-all__icon" />}
         iconPosition="right"
         className="wp-view-all__button"
       >

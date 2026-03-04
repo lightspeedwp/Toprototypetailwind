@@ -361,7 +361,7 @@ If you're about to write React/CSS code, read this first.
 - [ ] No hex colors (`#4a7311`, `#ffffff`)
 - [ ] No RGB colors (`rgb(74, 115, 17)`)
 - [ ] No color names (`white`, `green`, `black`)
-- [ ] No inline styles (`style={{...}}`)
+- [ ] No inline styles (`style={{...}}`) — use CSS custom property pattern for dynamic values
 - [ ] No `dark:` classes
 - [ ] Only uses Lora, Noto Sans, or Courier New
 - [ ] Uses BEM naming (`.wp-pattern-*`)
@@ -369,6 +369,9 @@ If you're about to write React/CSS code, read this first.
 - [ ] CSS imported in global.css
 - [ ] Uses CSS variables for all colors
 - [ ] Uses CSS variables or Tailwind for spacing
+- [ ] No `href="#"` placeholder links — use `<button>` or real routes
+- [ ] All `<img>` elements have appropriate `alt` text
+- [ ] External links have `target="_blank"` + `rel="noopener noreferrer"` + `aria-label`
 - [ ] Tested in light mode
 - [ ] Tested in dark mode
 - [ ] Customization works (change CSS variable, see update)
@@ -536,6 +539,192 @@ h1 {
 - ✅ Test in dark mode
 - ✅ Test customization (change CSS var)
 - ✅ Run audit script
+
+---
+
+## 🖼️ Image Alt Text - Mandatory Rules
+
+**Updated:** March 4, 2026
+
+### ✅ CORRECT - Descriptive Alt Text
+
+**Meaningful images MUST have descriptive `alt` text:**
+```tsx
+// ✅ Descriptive alt for content images
+<img src={user.avatar} alt={`Photo of ${user.name}`} />
+<img src={tour.image} alt="Safari landscape in Kruger National Park" />
+```
+
+**Decorative images MUST use `alt=""` with `aria-hidden="true"`:**
+```tsx
+// ✅ Decorative/background images
+<img src={bgImage} alt="" aria-hidden="true" className="wp-pattern-cta__background-image" />
+```
+
+### ❌ FORBIDDEN - Missing or Lazy Alt Text
+
+```tsx
+// ❌ No alt attribute at all
+<img src={photo} />
+
+// ❌ Empty alt on meaningful images
+<img src={user.avatar} alt="" />
+
+// ❌ Generic/useless alt text
+<img src={destination.hero} alt="image" />
+<img src={tour.photo} alt="photo" />
+```
+
+### Rules:
+1. **Content images** → descriptive `alt` text (what the image shows)
+2. **Decorative images** → `alt=""` + `aria-hidden="true"`
+3. **Avatar/profile images** → `alt="Photo of {name}"`
+4. **Never omit** the `alt` attribute entirely
+
+---
+
+## 🔗 Broken Links Prevention - Mandatory Rules
+
+**Updated:** March 4, 2026
+
+### ✅ CORRECT - Semantic Link Handling
+
+**Links with real destinations:**
+```tsx
+// ✅ Internal page routes
+<a href="/terms-conditions">Terms & Conditions</a>
+<a href="/privacy-policy">Privacy Policy</a>
+
+// ✅ External links with security attributes
+<a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+  <FacebookIcon />
+</a>
+```
+
+**Interactive elements WITHOUT navigation:**
+```tsx
+// ✅ Use <button> for state-based actions
+<button type="button" onClick={() => onPageChange(page)}>
+  {page}
+</button>
+
+// ✅ Non-interactive display (addresses, labels)
+<div className="flex items-center gap-3">
+  <MapPinIcon /> <span>123 Travel St</span>
+</div>
+```
+
+### ❌ FORBIDDEN - Placeholder Links
+
+```tsx
+// ❌ NEVER use href="#"
+<a href="#">Click me</a>
+<a href="#" onClick={(e) => { e.preventDefault(); doSomething(); }}>Action</a>
+
+// ❌ NEVER use empty href
+<a href="">Link</a>
+
+// ❌ NEVER use javascript: void
+<a href="javascript:void(0)">Action</a>
+```
+
+### Decision Tree:
+1. **Has a URL destination?** → Use `<a href="/real-route">`
+2. **Triggers a JS action?** → Use `<button type="button" onClick={...}>`
+3. **External URL?** → Add `target="_blank"` + `rel="noopener noreferrer"` + `aria-label`
+4. **Display-only (no interaction)?** → Use `<span>` or `<div>`, not `<a>`
+
+---
+
+## 🎨 Dynamic Styling Pattern - CSS Custom Properties
+
+**Updated:** March 4, 2026
+
+When a component needs **runtime-dynamic values** (calculated in JavaScript), use the **CSS Custom Property pattern** instead of inline `style={{}}` attributes.
+
+### ✅ CORRECT - CSS Custom Property Pattern
+
+**Step 1: Pass dynamic values as CSS variables in JSX:**
+```tsx
+// ✅ Dynamic grid columns
+<div
+  className="grid gap-6"
+  style={{ '--grid-columns': columnCount } as React.CSSProperties}
+>
+
+// ✅ Dynamic background image + overlay
+<div
+  className="wp-group-block"
+  style={{
+    '--group-bg-image': `url(${imageUrl})`,
+    '--overlay-opacity': 0.6,
+  } as React.CSSProperties}
+>
+
+// ✅ Dynamic logo width
+<img
+  className="wp-common-logo"
+  style={{ '--logo-width': width } as React.CSSProperties}
+/>
+```
+
+**Step 2: Reference the CSS variable in CSS:**
+```css
+/* Grid columns */
+.grid[style*="--grid-columns"] {
+  grid-template-columns: repeat(var(--grid-columns, 3), minmax(0, 1fr));
+}
+
+/* Background image */
+[style*="--group-bg-image"] {
+  background-image: var(--group-bg-image);
+}
+
+/* Overlay opacity */
+.wp-group-block__overlay {
+  opacity: var(--overlay-opacity, 0.5);
+}
+
+/* Logo width */
+.wp-common-logo {
+  width: var(--logo-width, auto);
+}
+```
+
+### ❌ FORBIDDEN - Direct Inline Styles
+
+```tsx
+// ❌ Direct CSS property in style
+<div style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}>
+<div style={{ opacity: overlayOpacity }}>
+<img style={{ width: logoWidth }}>
+```
+
+### Exempt Categories (No Conversion Needed):
+
+| Category | Example | Reason |
+|----------|---------|--------|
+| **motion/react** animation | `<motion.div style={{ y }}>` | Motion library requires `style` prop |
+| **shadcn/ui** internals | `progress.tsx`, `chart.tsx` | Third-party library code |
+| **Touch/gesture** handlers | `SwipeableCard.tsx`, `BottomSheet.tsx` | Rapid frame-by-frame updates |
+| **Dev tool** specimens | `SpacingScale.tsx`, `RadiusSpecimens.tsx` | Already using `var()` references |
+
+### ESLint Enforcement (Proposed):
+
+```json
+{
+  "rules": {
+    "react/forbid-dom-props": ["warn", {
+      "forbid": [{
+        "propName": "style",
+        "message": "Use CSS custom properties pattern: style={{ '--my-var': value }} + CSS var(). See /docs/DESIGN-SYSTEM-ENFORCEMENT.md"
+      }]
+    }]
+  }
+}
+```
+
+**Note:** This rule should be set to `"warn"` (not `"error"`) to accommodate the exempt categories above. Exempted files can use `// eslint-disable-next-line react/forbid-dom-props` with a comment explaining the exemption.
 
 ---
 

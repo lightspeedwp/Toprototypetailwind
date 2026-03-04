@@ -93,6 +93,12 @@
   margin-block-end: var(--spacing-element-lg);
 }
 
+/* Accent word in title */
+.wp-pattern-conservation__title-accent {
+  color: var(--primary);
+  font-style: italic;
+}
+
 /* ============================================
    HIGHLIGHTS LIST
    ============================================ */

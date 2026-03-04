@@ -59,11 +59,17 @@
 
 .wp-template-page-about__title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-5xl);
+  font-size: var(--text-4xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--leading-tight);
   color: var(--foreground);
   margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-about__title {
+    font-size: var(--text-5xl);
+  }
 }
 
 .wp-template-page-about__hero--with-image .wp-template-page-about__title {
@@ -72,11 +78,17 @@
 
 .wp-template-page-about__subtitle {
   font-family: var(--font-family-noto-sans);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted-foreground);
   max-width: 42rem;
   margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-about__subtitle {
+    font-size: var(--text-xl);
+  }
 }
 
 .wp-template-page-about__hero--with-image .wp-template-page-about__subtitle {
@@ -168,11 +180,17 @@
 
 .wp-template-page-about__values-title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-4xl);
+  font-size: var(--text-3xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
   text-align: center;
   margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-about__values-title {
+    font-size: var(--text-4xl);
+  }
 }
 
 .wp-template-page-about__values-grid {
@@ -241,11 +259,17 @@
 
 .wp-template-page-about__team-title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-4xl);
+  font-size: var(--text-3xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
   text-align: center;
   margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-about__team-title {
+    font-size: var(--text-4xl);
+  }
 }
 
 .wp-template-page-about__team-grid {
@@ -307,11 +331,17 @@
 
 .wp-template-page-about__statistic-value {
   font-family: var(--font-family-lora);
-  font-size: var(--text-5xl);
+  font-size: var(--text-4xl);
   font-weight: var(--font-weight-bold);
   color: var(--primary-foreground);
   margin-bottom: 0.5rem;
   line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-about__statistic-value {
+    font-size: var(--text-5xl);
+  }
 }
 
 .wp-template-page-about__statistic-label {
@@ -333,11 +363,17 @@
 
 .wp-template-page-about__timeline-title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-4xl);
+  font-size: var(--text-3xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
   text-align: center;
   margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-about__timeline-title {
+    font-size: var(--text-4xl);
+  }
 }
 
 .wp-template-page-about__timeline-list {
@@ -437,32 +473,8 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile-specific overrides
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 767px) {
-  .wp-template-page-about__hero {
-    min-height: 40vh;
-  }
-
-  .wp-template-page-about__title {
-    font-size: var(--text-4xl);
-  }
-
-  .wp-template-page-about__subtitle {
-    font-size: var(--text-lg);
-  }
-
-  .wp-template-page-about__values-title,
-  .wp-template-page-about__team-title,
-  .wp-template-page-about__timeline-title {
-    font-size: var(--text-3xl);
-  }
-
-  .wp-template-page-about__statistic-value {
-    font-size: var(--text-4xl);
-  }
-}
 
 /* ============================================
    END OF ABOUT PAGE STYLES

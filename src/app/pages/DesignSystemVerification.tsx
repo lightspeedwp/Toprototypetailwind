@@ -345,7 +345,7 @@ export default function DesignSystemVerification() {
             <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-4 mb-2">
-                  <div className="h-16 bg-primary rounded" style={{ width: '8px' }}></div>
+                  <div className="h-16 bg-primary rounded w-2"></div>
                   <div>
                     <p className="font-sans font-medium">Small Section</p>
                     <code className="text-xs text-muted-foreground">
@@ -356,7 +356,7 @@ export default function DesignSystemVerification() {
               </div>
               <div>
                 <div className="flex items-center gap-4 mb-2">
-                  <div className="h-24 bg-primary rounded" style={{ width: '8px' }}></div>
+                  <div className="h-24 bg-primary rounded w-2"></div>
                   <div>
                     <p className="font-sans font-medium">Medium Section</p>
                     <code className="text-xs text-muted-foreground">
@@ -367,7 +367,7 @@ export default function DesignSystemVerification() {
               </div>
               <div>
                 <div className="flex items-center gap-4 mb-2">
-                  <div className="h-32 bg-primary rounded" style={{ width: '8px' }}></div>
+                  <div className="h-32 bg-primary rounded w-2"></div>
                   <div>
                     <p className="font-sans font-medium">Large Section</p>
                     <code className="text-xs text-muted-foreground">

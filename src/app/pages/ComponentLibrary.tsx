@@ -533,7 +533,7 @@ export function ComponentLibrary() {
         <section className="mt-16 p-8 bg-muted/50 rounded-lg">
           <h2 className="mb-6 text-center">Learn More</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <a href="#" className="wp-doc-link">
+            <div className="wp-doc-link">
               <div className="wp-doc-link__icon">
                 <Type className="w-6 h-6" />
               </div>
@@ -541,8 +541,8 @@ export function ComponentLibrary() {
               <p className="wp-doc-link__description">
                 Learn how to build new components
               </p>
-            </a>
-            <a href="#" className="wp-doc-link">
+            </div>
+            <div className="wp-doc-link">
               <div className="wp-doc-link__icon">
                 <Palette className="w-6 h-6" />
               </div>
@@ -550,8 +550,8 @@ export function ComponentLibrary() {
               <p className="wp-doc-link__description">
                 Complete CSS variables reference
               </p>
-            </a>
-            <a href="#" className="wp-doc-link">
+            </div>
+            <div className="wp-doc-link">
               <div className="wp-doc-link__icon">
                 <Layout className="w-6 h-6" />
               </div>
@@ -559,7 +559,7 @@ export function ComponentLibrary() {
               <p className="wp-doc-link__description">
                 Migrate existing components
               </p>
-            </a>
+            </div>
           </div>
         </section>
       </Container>

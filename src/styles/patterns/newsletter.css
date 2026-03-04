@@ -107,8 +107,8 @@
 .wp-pattern-newsletter__input {
   width: 100%;
   padding-inline-start: 4rem;
-  padding-inline-end: 12rem;
-  padding-block: 1.25rem;
+  padding-inline-end: 1.5rem;
+  padding-block: 1rem;
   border-radius: var(--radius-2xl);
   background-color: var(--card);
   border: 2px solid var(--border);
@@ -131,14 +131,33 @@
 }
 
 .wp-pattern-newsletter__submit-wrapper {
-  position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
-  bottom: 0.5rem;
+  position: static;
+  margin-block-start: var(--spacing-element-xs);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-newsletter__input {
+    padding-inline-end: 12rem;
+    padding-block: 1.25rem;
+  }
+
+  .wp-pattern-newsletter__submit-wrapper {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    margin-block-start: 0;
+  }
 }
 
 .wp-pattern-newsletter__submit-wrapper .wp-block-button {
-  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-newsletter__submit-wrapper .wp-block-button {
+    width: auto;
+  }
 }
 
 /* ============================================
@@ -158,21 +177,5 @@
 }
 
 /* ============================================
-   RESPONSIVE: STACKED BUTTON ON MOBILE
+   RESPONSIVE: Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 640px) {
-  .wp-pattern-newsletter__input {
-    padding-inline-end: 1.5rem;
-    padding-block: 1rem;
-  }
-
-  .wp-pattern-newsletter__submit-wrapper {
-    position: static;
-    margin-block-start: var(--spacing-element-xs);
-  }
-
-  .wp-pattern-newsletter__submit-wrapper .wp-block-button {
-    width: 100%;
-  }
-}

@@ -36,20 +36,32 @@
 
 .wp-template-page-contact__title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-5xl);
+  font-size: var(--text-4xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--leading-tight);
   color: var(--foreground);
   margin-bottom: 1rem;
 }
 
+@media (min-width: 768px) {
+  .wp-template-page-contact__title {
+    font-size: var(--text-5xl);
+  }
+}
+
 .wp-template-page-contact__subtitle {
   font-family: var(--font-family-noto-sans);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted-foreground);
   max-width: 42rem;
   margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-contact__subtitle {
+    font-size: var(--text-xl);
+  }
 }
 
 /* ============================================
@@ -117,7 +129,13 @@
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-contact__form-wrapper {
+    padding: 2rem;
+  }
 }
 
 .wp-template-page-contact__form-title {
@@ -228,6 +246,13 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  order: -1; /* Sidebar above form on mobile */
+}
+
+@media (min-width: 1024px) {
+  .wp-template-page-contact__sidebar {
+    order: 0;
+  }
 }
 
 /* Info card */
@@ -404,7 +429,13 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border);
-  height: 400px;
+  height: 300px;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-contact__map-wrapper {
+    height: 400px;
+  }
 }
 
 .wp-template-page-contact__map-iframe {
@@ -460,36 +491,8 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile-specific overrides
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 1023px) {
-  .wp-template-page-contact__layout {
-    grid-template-columns: 1fr;
-  }
-
-  .wp-template-page-contact__sidebar {
-    order: -1; /* Sidebar above form on mobile */
-  }
-}
-
-@media (max-width: 767px) {
-  .wp-template-page-contact__title {
-    font-size: var(--text-4xl);
-  }
-
-  .wp-template-page-contact__subtitle {
-    font-size: var(--text-lg);
-  }
-
-  .wp-template-page-contact__form-wrapper {
-    padding: 1.5rem;
-  }
-
-  .wp-template-page-contact__map-wrapper {
-    height: 300px;
-  }
-}
 
 /* ============================================
    END OF CONTACT PAGE STYLES

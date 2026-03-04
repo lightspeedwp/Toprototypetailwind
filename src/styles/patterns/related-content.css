@@ -17,9 +17,15 @@
    ============================================ */
 
 .wp-pattern-related {
-  padding-block: var(--spacing-section-md);
+  padding-block: var(--spacing-section-sm);
   background-color: var(--muted);
   border-block: 1px solid var(--border);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-related {
+    padding-block: var(--spacing-section-md);
+  }
 }
 
 /* ============================================
@@ -35,9 +41,15 @@
 .wp-pattern-related__title {
   margin-block-end: 0.5rem;
   font-family: var(--font-family-lora);
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   font-weight: var(--font-weight-semibold);
   color: var(--foreground);
+}
+
+@media (min-width: 641px) {
+  .wp-pattern-related__title {
+    font-size: var(--text-3xl);
+  }
 }
 
 .wp-pattern-related__description {
@@ -56,12 +68,13 @@
 .wp-pattern-related__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: var(--spacing-element-sm);
 }
 
 @media (min-width: 768px) {
   .wp-pattern-related__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-gap-md);
   }
 }
 
@@ -157,22 +170,8 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile optimizations
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 640px) {
-  .wp-pattern-related {
-    padding-block: var(--spacing-section-sm);
-  }
-
-  .wp-pattern-related__title {
-    font-size: var(--text-2xl);
-  }
-
-  .wp-pattern-related__grid {
-    gap: 1rem;
-  }
-}
 
 /* ============================================
    ANIMATION STATES

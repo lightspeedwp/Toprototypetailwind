@@ -18,6 +18,7 @@
 - A) **Exempt** — These are prose-flow margins, consistent with the exemption. Leave as-is.
 - B) **Migrate** — Convert editorial-content pattern to a flex-column with gap. Would change the spacing model.
 **Recommendation:** Option A (exempt). These are semantic prose elements within an editorial content block, which is the exact use case the exemption was designed for.
+**Decision:** ✅ **Option A — EXEMPT.** Confirmed 2026-03-04. These `margin-block` values on `blockquote`, `table`, `figure`, `hr`, `ul`, `ol` within editorial-content.css are semantic prose flow margins, explicitly covered by the Zero Margin policy exemption for editorial prose. No migration needed.
 
 ---
 

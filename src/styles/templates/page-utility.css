@@ -38,20 +38,32 @@
 
 .wp-template-page-utility__title {
   font-family: var(--font-family-lora);
-  font-size: var(--text-5xl);
+  font-size: var(--text-4xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--leading-tight);
   color: var(--foreground);
   margin-bottom: 1rem;
 }
 
+@media (min-width: 768px) {
+  .wp-template-page-utility__title {
+    font-size: var(--text-5xl);
+  }
+}
+
 .wp-template-page-utility__subtitle {
   font-family: var(--font-family-noto-sans);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted-foreground);
   max-width: 42rem;
   margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-utility__subtitle {
+    font-size: var(--text-xl);
+  }
 }
 
 .wp-template-page-utility__meta {
@@ -78,9 +90,15 @@
 /* Editorial prose styling */
 .wp-template-page-utility__prose {
   font-family: var(--font-family-noto-sans);
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   line-height: var(--leading-relaxed);
   color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .wp-template-page-utility__prose {
+    font-size: var(--text-lg);
+  }
 }
 
 .wp-template-page-utility__prose h2 {
@@ -330,12 +348,24 @@
 }
 
 .wp-template-page-utility__sidebar {
-  /* Sidebar column */
+  order: -1; /* Sidebar above content on mobile */
+}
+
+@media (min-width: 1024px) {
+  .wp-template-page-utility__sidebar {
+    order: 0;
+  }
 }
 
 .wp-template-page-utility__sidebar-sticky {
-  position: sticky;
-  top: calc(80px + 1rem);
+  position: static;
+}
+
+@media (min-width: 1024px) {
+  .wp-template-page-utility__sidebar-sticky {
+    position: sticky;
+    top: calc(80px + 1rem);
+  }
 }
 
 .wp-template-page-utility__sidebar-widget {
@@ -410,52 +440,8 @@
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-   Mobile-specific overrides
+   Mobile-first — base styles are mobile, enhanced at breakpoints above
    ============================================ */
-
-@media (max-width: 1023px) {
-  .wp-template-page-utility__layout--with-sidebar {
-    grid-template-columns: 1fr;
-  }
-
-  .wp-template-page-utility__sidebar {
-    order: -1;
-  }
-
-  .wp-template-page-utility__sidebar-sticky {
-    position: static;
-  }
-}
-
-@media (max-width: 767px) {
-  .wp-template-page-utility__title {
-    font-size: var(--text-4xl);
-  }
-
-  .wp-template-page-utility__subtitle {
-    font-size: var(--text-lg);
-  }
-
-  .wp-template-page-utility__prose {
-    font-size: var(--text-base);
-  }
-
-  .wp-template-page-utility__prose h2 {
-    font-size: var(--text-2xl);
-  }
-
-  .wp-template-page-utility__prose h3 {
-    font-size: var(--text-xl);
-  }
-
-  .wp-template-page-utility__prose h4 {
-    font-size: var(--text-lg);
-  }
-
-  .wp-template-page-utility__prose table {
-    font-size: var(--text-sm);
-  }
-}
 
 /* ============================================
    SPECIFIC PAGE VARIANTS

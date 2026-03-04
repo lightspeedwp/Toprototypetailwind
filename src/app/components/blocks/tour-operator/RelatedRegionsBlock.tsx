@@ -19,6 +19,7 @@
  */
 
 import { MapPin } from "lucide-react";
+import './RelatedRegionsBlock.css';
 import { Container } from "../../common/Container";
 import { DESTINATIONS } from "../../../data/mock";
 import type { Destination } from "../../../data/types";
@@ -189,8 +190,8 @@ export function RelatedRegionsBlock({
           <div
             className="grid gap-6"
             style={{
-              gridTemplateColumns: `repeat(${Math.min(columns, 4)}, minmax(0, 1fr))`,
-            }}
+              '--grid-columns': Math.min(columns, 4),
+            } as React.CSSProperties}
           >
             {regions.map((region) => (
               <RegionGridItem
