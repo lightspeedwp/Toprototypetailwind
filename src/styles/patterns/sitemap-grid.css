@@ -3,13 +3,11 @@
  * 
  * BEM Structure: .wp-pattern-sitemap-grid__*
  * 
- * Handles light/dark mode using CSS variables aligned with WordPress theme.json.
- * NO dark: Tailwind classes - uses .dark selector instead.
- * 
  * All colors, typography, spacing, borders, and radius values use CSS variables
  * from theme-light.css and theme-dark.css for complete design system compliance.
+ * RGB companion tokens auto-switch between light and dark modes.
  * 
- * @version 1.0
+ * @version 2.0 — Eliminated .dark overrides; uses RGB companion tokens
  * @see /src/styles/theme-light.css
  * @see /src/styles/theme-dark.css
  */
@@ -33,12 +31,8 @@
 
 /* Hover state */
 .wp-pattern-sitemap-grid__link:hover {
-  background-color: rgba(74, 115, 17, 0.04); /* primary with 4% opacity - light mode */
+  background-color: rgba(var(--primary-rgb), 0.06);
   color: var(--primary);
-}
-
-.dark .wp-pattern-sitemap-grid__link:hover {
-  background-color: rgba(144, 186, 72, 0.08); /* dark mode primary with 8% opacity */
 }
 
 /* Focus state */
@@ -79,39 +73,23 @@
 
 /* Default background */
 .wp-pattern-sitemap-grid__section-icon--default {
-  background-color: rgba(74, 115, 17, 0.08); /* primary with 8% opacity - light mode */
-}
-
-.dark .wp-pattern-sitemap-grid__section-icon--default {
-  background-color: rgba(144, 186, 72, 0.12); /* dark mode primary with 12% opacity */
+  background-color: rgba(var(--primary-rgb), 0.1);
 }
 
 /* Primary variant */
 .wp-pattern-sitemap-grid__section-icon--primary {
-  background-color: rgba(74, 115, 17, 0.08); /* primary with 8% opacity - light mode */
+  background-color: rgba(var(--primary-rgb), 0.1);
   color: var(--primary);
-}
-
-.dark .wp-pattern-sitemap-grid__section-icon--primary {
-  background-color: rgba(144, 186, 72, 0.12); /* dark mode primary with 12% opacity */
 }
 
 /* Accent variant */
 .wp-pattern-sitemap-grid__section-icon--accent {
-  background-color: rgba(184, 122, 0, 0.08); /* accent with 8% opacity - light mode */
+  background-color: rgba(var(--accent-rgb), 0.1);
   color: var(--accent);
-}
-
-.dark .wp-pattern-sitemap-grid__section-icon--accent {
-  background-color: rgba(255, 183, 64, 0.12); /* dark mode accent with 12% opacity */
 }
 
 /* Secondary variant */
 .wp-pattern-sitemap-grid__section-icon--secondary {
-  background-color: rgba(92, 83, 64, 0.08); /* secondary with 8% opacity - light mode */
+  background-color: rgba(var(--secondary-rgb), 0.1);
   color: var(--secondary);
-}
-
-.dark .wp-pattern-sitemap-grid__section-icon--secondary {
-  background-color: rgba(168, 154, 122, 0.12); /* dark mode secondary with 12% opacity */
 }

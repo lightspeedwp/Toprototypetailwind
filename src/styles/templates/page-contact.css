@@ -190,7 +190,7 @@
 .wp-template-page-contact__form-select:focus {
   outline: none;
   border-color: var(--ring);
-  box-shadow: 0 0 0 2px rgba(var(--ring), 0.1);
+  box-shadow: 0 0 0 2px rgba(var(--ring-rgb), 0.1);
 }
 
 .wp-template-page-contact__form-textarea {
@@ -227,7 +227,7 @@
 }
 
 .wp-template-page-contact__form-submit:hover {
-  background-color: rgba(var(--primary), 0.9);
+  background-color: rgba(var(--primary-rgb), 0.9);
   transform: translateY(-1px);
 }
 

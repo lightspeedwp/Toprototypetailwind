@@ -1,7 +1,7 @@
 # Task List - Master Checklist
 
-**Last Updated:** March 4, 2026  
-**Status:** Active - Design System Contract Audit Complete, QA Refactor In Progress
+**Last Updated:** March 6, 2026  
+**Status:** Active - Design System Contract Audit Complete, Phase 7 Visual Regression Pending
 
 ---
 
@@ -20,8 +20,9 @@ For a complete index of all task files ordered by priority/sequence, see:
   - *Audit Report:* [/reports/2026-03-03-design-system-contract-audit.md](/reports/2026-03-03-design-system-contract-audit.md)
   - *Task List:* [design-system-contract-tasks.md](design-system-contract-tasks.md)
   - *Human Review:* [design-system-human-review.md](design-system-human-review.md)
-  - *Status:* Phases 1-6 Complete (95/95 tasks) | Phase 7 (Visual Regression) Pending Manual Testing
-  - *Findings:* 3 Critical, 63 High, 31 Medium, 21 Low
+  - *Status:* Phases 1-6 Complete (95/95 tasks) + card-grid.css v2.0 | Phase 7 (Visual Regression) Pending Manual Testing
+  - *Code Verification:* ✅ Zero max-width queries, zero href="#", zero non-exempt inline styles, all contrast ratios ≥ 7:1, all human review decisions resolved
+  - *Findings:* 3 Critical, 63 High, 31 Medium, 21 Low — All Critical + High RESOLVED
 
 ### Active Tasks — Prior Audit (February 2026)
 - [x] **Styles, Links & Assets Refactor:** Fix inline styles, broken links, and missing alt text. ✅ **ALL PHASES COMPLETE** 2026-03-04
@@ -217,43 +218,7 @@ Users can customize the **entire site** by editing just **3 CSS files**:
 
 ## 📚 Archived Task Lists
 
-All completed task lists have been moved to `/tasks/archive/`:
-
-### Migration Reports (Archived)
-- [PROJECT-COMPLETE.md](archive/PROJECT-COMPLETE.md) - Overall project completion summary
-- [phase-0-completion-report.md](archive/phase-0-completion-report.md) - Phase 0 report
-- [phase-1-completion-report.md](archive/phase-1-completion-report.md) - Phase 1 report
-- [phase-2-completion-report.md](archive/phase-2-completion-report.md) - Phase 2 report
-- [phase-2-complete-FINAL.md](archive/phase-2-complete-FINAL.md) - Phase 2 final
-- [phase-4-complete-summary.md](archive/phase-4-complete-summary.md) - Phase 4 summary
-- [phase-5-complete.md](archive/phase-5-complete.md) - Phase 5 complete
-- [phase-6-verification.md](archive/phase-6-verification.md) - Phase 6 verification
-
-### Wave Reports (Archived)
-- [wave-1-migration-complete.md](archive/wave-1-migration-complete.md)
-- [wave-2-complete.md](archive/wave-2-complete.md)
-- [wave-2-FINAL-complete.md](archive/wave-2-FINAL-complete.md)
-- [wave-3-complete.md](archive/wave-3-complete.md)
-- [wave-4-complete-FINAL.md](archive/wave-4-complete-FINAL.md)
-
-### Homepage Migration (Archived)
-- [homepage-migration-complete.md](archive/homepage-migration-complete.md)
-- [homepage-migration-complete-feb-25.md](archive/homepage-migration-complete-feb-25.md)
-- [HOMEPAGE-MIGRATION-GUIDE.md](archive/HOMEPAGE-MIGRATION-GUIDE.md)
-- [HOMEPAGE-MIGRATION-REPORT.md](archive/HOMEPAGE-MIGRATION-REPORT.md)
-- [HOMEPAGE-MIGRATION-EXAMPLES.md](archive/HOMEPAGE-MIGRATION-EXAMPLES.md)
-
-### Session Summaries (Archived)
-- [session-summary-feb-24-2026.md](archive/session-summary-feb-24-2026.md)
-- [continue-session-summary.md](archive/continue-session-summary.md)
-- [current-status-feb-25-2026.md](archive/current-status-feb-25-2026.md)
-- [progress-summary-feb-25-2026-final.md](archive/progress-summary-feb-25-2026-final.md)
-
-### Other Reports (Archived)
-- [tailwind-wordpress-migration-summary.md](archive/tailwind-wordpress-migration-summary.md)
-- [migration-progress-update.md](archive/migration-progress-update.md)
-- [three-page-migrations-report.md](archive/three-page-migrations-report.md)
-- [build-error-fix-summary.md](archive/build-error-fix-summary.md)
+73 completed task files (completion notices, session summaries, migration reports, phase/wave reports, and utility scripts) were deleted on March 6, 2026. A full manifest is recorded in `/tasks/archive/README.md`.
 
 ---
 
@@ -279,4 +244,4 @@ All completed task lists have been moved to `/tasks/archive/`:
 **Status:** ✅ **ALL PRIMARY TASKS COMPLETE** (100%)  
 **Root Cleanup:** ✅ 100% | **CSS Migration:** ✅ 100%  
 **Created:** February 25, 2026  
-**Last Updated:** March 4, 2026
+**Last Updated:** March 6, 2026

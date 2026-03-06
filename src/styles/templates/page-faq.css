@@ -100,7 +100,7 @@
 .wp-template-page-faq__search-input:focus {
   outline: none;
   border-color: var(--ring);
-  box-shadow: 0 0 0 2px rgba(var(--ring), 0.1);
+  box-shadow: 0 0 0 2px rgba(var(--ring-rgb), 0.1);
 }
 
 .wp-template-page-faq__search-input::placeholder {
@@ -120,7 +120,7 @@
   top: 64px; /* Mobile header height as base */
   z-index: 30;
   backdrop-filter: blur(8px);
-  background-color: rgba(var(--background), 0.95);
+  background-color: rgba(var(--background-rgb), 0.95);
 }
 
 @media (min-width: 1024px) {
@@ -467,7 +467,7 @@
 }
 
 .wp-template-page-faq__cta-button:hover {
-  background-color: rgba(var(--primary), 0.9);
+  background-color: rgba(var(--primary-rgb), 0.9);
   transform: translateY(-1px);
 }
 

@@ -337,7 +337,7 @@
 }
 
 .wp-template-home__view-all-button:hover {
-  background-color: rgba(var(--primary), 0.9);
+  background-color: rgba(var(--primary-rgb), 0.9);
   transform: translateY(-1px);
 }
 
@@ -512,7 +512,7 @@
 
 /* Special background for destinations (primary tint) */
 .bg-primary\/5 {
-  background-color: rgba(var(--primary), 0.05);
+  background-color: rgba(var(--primary-rgb), 0.05);
 }
 
 /* ============================================

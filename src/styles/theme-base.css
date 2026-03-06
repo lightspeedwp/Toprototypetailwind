@@ -181,6 +181,17 @@
   --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* ============================================================
+     OVERLAY TEXT TOKENS
+     Used for text rendered on top of dark image overlays
+     (rgba(0,0,0,...) backgrounds). Always white regardless of
+     light/dark theme because the overlay itself is always dark.
+     ============================================================ */
+
+  --overlay-text:       #FFFFFF;
+  --overlay-text-muted: rgba(255, 255, 255, 0.85);
+  --overlay-text-dim:   rgba(255, 255, 255, 0.8);
+
+  /* ============================================================
      Z-INDEX SCALE
      Consistent layering across the codebase.
      ============================================================ */

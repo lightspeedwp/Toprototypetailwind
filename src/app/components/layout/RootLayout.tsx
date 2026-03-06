@@ -13,7 +13,7 @@
  */
 
 import { Suspense } from "react";
-import { Outlet, useLocation, useNavigate, ScrollRestoration } from "react-router";
+import { Outlet, useLocation, useNavigate } from "react-router";
 import { Header } from "../parts/Header";
 import { FooterNew } from "../parts/FooterNew";
 import { BackToTopButton } from "../common/BackToTopButton";
@@ -93,8 +93,9 @@ export function RootLayout() {
             <BackToTopButton />
           </div>
           
-          {/* Scroll Restoration */}
-          <ScrollRestoration />
+          {/* ScrollRestoration removed — ScrollToTop handles scroll-to-top on route change,
+              and ScrollRestoration (a forwardRef DOM component) caused {$$typeof, render}
+              errors in the Figma Make iframe environment. */}
           
           {/* Development Dashboards - Temporarily Disabled */}
           {/* <AccessibilityDashboard /> */}

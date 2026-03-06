@@ -41,12 +41,7 @@ export function Container({
 
   return (
     <Component 
-      className={cn(
-        "mx-auto w-full",
-        "px-[var(--spacing-container-sm)] md:px-[var(--spacing-container-md)] lg:px-[var(--spacing-container-lg)]",
-        maxWidthClasses[maxWidth as keyof typeof maxWidthClasses] || maxWidthClasses.xl,
-        className
-      )}
+      className={cn("mx-auto w-full p-[0px]", maxWidthClasses[maxWidth as keyof typeof maxWidthClasses] || maxWidthClasses.xl, className)}
     >
       {children}
     </Component>

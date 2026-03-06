@@ -86,7 +86,7 @@
   font-size: var(--text-3xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--leading-tight);
-  color: white;
+  color: var(--overlay-text);
   margin-bottom: var(--spacing-element-sm);
 }
 
@@ -107,7 +107,7 @@
   flex-wrap: wrap;
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--overlay-text-muted);
 }
 
 .wp-template-single__hero--no-image .wp-template-single__meta {

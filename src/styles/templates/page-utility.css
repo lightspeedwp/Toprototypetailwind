@@ -403,12 +403,12 @@
 
 .wp-template-page-utility__callout--warning {
   border-left-color: var(--destructive);
-  background-color: rgba(var(--destructive), 0.1);
+  background-color: rgba(var(--destructive-rgb), 0.1);
 }
 
 .wp-template-page-utility__callout--success {
   border-left-color: var(--primary);
-  background-color: rgba(var(--primary), 0.1);
+  background-color: rgba(var(--primary-rgb), 0.1);
 }
 
 .wp-template-page-utility__callout-title {

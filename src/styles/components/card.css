@@ -97,11 +97,7 @@
 .card__footer {
   padding: 1rem;
   border-top: 1px solid var(--border);
-  background-color: rgba(245, 245, 245, 0.3); /* muted with 30% opacity */
-}
-
-.dark .card__footer {
-  background-color: rgba(38, 38, 38, 0.3); /* dark mode muted 30% */
+  background-color: rgba(var(--muted-rgb), 0.3);
 }
 
 @media (min-width: 769px) {

@@ -204,7 +204,7 @@
   font-family: var(--font-family-lora);
   font-size: var(--text-xl);
   font-weight: var(--font-weight-semibold);
-  color: #FFFFFF;
+  color: var(--overlay-text);
   font-style: italic;
   line-height: var(--leading-snug);
   margin-block-end: 0.5rem;
@@ -216,7 +216,7 @@
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--overlay-text-dim);
   margin: 0;
 }
 

@@ -94,9 +94,26 @@
 
   /* — Borders, inputs, focus — */
   --border:           #BDBDBD; /* Visible but subtle divider */
+  --border-subtle:    #E0E0E0; /* Softer divider for section separators */
   --input:            #FFFFFF; /* Input field background */
   --input-background: #FFFFFF;
   --ring:             #1976D2; /* High-visibility blue focus ring */
+
+  /* — RGB companion tokens for rgba() usage — */
+  --background-rgb:        255, 255, 255;
+  --foreground-rgb:        0, 0, 0;
+  --card-rgb:              255, 255, 255;
+  --primary-rgb:           74, 115, 17;   /* #4A7311 */
+  --secondary-rgb:         92, 83, 64;    /* #5C5340 */
+  --accent-rgb:            184, 122, 0;   /* #B87A00 */
+  --destructive-rgb:       183, 28, 28;   /* #B71C1C */
+  --muted-rgb:             245, 245, 245; /* #F5F5F5 */
+  --muted-foreground-rgb:  89, 89, 89;    /* #595959 */
+  --ring-rgb:              25, 118, 210;  /* #1976D2 */
+  --input-background-rgb:  255, 255, 255; /* #FFFFFF */
+  --success-rgb:           27, 94, 32;    /* #1B5E20 */
+  --info-rgb:              1, 87, 155;    /* #01579B */
+  --warning-rgb:           230, 81, 0;    /* #E65100 */
 
   /* — Sidebar / navigation — */
   --sidebar:                    #2C2416;

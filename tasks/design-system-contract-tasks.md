@@ -29,6 +29,7 @@
 - [x] `patterns/card-grid.css:73` — Change 4-col breakpoint from `1024px` to `1280px` ✅ Done 2026-03-04
 - [x] `patterns/card-grid.css:82` — Keep 5-col at `1440px` (matches contract) ✅ Confirmed 2026-03-04
 - [x] `patterns/card-grid.css:90` — Change 6-col breakpoint from `1600px` to `1680px` ✅ Done 2026-03-04
+- [x] **card-grid.css v2.0.0** — Full rewrite with BEM modifier classes (`--cols-2` through `--cols-6`), gap modifiers (`--gap-sm/md/lg`), list layout, grid item class. ✅ Done 2026-03-06
 
 ---
 

@@ -20,7 +20,7 @@
   position: fixed;
   inset: 0;
   z-index: 40;
-  background-color: rgba(var(--background), 0.6);
+  background-color: rgba(var(--background-rgb), 0.6);
   backdrop-filter: blur(4px);
 }
 
@@ -29,7 +29,7 @@
   position: fixed;
   inset: 0;
   z-index: 40;
-  background-color: rgba(var(--background), 0.6);
+  background-color: rgba(var(--background-rgb), 0.6);
   backdrop-filter: blur(4px);
 }
 
@@ -48,12 +48,7 @@
   background-color: var(--background);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-/* Dark mode shadow */
-.dark .wp-block-lts-mobile-menu__panel {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--elevation-md);
 }
 
 /* Legacy class support */
@@ -67,11 +62,7 @@
   background-color: var(--background);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.dark .mobile-menu-panel {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--elevation-md);
 }
 
 /* ============================================
@@ -119,7 +110,7 @@
 .wp-block-lts-mobile-menu__search-input:focus {
   outline: none;
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(var(--ring), 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.1);
 }
 
 .wp-block-lts-mobile-menu__search-input::placeholder {
@@ -291,7 +282,7 @@
   padding-block: 0.125rem;
   font-size: var(--text-xs);
   border-radius: 9999px;
-  background-color: rgba(var(--primary), 0.1);
+  background-color: rgba(var(--primary-rgb), 0.1);
   color: var(--primary);
 }
 
@@ -337,8 +328,8 @@
 }
 
 .wp-block-lts-mobile-menu__cta-button:hover {
-  background-color: rgba(var(--primary), 0.9);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: rgba(var(--primary-rgb), 0.9);
+  box-shadow: var(--elevation-md);
 }
 
 .wp-block-lts-mobile-menu__cta-button:active {
@@ -407,7 +398,7 @@
 .wp-block-lts-mobile-menu__search-input:focus-visible {
   outline: none;
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(var(--ring), 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.1);
 }
 
 /* ============================================

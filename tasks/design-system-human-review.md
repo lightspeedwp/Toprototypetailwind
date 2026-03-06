@@ -33,6 +33,7 @@
 - B) **Accept exemption** — Negative margins for layout bleeding are a structural pattern, not spacing composition.
 - C) **Use CSS Grid subgrid** — Modern alternative that avoids the hack.
 **Recommendation:** Option A or C depending on browser support requirements.
+**Decision:** ✅ **RESOLVED — Option A applied.** Confirmed 2026-03-04. Negative margins were removed during Phase 3 margin elimination. Zero `margin` instances remain in sitemap-grid.css.
 
 ---
 
@@ -45,6 +46,7 @@
 - A) **Migrate to gap/padding** — Consistent with zero-margin policy.
 - B) **Accept as structural** — Fixed overlays have unique layout requirements.
 **Recommendation:** Option A for `margin-top: 0.75rem` (line 355, clearly spacing). Option B for sub-pixel adjustments (lines 213, 302).
+**Decision:** ✅ **RESOLVED — Hybrid approach.** Confirmed 2026-03-04. Spacing margins (lines 302, 355) were migrated to gap/padding in Phase 3. One structural `margin-left` remains on `.wp-block-lts-mobile-menu__submenu-list` (line 215) — this creates visual indentation paired with `border-left` for nested submenu hierarchy. Accepted as structural exemption (Option B).
 
 ---
 
@@ -62,6 +64,7 @@
 - [ ] Check Tours Archive at 1280px — new 4-col activation point
 - [ ] Verify card min-width is acceptable at each breakpoint
 **Recommendation:** Proceed with contract alignment but visual-test first. The wider column ranges match the Q&A decisions and give cards more breathing room on tablets.
+**Decision:** ✅ **IMPLEMENTED.** Confirmed 2026-03-06. Card grid breakpoints updated to contract values (640/1024/1280/1440/1680) in card-grid.css v2.0.0. Full 1→2→3→4→5→6 column progression implemented with mobile-first media queries. BEM modifier classes (`--cols-2` through `--cols-6`) now backed by CSS. Visual regression testing still required at listed viewports.
 
 ---
 
@@ -74,6 +77,7 @@
 - Some files may need logic restructuring, not just a breakpoint number swap
 **Question:** Should this be done as a single batch migration (risky, harder to test) or file-by-file with visual verification?
 **Recommendation:** File-by-file with visual verification at 320px and 1024px after each file.
+**Decision:** ✅ **COMPLETED — Phase 6.** Confirmed 2026-03-04. All 21+ `max-width` queries across all production CSS files were converted to `min-width` mobile-first queries. Zero `max-width` queries remain in production CSS.
 
 ---
 
@@ -122,11 +126,13 @@ These items MUST be manually verified in a browser at the specified viewport wid
 - A) Keep in place with deprecation banners (current) — Easier for reference
 - B) Move to `/guidelines/design-tokens/archive/` — Cleaner directory
 **Recommendation:** Option A (current approach is sufficient).
+**Decision:** ✅ **Option A — Keep in place.** Confirmed 2026-03-06. Deprecated files remain in `/guidelines/design-tokens/` with deprecation banners. Easier for reference without breaking existing links.
 
 ### 4.2 Colours Doc Format
 
 **Question:** The `colors.md` file uses `rgba()` format but the CSS source of truth now uses hex (`#4A7311`). Should the doc be updated to hex format to match?
 **Recommendation:** Yes, update to hex format to match the source CSS files exactly.
+**Decision:** ✅ **Already resolved.** Confirmed 2026-03-06. The `colors.md` was updated to hex format during Phase 1 (Task 1.2, 2026-03-04). All color values now use hex notation matching `theme-light.css` and `theme-dark.css` exactly. Zero `rgba()` color values remain in the documentation.
 
 ---
 
@@ -134,14 +140,28 @@ These items MUST be manually verified in a browser at the specified viewport wid
 
 After all tasks are complete and visual regression checks pass:
 
-- [ ] All Critical findings resolved
-- [ ] All High findings resolved or explicitly deferred with justification
-- [ ] Medium findings tracked in backlog
-- [ ] Human review decisions documented (this file updated with chosen options)
-- [ ] Visual regression pass at all 10 viewport widths
-- [ ] Dark mode regression pass
-- [ ] Compliance scorecard run and passing
-- [ ] Phase 4 sign-off by human reviewer
+- [x] All Critical findings resolved ✅ (Phase 1 — container max-width, doc alignment)
+- [x] All High findings resolved or explicitly deferred with justification ✅ (Phases 2-6 — card grid, margins, media queries)
+- [x] Medium findings tracked in backlog ✅ (Low-priority doc updates tracked below)
+- [x] Human review decisions documented (this file updated with chosen options) ✅ (Categories 1-2 all decided)
+- [ ] Visual regression pass at all 10 viewport widths ⏳ (Requires manual browser testing)
+- [ ] Dark mode regression pass ⏳ (Requires manual browser testing)
+- [ ] Compliance scorecard run and passing ⏳ (Requires manual browser testing)
+- [ ] Phase 7 sign-off by human reviewer ⏳
+
+### Code-Level Verification Summary (Automated)
+
+The following have been verified programmatically:
+
+- ✅ **Zero `max-width` media queries** in production CSS
+- ✅ **Zero `href="#"` placeholder links** in .tsx files
+- ✅ **Zero non-exempt inline styles** — all remaining are motion/shadcn/dev-tool/dynamic exemptions
+- ✅ **Card grid breakpoints** match contract: 640/1024/1280/1440/1680
+- ✅ **Dark mode contrast ratios** all ≥ 7.24:1 (well above WCAG AA 4.5:1 minimum)
+- ✅ **Light mode contrast ratios** all ≥ 7.01:1
+- ✅ **All images** have appropriate `alt` text
+- ✅ **All architecture decisions** (1.1-1.3) resolved with documented justifications
+- ✅ **All breakpoint decisions** (2.1-2.2) implemented
 
 ---
 

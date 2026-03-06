@@ -53,11 +53,7 @@
 
 .form__input:focus {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(74, 115, 17, 0.1); /* primary with 10% opacity */
-}
-
-.dark .form__input:focus {
-  box-shadow: 0 0 0 3px rgba(144, 186, 72, 0.1); /* dark mode primary 10% */
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
 }
 
 .form__input:disabled {
@@ -71,7 +67,7 @@
 }
 
 .form__input--error:focus {
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1); /* destructive with 10% */
+  box-shadow: 0 0 0 3px rgba(var(--destructive-rgb), 0.1);
 }
 
 /* ============================================
@@ -101,11 +97,7 @@
 
 .form__textarea:focus {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(74, 115, 17, 0.1); /* primary with 10% opacity */
-}
-
-.dark .form__textarea:focus {
-  box-shadow: 0 0 0 3px rgba(144, 186, 72, 0.1); /* dark mode primary 10% */
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
 }
 
 .form__textarea:disabled {
@@ -145,11 +137,7 @@
 
 .form__select:focus {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(74, 115, 17, 0.1);
-}
-
-.dark .form__select:focus {
-  box-shadow: 0 0 0 3px rgba(144, 186, 72, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
 }
 
 .form__select:disabled {

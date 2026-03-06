@@ -3,13 +3,13 @@
  * 
  * BEM Structure: .wp-ui-{component}__*
  * 
- * Handles light/dark mode using CSS variables aligned with WordPress theme.json.
- * NO dark: Tailwind classes - uses .dark selector instead.
+ * Handles light/dark mode via semantic CSS variable tokens that auto-switch
+ * when the .dark class is applied to <html>. NO hardcoded colour values.
  * 
  * All colors, typography, spacing, borders, and radius values use CSS variables
  * from theme-light.css and theme-dark.css for complete design system compliance.
  * 
- * @version 1.0
+ * @version 2.0 — Eliminated all .dark overrides; uses RGB companion tokens
  * @see /src/styles/theme-light.css
  * @see /src/styles/theme-dark.css
  */
@@ -36,30 +36,16 @@
   transition: all 200ms ease;
 }
 
-/* Dark mode background opacity adjustment */
-.dark .wp-ui-input {
-  background-color: rgba(26, 26, 26, 0.3); /* input-background with 30% opacity */
-}
-
 /* Focus state */
 .wp-ui-input:focus-visible {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* ring with 50% opacity */
-}
-
-.dark .wp-ui-input:focus-visible {
-  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5); /* dark mode ring with 50% opacity */
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.5);
 }
 
 /* Invalid state */
 .wp-ui-input[aria-invalid="true"] {
   border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(183, 28, 28, 0.2); /* destructive with 20% opacity */
-}
-
-.dark .wp-ui-input[aria-invalid="true"] {
-  border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.4); /* dark mode destructive with 40% opacity */
+  box-shadow: 0 0 0 2px rgba(var(--destructive-rgb), 0.25);
 }
 
 /* Placeholder */
@@ -121,30 +107,16 @@
   transition: all 200ms ease;
 }
 
-/* Dark mode background opacity adjustment */
-.dark .wp-ui-textarea {
-  background-color: rgba(26, 26, 26, 0.3); /* input-background with 30% opacity */
-}
-
 /* Focus state */
 .wp-ui-textarea:focus-visible {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* ring with 50% opacity */
-}
-
-.dark .wp-ui-textarea:focus-visible {
-  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5); /* dark mode ring with 50% opacity */
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.5);
 }
 
 /* Invalid state */
 .wp-ui-textarea[aria-invalid="true"] {
   border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(183, 28, 28, 0.2); /* destructive with 20% opacity */
-}
-
-.dark .wp-ui-textarea[aria-invalid="true"] {
-  border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.4); /* dark mode destructive with 40% opacity */
+  box-shadow: 0 0 0 2px rgba(var(--destructive-rgb), 0.25);
 }
 
 /* Placeholder */
@@ -183,13 +155,9 @@
   transition: all 200ms ease;
 }
 
-/* Dark mode background opacity and hover */
-.dark .wp-ui-select {
-  background-color: rgba(26, 26, 26, 0.3); /* input-background with 30% opacity */
-}
-
-.dark .wp-ui-select:hover {
-  background-color: rgba(26, 26, 26, 0.5); /* input-background with 50% opacity */
+/* Hover state */
+.wp-ui-select:hover {
+  background-color: rgba(var(--muted-rgb), 0.5);
 }
 
 /* Placeholder state */
@@ -200,22 +168,13 @@
 /* Focus state */
 .wp-ui-select:focus-visible {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* ring with 50% opacity */
-}
-
-.dark .wp-ui-select:focus-visible {
-  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5); /* dark mode ring with 50% opacity */
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.5);
 }
 
 /* Invalid state */
 .wp-ui-select[aria-invalid="true"] {
   border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(183, 28, 28, 0.2); /* destructive with 20% opacity */
-}
-
-.dark .wp-ui-select[aria-invalid="true"] {
-  border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.4); /* dark mode destructive with 40% opacity */
+  box-shadow: 0 0 0 2px rgba(var(--destructive-rgb), 0.25);
 }
 
 /* Disabled */
@@ -251,19 +210,8 @@
   transition: all 200ms ease;
 }
 
-/* Dark mode background opacity */
-.dark .wp-ui-checkbox {
-  background-color: rgba(26, 26, 26, 0.3); /* input-background with 30% opacity */
-}
-
 /* Checked state */
 .wp-ui-checkbox[data-state="checked"] {
-  background-color: var(--primary);
-  border-color: var(--primary);
-  color: var(--primary-foreground);
-}
-
-.dark .wp-ui-checkbox[data-state="checked"] {
   background-color: var(--primary);
   border-color: var(--primary);
   color: var(--primary-foreground);
@@ -272,22 +220,13 @@
 /* Focus state */
 .wp-ui-checkbox:focus-visible {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* ring with 50% opacity */
-}
-
-.dark .wp-ui-checkbox:focus-visible {
-  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5); /* dark mode ring with 50% opacity */
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.5);
 }
 
 /* Invalid state */
 .wp-ui-checkbox[aria-invalid="true"] {
   border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(183, 28, 28, 0.2); /* destructive with 20% opacity */
-}
-
-.dark .wp-ui-checkbox[aria-invalid="true"] {
-  border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.4); /* dark mode destructive with 40% opacity */
+  box-shadow: 0 0 0 2px rgba(var(--destructive-rgb), 0.25);
 }
 
 /* Disabled */
@@ -315,30 +254,16 @@
   transition: all 200ms ease;
 }
 
-/* Dark mode background opacity */
-.dark .wp-ui-radio {
-  background-color: rgba(26, 26, 26, 0.3); /* input-background with 30% opacity */
-}
-
 /* Focus state */
 .wp-ui-radio:focus-visible {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* ring with 50% opacity */
-}
-
-.dark .wp-ui-radio:focus-visible {
-  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5); /* dark mode ring with 50% opacity */
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.5);
 }
 
 /* Invalid state */
 .wp-ui-radio[aria-invalid="true"] {
   border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(183, 28, 28, 0.2); /* destructive with 20% opacity */
-}
-
-.dark .wp-ui-radio[aria-invalid="true"] {
-  border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.4); /* dark mode destructive with 40% opacity */
+  box-shadow: 0 0 0 2px rgba(var(--destructive-rgb), 0.25);
 }
 
 /* Disabled */
@@ -360,14 +285,9 @@
   flex-shrink: 0;
   border: 1px solid transparent;
   border-radius: var(--radius-full);
-  background-color: var(--input-background);
+  background-color: var(--muted);
   outline: none;
   transition: all 200ms ease;
-}
-
-/* Unchecked state in dark mode */
-.dark .wp-ui-switch[data-state="unchecked"] {
-  background-color: rgba(26, 26, 26, 0.8); /* input-background with 80% opacity */
 }
 
 /* Checked state */
@@ -378,11 +298,7 @@
 /* Focus state */
 .wp-ui-switch:focus-visible {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* ring with 50% opacity */
-}
-
-.dark .wp-ui-switch:focus-visible {
-  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5); /* dark mode ring with 50% opacity */
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.5);
 }
 
 /* Disabled */
@@ -408,22 +324,9 @@
   transform: translateX(0);
 }
 
-/* Unchecked thumb in dark mode */
-.dark .wp-ui-switch[data-state="unchecked"] .wp-ui-switch__thumb {
-  background-color: var(--card-foreground);
-}
-
-/* Checked thumb position */
+/* Checked thumb position + colour */
 .wp-ui-switch[data-state="checked"] .wp-ui-switch__thumb {
   transform: translateX(calc(100% - 2px));
-}
-
-/* Checked thumb */
-.wp-ui-switch[data-state="checked"] .wp-ui-switch__thumb {
-  background-color: var(--primary-foreground);
-}
-
-.dark .wp-ui-switch[data-state="checked"] .wp-ui-switch__thumb {
   background-color: var(--primary-foreground);
 }
 
@@ -444,24 +347,15 @@
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--foreground);
+  color: var(--muted-foreground);
   white-space: nowrap;
   outline: none;
   transition: all 200ms ease;
 }
 
-/* Inactive tabs in dark mode */
-.dark .wp-ui-tabs__trigger {
-  color: var(--muted-foreground);
-}
-
 /* Active state */
 .wp-ui-tabs__trigger[data-state="active"] {
   background-color: var(--card);
-}
-
-.dark .wp-ui-tabs__trigger[data-state="active"] {
-  background-color: rgba(26, 26, 26, 0.3); /* input-background with 30% opacity */
   border-color: var(--border);
   color: var(--foreground);
 }
@@ -469,12 +363,8 @@
 /* Focus state */
 .wp-ui-tabs__trigger:focus-visible {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* ring with 50% opacity */
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.5);
   outline: 1px solid var(--ring);
-}
-
-.dark .wp-ui-tabs__trigger:focus-visible {
-  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5); /* dark mode ring with 50% opacity */
 }
 
 /* Disabled */
@@ -527,17 +417,9 @@
   color: var(--destructive-foreground);
 }
 
-.dark .wp-ui-badge--destructive {
-  background-color: rgba(244, 67, 54, 0.6); /* destructive with 60% opacity */
-}
-
 /* Destructive focus state */
 .wp-ui-badge--destructive:focus-visible {
-  box-shadow: 0 0 0 3px rgba(183, 28, 28, 0.2); /* destructive with 20% opacity */
-}
-
-.dark .wp-ui-badge--destructive:focus-visible {
-  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.4); /* dark mode destructive with 40% opacity */
+  box-shadow: 0 0 0 3px rgba(var(--destructive-rgb), 0.25);
 }
 
 /* Outline variant */
@@ -549,11 +431,7 @@
 /* Badge invalid state */
 .wp-ui-badge[aria-invalid="true"] {
   border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(183, 28, 28, 0.2); /* destructive with 20% opacity */
-}
-
-.dark .wp-ui-badge[aria-invalid="true"] {
-  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.4); /* dark mode destructive with 40% opacity */
+  box-shadow: 0 0 0 2px rgba(var(--destructive-rgb), 0.25);
 }
 
 /* ============================================
@@ -592,21 +470,13 @@
 /* Focus state */
 .wp-ui-toggle:focus-visible {
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* ring with 50% opacity */
-}
-
-.dark .wp-ui-toggle:focus-visible {
-  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5); /* dark mode ring with 50% opacity */
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.5);
 }
 
 /* Invalid state */
 .wp-ui-toggle[aria-invalid="true"] {
   border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(183, 28, 28, 0.2); /* destructive with 20% opacity */
-}
-
-.dark .wp-ui-toggle[aria-invalid="true"] {
-  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.4); /* dark mode destructive with 40% opacity */
+  box-shadow: 0 0 0 2px rgba(var(--destructive-rgb), 0.25);
 }
 
 /* Disabled */
@@ -650,30 +520,17 @@
   border-right: 1px solid var(--border);
 }
 
-/* Dark mode background */
-.dark .wp-ui-input-otp__slot {
-  background-color: rgba(26, 26, 26, 0.3); /* input-background with 30% opacity */
-}
-
 /* Active state */
 .wp-ui-input-otp__slot[data-active="true"] {
   z-index: 10;
   border-color: var(--ring);
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* ring with 50% opacity */
-}
-
-.dark .wp-ui-input-otp__slot[data-active="true"] {
-  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5); /* dark mode ring with 50% opacity */
+  box-shadow: 0 0 0 3px rgba(var(--ring-rgb), 0.5);
 }
 
 /* Invalid state */
 .wp-ui-input-otp__slot[data-active="true"][aria-invalid="true"] {
   border-color: var(--destructive);
-  box-shadow: 0 0 0 2px rgba(183, 28, 28, 0.2); /* destructive with 20% opacity */
-}
-
-.dark .wp-ui-input-otp__slot[data-active="true"][aria-invalid="true"] {
-  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.4); /* dark mode destructive with 40% opacity */
+  box-shadow: 0 0 0 2px rgba(var(--destructive-rgb), 0.25);
 }
 
 /* ============================================
@@ -687,12 +544,8 @@
   gap: 0.375rem; /* 6px */
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-sm);
-  color: rgba(0, 0, 0, 0.7); /* foreground with 70% opacity */
+  color: rgba(var(--foreground-rgb), 0.7);
   word-break: break-words;
-}
-
-.dark .wp-ui-breadcrumb__list {
-  color: rgba(255, 255, 255, 0.8); /* dark mode foreground with 80% opacity */
 }
 
 /* Medium breakpoint gap */

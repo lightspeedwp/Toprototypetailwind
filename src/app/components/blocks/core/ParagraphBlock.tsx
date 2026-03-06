@@ -33,12 +33,9 @@ export function ParagraphBlock({
 }: ParagraphBlockProps) {
   return (
     <p 
-      className={cn(
-        // ONLY apply size classes if intentionally overriding defaults
-        size === 'sm' && 'text-sm',
-        size === 'lg' && 'text-lg',
-        className
-      )}
+      className={cn("text-center m-[0px]", 
+// ONLY apply size classes if intentionally overriding defaults
+size === 'sm' && 'text-sm', size === 'lg' && 'text-lg', className)}
     >
       {children}
     </p>

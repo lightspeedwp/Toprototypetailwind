@@ -3,13 +3,11 @@
  * 
  * BEM Structure: .wp-common-page-nav__*
  * 
- * Handles light/dark mode using CSS variables aligned with WordPress theme.json.
- * NO dark: Tailwind classes - uses .dark selector instead.
- * 
  * All colors, typography, spacing, borders, and radius values use CSS variables
  * from theme-light.css and theme-dark.css for complete design system compliance.
+ * RGB companion tokens auto-switch between light and dark modes.
  * 
- * @version 1.0
+ * @version 2.0 — Eliminated .dark overrides; uses RGB companion tokens
  * @see /src/styles/theme-light.css
  * @see /src/styles/theme-dark.css
  */
@@ -20,12 +18,8 @@
 
 .wp-common-page-nav {
   padding: 2rem 0;
-  background-color: rgba(184, 122, 0, 0.1); /* Accent with 10% opacity - light mode */
+  background-color: rgba(var(--accent-rgb), 0.1);
   border-bottom: 1px solid var(--border);
-}
-
-.dark .wp-common-page-nav {
-  background-color: rgba(255, 183, 64, 0.15); /* Dark mode accent with 15% opacity */
 }
 
 /* ============================================
@@ -45,22 +39,14 @@
 /* Inactive card hover state */
 .wp-common-page-nav__card--inactive:hover {
   border-color: var(--primary);
-  background-color: rgba(255, 255, 255, 0.8); /* Light mode */
-}
-
-.dark .wp-common-page-nav__card--inactive:hover {
-  background-color: rgba(10, 10, 10, 0.8); /* Dark mode */
+  background-color: rgba(var(--background-rgb), 0.8);
 }
 
 /* Active card state */
 .wp-common-page-nav__card--active {
   border-color: var(--primary);
-  background-color: rgba(74, 115, 17, 0.05); /* Light mode - primary with 5% opacity */
+  background-color: rgba(var(--primary-rgb), 0.06);
   box-shadow: 0 0 0 2px var(--primary);
-}
-
-.dark .wp-common-page-nav__card--active {
-  background-color: rgba(144, 186, 72, 0.1); /* Dark mode - primary with 10% opacity */
 }
 
 /* ============================================

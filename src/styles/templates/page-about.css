@@ -73,7 +73,7 @@
 }
 
 .wp-template-page-about__hero--with-image .wp-template-page-about__title {
-  color: white;
+  color: var(--overlay-text);
 }
 
 .wp-template-page-about__subtitle {
@@ -92,7 +92,7 @@
 }
 
 .wp-template-page-about__hero--with-image .wp-template-page-about__subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--overlay-text-muted);
 }
 
 /* ============================================

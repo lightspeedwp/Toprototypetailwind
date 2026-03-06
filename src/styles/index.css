@@ -106,6 +106,10 @@
 @import './patterns/featured-section.css';
 @import './patterns/team-card.css';
 @import './patterns/blog-card.css';
+@import './patterns/conservation-section.css';
+@import './patterns/why-choose-us.css';
+@import './patterns/statistics.css';
+@import './patterns/newsletter.css';
 
 /* ── 12. Common component styles ─────────────────────────────────── */
 @import './common/logo.css';

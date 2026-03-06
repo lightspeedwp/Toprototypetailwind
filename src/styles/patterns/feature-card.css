@@ -60,10 +60,6 @@
   transition: background-color var(--transition-base);
 }
 
-.dark .wp-pattern-feature-card__icon-wrapper {
-  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
-}
-
 @media (min-width: 769px) {
   .wp-pattern-feature-card__icon-wrapper {
     width: 3rem;
@@ -141,11 +137,7 @@
 }
 
 .wp-pattern-feature-card--primary .wp-pattern-feature-card__icon-wrapper {
-  background-color: rgba(255, 255, 255, 0.2); /* Light mode: white 20% */
-}
-
-.dark .wp-pattern-feature-card--primary .wp-pattern-feature-card__icon-wrapper {
-  background-color: rgba(0, 0, 0, 0.2); /* Dark mode: black 20% */
+  background-color: rgba(var(--foreground-rgb), 0.15);
 }
 
 .wp-pattern-feature-card--primary .wp-pattern-feature-card__icon {
@@ -176,11 +168,7 @@
 }
 
 .wp-pattern-feature-card--accent .wp-pattern-feature-card__icon-wrapper {
-  background-color: rgba(255, 255, 255, 0.2); /* Light mode: white 20% */
-}
-
-.dark .wp-pattern-feature-card--accent .wp-pattern-feature-card__icon-wrapper {
-  background-color: rgba(0, 0, 0, 0.2); /* Dark mode: black 20% */
+  background-color: rgba(var(--foreground-rgb), 0.15);
 }
 
 .wp-pattern-feature-card--accent .wp-pattern-feature-card__icon {

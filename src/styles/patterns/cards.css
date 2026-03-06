@@ -121,7 +121,7 @@
 }
 
 .wp-card__badge--category {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(var(--background-rgb), 0.9);
   color: var(--foreground);
 }
 
@@ -437,7 +437,7 @@
     rgba(0, 0, 0, 0.4) 60%,
     transparent 100%
   );
-  color: #FFFFFF;
+  color: var(--overlay-text);
   z-index: 2;
 }
 
@@ -445,14 +445,14 @@
   font-family: var(--font-family-lora);
   font-size: var(--text-xl);
   font-weight: var(--font-weight-semibold);
-  color: #FFFFFF;
+  color: var(--overlay-text);
   line-height: var(--leading-tight);
 }
 
 .wp-card__content-overlay .wp-card__meta-item {
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--overlay-text-muted);
   display: flex;
   align-items: center;
   gap: 0.375rem;
@@ -470,7 +470,7 @@
   gap: var(--spacing-element-sm);
   padding: var(--spacing-element-lg);
   background-color: rgba(0, 0, 0, 0.85);
-  color: #FFFFFF;
+  color: var(--overlay-text);
   text-align: center;
   opacity: 0;
   transition: opacity var(--transition-slow);
@@ -495,14 +495,14 @@
   font-family: var(--font-family-lora);
   font-size: var(--text-xl);
   font-weight: var(--font-weight-semibold);
-  color: #FFFFFF;
+  color: var(--overlay-text);
   line-height: var(--leading-tight);
 }
 
 .wp-card__hover-description {
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--overlay-text-dim);
   line-height: var(--leading-relaxed);
   display: -webkit-box;
   -webkit-line-clamp: 3;

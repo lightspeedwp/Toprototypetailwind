@@ -52,7 +52,7 @@ export function SectionHeader({
       <HeadingBlock 
         level={2} 
         className={`${prefix}-title`}
-        textAlign={centered ? 'center' : 'left'}
+        textAlign="center"
       >
         {section.title}
       </HeadingBlock>

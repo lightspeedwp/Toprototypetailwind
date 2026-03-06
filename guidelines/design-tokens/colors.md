@@ -27,6 +27,36 @@ This document defines the **semantic color system** used throughout the LightSpe
 
 ## Core Color Tokens
 
+### Brand Identity (Reference Only)
+
+The raw brand palette is defined in `theme-light.css` as `--color-brand-*` variables.
+**Do NOT use these directly in components.** Always use the semantic tokens above.
+
+```css
+/* Olive green family */
+--color-brand-green-900: #1A3D00;
+--color-brand-green-700: #2D5C0A;
+--color-brand-green-500: #4A7311; /* → mapped to --primary (light) */
+--color-brand-green-300: #6E9E30;
+--color-brand-green-100: #C8DFA8;
+
+/* Amber/gold family */
+--color-brand-amber-900: #5A3900;
+--color-brand-amber-700: #8C5A00;
+--color-brand-amber-500: #B87A00; /* → mapped to --accent (light) */
+--color-brand-amber-300: #E6A800;
+--color-brand-amber-100: #FFE08A;
+
+/* Warm beige family */
+--color-brand-beige-900: #2C2416;
+--color-brand-beige-700: #5C5340; /* → mapped to --secondary (light) */
+--color-brand-beige-500: #8C7E66;
+--color-brand-beige-300: #C4B8A4;
+--color-brand-beige-100: #F5F0E8;
+```
+
+---
+
 ### Background Colors
 
 ```css
@@ -180,6 +210,72 @@ This document defines the **semantic color system** used throughout the LightSpe
 <button className="bg-destructive text-destructive-foreground">
   Delete
 </button>
+```
+
+---
+
+### Success Colors
+
+```css
+--success: #1B5E20;                      /* Light: Deep green — 8.28:1 on #FFFFFF */
+--success: #66BB6A;                      /* Dark: Bright green — 7.88:1 on #0A0A0A */
+--success-foreground: #FFFFFF;           /* Light: White */
+--success-foreground: #000000;           /* Dark: Black */
+```
+
+**Usage:** Success states, confirmations, positive feedback
+
+**Tailwind Classes:** `bg-success`, `text-success`, `border-success`
+
+**Example:**
+```typescript
+<div className="bg-success/10 text-success border border-success rounded p-3">
+  Booking confirmed successfully!
+</div>
+```
+
+---
+
+### Warning Colors
+
+```css
+--warning: #E65100;                      /* Light: Deep orange — 7.14:1 on #FFFFFF */
+--warning: #FFA726;                      /* Dark: Bright orange — 9.01:1 on #0A0A0A */
+--warning-foreground: #FFFFFF;           /* Light: White */
+--warning-foreground: #000000;           /* Dark: Black */
+```
+
+**Usage:** Warning states, important notices, caution alerts
+
+**Tailwind Classes:** `bg-warning`, `text-warning`, `border-warning`
+
+**Example:**
+```typescript
+<div className="bg-warning/10 text-warning border border-warning rounded p-3">
+  Limited availability — book soon!
+</div>
+```
+
+---
+
+### Info Colors
+
+```css
+--info: #01579B;                         /* Light: Deep blue — 8.59:1 on #FFFFFF */
+--info: #42A5F5;                         /* Dark: Bright blue — 7.58:1 on #0A0A0A */
+--info-foreground: #FFFFFF;              /* Light: White */
+--info-foreground: #000000;              /* Dark: Black */
+```
+
+**Usage:** Informational messages, tips, neutral alerts
+
+**Tailwind Classes:** `bg-info`, `text-info`, `border-info`
+
+**Example:**
+```typescript
+<div className="bg-info/10 text-info border border-info rounded p-3">
+  Check-in time is 14:00 local time.
+</div>
 ```
 
 ---
@@ -512,6 +608,11 @@ Current color pairs that meet AA standards:
 - `--accent` + `--accent-foreground` ✅ (Light: 7.01:1, Dark: 9.86:1)
 - `--destructive` + `--destructive-foreground` ✅ (Light: 8.59:1, Dark: 7.71:1)
 - `--background` + `--foreground` ✅ (Light: 21:1, Dark: 19.26:1)
+- `--success` + `--success-foreground` ✅ (Light: 8.28:1, Dark: 7.88:1)
+- `--warning` + `--warning-foreground` ✅ (Light: 7.14:1, Dark: 9.01:1)
+- `--info` + `--info-foreground` ✅ (Light: 8.59:1, Dark: 7.58:1)
+- `--muted` + `--muted-foreground` ✅ (Light: 6.68:1, Dark: 7.5:1)
+- `--card` + `--card-foreground` ✅ (Light: 21:1, Dark: 17.13:1)
 
 ---
 

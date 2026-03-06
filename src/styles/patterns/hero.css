@@ -179,7 +179,7 @@
 }
 
 .wp-pattern-hero--with-background .wp-pattern-hero__title {
-  color: var(--hero-text-color, #FFFFFF);
+  color: var(--hero-text-color, var(--overlay-text));
 }
 
 .wp-pattern-hero__intro {
@@ -197,7 +197,7 @@
 }
 
 .wp-pattern-hero--with-background .wp-pattern-hero__intro {
-  color: var(--hero-intro-color, rgba(255, 255, 255, 0.9));
+  color: var(--hero-intro-color, var(--overlay-text-muted));
 }
 
 .wp-pattern-hero__badges {
@@ -285,8 +285,8 @@
 }
 
 .wp-pattern-hero--with-background .wp-pattern-hero__button-secondary {
-  color: var(--hero-button-secondary-text, white);
-  border-color: var(--hero-button-secondary-border, rgba(255, 255, 255, 0.3));
+  color: var(--hero-button-secondary-text, var(--overlay-text));
+  border-color: var(--hero-button-secondary-border, var(--overlay-text-dim));
 }
 
 .wp-pattern-hero__button-secondary--ghost {
@@ -311,7 +311,7 @@
 
 .wp-pattern-hero__stat-card {
   padding: 1.5rem;
-  background-color: rgba(var(--card-rgb, 255, 255, 255), 0.8);
+  background-color: rgba(var(--card-rgb), 0.8);
   backdrop-filter: blur(8px);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -378,7 +378,7 @@
 }
 
 .wp-pattern-hero--with-background .wp-pattern-hero__stat-item .wp-pattern-hero__stat-value {
-  color: white;
+  color: var(--overlay-text);
 }
 
 /* ============================================

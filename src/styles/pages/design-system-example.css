@@ -254,19 +254,11 @@
   padding: 2rem 1rem;
   background: linear-gradient(
     135deg,
-    rgba(74, 115, 17, 0.1) 0%,
-    rgba(44, 95, 45, 0.1) 100%
+    rgba(var(--primary-rgb), 0.1) 0%,
+    rgba(var(--success-rgb), 0.1) 100%
   );
   border: 2px solid var(--border);
   border-radius: var(--radius-xl);
-}
-
-.dark .wp-cta-box {
-  background: linear-gradient(
-    135deg,
-    rgba(144, 186, 72, 0.1) 0%,
-    rgba(151, 188, 98, 0.1) 100%
-  );
 }
 
 @media (min-width: 769px) {
@@ -325,7 +317,7 @@
   position: absolute;
   top: -1rem;
   left: -1rem;
-  font-family: Georgia, serif;
+  font-family: var(--font-family-lora);
 }
 
 .wp-testimonial__author {

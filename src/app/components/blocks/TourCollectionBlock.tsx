@@ -44,7 +44,7 @@ export function TourCollectionBlock({
   }, [tours, searchQuery]);
 
   return (
-    <section className="wp-block-lts-tour-collection">
+    <section className="wp-block-lts-tour-collection p-[0px]">
       {/* Dynamic Header */}
       {(title || description || showSearch) && (
         <div className="wp-block-lts-tour-collection__header">

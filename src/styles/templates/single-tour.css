@@ -47,7 +47,7 @@
 .wp-template-single-tour__hero-content {
   position: relative;
   z-index: 2;
-  color: white;
+  color: var(--overlay-text);
 }
 
 @media (min-width: 768px) {
@@ -237,7 +237,7 @@
 }
 
 .wp-template-single-tour__booking-button:hover {
-  background-color: rgba(var(--primary), 0.9);
+  background-color: rgba(var(--primary-rgb), 0.9);
   transform: translateY(-1px);
 }
 

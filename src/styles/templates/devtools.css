@@ -3,13 +3,11 @@
  * 
  * BEM Structure: .wp-template-devtools__*
  * 
- * Handles light/dark mode using CSS variables aligned with WordPress theme.json.
- * NO dark: Tailwind classes - uses .dark selector instead.
- * 
  * All colors, typography, spacing, borders, and radius values use CSS variables
  * from theme-light.css and theme-dark.css for complete design system compliance.
+ * RGB companion tokens auto-switch between light and dark modes.
  * 
- * @version 1.0
+ * @version 2.0 — Eliminated all .dark overrides; uses RGB companion tokens
  * @see /src/styles/theme-light.css
  * @see /src/styles/theme-dark.css
  */
@@ -21,12 +19,8 @@
 .wp-template-devtools__grid-pattern {
   position: absolute;
   inset: 0;
-  opacity: 0.025; /* Light mode */
+  opacity: 0.04;
   pointer-events: none;
-}
-
-.dark .wp-template-devtools__grid-pattern {
-  opacity: 0.05; /* Dark mode - more visible */
 }
 
 /* ============================================
@@ -38,81 +32,47 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  border: 1px solid rgba(74, 115, 17, 0.2); /* primary with 20% opacity */
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
   border-radius: var(--radius-full);
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   color: var(--primary);
-  background-color: rgba(74, 115, 17, 0.05); /* primary with 5% opacity - light mode */
-}
-
-.dark .wp-template-devtools__badge {
-  background-color: rgba(144, 186, 72, 0.1); /* dark mode primary with 10% opacity */
+  background-color: rgba(var(--primary-rgb), 0.06);
 }
 
 /* ============================================
    CATEGORY ICON CONTAINERS (with semantic colors)
    ============================================ */
 
-/* Primary variant */
 .wp-template-devtools__icon--primary {
-  background-color: rgba(74, 115, 17, 0.1); /* primary with 10% opacity - light mode */
+  background-color: rgba(var(--primary-rgb), 0.1);
   color: var(--primary);
 }
 
-.dark .wp-template-devtools__icon--primary {
-  background-color: rgba(144, 186, 72, 0.15); /* dark mode primary with 15% opacity */
-}
-
-/* Accent variant */
 .wp-template-devtools__icon--accent {
-  background-color: rgba(184, 122, 0, 0.1); /* accent with 10% opacity - light mode */
+  background-color: rgba(var(--accent-rgb), 0.1);
   color: var(--accent);
 }
 
-.dark .wp-template-devtools__icon--accent {
-  background-color: rgba(255, 183, 64, 0.15); /* dark mode accent with 15% opacity */
-}
-
-/* Info variant */
 .wp-template-devtools__icon--info {
-  background-color: rgba(1, 87, 155, 0.1); /* info with 10% opacity - light mode */
+  background-color: rgba(var(--info-rgb), 0.1);
   color: var(--info);
 }
 
-.dark .wp-template-devtools__icon--info {
-  background-color: rgba(66, 165, 245, 0.15); /* dark mode info with 15% opacity */
-}
-
-/* Warning variant */
 .wp-template-devtools__icon--warning {
-  background-color: rgba(230, 81, 0, 0.1); /* warning with 10% opacity - light mode */
+  background-color: rgba(var(--warning-rgb), 0.1);
   color: var(--warning);
 }
 
-.dark .wp-template-devtools__icon--warning {
-  background-color: rgba(255, 167, 38, 0.15); /* dark mode warning with 15% opacity */
-}
-
-/* Secondary variant */
 .wp-template-devtools__icon--secondary {
-  background-color: rgba(92, 83, 64, 0.1); /* secondary with 10% opacity - light mode */
+  background-color: rgba(var(--secondary-rgb), 0.1);
   color: var(--secondary);
 }
 
-.dark .wp-template-devtools__icon--secondary {
-  background-color: rgba(168, 154, 122, 0.15); /* dark mode secondary with 15% opacity */
-}
-
-/* Success variant */
 .wp-template-devtools__icon--success {
-  background-color: rgba(27, 94, 32, 0.1); /* success with 10% opacity - light mode */
+  background-color: rgba(var(--success-rgb), 0.1);
   color: var(--success);
-}
-
-.dark .wp-template-devtools__icon--success {
-  background-color: rgba(102, 187, 106, 0.15); /* dark mode success with 15% opacity */
 }
 
 /* ============================================
@@ -127,11 +87,7 @@
   height: 2.25rem; /* 36px */
   border-radius: var(--radius-lg);
   color: var(--primary);
-  background-color: rgba(74, 115, 17, 0.08); /* primary with 8% opacity - light mode */
-}
-
-.dark .wp-template-devtools__stat-icon {
-  background-color: rgba(144, 186, 72, 0.12); /* dark mode primary with 12% opacity */
+  background-color: rgba(var(--primary-rgb), 0.1);
 }
 
 /* ============================================
@@ -150,18 +106,14 @@
   color: var(--muted-foreground);
   text-decoration: none;
   flex-shrink: 0;
-  background-color: rgba(245, 245, 245, 0.5); /* muted with 50% opacity - light mode */
+  background-color: rgba(var(--muted-rgb), 0.5);
   transition: all 200ms ease;
 }
 
 .wp-template-devtools__nav-link:hover {
-  background-color: rgba(74, 115, 17, 0.05); /* primary with 5% opacity */
+  background-color: rgba(var(--primary-rgb), 0.06);
   color: var(--primary);
-  border-color: rgba(74, 115, 17, 0.2); /* primary with 20% opacity */
-}
-
-.dark .wp-template-devtools__nav-link:hover {
-  background-color: rgba(144, 186, 72, 0.1); /* dark mode primary with 10% opacity */
+  border-color: rgba(var(--primary-rgb), 0.2);
 }
 
 /* ============================================
@@ -173,11 +125,7 @@
 }
 
 .wp-template-devtools__section--odd {
-  background-color: rgba(245, 245, 245, 0.3); /* muted with 30% opacity - light mode */
-}
-
-.dark .wp-template-devtools__section--odd {
-  background-color: rgba(38, 38, 38, 0.2); /* dark mode muted with 20% opacity */
+  background-color: rgba(var(--muted-rgb), 0.3);
 }
 
 /* ============================================
@@ -200,11 +148,7 @@
 }
 
 .wp-template-devtools__tool-card:hover {
-  border-color: rgba(74, 115, 17, 0.3); /* primary with 30% opacity */
-  box-shadow: var(--elevation-sm);
-}
-
-.dark .wp-template-devtools__tool-card:hover {
+  border-color: rgba(var(--primary-rgb), 0.3);
   box-shadow: var(--elevation-md);
 }
 
@@ -229,17 +173,9 @@
   transition: all 200ms ease;
 }
 
-.dark .wp-template-devtools__tool-icon {
-  background-color: rgba(38, 38, 38, 0.6); /* muted with 60% opacity */
-}
-
 .wp-template-devtools__tool-card:hover .wp-template-devtools__tool-icon {
-  background-color: rgba(74, 115, 17, 0.1); /* primary with 10% opacity */
+  background-color: rgba(var(--primary-rgb), 0.1);
   color: var(--primary);
-}
-
-.dark .wp-template-devtools__tool-card:hover .wp-template-devtools__tool-icon {
-  background-color: rgba(144, 186, 72, 0.15); /* dark mode primary with 15% opacity */
 }
 
 /* ============================================
@@ -247,11 +183,7 @@
    ============================================ */
 
 .wp-template-devtools__utilities-section {
-  background-color: rgba(245, 245, 245, 0.4); /* muted with 40% opacity - light mode */
-}
-
-.dark .wp-template-devtools__utilities-section {
-  background-color: rgba(38, 38, 38, 0.2); /* dark mode muted with 20% opacity */
+  background-color: rgba(var(--muted-rgb), 0.3);
 }
 
 /* ============================================
@@ -264,13 +196,9 @@
   right: 0;
   width: 6rem; /* 96px */
   height: 6rem; /* 96px */
-  background-color: rgba(74, 115, 17, 0.03); /* primary with 3% opacity - light mode */
+  background-color: rgba(var(--primary-rgb), 0.04);
   border-bottom-left-radius: 5rem; /* 80px */
   pointer-events: none;
-}
-
-.dark .wp-template-devtools__shape {
-  background-color: rgba(144, 186, 72, 0.06); /* dark mode primary with 6% opacity */
 }
 
 /* ============================================
@@ -284,12 +212,8 @@
   width: 2.25rem; /* 36px */
   height: 2.25rem; /* 36px */
   border-radius: var(--radius-lg);
-  background-color: rgba(74, 115, 17, 0.1); /* primary with 10% opacity - light mode */
+  background-color: rgba(var(--primary-rgb), 0.1);
   color: var(--primary);
-}
-
-.dark .wp-template-devtools__how-icon {
-  background-color: rgba(144, 186, 72, 0.15); /* dark mode primary with 15% opacity */
 }
 
 /* ============================================
@@ -301,11 +225,7 @@
   align-items: flex-start;
   gap: 0.75rem;
   padding: 1rem;
-  background-color: rgba(74, 115, 17, 0.04); /* primary with 4% opacity - light mode */
-  border: 1px solid rgba(74, 115, 17, 0.1); /* primary with 10% opacity */
+  background-color: rgba(var(--primary-rgb), 0.05);
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
   border-radius: var(--radius-lg);
-}
-
-.dark .wp-template-devtools__callout {
-  background-color: rgba(144, 186, 72, 0.08); /* dark mode primary with 8% opacity */
 }

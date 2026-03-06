@@ -185,7 +185,7 @@ export function ArchiveTourTemplate() {
       </section>
 
       {/* Main Results */}
-      <section className="wp-template-archive-tours__content">
+      <section className="wp-template-archive-tours__content px-[32px] py-[106px]">
         <Container className="flex flex-col gap-gap-lg">
           <SectionHeader
             section={{

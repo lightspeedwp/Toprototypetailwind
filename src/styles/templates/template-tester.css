@@ -21,12 +21,8 @@
 .wp-template-tester__dots-pattern {
   position: absolute;
   inset: 0;
-  opacity: 0.03; /* Light mode */
+  opacity: 0.04;
   pointer-events: none;
-}
-
-.dark .wp-template-tester__dots-pattern {
-  opacity: 0.06; /* Dark mode - more visible */
 }
 
 /* ============================================
@@ -38,15 +34,11 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  border: 1px solid rgba(74, 115, 17, 0.2); /* primary with 20% opacity */
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
   border-radius: var(--radius-full);
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   color: var(--primary);
-  background-color: rgba(74, 115, 17, 0.05); /* primary with 5% opacity - light mode */
-}
-
-.dark .wp-template-tester__badge {
-  background-color: rgba(144, 186, 72, 0.1); /* dark mode primary with 10% opacity */
+  background-color: rgba(var(--primary-rgb), 0.06);
 }
