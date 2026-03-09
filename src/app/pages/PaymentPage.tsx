@@ -35,7 +35,7 @@ import { Container } from "../components/common/Container";
 import { PaymentMethodSelector, type PaymentMethodType } from "../components/patterns/PaymentMethodSelector";
 import { CreditCardForm, type CreditCardData } from "../components/patterns/CreditCardForm";
 import { SecurePaymentIndicators } from "../components/patterns/SecurePaymentIndicators";
-import { Lock, CheckCircle, AlertCircle, CreditCard, Calendar, Users, MapPin } from "lucide-react";
+import { LockKey as Lock, CheckCircle as CircleCheck, WarningCircle as AlertCircle, CreditCard, Calendar, Users, MapPin } from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 import { toast } from "sonner";
 
@@ -347,7 +347,7 @@ export default function PaymentPage({ onNavigate }: PaymentPageProps) {
                 <div className="mt-6 pt-6 border-t border-border">
                   <div className="wp-callout-accent-soft p-3">
                     <div className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <CircleCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                       <div className="text-xs text-muted-foreground">
                         <p className="font-medium text-foreground mb-1">
                           Free Cancellation

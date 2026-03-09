@@ -6,7 +6,7 @@ import { Container } from "../components/common/Container";
 import { Hero } from "../components/patterns/Hero";
 import { HeadingBlock } from "../components/blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../components/blocks/core/ParagraphBlock";
-import { Compass, MapPin, Home, Phone, ArrowLeft, Search } from "lucide-react";
+import { Compass, MapPin, House as Home, Phone, ArrowLeft, MagnifyingGlass as Search } from "@phosphor-icons/react";
 import { Button } from "../components/blocks/design/Button";
 import { useNavigation } from "../contexts/NavigationContext";
 
@@ -23,23 +23,7 @@ export function NotFoundPage() {
   return (
     <article className="wp-template-page">
       {/* Hero */}
-      <Hero
-        title="Off the Beaten Path"
-        intro="We're sorry, but the page you were looking for doesn't exist or has been moved to a new territory."
-        height="medium"
-        overlay="dark"
-        image="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200"
-        primaryCTA={{
-          label: "Return Home",
-          onClick: () => navigateTo("/"),
-          icon: Home
-        }}
-        secondaryCTA={{
-          label: "Browse Tours",
-          onClick: () => navigateTo("/tours"),
-          variant: "outline"
-        }}
-      />
+      <Hero context="not-found" />
 
       {/* Quick Navigation Grid */}
       <section className="py-section-lg bg-card border-b border-border/50">

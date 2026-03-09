@@ -10,7 +10,7 @@ import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
 import { Button } from "../blocks/design/Button";
-import { Search, Filter, Package, AlertCircle, RefreshCcw } from "lucide-react";
+import { MagnifyingGlass as Search, Funnel as Filter, Package, WarningCircle as AlertCircle, ArrowsCounterClockwise as RefreshCcw } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";
 

@@ -19,7 +19,7 @@
  */
 
 import React, { useState } from 'react';
-import { Filter, X } from 'lucide-react';
+import { Funnel as Filter, X } from '@phosphor-icons/react';
 
 /**
  * Filter option interface for dropdowns.

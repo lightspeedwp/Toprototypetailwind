@@ -19,7 +19,7 @@ import { CountdownPattern } from "../components/patterns/CountdownPattern";
 import { ALL_SPECIALS } from "../data/mockExpanded";
 import { getPageSectionFAQs, TOURS } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
-import { Tag, Calendar, Users, TrendingDown, Clock, CheckCircle2, Sparkles, Percent } from "lucide-react";
+import { Tag, Calendar, Users, TrendDown as TrendingDown, Clock, CheckCircle as CircleCheck, Sparkle as Sparkles, Percent } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 
 export function SpecialSingle() {
@@ -119,7 +119,7 @@ export function SpecialSingle() {
                 className="flex items-center gap-4 p-6 rounded-2xl bg-card border-2 border-border shadow-sm group hover:border-primary transition-all duration-500"
               >
                 <div className="size-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                  <CheckCircle2 className="size-5" />
+                  <CircleCheck className="size-5" />
                 </div>
                 <span className="font-bold text-foreground text-sm">{benefit}</span>
               </motion.div>

@@ -14,11 +14,11 @@
  */
 
 import './TourQuickFacts.css';
-import { type LucideIcon } from 'lucide-react';
+import type { Icon as PhosphorIcon } from '@phosphor-icons/react';
 
 /** A single fact entry. */
 export interface QuickFact {
-  icon: LucideIcon;
+  icon: PhosphorIcon;
   label: string;
   value: string;
 }

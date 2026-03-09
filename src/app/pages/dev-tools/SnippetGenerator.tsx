@@ -20,7 +20,7 @@ import {
   type SnippetTemplate,
   type GeneratedSnippet,
 } from "../../utils/snippetGenerator";
-import { Code2, Copy, Download, CheckCircle, Search } from "lucide-react";
+import { Code as Code2, Copy, DownloadSimple as Download, CheckCircle as CircleCheck, MagnifyingGlass as Search } from "@phosphor-icons/react";
 
 export default function SnippetGenerator() {
   const [selectedTemplate, setSelectedTemplate] = useState<SnippetTemplate | null>(null);
@@ -285,7 +285,7 @@ export default function SnippetGenerator() {
                         >
                           {copied ? (
                             <>
-                              <CheckCircle className="w-4 h-4 text-primary" />
+                              <CircleCheck className="w-4 h-4 text-primary" />
                               <span>Copied!</span>
                             </>
                           ) : (

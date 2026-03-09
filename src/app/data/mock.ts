@@ -52,3 +52,18 @@ export { SPECIAL_CATEGORIES } from "./specials/categories";
 
 // Re-export FAQs
 export * from "./faqs";
+
+// Re-export content helpers (heroes, page-section FAQs)
+export { getHeroContent, HERO_CONTENT } from "./content/heroes";
+export { getPageSectionFAQs, PAGE_SECTION_FAQS } from "./content/faqs";
+
+// Re-export navigation / template-part data
+export {
+  PRIMARY_NAV,
+  FOOTER_NAV as FOOTER_NAV_SECTIONS,
+  SOCIAL_LINKS,
+  CONTACT_INFO,
+  HEADER_CTA,
+  BREADCRUMB_TRAILS,
+  getBreadcrumbTrail,
+} from "./content/navigation";

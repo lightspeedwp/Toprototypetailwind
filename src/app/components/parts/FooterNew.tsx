@@ -1,48 +1,46 @@
 /**
- * Site Footer
- * 
- * Comprehensive footer using WordPress theme blocks logic.
- * Strictly adheres to design system tokens and BEM naming.
+ * Site Footer — WordPress Template Part
+ *
+ * Comprehensive footer consuming navigation and contact data from
+ * the centralized data files. No hardcoded links or contact info.
+ *
+ * WordPress Mapping: parts/footer.html
+ * CSS: /src/styles/parts/footer.css (BEM: .wp-part-footer__*)
+ *
+ * @module FooterNew
+ * @category parts
  */
 
 import { Container } from "../common/Container";
 import { SiteLogo, SiteTagline } from "../blocks/theme";
-import { Facebook, Instagram, Twitter, Linkedin, Youtube, ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
+import { FacebookLogo as Facebook, InstagramLogo as Instagram, TwitterLogo as Twitter, LinkedinLogo as Linkedin, YoutubeLogo as Youtube, ArrowUpRight, EnvelopeSimple as Mail, Phone, MapPin } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
+import { FOOTER_NAV, SOCIAL_LINKS, CONTACT_INFO } from "../../data/content/navigation";
+import type { SocialPlatform } from "../../data/types/template-parts";
 
 interface FooterNewProps {
   currentPage?: string;
   onNavigate?: (path: string) => void;
 }
 
-const FOOTER_NAV = {
-  expeditions: [
-    { label: "All Tours", url: "/tours" },
-    { label: "Exclusive Specials", url: "/specials" },
-    { label: "Our Territories", url: "/destinations" },
-    { label: "Travel Styles", url: "/travel-styles" },
-  ],
-  sanctuary: [
-    { label: "Estate Collection", url: "/accommodation" },
-    { label: "Sustainable Impact", url: "/about" },
-    { label: "The Chronicles", url: "/blog" },
-    { label: "Expert Concierge", url: "/contact" },
-  ],
-  intelligence: [
-    { label: "Travel FAQ", url: "/faqs" },
-    { label: "Booking Protocols", url: "/terms-conditions" },
-    { label: "Privacy Policy", url: "/privacy-policy" },
-    { label: "Digital Studio", url: "/dev-tools" },
-  ]
+/** Map platform id → lucide icon component. */
+const SOCIAL_ICON_MAP: Record<SocialPlatform, React.ComponentType<{ className?: string }>> = {
+  facebook: Facebook,
+  instagram: Instagram,
+  twitter: Twitter,
+  linkedin: Linkedin,
+  youtube: Youtube,
+  tiktok: Instagram, // fallback
+  pinterest: Instagram, // fallback
 };
 
 export function FooterNew({ currentPage, onNavigate }: FooterNewProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="wp-part-footer bg-card border-t-2 border-border/50">
+    <footer className="wp-part-footer bg-card border-t-2 border-border/50 p-[0px]">
       {/* Prime Footer Content */}
-      <section className="py-24">
+      <section className="px-[24px] py-[60px]">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 md:gap-24">
             {/* Brand Manifesto */}
@@ -55,38 +53,36 @@ export function FooterNew({ currentPage, onNavigate }: FooterNewProps) {
               </div>
               
               <div className="flex gap-4">
-                {[
-                  { Icon: Facebook, label: 'Facebook', href: 'https://facebook.com' },
-                  { Icon: Instagram, label: 'Instagram', href: 'https://instagram.com' },
-                  { Icon: Twitter, label: 'X (Twitter)', href: 'https://x.com' },
-                  { Icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
-                ].map(({ Icon, label, href }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="size-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all shadow-sm"
-                  >
-                    <Icon className="size-4" />
-                  </a>
-                ))}
+                {SOCIAL_LINKS.map(({ id, platform, url, label }) => {
+                  const Icon = SOCIAL_ICON_MAP[platform];
+                  return (
+                    <a
+                      key={id}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="size-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all shadow-sm"
+                    >
+                      <Icon className="size-4" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Nav Ecosystem */}
-            {Object.entries(FOOTER_NAV).map(([key, items]) => (
-              <div key={key}>
-                <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-8">{key}</h4>
+            {/* Nav Ecosystem — driven by FOOTER_NAV data */}
+            {FOOTER_NAV.map((section) => (
+              <div key={section.id}>
+                <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-8">{section.heading}</h4>
                 <ul className="space-y-4 m-0 p-0 list-none">
-                  {items.map(item => (
-                    <li key={item.url} className="m-0">
+                  {section.items.map(item => (
+                    <li key={item.id} className="m-0">
                       <button
-                        onClick={() => onNavigate?.(item.url)}
+                        onClick={() => onNavigate?.(item.href)}
                         className={cn(
                           "text-sm font-bold transition-all flex items-center gap-2 group",
-                          currentPage === item.url ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                          currentPage === item.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
                         )}
                       >
                         {item.label}
@@ -101,29 +97,29 @@ export function FooterNew({ currentPage, onNavigate }: FooterNewProps) {
         </Container>
       </section>
 
-      {/* Trust & Contact Strip */}
-      <section className="bg-muted/30 border-y-2 border-border/50 py-12">
+      {/* Trust & Contact Strip — driven by CONTACT_INFO data */}
+      <section className="bg-muted/30 border-y-2 border-border/50 px-[24px] py-[48px]">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="flex items-center gap-4">
               <div className="p-3 rounded-xl bg-background border border-border shadow-sm"><Mail className="size-5 text-primary" /></div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">Dossier Request</p>
-                <p className="text-sm font-bold">concierge@lightspeed.africa</p>
+                <p className="text-sm font-bold">{CONTACT_INFO.email}</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <div className="p-3 rounded-xl bg-background border border-border shadow-sm"><Phone className="size-5 text-primary" /></div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">Direct Access</p>
-                <p className="text-sm font-bold">+27 (0) 21 555 0123</p>
+                <p className="text-sm font-bold">{CONTACT_INFO.phone}</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <div className="p-3 rounded-xl bg-background border border-border shadow-sm"><MapPin className="size-5 text-primary" /></div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">HQ Studio</p>
-                <p className="text-sm font-bold">Cape Town, South Africa</p>
+                <p className="text-sm font-bold">{CONTACT_INFO.address}</p>
               </div>
             </div>
           </div>
@@ -131,7 +127,7 @@ export function FooterNew({ currentPage, onNavigate }: FooterNewProps) {
       </section>
 
       {/* Bottom Legal / Copyright */}
-      <section className="py-10">
+      <section className="px-[24px] py-[16px]">
         <Container>
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex items-center gap-6">
@@ -141,7 +137,7 @@ export function FooterNew({ currentPage, onNavigate }: FooterNewProps) {
             </div>
             
             <div className="flex gap-8">
-              <button onClick={() => onNavigate?.('/template-tester')} className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors underline underline-offset-4 decoration-border">Template Navigator</button>
+              <button onClick={() => onNavigate?.('/dev-tools/template-tester')} className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors underline underline-offset-4 decoration-border">Template Navigator</button>
               <button onClick={() => onNavigate?.('/dev-tools')} className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors underline underline-offset-4 decoration-border">System Logic</button>
             </div>
           </div>

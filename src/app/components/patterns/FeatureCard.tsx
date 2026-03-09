@@ -19,11 +19,11 @@
  */
 
 import { cn } from "../../lib/utils";
-import { LucideIcon } from "lucide-react";
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
 
 interface FeatureCardProps {
-  /** Lucide icon component to display */
-  icon: LucideIcon;
+  /** Phosphor icon component to display */
+  icon: PhosphorIcon;
   
   /** Feature title */
   title: string;
@@ -43,10 +43,10 @@ interface FeatureCardProps {
  * 
  * @example
  * ```tsx
- * import { Zap } from "lucide-react";
+ * import { Lightning } from "@phosphor-icons/react";
  * 
  * <FeatureCard
- *   icon={Zap}
+ *   icon={Lightning}
  *   title="Fast Performance"
  *   description="Lightning-fast load times"
  *   variant="primary"

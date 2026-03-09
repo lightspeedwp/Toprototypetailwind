@@ -2,9 +2,9 @@
  * About Page Component.
  * 
  * Utility page showcasing company story, values, team, and mission.
+ * Now uses PageShell for centralized breadcrumbs + hero.
  */
 
-import { Hero } from "../components/patterns/Hero";
 import { EditorialContent } from "../components/patterns/EditorialContent";
 import { CTA } from "../components/patterns/CTA";
 import { WhyChooseUsPattern } from "../components/patterns/WhyChooseUsPattern";
@@ -12,48 +12,21 @@ import { StatisticsMetricsPattern } from "../components/patterns/StatisticsMetri
 import { TeamCard } from "../components/patterns/TeamCard";
 import { CardGrid } from "../components/patterns/CardGrid";
 import { Container } from "../components/common/Container";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
-import { TEAM } from "../data/mock";
-import { getHeroContent, getPageSectionFAQs } from "../data/mock";
+import { PageShell } from "../components/parts/PageShell";
+import { TEAM, getPageSectionFAQs } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
 import { FAQ } from "../components/patterns/FAQ";
 import { HeadingBlock } from "../components/blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../components/blocks/core/ParagraphBlock";
-import { Calendar, Users, MapPin, Star, Award, Leaf, Heart } from "lucide-react";
+import { Calendar, Users, Star, Medal as Award, Leaf, Heart } from "@phosphor-icons/react";
 
 export function AboutPage() {
   const { navigateToTeamMember, navigateTo } = useNavigation();
 
-  const heroData = getHeroContent("about");
   const faqData = getPageSectionFAQs("about");
 
   return (
-    <article className="wp-template-page">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Our Story", isCurrent: true }
-        ]}
-        fullWidth={true}
-      />
-
-      <Hero
-        title={heroData?.title || "Crafting Legends Since 2010"}
-        intro={heroData?.description || "A deep-rooted commitment to conservation, community, and the raw beauty of the African wilderness."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200"}
-        height="medium"
-        overlay="medium"
-        primaryCTA={{
-          label: "View Our Team",
-          onClick: () => navigateTo("/team")
-        }}
-        secondaryCTA={{
-          label: "Our Expeditions",
-          onClick: () => navigateTo("/tours"),
-          variant: "outline"
-        }}
-      />
-
+    <PageShell context="about">
       {/* Our Mission Statement */}
       <section className="wp-template-page__content border-b border-border/50">
         <Container maxWidth="narrow">
@@ -139,7 +112,7 @@ export function AboutPage() {
             </div>
             <button 
               onClick={() => navigateTo("/team")}
-              className="text-sm font-bold text-primary hover:underline underline-offset-4 bg-transparent border-none p-0 cursor-pointer"
+              className="text-sm text-primary hover:underline underline-offset-4 bg-transparent border-none p-0 cursor-pointer"
             >
               View Full Team
             </button>
@@ -180,7 +153,7 @@ export function AboutPage() {
           onClick: () => navigateTo("/tours")
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

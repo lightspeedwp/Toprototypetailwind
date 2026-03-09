@@ -33,7 +33,7 @@ import { Button } from "../components/blocks/design/Button";
 import { Separator } from "../components/blocks/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/blocks/ui/accordion";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/blocks/ui/table";
-import { Search, Package, Layers, Grid3x3, FileCode } from "lucide-react";
+import { MagnifyingGlass as Search, Package, Layers, GridNine as Grid3x3, FileCode } from "@phosphor-icons/react";
 
 /**
  * Component documentation structure

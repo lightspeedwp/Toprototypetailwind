@@ -3,24 +3,22 @@
  * 
  * Archive page for special offers and deals.
  * Maps to WordPress archive-special.php template.
+ * Now uses PageShell for centralized breadcrumbs + hero.
  */
 
 import { useState, useMemo } from "react";
-import { Clock, TrendingDown, Calendar, Percent, Tag } from "lucide-react";
+import { Clock, Percent } from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
-import { Hero } from "../components/patterns/Hero";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
 import { SpecialCard } from "../components/patterns/SpecialCard";
-import { CardGrid } from "../components/patterns/CardGrid";
 import { EmptyStatePattern } from "../components/patterns/EmptyStatePattern";
-import { Button } from "../components/blocks/design/Button";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
+import { PageShell } from "../components/parts/PageShell";
 import { ViewSwitcher, type ViewMode } from "../components/patterns/ViewSwitcher";
 import { SearchFilterPattern } from "../components/patterns/SearchFilterPattern";
 import { useNavigation } from "../contexts/NavigationContext";
 import { ALL_SPECIALS } from "../data/mockExpanded";
-import { CTA_SPECIALS_ARCHIVE, getHeroContent, getPageSectionFAQs } from "../data/mock";
+import { CTA_SPECIALS_ARCHIVE, getPageSectionFAQs } from "../data/mock";
 
 const FILTER_OPTIONS = [
   { value: 'all', label: 'All Specials' },
@@ -39,7 +37,6 @@ export function SpecialsArchive() {
   const { navigateToSpecial, navigateTo } = useNavigation();
   
   // Centralized hero and FAQ data
-  const heroData = getHeroContent("specials-archive");
   const faqData = getPageSectionFAQs("specials-archive");
   
   // Filter and sort state
@@ -92,34 +89,7 @@ export function SpecialsArchive() {
   };
 
   return (
-    <article className="wp-template-archive">
-      {/* Breadcrumbs */}
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Exclusive Offers", isCurrent: true }
-        ]}
-        fullWidth={true}
-      />
-
-      {/* Hero */}
-      <Hero
-        title={heroData?.title || "Exclusive Safari Deals"}
-        intro={heroData?.description || "Limited-time offers and seasonal specials on our most popular African adventures."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800"}
-        height="medium"
-        overlay="medium"
-        primaryCTA={{
-          label: "Get Deal Alerts",
-          onClick: () => navigateTo("/contact"),
-        }}
-        secondaryCTA={{
-          label: "Browse All Tours",
-          onClick: () => navigateTo("/tours"),
-          variant: "outline"
-        }}
-      />
-
+    <PageShell context="specials-archive">
       {/* Advanced Filters */}
       <SearchFilterPattern
         filters={[
@@ -184,7 +154,7 @@ export function SpecialsArchive() {
                       onClick={() => navigateToSpecial(special.slug)} 
                     />
                     {daysLeft > 0 && daysLeft <= 7 && (
-                      <div className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-accent text-white text-[10px] font-bold uppercase tracking-widest rounded shadow-lg flex items-center gap-2 animate-pulse">
+                      <div className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-accent text-white text-xs uppercase tracking-widest rounded shadow-lg flex items-center gap-2 animate-pulse">
                         <Clock size={12} />
                         Expires in {daysLeft} {daysLeft === 1 ? 'day' : 'days'}
                       </div>
@@ -228,7 +198,7 @@ export function SpecialsArchive() {
           onClick: () => navigateTo("/tours"),
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

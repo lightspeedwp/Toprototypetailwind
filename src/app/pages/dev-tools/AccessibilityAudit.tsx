@@ -12,7 +12,7 @@ import { useState } from "react";
 import { Container } from "../../components/common/Container";
 import { DevToolsBreadcrumbs } from "../../components/common/DevToolsBreadcrumbs";
 import { auditAccessibility, logAccessibilityAudit, type A11yAuditResult, type ViolationSeverity } from "../../utils/accessibilityAuditor";
-import { Shield, RefreshCw, CheckCircle, XCircle, AlertTriangle, Info } from "lucide-react";
+import { Shield, ArrowsClockwise as RefreshCw, CheckCircle as CircleCheck, XCircle as CircleX, Warning as AlertTriangle, Info } from "@phosphor-icons/react";
 
 export default function AccessibilityAudit() {
   const [result, setResult] = useState<A11yAuditResult | null>(null);
@@ -43,7 +43,7 @@ export default function AccessibilityAudit() {
   const getSeverityIcon = (severity: ViolationSeverity) => {
     switch (severity) {
       case 'critical':
-        return <XCircle className="w-5 h-5 text-destructive" />;
+        return <CircleX className="w-5 h-5 text-destructive" />;
       case 'serious':
         return <AlertTriangle className="w-5 h-5 text-destructive" />;
       case 'moderate':
@@ -144,25 +144,25 @@ export default function AccessibilityAudit() {
                         <div className="flex items-center justify-between">
                           <span className="text-sm">Level A</span>
                           {result.wcagCompliance.levelA ? (
-                            <CheckCircle className="w-5 h-5 text-primary" />
+                            <CircleCheck className="w-5 h-5 text-primary" />
                           ) : (
-                            <XCircle className="w-5 h-5 text-destructive" />
+                            <CircleX className="w-5 h-5 text-destructive" />
                           )}
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-sm">Level AA</span>
                           {result.wcagCompliance.levelAA ? (
-                            <CheckCircle className="w-5 h-5 text-primary" />
+                            <CircleCheck className="w-5 h-5 text-primary" />
                           ) : (
-                            <XCircle className="w-5 h-5 text-destructive" />
+                            <CircleX className="w-5 h-5 text-destructive" />
                           )}
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-sm">Level AAA</span>
                           {result.wcagCompliance.levelAAA ? (
-                            <CheckCircle className="w-5 h-5 text-primary" />
+                            <CircleCheck className="w-5 h-5 text-primary" />
                           ) : (
-                            <XCircle className="w-5 h-5 text-destructive" />
+                            <CircleX className="w-5 h-5 text-destructive" />
                           )}
                         </div>
                       </div>
@@ -271,7 +271,7 @@ export default function AccessibilityAudit() {
               </div>
             ) : (
               <div className="bg-primary/10 border border-primary/20 p-12 rounded-lg text-center">
-                <CheckCircle className="w-12 h-12 text-primary mx-auto mb-4" />
+                <CircleCheck className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h3 className="mb-2">Perfect! No Violations Found</h3>
                 <p className="text-muted-foreground">
                   Your page meets all checked accessibility standards.

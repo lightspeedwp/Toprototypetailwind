@@ -8,7 +8,7 @@
 import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
-import { Phone, Mail, MapPin, Clock, LucideIcon, Globe, Users } from "lucide-react";
+import { Phone, EnvelopeSimple as Mail, MapPin, Clock, Icon as PhosphorIcon, Globe, Users } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { motion as Motion } from "motion/react";
 
@@ -28,7 +28,7 @@ export interface ContactInfoItem {
   /** Contact value/details (supports multiple lines) */
   value: string | string[];
   /** Optional custom icon (overrides default type icon) */
-  icon?: LucideIcon;
+  icon?: PhosphorIcon;
   /** Optional link (for phone/email/website) */
   href?: string;
 }
@@ -56,7 +56,7 @@ export interface ContactInfoPatternProps {
   address?: string;
 }
 
-const DEFAULT_ICONS: Record<ContactType, LucideIcon> = {
+const DEFAULT_ICONS: Record<ContactType, PhosphorIcon> = {
   phone: Phone,
   email: Mail,
   address: MapPin,

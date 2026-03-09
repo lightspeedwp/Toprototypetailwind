@@ -11,13 +11,12 @@
 import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
-import { Shield, Compass, Users, Heart, Leaf, Globe } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { Shield, Compass, Users, Heart, Leaf, Globe, Icon as PhosphorIcon } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";
 import type { ConservationProject, SustainabilityCommitment } from "../../data/sustainability";
 
-const ICON_MAP: Record<string, LucideIcon> = {
+const ICON_MAP: Record<string, PhosphorIcon> = {
   Shield,
   Compass,
   Users,

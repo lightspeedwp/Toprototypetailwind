@@ -28,14 +28,14 @@ import {
   Star, 
   Shield, 
   Heart, 
-  Zap, 
-  Award,
+  Lightning as Zap, 
+  Medal as Award,
   ArrowRight,
-  Download,
-  Search,
-  Filter,
-  Mail
-} from 'lucide-react';
+  DownloadSimple as Download,
+  MagnifyingGlass as Search,
+  Faders as Filter,
+  EnvelopeSimple as Mail
+} from '@phosphor-icons/react';
 
 /**
  * Design Blocks Showcase page.

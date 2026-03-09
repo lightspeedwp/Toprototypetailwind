@@ -30,17 +30,17 @@ import {
   type PerformanceSnapshot,
 } from "../../utils/realTimeMonitor";
 import { 
-  BarChart3, 
-  TrendingUp, 
+  ChartBar as BarChart3, 
+  TrendUp as TrendingUp, 
   Users, 
   Monitor, 
-  Download,
-  Trash2,
-  Activity,
-  AlertCircle,
-  CheckCircle,
-  XCircle,
-} from "lucide-react";
+  DownloadSimple as Download,
+  Trash as Trash2,
+  Pulse as Activity,
+  WarningCircle as AlertCircle,
+  CheckCircle as CircleCheck,
+  XCircle as CircleX,
+} from "@phosphor-icons/react";
 
 export default function AnalyticsDashboard() {
   const [analytics, setAnalytics] = useState<AnalyticsSummary | null>(null);
@@ -126,9 +126,9 @@ export default function AnalyticsDashboard() {
   };
 
   const getStatusIcon = (status: string) => {
-    if (status === 'healthy' || status === 'pass') return <CheckCircle className="w-5 h-5 text-primary" />;
+    if (status === 'healthy' || status === 'pass') return <CircleCheck className="w-5 h-5 text-primary" />;
     if (status === 'degraded' || status === 'warning') return <AlertCircle className="w-5 h-5 text-muted-foreground" />;
-    return <XCircle className="w-5 h-5 text-destructive" />;
+    return <CircleX className="w-5 h-5 text-destructive" />;
   };
 
   return (

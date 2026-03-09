@@ -5,7 +5,7 @@
  * Strictly adheres to design system tokens and BEM naming.
  */
 
-import { Calendar, User, Clock, ArrowRight } from "lucide-react";
+import { Calendar, User, Clock, ArrowRight } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import type { BlogPost } from "../../data/types";
 import { motion } from "motion/react";

@@ -13,13 +13,13 @@
 import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
-import { LucideIcon } from "lucide-react";
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 export interface StatisticItem {
   value: string | number;
   label: string;
-  icon?: LucideIcon;
+  icon?: PhosphorIcon;
   prefix?: string;
   suffix?: string;
 }

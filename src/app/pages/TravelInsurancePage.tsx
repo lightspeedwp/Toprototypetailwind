@@ -3,36 +3,14 @@
  * 
  * Comprehensive travel insurance information with partner recommendations,
  * coverage details, and educational content to reduce booking friction.
- * 
- * **CONVERSION STATUS:** ✅ COMPLETE - All sections now use patterns
- * **PREVIOUS:** 6 hardcoded sections
- * **CURRENT:** 100% pattern-based with mock data
- * 
- * **Conversion Impact:** 10-15% lift
- * **Psychology:** Risk reduction, trust, education, reassurance
- * 
- * **Design System:**
- * - Uses CSS variables from theme.css
- * - Lora for headings, Noto Sans for body text
- * - Semantic color tokens
- * - Fluid spacing and responsive layout
- * 
- * **Page Structure (All Patterns):**
- * 1. Hero - Why travel insurance matters
- * 2. WhyChooseUsPattern - Why insurance is essential
- * 3. HighlightsGridPattern - What's covered
- * 4. CardGrid - Recommended providers
- * 5. PricingSectionPattern - Coverage comparison
- * 6. HighlightsGridPattern - Real coverage examples
- * 7. FAQ - Insurance FAQs and requirements
- * 8. CTA - Get quote or book tour
+ * Now uses PageShell for centralized breadcrumbs + hero.
  * 
  * @module TravelInsurancePage
  * @category pages
  * @conversionPage true
  */
 
-import { Hero } from "../components/patterns/Hero";
+import { PageShell } from "../components/parts/PageShell";
 import { Container } from "../components/common/Container";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
@@ -42,20 +20,20 @@ import { PricingSectionPattern } from "../components/patterns/PricingSectionPatt
 import { 
   Shield, 
   Heart,
-  Plane,
-  AlertTriangle,
-  CheckCircle,
-  XCircle,
-  ExternalLink,
+  AirplaneTilt as Plane,
+  Warning as AlertTriangle,
+  CheckCircle as CircleCheck,
+  XCircle as CircleX,
+  ArrowSquareOut as ExternalLink,
   FileText,
   MapPin,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { 
   INSURANCE_PROVIDERS,
   INSURANCE_PLANS,
   INSURANCE_SCENARIOS,
   INSURANCE_REQUIREMENTS
-} from "../data/mock";
+} from "../data/insurance";
 
 /**
  * Why insurance is essential (benefits)
@@ -93,7 +71,7 @@ const COVERAGE_HIGHLIGHTS = [
     description: "Emergency medical evacuation to nearest adequate facility or home country"
   },
   {
-    icon: <XCircle className="h-6 w-6" />,
+    icon: <CircleX className="h-6 w-6" />,
     title: "Trip Cancellation",
     description: "Reimbursement if you need to cancel your trip for covered reasons"
   },
@@ -115,14 +93,13 @@ const COVERAGE_HIGHLIGHTS = [
 ];
 
 /**
- * Real coverage examples (scenarios)
- * Formatted for HighlightsGridPattern
+ * Real coverage examples (scenarios) — data-driven from insurance.ts
  */
 const SCENARIO_HIGHLIGHTS = INSURANCE_SCENARIOS.map(scenario => ({
   icon: scenario.covered ? (
-    <CheckCircle className="h-6 w-6" />
+    <CircleCheck className="h-6 w-6" />
   ) : (
-    <XCircle className="h-6 w-6" />
+    <CircleX className="h-6 w-6" />
   ),
   title: scenario.title,
   description: `${scenario.description}\n\n**Cost:** ${scenario.cost}\n**Status:** ${scenario.covered ? '✓ Covered' : '✗ Not Covered'}\n\n${scenario.details}`
@@ -182,13 +159,6 @@ const FAQ_REQUIREMENTS = INSURANCE_REQUIREMENTS.map(req => ({
 
 /**
  * Insurance Provider Card Component
- * 
- * Renders a single insurance provider with rating, features, and CTA.
- * 
- * @component
- * @param {Object} props - Component props
- * @param {Object} props.provider - Insurance provider data
- * @returns {JSX.Element} Provider card
  */
 function InsuranceProviderCard({ provider }: { provider: typeof INSURANCE_PROVIDERS[0] }) {
   return (
@@ -199,7 +169,7 @@ function InsuranceProviderCard({ provider }: { provider: typeof INSURANCE_PROVID
     >
       {provider.recommended && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+          <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs">
             Recommended
           </span>
         </div>
@@ -207,11 +177,11 @@ function InsuranceProviderCard({ provider }: { provider: typeof INSURANCE_PROVID
 
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
+          <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
             {provider.logo}
           </div>
           <div>
-            <h3 className="text-lg">{provider.name}</h3>
+            <h3>{provider.name}</h3>
             <div className="flex items-center gap-2 text-sm">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -228,15 +198,15 @@ function InsuranceProviderCard({ provider }: { provider: typeof INSURANCE_PROVID
         </div>
       </div>
 
-      <p className="font-serif text-fluid-2xl mb-4">
+      <p className="mb-4">
         From {provider.startingPrice}
-        <span className="text-sm font-normal text-muted-foreground"> / week</span>
+        <span className="text-sm text-muted-foreground"> / week</span>
       </p>
 
       <ul className="space-y-2 mb-6">
         {provider.features.map((feature, index) => (
           <li key={index} className="flex items-start gap-2 text-sm">
-            <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+            <CircleCheck className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
             <span>{feature}</span>
           </li>
         ))}
@@ -257,30 +227,11 @@ function InsuranceProviderCard({ provider }: { provider: typeof INSURANCE_PROVID
 
 /**
  * Travel Insurance Page Component
- * 
- * **Pattern Usage:**
- * - Hero (existing pattern)
- * - WhyChooseUsPattern (why insurance is essential)
- * - HighlightsGridPattern (what's covered)
- * - CardGrid (recommended providers)
- * - PricingSectionPattern (coverage comparison)
- * - HighlightsGridPattern (real coverage examples)
- * - FAQ (insurance questions + requirements)
- * - CTA (final conversion point)
- * 
- * @returns {JSX.Element} Rendered page
  */
 export function TravelInsurancePage() {
   return (
-    <>
-      {/* Hero */}
-      <Hero
-        title="Travel Insurance for Your Safari"
-        intro="Protect your investment and travel with confidence. Comprehensive coverage for medical emergencies, trip cancellation, and adventure activities."
-        image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800"
-      />
-
-      {/* Why Insurance Matters - WhyChooseUsPattern */}
+    <PageShell context="travel-insurance">
+      {/* Why Insurance Matters */}
       <WhyChooseUsPattern
         title="Why Travel Insurance Is Essential"
         description="African safaris are remote adventures. Medical facilities can be hours away, and evacuation costs can exceed $50,000. Insurance provides financial protection and 24/7 emergency assistance when you need it most."
@@ -288,7 +239,7 @@ export function TravelInsurancePage() {
         variant="default"
       />
 
-      {/* What's Covered - HighlightsGridPattern */}
+      {/* What's Covered */}
       <HighlightsGridPattern
         title="What's Covered"
         description="Comprehensive protection for your safari adventure"
@@ -297,7 +248,7 @@ export function TravelInsurancePage() {
         variant="default"
       />
 
-      {/* Recommended Providers - CardGrid with custom cards */}
+      {/* Recommended Providers */}
       <section className="py-section-md bg-muted/30">
         <Container>
           <div className="text-center mb-8">
@@ -323,7 +274,7 @@ export function TravelInsurancePage() {
         </Container>
       </section>
 
-      {/* Coverage Comparison - PricingSectionPattern */}
+      {/* Coverage Comparison */}
       <PricingSectionPattern
         title="Compare Coverage Levels"
         description="Choose the protection level that's right for your trip"
@@ -339,7 +290,7 @@ export function TravelInsurancePage() {
         }))}
       />
 
-      {/* Real Coverage Examples - HighlightsGridPattern */}
+      {/* Real Coverage Examples */}
       <HighlightsGridPattern
         title="Real Coverage Examples"
         description="See how travel insurance protects you in real-world scenarios"
@@ -355,7 +306,7 @@ export function TravelInsurancePage() {
         intro="Common questions about safari travel insurance"
       />
 
-      {/* Requirements by Destination - FAQ accordion style */}
+      {/* Requirements by Destination */}
       <section className="py-section-md bg-muted/30">
         <Container>
           <div className="text-center mb-8">
@@ -380,9 +331,8 @@ export function TravelInsurancePage() {
         primaryAction={{ label: "Browse Safari Tours", href: "/tours" }}
         secondaryAction={{ label: "Request Custom Quote", href: "/quote-request" }}
       />
-    </>
+    </PageShell>
   );
 }
 
-// Add default export
 export default TravelInsurancePage;

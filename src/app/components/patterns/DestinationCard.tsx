@@ -5,7 +5,7 @@
  * Strictly adheres to design system tokens and BEM naming.
  */
 
-import { Globe, Compass, ArrowRight, MapPin } from "lucide-react";
+import { Globe, Compass, ArrowRight, MapPin } from "@phosphor-icons/react";
 import type { Destination } from "../../data/types";
 import { cn } from "../../lib/utils";
 import { motion as Motion } from "motion/react";
@@ -135,7 +135,8 @@ export function DestinationCard({ destination, onClick, layout = "card", animate
             {destination.excerpt}
           </p>
           <div className="wp-card__hover-action">
-            Begin Expedition <ArrowRight className="size-4" />
+            <span>Begin Expedition</span>
+            <ArrowRight className="wp-card__action-icon wp-block-lts-layout--flex-shrink-0" />
           </div>
         </div>
       )}

@@ -5,8 +5,8 @@
  * Strictly adheres to the content model for the Tour Operator plugin.
  */
 
-import { Compass, Shield, Users, Heart, Leaf, Globe } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { Compass, Shield, Users, Heart, Leaf, Globe } from "@phosphor-icons/react";
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
 
 export interface ConservationProject {
   id: string;

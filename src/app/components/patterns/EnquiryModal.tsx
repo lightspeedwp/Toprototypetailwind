@@ -17,7 +17,7 @@ import { Input } from "../blocks/ui/input";
 import { Textarea } from "../blocks/ui/textarea";
 import { Label } from "../blocks/ui/label";
 import { Button } from "../blocks/design/Button";
-import { CheckCircle2, Sparkles, Compass, ShieldCheck, Mail, Phone, User, MessageSquare } from "lucide-react";
+import { CheckCircle, Sparkle, Compass, ShieldCheck, Envelope, Phone, User, ChatText } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -59,44 +59,44 @@ export function EnquiryModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[800px] p-0 overflow-hidden border-none rounded-[2rem] bg-background shadow-2xl">
-        <div className="grid md:grid-cols-5 h-full">
+      <DialogContent className={cn("sm:max-w-[800px] p-0 overflow-hidden border-none rounded-[2rem] bg-background shadow-2xl")}>
+        <div className="wp-pattern-enquiry">
           {/* Visual Sidebar */}
-          <div className="md:col-span-2 relative hidden md:block overflow-hidden bg-primary">
+          <div className="wp-pattern-enquiry__sidebar">
             <img 
               src="https://images.unsplash.com/photo-1516426122078-c23e76319801" 
               alt="Wilderness" 
-              className="absolute inset-0 size-full object-cover opacity-40 grayscale"
+              className="wp-pattern-enquiry__image"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-accent/20" />
+            <div className="wp-pattern-enquiry__overlay" />
             
-            <div className="relative z-10 p-10 h-full flex flex-col justify-between text-white">
+            <div className="wp-pattern-enquiry__sidebar-content">
               <div>
-                <div className="size-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-8 border border-white/20">
-                  <Compass className="size-6" />
+                <div className="wp-pattern-enquiry__icon-box">
+                  <Compass size={24} weight="fill" />
                 </div>
-                <h3 className="text-3xl font-bold font-serif mb-6 leading-tight">The Art of Exploration</h3>
-                <p className="text-sm opacity-80 leading-relaxed mb-10">We define the intersection of profound wilderness and refined architecture.</p>
+                <h3 className="wp-pattern-enquiry__sidebar-title">The Art of Exploration</h3>
+                <p className="wp-pattern-enquiry__sidebar-desc">We define the intersection of profound wilderness and refined architecture.</p>
                 
-                <ul className="space-y-6 m-0 p-0 list-none">
+                <ul className="wp-pattern-enquiry__list">
                   {[
                     { icon: ShieldCheck, text: "Discrete Consultation" },
-                    { icon: Sparkles, text: "Bespoke Design" },
+                    { icon: Sparkle, text: "Bespoke Design" },
                     { icon: Compass, text: "Expert Navigation" }
                   ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-4 text-xs font-bold uppercase tracking-wider">
-                      <item.icon className="size-4 opacity-60" /> {item.text}
+                    <li key={i} className="wp-pattern-enquiry__list-item">
+                      <item.icon size={16} className="wp-pattern-enquiry__list-icon" /> {item.text}
                     </li>
                   ))}
                 </ul>
               </div>
               
-              <p className="text-xs font-bold uppercase tracking-wider opacity-50">LightSpeed Studio &copy; 2026</p>
+              <p className="wp-pattern-enquiry__footer-text">LightSpeed Studio &copy; 2026</p>
             </div>
           </div>
 
           {/* Form Side */}
-          <div className="md:col-span-3 p-8 md:p-12">
+          <div className="wp-pattern-enquiry__form-side">
             <AnimatePresence mode="wait">
               {!isSubmitted ? (
                 <motion.div 
@@ -105,50 +105,50 @@ export function EnquiryModal({
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                 >
-                  <DialogHeader className="mb-10 text-left">
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="h-px w-8 bg-primary" />
-                      <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Inquiry Protocol</span>
+                  <DialogHeader className="wp-pattern-enquiry__header">
+                    <div className="wp-pattern-enquiry__eyebrow">
+                      <div className="wp-pattern-enquiry__eyebrow-line" />
+                      <span className="wp-pattern-enquiry__eyebrow-text">Inquiry Protocol</span>
                     </div>
-                    <DialogTitle className="text-3xl font-bold font-serif mb-4 leading-tight">{title}</DialogTitle>
-                    <DialogDescription className="text-muted-foreground text-sm leading-relaxed">
+                    <DialogTitle className="wp-pattern-enquiry__title">{title}</DialogTitle>
+                    <DialogDescription className="wp-pattern-enquiry__description">
                       {description}
                     </DialogDescription>
                   </DialogHeader>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div className="space-y-2 group">
-                        <Label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-focus-within:text-primary transition-colors">Full Name</Label>
-                        <div className="relative">
-                          <User className="absolute left-4 top-1/2 -translate-y-1/2 size-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
-                          <Input id="name" name="name" placeholder="E.g. Julian Vane" value={formData.name} onChange={handleChange} required className="pl-12 h-12 bg-muted/30 border-2 border-transparent focus:border-primary/20 transition-all rounded-xl" />
+                  <form onSubmit={handleSubmit} className="wp-pattern-enquiry__form">
+                    <div className="wp-pattern-enquiry__form-grid">
+                      <div className="wp-pattern-enquiry__field">
+                        <Label htmlFor="name" className="wp-pattern-enquiry__label">Full Name</Label>
+                        <div className="wp-pattern-enquiry__input-wrapper">
+                          <User size={16} className="wp-pattern-enquiry__input-icon" />
+                          <Input id="name" name="name" placeholder="E.g. Julian Vane" value={formData.name} onChange={handleChange} required className="wp-pattern-enquiry__input" />
                         </div>
                       </div>
-                      <div className="space-y-2 group">
-                        <Label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-focus-within:text-primary transition-colors">Digital Address</Label>
-                        <div className="relative">
-                          <Mail className="absolute left-4 top-1/2 -translate-y-1/2 size-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
-                          <Input id="email" name="email" type="email" placeholder="julian@vane.com" value={formData.email} onChange={handleChange} required className="pl-12 h-12 bg-muted/30 border-2 border-transparent focus:border-primary/20 transition-all rounded-xl" />
+                      <div className="wp-pattern-enquiry__field">
+                        <Label htmlFor="email" className="wp-pattern-enquiry__label">Digital Address</Label>
+                        <div className="wp-pattern-enquiry__input-wrapper">
+                          <Envelope size={16} className="wp-pattern-enquiry__input-icon" />
+                          <Input id="email" name="email" type="email" placeholder="julian@vane.com" value={formData.email} onChange={handleChange} required className="wp-pattern-enquiry__input" />
                         </div>
                       </div>
                     </div>
 
-                    <div className="space-y-2 group">
-                      <Label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-focus-within:text-primary transition-colors">Vision Brief</Label>
-                      <div className="relative">
-                        <MessageSquare className="absolute left-4 top-4 size-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
-                        <Textarea id="message" name="message" placeholder="Describe the atmosphere, territory, and narrative you wish to experience..." value={formData.message} onChange={handleChange} className="pl-12 pt-4 min-h-[120px] bg-muted/30 border-2 border-transparent focus:border-primary/20 transition-all rounded-xl resize-none" />
+                    <div className="wp-pattern-enquiry__field">
+                      <Label htmlFor="message" className="wp-pattern-enquiry__label">Vision Brief</Label>
+                      <div className="wp-pattern-enquiry__input-wrapper">
+                        <ChatText size={16} className="wp-pattern-enquiry__textarea-icon" />
+                        <Textarea id="message" name="message" placeholder="Describe the atmosphere, territory, and narrative you wish to experience..." value={formData.message} onChange={handleChange} className="wp-pattern-enquiry__textarea" />
                       </div>
                     </div>
 
-                    <div className="pt-4">
-                      <Button type="submit" variant="primary" className="w-full h-14 rounded-xl font-bold text-sm uppercase tracking-widest gap-3 shadow-xl">
-                        Dispatch Request <Compass className="size-4" />
+                    <div className="wp-pattern-enquiry__submit-wrapper">
+                      <Button type="submit" variant="primary" className="wp-pattern-enquiry__submit-btn">
+                        Dispatch Request <Compass size={16} />
                       </Button>
                     </div>
 
-                    <p className="text-xs text-center text-muted-foreground/60 uppercase tracking-wider font-bold">Absolute discretion guaranteed</p>
+                    <p className="wp-pattern-enquiry__disclaimer">Absolute discretion guaranteed</p>
                   </form>
                 </motion.div>
               ) : (
@@ -156,21 +156,21 @@ export function EnquiryModal({
                   key="success"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="py-20 text-center"
+                  className="wp-pattern-enquiry__success"
                 >
-                  <div className="size-24 rounded-[2rem] bg-success/10 flex items-center justify-center text-success mx-auto mb-10 shadow-sm">
-                    <CheckCircle2 className="size-12" />
+                  <div className="wp-pattern-enquiry__success-icon-box">
+                    <CheckCircle size={48} weight="fill" />
                   </div>
-                  <h3 className="text-4xl font-bold font-serif mb-6 leading-tight">Dossier Request Dispatched</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed max-w-sm mx-auto italic font-serif">
+                  <h3 className="wp-pattern-enquiry__success-title">Dossier Request Dispatched</h3>
+                  <p className="wp-pattern-enquiry__success-desc">
                     "{successMessage}"
                   </p>
-                  <div className="mt-12 h-1 w-32 bg-muted mx-auto rounded-full overflow-hidden">
+                  <div className="wp-pattern-enquiry__progress-bg">
                     <motion.div 
                       initial={{ width: 0 }}
                       animate={{ width: '100%' }}
                       transition={{ duration: 3.5 }}
-                      className="h-full bg-primary"
+                      className="wp-pattern-enquiry__progress-bar"
                     />
                   </div>
                 </motion.div>

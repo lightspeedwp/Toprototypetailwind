@@ -3,7 +3,6 @@
  * WordPress plugin custom block for showing accommodations related to a tour
  */
 
-import { Building2 } from 'lucide-react';
 import { Container } from '../common/Container';
 import { SectionHeaderPattern } from '../patterns/SectionHeaderPattern';
 import { AccommodationCard } from '../patterns/AccommodationCard';

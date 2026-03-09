@@ -8,7 +8,7 @@
 import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
-import { MapPin, ExternalLink, Navigation, Compass } from "lucide-react";
+import { MapPin, ArrowSquareOut as ExternalLink, NavigationArrow as Navigation, Compass } from "@phosphor-icons/react";
 import { Button } from "../blocks/design/Button";
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";

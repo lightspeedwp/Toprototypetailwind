@@ -5,7 +5,7 @@
  * @category components/common
  */
 
-import type { LucideIcon } from "lucide-react";
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
 import { cn } from "../../lib/utils";
@@ -16,7 +16,7 @@ export interface SectionHeaderProps {
     title: string;
     description: string;
   };
-  icon?: LucideIcon;
+  icon?: PhosphorIcon;
   prefix?: string;
   centered?: boolean;
   className?: string;

@@ -7,11 +7,11 @@
 
 import { Container } from "../common/Container";
 import { cn } from "../../lib/utils";
-import type { LucideIcon } from "lucide-react";
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 
 interface FastFact {
-  icon: LucideIcon;
+  icon: PhosphorIcon;
   label: string;
   value: string;
 }

@@ -48,6 +48,18 @@ if (typeof window !== 'undefined') {
   window.addEventListener('unhandledrejection', (event) => {
     if (event.reason && isFigmaError([event.reason])) {
       event.preventDefault();
+      event.stopPropagation();
+    }
+  });
+
+  // Also catch regular window errors
+  window.addEventListener('error', (event) => {
+    if (event.error && isFigmaError([event.error])) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else if (event.message && isFigmaError([event.message])) {
+      event.preventDefault();
+      event.stopPropagation();
     }
   });
 }

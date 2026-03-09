@@ -5,7 +5,7 @@
  * Strictly adheres to design system tokens and BEM naming.
  */
 
-import { Clock, Users, ArrowRight, Star } from "lucide-react";
+import { Clock, Users, ArrowRight, Star } from "@phosphor-icons/react";
 import type { Tour } from "../../data/types";
 import { cn } from "../../lib/utils";
 import { motion as Motion } from "motion/react";
@@ -114,7 +114,6 @@ export function TourCard({ tour, onClick, layout = "card", animated = false }: T
         <div className="wp-card__footer">
           <div className="wp-card__price">
             <span className="wp-card__price-amount">{tour.price}</span>
-            <span className="wp-card__price-period">per person</span>
           </div>
           
           <div className="wp-card__action">

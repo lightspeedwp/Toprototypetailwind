@@ -28,7 +28,7 @@ import { Container } from '../components/common/Container';
 import { DevToolsBreadcrumbs } from '../components/common/DevToolsBreadcrumbs';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/blocks/ui/card';
 import { Button } from '../components/blocks/design/Button';
-import { Check, AlertCircle, Info } from 'lucide-react';
+import { Check, WarningCircle as AlertCircle, Info } from '@phosphor-icons/react';
 
 export default function StyleGuide() {
   return (
@@ -162,7 +162,7 @@ export default function StyleGuide() {
                   <CardTitle>Semantic Color Tokens</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-2">
                     {/* Foreground Colors */}
                     <div className="space-y-3">
                       <h4 className="mb-3">Foreground</h4>

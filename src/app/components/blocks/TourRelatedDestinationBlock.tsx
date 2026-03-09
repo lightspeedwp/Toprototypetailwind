@@ -3,7 +3,6 @@
  * WordPress plugin custom block for showing destinations related to a tour
  */
 
-import { MapPin } from 'lucide-react';
 import { Container } from '../common/Container';
 import { SectionHeaderPattern } from '../patterns/SectionHeaderPattern';
 import { DestinationCard } from '../patterns/DestinationCard';

@@ -2,21 +2,22 @@
  * Social Links Component — WordPress `core/social-links` equivalent.
  * 
  * Displays a list of social media icons linking to external profiles.
+ * Adheres strictly to design system, using BEM CSS classes.
  * 
  * @module SocialLinks
  * @category components/common
  */
 
 import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube,
-  Github,
-  Mail,
+  FacebookLogo,
+  XLogo,
+  InstagramLogo,
+  LinkedinLogo,
+  YoutubeLogo,
+  GithubLogo,
+  Envelope,
   Globe,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 export type SocialPlatform =
@@ -49,13 +50,13 @@ interface SocialLinksProps {
 }
 
 const platformIcons: Record<string, any> = {
-  facebook: Facebook,
-  twitter: Twitter,
-  instagram: Instagram,
-  linkedin: Linkedin,
-  youtube: Youtube,
-  github: Github,
-  email: Mail,
+  facebook: FacebookLogo,
+  twitter: XLogo,
+  instagram: InstagramLogo,
+  linkedin: LinkedinLogo,
+  youtube: YoutubeLogo,
+  github: GithubLogo,
+  email: Envelope,
   website: Globe,
 };
 
@@ -73,31 +74,28 @@ export function SocialLinks({
       aria-label="Social media links" 
       className={cn(
         "wp-block-social-links",
-        direction === "vertical" && "flex-col",
+        `wp-block-social-links--${direction}`,
         className
       )}
     >
-      <ul className={cn(
-        "flex flex-wrap gap-2 p-0 m-0 list-none",
-        direction === "vertical" && "flex-col"
-      )}>
+      <ul className="wp-block-social-links__list">
         {links.map((link, index) => {
           const Icon = platformIcons[link.platform] || Globe;
           return (
-            <li key={index} className="m-0">
+            <li key={index} className="wp-block-social-links__item">
               <a
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "flex items-center gap-3 p-2 rounded-full transition-all text-muted-foreground hover:text-primary hover:bg-primary/5",
-                  showLabels && "pr-4"
+                  "wp-block-social-links__link",
+                  showLabels && "wp-block-social-links__link--with-label"
                 )}
                 aria-label={link.label || `Follow us on ${link.platform}`}
               >
-                <Icon size={iconSize} aria-hidden="true" />
+                <Icon size={iconSize} weight="fill" aria-hidden="true" className="wp-block-social-links__icon" />
                 {showLabels && (
-                  <span className="text-sm font-medium">{link.label || link.platform}</span>
+                  <span className="wp-block-social-links__label">{link.label || link.platform}</span>
                 )}
               </a>
             </li>

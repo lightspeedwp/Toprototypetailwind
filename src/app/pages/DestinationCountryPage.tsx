@@ -5,7 +5,7 @@
  */
 
 import { useParams } from "react-router";
-import { MapPin, Calendar, Globe, DollarSign, Clock, Utensils, Zap, Shirt, Heart, Shield, Bus, FileText, CreditCard } from "lucide-react";
+import { MapPin, Calendar, Globe, CurrencyDollar as DollarSign, Clock, ForkKnife as Utensils, Lightning as Zap, TShirt as Shirt, Heart, Shield, Bus, FileText, CreditCard } from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
 import { Hero } from "../components/patterns/Hero";
 import { FastFacts } from "../components/patterns/FastFacts";

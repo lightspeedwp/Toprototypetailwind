@@ -33,12 +33,14 @@
  * - aria-current for current page
  * - Hidden separator icons
  * 
+ * UPDATED: March 2026 - Migrated to Phosphor Icons for better styling options
+ * 
  * @module BreadcrumbsPattern
  * @category patterns
  */
 
 import { Container } from "../common/Container";
-import { ChevronRight, Home } from "lucide-react";
+import { CaretRight, House } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**
@@ -98,78 +100,76 @@ export function BreadcrumbsPattern({
   fullWidth = false,
   className,
 }: BreadcrumbsPatternProps) {
+  // Render separator icon
   const renderSeparator = () => {
-    if (separator === 'chevron') {
-      return <ChevronRight className="wp-pattern-breadcrumbs__separator-icon" aria-hidden="true" />;
-    }
     if (separator === 'slash') {
       return <span className="wp-pattern-breadcrumbs__separator" aria-hidden="true">/</span>;
     }
-    return <span className="wp-pattern-breadcrumbs__separator" aria-hidden="true">→</span>;
+    if (separator === 'arrow') {
+      return <span className="wp-pattern-breadcrumbs__separator" aria-hidden="true">→</span>;
+    }
+    // Default: chevron
+    return <CaretRight size={14} weight="bold" className="wp-pattern-breadcrumbs__separator" aria-hidden="true" />;
   };
 
-  return (
-    <nav 
+  const content = (
+    <nav
       aria-label="Breadcrumb"
-      className={cn(
-        "wp-pattern-breadcrumbs",
-        fullWidth && "wp-pattern-breadcrumbs--full-width",
-        className
-      )}
+      className={cn("wp-pattern-breadcrumbs px-[24px] py-[8px]", className)}
     >
-      <Container maxWidth={fullWidth ? "full" : "xl"}>
-        <ol className="wp-pattern-breadcrumbs__list">
-          {items.map((item, index) => {
-            const isLast = index === items.length - 1;
-            const isCurrent = item.isCurrent || isLast;
-
-            return (
-              <li key={index} className="wp-pattern-breadcrumbs__item">
-                {/* Breadcrumb link */}
-                {!isCurrent && item.href ? (
-                  <a
-                    href={item.href}
-                    onClick={(e) => {
-                      if (item.onClick) {
-                        e.preventDefault();
-                        item.onClick();
-                      }
-                    }}
+      <ol className="wp-pattern-breadcrumbs__list">
+        {items.map((item, index) => (
+          <li key={index} className="wp-pattern-breadcrumbs__item m-[0px]">
+            {item.isCurrent ? (
+              <span
+                className="wp-pattern-breadcrumbs__current"
+                aria-current="page"
+              >
+                {index === 0 && showHomeIcon && (
+                  <House size={14} weight="fill" className="wp-pattern-breadcrumbs__home-icon" aria-label="Home" />
+                )}
+                {item.label}
+              </span>
+            ) : (
+              <>
+                {item.onClick ? (
+                  <button
+                    onClick={item.onClick}
                     className="wp-pattern-breadcrumbs__link"
                   >
                     {index === 0 && showHomeIcon && (
-                      <span className="wp-pattern-breadcrumbs__home">
-                        <Home className="wp-pattern-breadcrumbs__home-icon" aria-hidden="true" />
-                        <span>{item.label}</span>
-                      </span>
+                      <House size={14} weight="fill" className="wp-pattern-breadcrumbs__home-icon" aria-label="Home" />
                     )}
-                    {(index !== 0 || !showHomeIcon) && item.label}
-                  </a>
-                ) : (
-                  <span
-                    aria-current={isCurrent ? "page" : undefined}
-                    className={cn(
-                      "wp-pattern-breadcrumbs__current",
-                      isCurrent && "wp-pattern-breadcrumbs__current--active"
-                    )}
+                    {item.label}
+                  </button>
+                ) : item.href ? (
+                  <a
+                    href={item.href}
+                    className="wp-pattern-breadcrumbs__link"
                   >
                     {index === 0 && showHomeIcon && (
-                      <span className="wp-pattern-breadcrumbs__home">
-                        <Home className="wp-pattern-breadcrumbs__home-icon" aria-hidden="true" />
-                        <span>{item.label}</span>
-                      </span>
+                      <House size={14} weight="fill" className="wp-pattern-breadcrumbs__home-icon" aria-label="Home" />
                     )}
-                    {(index !== 0 || !showHomeIcon) && item.label}
+                    {item.label}
+                  </a>
+                ) : (
+                  <span className="wp-pattern-breadcrumbs__text">
+                    {index === 0 && showHomeIcon && (
+                      <House size={14} weight="fill" className="wp-pattern-breadcrumbs__home-icon" aria-label="Home" />
+                    )}
+                    {item.label}
                   </span>
                 )}
-
-                {/* Separator */}
-                {!isLast && renderSeparator()}
-              </li>
-            );
-          })}
-        </ol>
-      </Container>
+                {index < items.length - 1 && renderSeparator()}
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
     </nav>
   );
+
+  return fullWidth ? content : <Container>{content}</Container>;
 }
+
+BreadcrumbsPattern.displayName = "BreadcrumbsPattern";

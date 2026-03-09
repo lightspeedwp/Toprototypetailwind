@@ -15,7 +15,7 @@
  * @category common
  */
 
-import { X, SlidersHorizontal, Check } from "lucide-react";
+import { X, Faders, Check } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "../../lib/utils";
 
@@ -165,7 +165,7 @@ export function MobileFilterSheet({
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b">
               <div className="flex items-center gap-2">
-                <SlidersHorizontal className="w-5 h-5 text-primary" />
+                <Faders className="w-5 h-5 text-primary" />
                 <h2
                   className="font-serif text-fluid-xl font-medium"
                 >

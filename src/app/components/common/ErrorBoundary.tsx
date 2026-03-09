@@ -41,17 +41,17 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         this.props.fallback || (
-          <div className="flex items-center justify-center min-h-screen bg-background">
-            <div className="text-center p-6 max-w-md">
-              <h2 className="font-serif text-3xl mb-4 text-foreground">
+          <div className="section container flex items-center justify-center min-h-screen has-background">
+            <div className="wp-block-card text-center max-w-md">
+              <h2 className="wp-block-heading is-style-h2 has-foreground-color">
                 Something went wrong
               </h2>
-              <p className="font-sans text-base mb-6 text-muted-foreground">
+              <p className="wp-block-paragraph has-muted-foreground-color">
                 {this.state.error?.message || 'An unexpected error occurred'}
               </p>
               <button
                 onClick={() => window.location.reload()}
-                className="bg-primary text-primary-foreground px-6 py-3 rounded-md font-sans font-medium hover:opacity-90 transition-opacity"
+                className="wp-block-button__link button--primary"
               >
                 Reload Page
               </button>

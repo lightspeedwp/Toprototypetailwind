@@ -34,7 +34,7 @@ import { Pagination } from "../components/patterns/Pagination";
 import { EmptyStatePattern } from "../components/patterns/EmptyStatePattern";
 import { useFilterPersistence, useSortPersistence } from "../hooks/useFilterPersistence";
 import { TOURS } from "../data/mock";
-import { SlidersHorizontal, X, Search } from "lucide-react";
+import { SlidersHorizontal, X, MagnifyingGlass as Search } from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 
 /**

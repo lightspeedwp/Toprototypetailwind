@@ -13,11 +13,11 @@
 import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
-import { LucideIcon } from "lucide-react";
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 export interface FeatureItem {
-  icon?: LucideIcon;
+  icon?: PhosphorIcon;
   title: string;
   description: string;
 }
@@ -74,7 +74,7 @@ export function WhyChooseUsPattern({
                 {Icon && (
                   <div className="wp-pattern-why-choose-us__icon-wrapper">
                     <div className="wp-pattern-why-choose-us__icon">
-                      <Icon size={40} strokeWidth={1.5} />
+                      <Icon size={40} weight="light" />
                     </div>
                     {/* Decorative element */}
                     <div className="wp-pattern-why-choose-us__icon-decoration" />

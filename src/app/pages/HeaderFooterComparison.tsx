@@ -95,7 +95,7 @@ export default function HeaderFooterComparison() {
           <div className="bg-card border border-border rounded-lg p-8">
             <h2 className="mb-6">Implementation Comparison</h2>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-2">
               {/* OLD Implementation */}
               <div className="space-y-4">
                 <h3 className="text-primary">OLD (Custom)</h3>
@@ -106,7 +106,7 @@ export default function HeaderFooterComparison() {
                   <li>✅ Multiple icon imports</li>
                   <li>✅ ~800 lines of code</li>
                   <li>⚠️ Harder to maintain</li>
-                  <li>⚠️ More complex</li>
+                  <li>⚠�� More complex</li>
                 </ul>
               </div>
 
@@ -252,7 +252,7 @@ export default function HeaderFooterComparison() {
           <div className="bg-card border border-border rounded-lg p-8">
             <h2 className="mb-6">Code Statistics</h2>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-2">
               <div>
                 <h3 className="text-lg mb-4">OLD Header.tsx</h3>
                 <ul className="space-y-2 text-sm">

@@ -22,7 +22,7 @@
  */
 
 import { useState, useRef, useEffect } from "react";
-import { ArrowUpDown, Check } from "lucide-react";
+import { ArrowsDownUp as ArrowUpDown, Check } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**

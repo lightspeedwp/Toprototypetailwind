@@ -15,7 +15,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { Container } from "../../components/common/Container";
 import { DevToolsBreadcrumbs } from "../../components/common/DevToolsBreadcrumbs";
-import { RotateCw } from "lucide-react";
+import { ArrowsClockwise as RotateCw } from "@phosphor-icons/react";
 
 /** A single animation demo block. */
 function AnimationCard({

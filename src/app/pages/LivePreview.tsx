@@ -30,7 +30,7 @@ import { Button } from '../components/blocks/design/Button';
 import { Input } from '../components/blocks/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/blocks/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/blocks/ui/tabs';
-import { Copy, Check, Eye, Code, Smartphone, Monitor } from 'lucide-react';
+import { Copy, Check, Eye, Code, DeviceMobile as Smartphone, Monitor } from '@phosphor-icons/react';
 
 interface PreviewComponent {
   id: string;

@@ -32,13 +32,13 @@ import {
   Clock,
   Users,
   Calendar,
-  TrendingUp,
+  TrendUp as TrendingUp,
   Star,
-  Award,
+  Medal as Award,
   Shield,
   Heart,
-  Mail,
-} from "lucide-react";
+  EnvelopeSimple as Mail,
+} from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
 import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
 import { Hero } from "../components/patterns/Hero";

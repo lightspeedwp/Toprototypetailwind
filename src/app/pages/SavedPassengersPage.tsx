@@ -32,15 +32,15 @@ import { PassengerDetailsForm, type PassengerInfo } from "../components/patterns
 import { 
   Users, 
   Plus, 
-  Edit, 
-  Trash2, 
+  PencilSimple as Edit, 
+  Trash as Trash2, 
   Star, 
-  StarOff,
-  CheckCircle,
+  Star as StarOff,
+  CheckCircle as CircleCheck,
   User,
   Baby,
-  UserRound
-} from "lucide-react";
+  UserCircle as UserRound
+} from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 import { toast } from "sonner";
 
@@ -250,7 +250,7 @@ export default function SavedPassengersPage({ onNavigate }: SavedPassengersPageP
                       "focus:outline-none focus:ring-2 focus:ring-ring"
                     )}
                   >
-                    <CheckCircle className="w-5 h-5" />
+                    <CircleCheck className="w-5 h-5" />
                     <span>{editingId ? "Update" : "Save"} Passenger</span>
                   </button>
                   <button
@@ -460,32 +460,32 @@ export default function SavedPassengersPage({ onNavigate }: SavedPassengersPageP
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Quick Booking",
                   description: "No need to re-enter passenger details for every booking",
                 },
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Multiple Travelers",
                   description: "Save details for family members and travel companions",
                 },
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Passport Tracking",
                   description: "Keep track of passport expiry dates for all travelers",
                 },
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Dietary Preferences",
                   description: "Store dietary requirements and special needs",
                 },
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Secure Storage",
                   description: "All information is encrypted and securely stored",
                 },
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Easy Updates",
                   description: "Update details anytime and changes apply to future bookings",
                 },

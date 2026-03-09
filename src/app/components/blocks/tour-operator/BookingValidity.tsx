@@ -18,7 +18,7 @@
  */
 
 import React from 'react';
-import { Calendar } from 'lucide-react';
+import { Calendar } from '@phosphor-icons/react';
 
 /**
  * Booking validity props.

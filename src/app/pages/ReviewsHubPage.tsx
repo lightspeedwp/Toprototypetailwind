@@ -9,14 +9,14 @@
  */
 
 import React, { useState } from "react";
-import { Hero } from "../components/patterns/Hero";
+import { PageShell } from "../components/parts/PageShell";
 import { Container } from "../components/common/Container";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
 import { Button } from "../components/blocks/design/Button";
 import { HeadingBlock } from "../components/blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../components/blocks/core/ParagraphBlock";
-import { Star, Award, ThumbsUp, CheckCircle, ArrowRight } from "lucide-react";
+import { Star, Medal as Award, ThumbsUp, CheckCircle as CircleCheck, ArrowRight } from "@phosphor-icons/react";
 import { useNavigation } from "../contexts/NavigationContext";
 import { cn } from "../lib/utils";
 import "../../styles/pages/reviews-hub.css";
@@ -111,20 +111,7 @@ export function ReviewsHubPage() {
   );
 
   return (
-    <main className="wp-template-reviews-hub">
-      {/* Hero */}
-      <Hero
-        title="Unforgettable Memories"
-        intro={`Read why ${TRUST_SIGNALS.totalReviews.toLocaleString()} travelers trust us with their African adventures.`}
-        image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200"
-        height="medium"
-        overlay="medium"
-        primaryCTA={{
-          label: "Browse All Tours",
-          onClick: () => navigateTo("/tours")
-        }}
-      />
-
+    <PageShell context="reviews-hub" as="main" className="wp-template-reviews-hub">
       {/* Trust Stats Bar */}
       <section className="wp-reviews-trust-bar">
         <Container>
@@ -211,7 +198,7 @@ export function ReviewsHubPage() {
                   
                   <div className="wp-review-entry__verification-badge">
                     <div className="wp-review-entry__verified-tag">
-                      <CheckCircle className="size-3" />
+                      <CircleCheck className="size-3" />
                       <span>Verified Guest</span>
                     </div>
                     <p className="wp-review-entry__tour-label">Experience:</p>
@@ -295,7 +282,7 @@ export function ReviewsHubPage() {
           }
         ]}
       />
-    </main>
+    </PageShell>
   );
 }
 

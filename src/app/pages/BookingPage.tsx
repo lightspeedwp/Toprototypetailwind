@@ -30,7 +30,7 @@ import { useState } from "react";
 import { useNavigate } from "../hooks/use-navigate";
 import { BookingWizard, type BookingData } from "../components/patterns/BookingWizard";
 import { Container } from "../components/common/Container";
-import { Shield, Lock, Award, HeadphonesIcon } from "lucide-react";
+import { Shield, LockKey as Lock, Medal as Award, Headphones as HeadphonesIcon } from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 import { TOURS } from "../data/mock";
 import type { Tour } from "../data/types";

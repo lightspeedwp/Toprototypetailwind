@@ -8,7 +8,7 @@
 import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
-import { LucideIcon, Sparkles } from "lucide-react";
+import { Icon as PhosphorIcon, Sparkle as Sparkles } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";
 
@@ -17,7 +17,7 @@ export interface Highlight {
   title: string;
   description: string;
   image?: string;
-  icon?: LucideIcon;
+  icon?: PhosphorIcon;
   href?: string;
   onClick?: () => void;
 }

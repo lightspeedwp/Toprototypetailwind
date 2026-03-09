@@ -8,11 +8,11 @@
 import { 
   Calendar, 
   CloudSun, 
-  DollarSign, 
+  CurrencyDollar as DollarSign, 
   Globe, 
   Clock,
   MapPin
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import type { Destination } from '../../data/types';
 
 interface FastFactsDestinationPartProps {

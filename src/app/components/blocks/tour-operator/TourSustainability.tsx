@@ -14,11 +14,11 @@
  */
 
 import './TourSustainability.css';
-import { Shield, Compass, Users, Heart, Leaf, Globe, type LucideIcon } from 'lucide-react';
+import { Shield, Compass, Users, Heart, Leaf, Globe, type Icon as PhosphorIcon } from '@phosphor-icons/react';
 import { motion as Motion } from 'motion/react';
 import { cn } from '../../../lib/utils';
 
-const ICON_MAP: Record<string, LucideIcon> = {
+const ICON_MAP: Record<string, PhosphorIcon> = {
   Shield,
   Compass,
   Users,

@@ -33,19 +33,19 @@ import {
   Check, 
   Calendar, 
   Users, 
-  Mail, 
+  EnvelopeSimple as Mail, 
   Phone, 
   Printer, 
-  Download, 
-  Share2, 
+  DownloadSimple as Download, 
+  ShareNetwork as Share2, 
   MapPin, 
   Clock,
   Copy,
-  CheckCircle,
-  AlertCircle,
+  CheckCircle as CircleCheck,
+  WarningCircle as AlertCircle,
   CreditCard,
   Info
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
 import { GroupBlock } from "../components/blocks/design/GroupBlock";
 import { cn } from "../lib/utils";
@@ -250,7 +250,7 @@ export default function BookingConfirmationPageEnhanced({ onNavigate }: BookingC
                 aria-label="Copy booking ID"
               >
                 {copied ? (
-                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <CircleCheck className="w-5 h-5 text-primary" />
                 ) : (
                   <Copy className="w-5 h-5 text-muted-foreground" />
                 )}
@@ -434,7 +434,7 @@ export default function BookingConfirmationPageEnhanced({ onNavigate }: BookingC
                               "wp-bg-destructive-light"
                           )}
                         >
-                          {booking.paymentStatus === "confirmed" && <CheckCircle className="w-3.5 h-3.5" />}
+                          {booking.paymentStatus === "confirmed" && <CircleCheck className="w-3.5 h-3.5" />}
                           {booking.paymentStatus === "pending" && <AlertCircle className="w-3.5 h-3.5" />}
                           {booking.paymentStatus === "failed" && <AlertCircle className="w-3.5 h-3.5" />}
                           {booking.paymentStatus === "confirmed" ? "Confirmed" : booking.paymentStatus === "pending" ? "Pending" : "Failed"}

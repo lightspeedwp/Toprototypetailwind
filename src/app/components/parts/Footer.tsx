@@ -6,11 +6,11 @@
  */
 
 import { 
-  Mail,
+  Envelope,
   Phone,
   MapPin,
   Clock
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { Container } from "../common/Container";
 import { Logo } from "../common/Logo";
 import { SocialLinks, type SocialLink } from "../common/SocialLinks";
@@ -184,7 +184,7 @@ export function Footer({ onNavigate }: FooterProps) {
                     href={`mailto:${SITE_CONFIG.contact.email}`}
                     className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-fluid-sm"
                   >
-                    <Mail size={18} className="text-primary" />
+                    <Envelope size={18} className="text-primary" />
                     <span>{SITE_CONFIG.contact.email}</span>
                   </a>
                 </li>
@@ -202,14 +202,14 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
             <span>&copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.</span>
             <div className="flex items-center gap-4">
-              <button onClick={() => handleNavigate("/template-tester")} className="hover:text-primary transition-colors underline decoration-dotted">Test Templates</button>
-              <a href="/dev-tools" className="hover:text-primary transition-colors underline decoration-dotted">Dev Tools</a>
+              <button onClick={() => handleNavigate("/dev-tools/template-tester")} className="hover:text-primary transition-colors underline decoration-dotted">Test Templates</button>
+              <button onClick={() => handleNavigate("/dev-tools")} className="hover:text-primary transition-colors underline decoration-dotted">Dev Tools</button>
             </div>
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="#privacy" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#terms" className="hover:text-primary transition-colors">Terms of Service</a>
+            <button onClick={() => handleNavigate("/privacy-policy")} className="hover:text-primary transition-colors">Privacy Policy</button>
+            <button onClick={() => handleNavigate("/terms-conditions")} className="hover:text-primary transition-colors">Terms of Service</button>
           </div>
         </div>
       </Container>

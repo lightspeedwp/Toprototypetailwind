@@ -8,7 +8,7 @@
  * @category common
  */
 
-import { Loader2 } from 'lucide-react';
+import { CircleNotch } from "@phosphor-icons/react";
 import { cn } from '../../lib/utils';
 
 /**
@@ -43,7 +43,7 @@ export function LoadingSpinner({ size = 'md', className, text }: LoadingSpinnerP
 
   return (
     <div className={cn('flex flex-col items-center justify-center gap-3', className)}>
-      <Loader2 className={cn('animate-spin text-primary', sizes[size])} />
+      <CircleNotch className={cn('animate-spin text-primary', sizes[size])} />
       {text && <p className="text-sm text-muted-foreground">{text}</p>}
     </div>
   );
@@ -325,7 +325,7 @@ interface InlineLoadingProps {
 export function InlineLoading({ text, className, size = 'sm' }: InlineLoadingProps) {
   return (
     <span className={cn('inline-flex items-center gap-2', className)}>
-      <Loader2 className={cn('animate-spin', size === 'sm' ? 'w-4 h-4' : 'w-5 h-5')} />
+      <CircleNotch className={cn('animate-spin', size === 'sm' ? 'w-4 h-4' : 'w-5 h-5')} />
       {text && <span className="text-sm">{text}</span>}
     </span>
   );

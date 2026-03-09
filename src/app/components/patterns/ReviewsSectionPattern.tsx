@@ -8,7 +8,7 @@
 import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
-import { Star, MessageSquare, Quote } from "lucide-react";
+import { Star, ChatCircle as MessageSquare, Quotes as Quote } from "@phosphor-icons/react";
 import { ReviewCard } from "./ReviewCard";
 import { CardGrid } from "./CardGrid";
 import { cn } from "../../lib/utils";

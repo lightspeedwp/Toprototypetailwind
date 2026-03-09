@@ -14,15 +14,15 @@ import {
   MapPin, 
   Calendar, 
   Users, 
-  DollarSign,
+  CurrencyDollar as DollarSign,
   Compass,
   Camera,
-  ChevronRight,
-  ChevronLeft,
-  CheckCircle2,
-  Mail,
-  ArrowRight
-} from "lucide-react";
+  CaretRight as ChevronRight,
+  CaretLeft as ChevronLeft,
+  EnvelopeSimple as Mail,
+  ArrowRight,
+  CheckCircle as CircleCheck
+} from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 
 interface TripPlannerData {
@@ -81,7 +81,7 @@ export default function TripPlannerPage() {
     { id: "adventure", label: "Adventure", icon: Compass },
     { id: "cultural", label: "Cultural", icon: Users },
     { id: "relaxation", label: "Relaxation", icon: MapPin },
-    { id: "honeymoon", label: "Honeymoon", icon: CheckCircle2 },
+    { id: "honeymoon", label: "Honeymoon", icon: CircleCheck },
     { id: "family", label: "Family", icon: Users }
   ];
 
@@ -202,7 +202,7 @@ export default function TripPlannerPage() {
         <Container maxWidth="sm">
           <div className="text-center">
             <div className="size-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8">
-              <CheckCircle2 className="size-10 text-primary" />
+              <CircleCheck className="size-10 text-primary" />
             </div>
             <HeadingBlock level={1}>Request Received</HeadingBlock>
             <ParagraphBlock className="text-muted-foreground mb-12">
@@ -515,15 +515,15 @@ export default function TripPlannerPage() {
         {/* Trust Indicators */}
         <div className="mt-12 flex flex-wrap justify-center gap-8 md:gap-12">
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="size-5 text-primary" />
+            <CircleCheck className="size-5 text-primary" />
             <span className="text-sm font-bold text-muted-foreground uppercase tracking-widest">No Commitment</span>
           </div>
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="size-5 text-primary" />
+            <CircleCheck className="size-5 text-primary" />
             <span className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Expert Guided</span>
           </div>
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="size-5 text-primary" />
+            <CircleCheck className="size-5 text-primary" />
             <span className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Personalized</span>
           </div>
         </div>

@@ -13,7 +13,7 @@ import {
   AccordionTrigger,
 } from "../blocks/ui/accordion";
 import type { FAQItem } from "../../data/types";
-import { HelpCircle, Plus } from "lucide-react";
+import { Question, Plus } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";
 

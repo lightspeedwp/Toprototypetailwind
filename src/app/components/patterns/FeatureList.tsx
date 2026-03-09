@@ -9,11 +9,11 @@
 
 import React from 'react';
 import { Stack } from '../blocks/design';
-import { LucideIcon } from 'lucide-react';
+import { Icon as PhosphorIcon } from '@phosphor-icons/react';
 import { cn } from '../../lib/utils';
 
 export interface Feature {
-  icon: LucideIcon;
+  icon: PhosphorIcon;
   title: string;
   description: string;
   link?: {

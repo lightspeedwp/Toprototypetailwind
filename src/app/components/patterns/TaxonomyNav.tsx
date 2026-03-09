@@ -37,7 +37,7 @@
  */
 
 import { useState } from "react";
-import { Filter, X } from "lucide-react";
+import { Faders, X } from "@phosphor-icons/react";
 import { Container } from "../common/Container";
 import { cn } from "../../lib/utils";
 
@@ -126,7 +126,7 @@ export function TaxonomyNav({
             onClick={() => setMobileMenuOpen(true)}
             className="wp-pattern-taxonomy-nav__mobile-trigger"
           >
-            <Filter size={18} />
+            <Faders size={18} />
             <span>{label}: {activeLabel}</span>
           </button>
         </div>

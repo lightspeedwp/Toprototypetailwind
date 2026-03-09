@@ -1,14 +1,13 @@
 /**
  * Privacy Policy Page - WordPress Template
+ * Now uses PageShell for centralized breadcrumbs + hero.
  */
 
-import { Hero } from "../components/patterns/Hero";
 import { EditorialContent } from "../components/patterns/EditorialContent";
 import { CTA } from "../components/patterns/CTA";
 import { TableOfContentsPattern } from "../components/patterns/TableOfContentsPattern";
 import { ContactInfoPattern } from "../components/patterns/ContactInfoPattern";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
-import { Container } from "../components/common/Container";
+import { PageShell } from "../components/parts/PageShell";
 import { useNavigation } from "../contexts/NavigationContext";
 
 export function PrivacyPolicyPage() {
@@ -67,24 +66,7 @@ export function PrivacyPolicyPage() {
   `;
 
   return (
-    <article className="wp-template-page">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Privacy Policy", isCurrent: true }
-          ]}
-        />
-      </Container>
-
-      <Hero
-        title="Privacy Policy"
-        intro="How we protect your data and ensure transparency in our operations."
-        height="small"
-        overlay="medium"
-        image="https://images.unsplash.com/photo-1454165833767-027ff33027b6?w=1200"
-      />
-
+    <PageShell context="privacy-policy">
       <TableOfContentsPattern
         title="Policy Sections"
         sections={sections}
@@ -122,7 +104,7 @@ export function PrivacyPolicyPage() {
           onClick: () => navigateTo("/terms-conditions"),
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

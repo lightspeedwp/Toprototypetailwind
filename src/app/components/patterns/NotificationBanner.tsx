@@ -1,5 +1,5 @@
 import { cn } from "../../lib/utils";
-import { X, AlertCircle, CheckCircle, Info, AlertTriangle } from "lucide-react";
+import { X, WarningCircle as AlertCircle, CheckCircle as CircleCheck, Info, Warning as AlertTriangle } from "@phosphor-icons/react";
 
 /**
  * NotificationBanner Component
@@ -31,7 +31,7 @@ export function NotificationBanner({
 }: NotificationBannerProps) {
   const icons = {
     info: Info,
-    success: CheckCircle,
+    success: CircleCheck,
     warning: AlertTriangle,
     error: AlertCircle,
   };

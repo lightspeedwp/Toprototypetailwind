@@ -37,7 +37,7 @@
  */
 
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, ChevronRight, Layers, Search, X, ArrowUpDown } from 'lucide-react';
+import { CaretDown, CaretUp, CaretRight, Stack, MagnifyingGlass, X, ArrowsDownUp } from '@phosphor-icons/react';
 
 /**
  * Page configuration for template browser.
@@ -317,12 +317,12 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
         aria-label="Open template browser"
         aria-expanded={isOpen}
       >
-        <Layers className="w-5 h-5" />
+        <Stack className="w-5 h-5" />
         <span className="hidden sm:inline">Templates</span>
         {isOpen ? (
-          <ChevronUp className="w-4 h-4" />
+          <CaretUp className="w-4 h-4" />
         ) : (
-          <ChevronDown className="w-4 h-4" />
+          <CaretDown className="w-4 h-4" />
         )}
       </button>
 
@@ -357,7 +357,7 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
 
               {/* Search */}
               <div className="relative mb-3">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <MagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input
                    type="search"
                    placeholder="Search templates..."
@@ -377,7 +377,7 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
                       : 'wp-common-template-browser__sort-button--inactive'
                   }`}
                 >
-                  <Layers className="w-3 h-3" />
+                  <Stack className="w-3 h-3" />
                   By Category
                 </button>
                 <button
@@ -388,7 +388,7 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
                       : 'wp-common-template-browser__sort-button--inactive'
                   }`}
                 >
-                  <ArrowUpDown className="w-3 h-3" />
+                  <ArrowsDownUp className="w-3 h-3" />
                   A-Z
                 </button>
               </div>
@@ -444,9 +444,9 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
                           </p>
                         </div>
                         {expandedCategories.includes(category.name) ? (
-                          <ChevronDown className="w-4 h-4 text-muted-foreground flex-shrink-0 ml-2" />
+                          <CaretDown className="w-4 h-4 text-muted-foreground flex-shrink-0 ml-2" />
                         ) : (
-                          <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0 ml-2" />
+                          <CaretRight className="w-4 h-4 text-muted-foreground flex-shrink-0 ml-2" />
                         )}
                       </button>
 
@@ -496,7 +496,7 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
                 </div>
               ) : (
                 <div className="wp-common-template-browser__empty">
-                  <Search className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
+                  <MagnifyingGlass className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
                   <p 
                     className="wp-common-template-browser__empty-text"
                   >

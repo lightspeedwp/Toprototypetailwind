@@ -37,13 +37,13 @@ import { motion, AnimatePresence } from "motion/react";
 import { 
   Calendar, 
   Users, 
-  Mail, 
+  EnvelopeSimple as Mail, 
   CreditCard, 
   Check, 
-  ChevronRight, 
-  ChevronLeft,
-  AlertCircle 
-} from "lucide-react";
+  CaretRight as ChevronRight, 
+  CaretLeft as ChevronLeft,
+  WarningCircle as AlertCircle 
+} from "@phosphor-icons/react";
 import { Container } from "../common/Container";
 import { cn } from "../../lib/utils";
 import type { Tour } from "../../data/types";

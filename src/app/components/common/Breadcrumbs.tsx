@@ -15,8 +15,8 @@
  * @category common
  */
 
-import { Link } from 'react-router';
-import { ChevronRight } from 'lucide-react';
+import { AppLink as Link } from './AppLink';
+import { CaretRight as ChevronRight } from '@phosphor-icons/react';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */

@@ -18,7 +18,7 @@
  */
 
 import React from 'react';
-import { Users } from 'lucide-react';
+import { Users } from '@phosphor-icons/react';
 
 /**
  * Group size props.

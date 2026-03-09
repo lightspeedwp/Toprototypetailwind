@@ -9,16 +9,15 @@
  */
 
 import { useState } from "react";
-import { Hero } from "../components/patterns/Hero";
+import { PageShell } from "../components/parts/PageShell";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
 import { TeamCard } from "../components/patterns/TeamCard";
 import { ViewSwitcher, type ViewMode } from "../components/patterns/ViewSwitcher";
 import { Container } from "../components/common/Container";
 import { SectionHeader } from "../components/common/SectionHeader";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
 import { ALL_TEAM } from "../data/mockExpanded";
-import { CTA_TEAM_ARCHIVE, getHeroContent, getPageSectionFAQs } from "../data/mock";
+import { CTA_TEAM_ARCHIVE, getPageSectionFAQs } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
 
 /**
@@ -29,38 +28,10 @@ export function ArchiveTeamTemplate() {
   const [viewMode, setViewMode] = useState<ViewMode>("grid-3");
 
   // Centralized hero and FAQ data
-  const heroData = getHeroContent("team-archive");
   const faqData = getPageSectionFAQs("team-archive");
 
   return (
-    <article className="wp-template-archive-team">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Our Team", isCurrent: true }
-        ]}
-        fullWidth={true}
-      />
-
-      {/* Hero */}
-      <Hero
-        title={heroData?.title || "Meet Our Team"}
-        intro={heroData?.description || "Experienced safari specialists who have personally explored every destination we offer."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800"}
-        height="medium"
-        overlay="medium"
-        animated
-        primaryCTA={{
-          label: "Talk to a Specialist",
-          onClick: () => navigateTo("/contact")
-        }}
-        secondaryCTA={{
-          label: "Browse Tours",
-          onClick: () => navigateTo("/tours"),
-          variant: "outline"
-        }}
-      />
-
+    <PageShell context="team-archive" as="article" className="wp-template-archive-team">
       {/* Content Section */}
       <section className="wp-template-archive__content py-section-lg">
         <Container>
@@ -113,7 +84,7 @@ export function ArchiveTeamTemplate() {
           onClick: () => navigateTo("/tours")
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

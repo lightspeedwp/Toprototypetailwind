@@ -1,40 +1,39 @@
 /**
- * Reusable "View All" button component.
+ * ViewAllButton Component.
  *
- * This component provides a consistent "View All" call-to-action button,
- * typically used at the bottom of featured sections to link to archive pages.
+ * A styled button that provides a "View All" link with an arrow icon.
+ * Follows design system guidelines for buttons and typography.
+ * 
+ * All styling uses CSS custom properties from the design system.
+ * Typography: Lora (serif) for headings, Noto Sans (sans-serif) for body/UI.
  *
- * **WordPress CSS:**
- * Uses BEM classes for consistent styling:
- * - .wp-view-all (wrapper)
- * - .wp-view-all__button (the actual button)
+ * UPDATED: March 2026 - Migrated to Phosphor Icons for better styling options
  *
  * @module ViewAllButton
- * @category components/common
+ * @category common
  */
 
 import { Button } from "../blocks/design/Button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react";
 
 /**
  * Props for the ViewAllButton component.
  */
 interface ViewAllButtonProps {
   /** The text label for the button. */
-  label: string;
+  label?: string;
   /** Optional URL for the link. */
   href?: string;
   /** Callback for when the button is clicked. */
   onClick?: () => void;
   /**
-   * The visual variant of the button.
-   * @default "primary"
-   */
-  variant?: "primary" | "secondary" | "outline" | "ghost";
-  /**
    * Additional CSS classes for the wrapper.
    */
   className?: string;
+  /**
+   * Additional props to pass to the Button component.
+   */
+  [key: string]: any;
 }
 
 /**
@@ -43,26 +42,19 @@ interface ViewAllButtonProps {
  * @param {ViewAllButtonProps} props - Component properties.
  * @returns {JSX.Element} The rendered View All button.
  */
-export function ViewAllButton({
-  label,
-  onClick,
-  variant = "primary",
-  className = "",
-}: ViewAllButtonProps) {
+export function ViewAllButton({ href, label = "View All", onClick, className, ...props }: ViewAllButtonProps) {
   return (
-    <div className={`wp-view-all ${className}`}>
-      <Button
-        variant={variant}
-        size="default"
-        onClick={onClick}
-        icon={<ArrowRight className="wp-view-all__icon" />}
-        iconPosition="right"
-        className="wp-view-all__button"
-      >
-        {label}
-      </Button>
-    </div>
+    <Button
+      variant="link"
+      size="sm"
+      className={className}
+      onClick={onClick}
+      {...props}
+    >
+      {label}
+      <ArrowRight size={16} weight="bold" className="ml-1" />
+    </Button>
   );
 }
 
-export default ViewAllButton;
+ViewAllButton.displayName = "ViewAllButton";

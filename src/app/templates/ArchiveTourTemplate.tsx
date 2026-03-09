@@ -10,11 +10,10 @@
  */
 
 import { ALL_TOURS, ALL_TRAVEL_STYLES } from "../data/mockExpanded";
-import { getHeroContent, getPageSectionFAQs } from "../data/mock";
-import { Search, SlidersHorizontal, X, TrendingUp, Clock, LayoutGrid } from "lucide-react";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
+import { getPageSectionFAQs } from "../data/mock";
+import { MagnifyingGlass as Search, SlidersHorizontal, X, TrendUp as TrendingUp, Clock, GridFour as LayoutGrid } from "@phosphor-icons/react";
 import { TourCollectionBlock } from "../components/blocks/TourCollectionBlock";
-import { Hero } from "../components/patterns/Hero";
+import { PageShell } from "../components/parts/PageShell";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
 import { Container } from "../components/common/Container";
@@ -25,7 +24,6 @@ import { motion as Motion, AnimatePresence } from "motion/react";
 import "../../styles/templates/archive-tours.css";
 
 export function ArchiveTourTemplate() {
-  const heroData = getHeroContent("tours-archive");
   const faqData = getPageSectionFAQs("tours-archive");
   const { navigateToTour, navigateTo } = useNavigation();
 
@@ -49,34 +47,9 @@ export function ArchiveTourTemplate() {
   const filterCount = selectedStyles.length + selectedDurations.length;
 
   return (
-    <main className="wp-template-archive-tours">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Our Expeditions", isCurrent: true },
-        ]}
-        fullWidth={true}
-      />
-
-      <Hero
-        title={heroData?.title || "Signature Expeditions"}
-        intro={heroData?.description || "Expertly crafted journeys that redefine the African safari experience. Luxury, adventure, and soul-stirring encounters."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200"}
-        height="medium"
-        animated
-        primaryCTA={{
-          label: "Book Your Journey",
-          onClick: () => navigateTo("/contact")
-        }}
-        secondaryCTA={{
-          label: "View All Destinations",
-          onClick: () => navigateTo("/destinations"),
-          variant: "outline"
-        }}
-      />
-
+    <PageShell context="tours-archive" as="main" className="wp-template-archive-tours">
       {/* Advanced Control Bar */}
-      <section className="wp-template-archive-tours__filters">
+      <section className="wp-template-archive-tours__filters px-[24px] py-[0px]">
         <Container>
           <div className="wp-template-archive-tours__filter-bar">
             <div className="wp-template-archive-tours__filter-group">
@@ -185,7 +158,7 @@ export function ArchiveTourTemplate() {
       </section>
 
       {/* Main Results */}
-      <section className="wp-template-archive-tours__content px-[32px] py-[106px]">
+      <section className="wp-template-archive-tours__content px-[24px] py-[64px]">
         <Container className="flex flex-col gap-gap-lg">
           <SectionHeader
             section={{
@@ -216,7 +189,7 @@ export function ArchiveTourTemplate() {
         primaryAction={{ label: "Request Bespoke Design", onClick: () => navigateTo("/contact") }}
         secondaryAction={{ label: "Speak to an Expert", onClick: () => navigateTo("/contact") }}
       />
-    </main>
+    </PageShell>
   );
 }
 

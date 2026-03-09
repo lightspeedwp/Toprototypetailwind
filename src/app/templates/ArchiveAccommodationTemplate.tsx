@@ -6,7 +6,7 @@
  */
 
 import { useState, useMemo } from "react";
-import { Hero } from "../components/patterns/Hero";
+import { PageShell } from "../components/parts/PageShell";
 import { TaxonomyNav } from "../components/patterns/TaxonomyNav";
 import { AccommodationCard } from "../components/patterns/AccommodationCard";
 import { CardGrid } from "../components/patterns/CardGrid";
@@ -18,13 +18,12 @@ import { EmptyStatePattern } from "../components/patterns/EmptyStatePattern";
 import { FAQ } from "../components/patterns/FAQ";
 import { Container } from "../components/common/Container";
 import { SectionHeader } from "../components/common/SectionHeader";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
 import { 
   ALL_ACCOMMODATION, 
   ALL_ACCOMMODATION_TYPES, 
   ALL_DESTINATIONS 
 } from "../data/mockExpanded";
-import { getHeroContent, getPageSectionFAQs } from "../data/mock";
+import { getPageSectionFAQs } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
 import { useAccommodationFilters } from "../hooks/useAccommodationFilters";
 
@@ -47,39 +46,12 @@ export function ArchiveAccommodationTemplate() {
     resetFilters
   } = useAccommodationFilters(ALL_ACCOMMODATION, ITEMS_PER_PAGE);
 
-  const heroData = getHeroContent("accommodation-archive");
   const faqData = getPageSectionFAQs("accommodation-archive");
 
   const { navigateToAccommodation, navigateTo } = useNavigation();
 
   return (
-    <main className="wp-template-archive-accommodation">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Accommodations", isCurrent: true }
-        ]}
-        fullWidth={true}
-      />
-
-      <Hero
-        title={heroData?.title || "Exquisite Sanctuaries"}
-        intro={heroData?.description || "A curated collection of Africa's most intimate lodges, boutique camps, and wilderness retreats."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200"}
-        height="medium"
-        overlay="medium"
-        animated
-        primaryCTA={{
-          label: "View All Properties",
-          onClick: () => navigateTo("/accommodation")
-        }}
-        secondaryCTA={{
-          label: "Browse Destinations",
-          onClick: () => navigateTo("/destinations"),
-          variant: "outline"
-        }}
-      />
-
+    <PageShell context="accommodation-archive" as="main" className="wp-template-archive-accommodation">
       <TaxonomyNav
         label="Property Type"
         terms={ALL_ACCOMMODATION_TYPES}
@@ -187,7 +159,7 @@ export function ArchiveAccommodationTemplate() {
           onClick: () => navigateTo("/trip-planner"),
         }}
       />
-    </main>
+    </PageShell>
   );
 }
 

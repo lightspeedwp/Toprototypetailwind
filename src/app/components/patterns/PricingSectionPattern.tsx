@@ -9,7 +9,7 @@ import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
 import { Button } from "../blocks/design/Button";
-import { Calendar, Tag, Info } from "lucide-react";
+import { Calendar, Tag, Info } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 export interface PricingRow {

@@ -15,7 +15,7 @@
  */
 
 import { useState, useRef } from "react";
-import { RefreshCw } from "lucide-react";
+import { ArrowsClockwise as RefreshCw } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**

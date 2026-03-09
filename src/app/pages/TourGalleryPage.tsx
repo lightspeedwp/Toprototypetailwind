@@ -27,7 +27,7 @@ import { ImageGallery, GallerySection } from "../components/patterns/ImageGaller
 import { VideoPlayer, VideoGallery } from "../components/common/VideoPlayer";
 import { CTA } from "../components/patterns/CTA";
 import { LightboxImage } from "../components/common/Lightbox";
-import { MapPin, Calendar, Users } from "lucide-react";
+import { MapPin, Calendar, Users } from "@phosphor-icons/react";
 
 /**
  * Tour Gallery Page Component

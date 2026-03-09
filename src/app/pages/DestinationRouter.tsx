@@ -13,7 +13,8 @@
  * @category pages
  */
 
-import { useParams, Link } from "react-router";
+import { useParams } from "react-router";
+import { AppLink as Link } from "../components/common/AppLink";
 import { DESTINATIONS } from "../data/mock";
 import { Container } from "../components/common/Container";
 import { useNavigation } from "../contexts/NavigationContext";

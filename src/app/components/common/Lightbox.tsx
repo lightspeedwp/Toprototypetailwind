@@ -26,7 +26,7 @@
  */
 
 import { useState, useEffect, useCallback } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**
@@ -221,7 +221,7 @@ export function Lightbox({
           className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-foreground transition-colors hover:bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
           aria-label="Previous image"
         >
-          <ChevronLeft size={32} />
+          <CaretLeft size={32} />
         </button>
       )}
 
@@ -232,7 +232,7 @@ export function Lightbox({
           className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-foreground transition-colors hover:bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
           aria-label="Next image"
         >
-          <ChevronRight size={32} />
+          <CaretRight size={32} />
         </button>
       )}
 

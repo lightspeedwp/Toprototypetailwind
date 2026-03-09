@@ -29,7 +29,7 @@
  */
 
 import { useState, useEffect } from "react";
-import { CreditCard, Lock, Shield, AlertCircle, Check } from "lucide-react";
+import { CreditCard, Lock, Shield, WarningCircle as AlertCircle, Check } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**

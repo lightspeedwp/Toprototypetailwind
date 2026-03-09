@@ -25,7 +25,7 @@
 import React from 'react';
 import { Container } from '../components/common/Container';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
-import { Check, Palette, Type, Ruler, Square, Sun, Moon } from 'lucide-react';
+import { Check, Palette, TextT as Type, Ruler, Square, Sun, Moon } from '@phosphor-icons/react';
 
 export default function DesignSystemVerification() {
   const [darkMode, setDarkMode] = React.useState(false);

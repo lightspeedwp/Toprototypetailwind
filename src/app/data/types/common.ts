@@ -54,12 +54,16 @@ export interface HeroContent {
   title: string;
   description: string;
   image: string;
+  /** Optional badge/chip displayed above the title. Icon is a Phosphor icon name. */
+  badge?: { icon: string; label: string };
   primaryCTALabel?: string;
   primaryCTAHref?: string;
   secondaryCTALabel?: string;
   secondaryCTAHref?: string;
   height?: "small" | "medium" | "large";
   overlay?: "light" | "medium" | "dark";
+  /** Whether to show the scroll-down arrow at the bottom of the hero. */
+  showScrollIndicator?: boolean;
 }
 
 /**

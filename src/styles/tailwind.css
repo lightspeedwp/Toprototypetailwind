@@ -54,7 +54,7 @@
  */
 
 /* ── Required for prototype runtime — DO NOT REMOVE ────────────── */
-@import 'tailwindcss' source(none);
+@import 'tailwindcss';
 @source '../**/*.{js,ts,jsx,tsx}';
 
 /* ── Animation keyframes — used by existing Motion components ───── */
@@ -73,7 +73,7 @@
       Use WordPress BEM classes from global.css instead.
    ================================================================ */
 
-@theme inline {
+@theme {
 
   /* Font families */
   --font-sans:  var(--font-family-noto-sans);

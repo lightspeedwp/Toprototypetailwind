@@ -15,7 +15,7 @@
 
 import { FeaturedSection } from "../FeaturedSection";
 import { TeamCard } from "../TeamCard";
-import { Users } from "lucide-react";
+import { Users } from "@phosphor-icons/react";
 import type { TeamMember } from "../../../data/types";
 
 /**

@@ -31,7 +31,7 @@ import { Container } from "../components/common/Container";
 import { Breadcrumbs } from "../components/common/Breadcrumbs";
 import { DevToolsBreadcrumbs } from "../components/common/DevToolsBreadcrumbs";
 import { Button } from "../components/blocks/design/Button";
-import { Search, Filter, Star, MapPin, Calendar, Users } from "lucide-react";
+import { MagnifyingGlass as Search, Faders as Filter, Star, MapPin, Calendar, Users } from "@phosphor-icons/react";
 
 export default function SectionStylesShowcase() {
   return (
@@ -68,7 +68,7 @@ export default function SectionStylesShowcase() {
         <Container>
           <div className="max-w-4xl mx-auto">
             <h2 className="mb-6 text-center">Quick Navigation</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+            <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-3 text-sm">
               <a href="#hero" className="p-3 rounded-md border border-border hover:border-primary hover:bg-primary/5 transition-colors">
                 Hero Sections (4)
               </a>
@@ -448,7 +448,7 @@ export default function SectionStylesShowcase() {
               <section className="section-content-default">
                 <Container>
                   <h2 className="mb-6">Why Choose Our Safaris?</h2>
-                  <div className="grid md:grid-cols-3 gap-6">
+                  <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-3">
                     <div className="p-6 bg-card border border-border rounded-lg">
                       <Star className="w-8 h-8 text-primary mb-4" />
                       <h3 className="mb-2">Expert Guides</h3>
@@ -523,7 +523,7 @@ export default function SectionStylesShowcase() {
               <section className="section-content-supporting">
                 <Container>
                   <h2 className="mb-6">What's Included</h2>
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-2">
                     <div>
                       <h3 className="mb-3">Included</h3>
                       <ul className="space-y-2 text-sm">

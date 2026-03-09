@@ -6,7 +6,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
+import { X, CaretLeft as ChevronLeft, CaretRight as ChevronRight, CornersOut as Maximize2 } from '@phosphor-icons/react';
 import { Container } from '../common/Container';
 import { cn } from '../../lib/utils';
 import { motion, AnimatePresence } from "motion/react";

@@ -14,7 +14,7 @@
  */
 
 import './TourContactCTA.css';
-import { Phone, Mail, MessageSquare } from 'lucide-react';
+import { Phone, Envelope as Mail, ChatCircle as MessageSquare } from '@phosphor-icons/react';
 
 export interface TourContactCTAProps {
   /** Section title */

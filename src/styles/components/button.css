@@ -19,6 +19,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-md);
@@ -31,6 +32,11 @@
   transition: opacity 200ms ease, transform 100ms ease;
   border: none;
   outline: none;
+}
+
+.button svg,
+.button [data-icon] {
+  flex-shrink: 0;
 }
 
 .button:hover {

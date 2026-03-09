@@ -32,7 +32,7 @@
 
 import { useState } from "react";
 import { Container } from "../components/common/Container";
-import { Heart, Share2, X, Calendar, DollarSign, MapPin, Users, TrendingDown, CheckCircle, ArrowRight } from "lucide-react";
+import { Heart, ShareNetwork as Share2, X, Calendar, CurrencyDollar as DollarSign, MapPin, Users, TrendDown as TrendingDown, CheckCircle as CircleCheck, ArrowRight } from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 import { toast } from "sonner";
 import { TOURS } from "../data/mock";
@@ -251,7 +251,7 @@ export default function WishlistPage({ onNavigate }: WishlistPageProps) {
                       showCompare && "bg-accent"
                     )}
                   >
-                    <CheckCircle className="w-4 h-4" />
+                    <CircleCheck className="w-4 h-4" />
                     <span>Compare ({selectedForCompare.size})</span>
                   </button>
                   <button
@@ -362,7 +362,7 @@ export default function WishlistPage({ onNavigate }: WishlistPageProps) {
                             )}
                             aria-label="Select for comparison"
                           >
-                            <CheckCircle className={cn("w-5 h-5", isSelected && "fill-current")} />
+                            <CircleCheck className={cn("w-5 h-5", isSelected && "fill-current")} />
                           </button>
                         )}
                       </div>
@@ -493,7 +493,7 @@ export default function WishlistPage({ onNavigate }: WishlistPageProps) {
                     description: "Share your wishlist with travel companions for easy planning",
                   },
                   {
-                    icon: CheckCircle,
+                    icon: CircleCheck,
                     title: "Compare Tours",
                     description: "Select multiple tours to compare features and prices side-by-side",
                   },

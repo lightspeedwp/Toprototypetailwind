@@ -9,7 +9,7 @@ import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
 import { Button } from "../blocks/design/Button";
-import { Users, Bed, CheckCircle2 } from "lucide-react";
+import { Users, Bed, CheckCircle as CircleCheck } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";
 
@@ -127,7 +127,7 @@ export function RoomTypesPattern({
                     <div className="flex flex-wrap gap-2 mb-8">
                       {room.amenities.map((a, i) => (
                         <span key={i} className="px-3 py-1 rounded-lg bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5">
-                          <CheckCircle2 className="size-3" /> {a}
+                          <CircleCheck className="size-3" /> {a}
                         </span>
                       ))}
                     </div>

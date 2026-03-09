@@ -422,7 +422,7 @@ export function prefetchOnHover(
 export function getVendorSplits(): Record<string, string[]> {
   return {
     react: ['react', 'react-dom', 'react-router-dom'],
-    ui: ['lucide-react', '@radix-ui'],
+    ui: ['@phosphor-icons/react', '@radix-ui'],
     motion: ['motion', 'framer-motion'],
     utils: ['clsx', 'tailwind-merge'],
   };

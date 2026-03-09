@@ -18,7 +18,7 @@
  * @see /guidelines/blocks/review-related-accommodation.md
  */
 
-import { Star } from "lucide-react";
+import { Star } from "@phosphor-icons/react";
 import { Container } from "../../common/Container";
 import { REVIEWS } from "../../../data/mock";
 import type { Review } from "../../../data/types";

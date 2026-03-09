@@ -37,12 +37,12 @@
  */
 
 import { 
-  Search, 
-  ChevronDown, 
-  Mail,
+  MagnifyingGlass as Search, 
+  CaretDown as ChevronDown, 
+  EnvelopeSimple as Mail,
   Phone,
   ArrowRight
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "../../lib/utils";

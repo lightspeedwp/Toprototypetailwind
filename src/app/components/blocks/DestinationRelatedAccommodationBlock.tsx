@@ -9,7 +9,7 @@ import { Container } from '../common/Container';
 import { SectionHeaderPattern } from '../patterns/SectionHeaderPattern';
 import { AccommodationCard } from '../patterns/AccommodationCard';
 import { CardGrid } from '../patterns/CardGrid';
-import { Hotel } from 'lucide-react';
+import { Bed } from '@phosphor-icons/react';
 import type { Accommodation } from '../../data/types';
 
 interface DestinationRelatedAccommodationBlockProps {
@@ -54,7 +54,7 @@ export function DestinationRelatedAccommodationBlock({
               onClick={onViewAll}
               className="inline-flex items-center gap-2 text-primary hover:underline font-semibold"
             >
-              <Hotel className="w-4 h-4" aria-hidden="true" />
+              <Bed className="w-4 h-4" aria-hidden="true" />
               View all accommodation in this region
             </button>
           </div>

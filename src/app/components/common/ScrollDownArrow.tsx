@@ -1,29 +1,20 @@
 /**
- * Scroll Down Arrow component.
+ * Scroll Down Arrow Component.
+ *
+ * Animated indicator that appears in hero sections to suggest scrolling.
+ * Fades out automatically as user scrolls down.
  * 
- * Provides a visual indicator that encourages users to scroll down to
- * discover more content. Typically used in hero sections or full-height
- * landing sections to improve discoverability.
- * 
- * **Behavior:**
- * - Bouncing animation (Tailwind's animate-bounce)
- * - Scrolls to specific element if targetId provided
- * - Otherwise scrolls down one viewport height
- * - Animation stops on hover
- * - Smooth scroll behavior
- * 
- * **Accessibility:**
- * - Keyboard accessible button
- * - Descriptive ARIA label
- * - Focus visible ring indicator
- * - Semantic button element
- * 
+ * All styling uses CSS custom properties from the design system.
+ * Typography: Lora (serif) for headings, Noto Sans (sans-serif) for body/UI.
+ *
+ * UPDATED: March 2026 - Migrated to Phosphor Icons for better styling options
+ *
  * @module ScrollDownArrow
  * @category common
- * @see /guidelines/components/ScrollDownArrow.md
  */
 
-import { ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
+import { CaretDown } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**
@@ -54,6 +45,13 @@ interface ScrollDownArrowProps {
    * Optional additional CSS classes to apply.
    */
   className?: string;
+  
+  /**
+   * Optional flag to show label next to the arrow.
+   * 
+   * @default false
+   */
+  showLabel?: boolean;
 }
 
 /**
@@ -116,8 +114,27 @@ interface ScrollDownArrowProps {
 export function ScrollDownArrow({ 
   targetId, 
   label = "Scroll to explore",
-  className 
+  className,
+  showLabel = false
 }: ScrollDownArrowProps) {
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   /**
    * Handles scroll arrow click.
    * 
@@ -140,13 +157,13 @@ export function ScrollDownArrow({
   return (
     <button
       onClick={handleClick}
-      className={cn(
-        "absolute bottom-6 left-1/2 z-10 flex h-12 w-12 -translate-x-1/2 items-center justify-center animate-bounce text-primary-foreground transition-colors hover:animate-none hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:bottom-4",
-        className
-      )}
+      className={cn("wp-scroll-down-arrow", className, { "wp-scroll-down-arrow--hidden": isHidden })}
       aria-label={label}
     >
-      <ChevronDown className="h-8 w-8" />
+      <CaretDown size={24} weight="bold" className="wp-scroll-down-arrow__icon" />
+      {showLabel && <span className="wp-scroll-down-arrow__label">{label}</span>}
     </button>
   );
 }
+
+ScrollDownArrow.displayName = "ScrollDownArrow";

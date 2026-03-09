@@ -2,29 +2,24 @@
  * Destinations Archive Enhanced Page
  * 
  * Modern destinations archive with:
- * 1. Hero section
+ * 1. Hero section (via PageShell)
  * 2. Featured Countries section (4-column grid)
  * 3. Featured Regions & Cities section (3-column grid)
- * 4. All Destinations with advanced filtering:
- *    - Search bar
- *    - Type filter (All/Countries/Regions)
- *    - Continent filter
- *    - View mode toggle (3-col/2-col/list)
- *    - Pagination
- *    - Empty state
+ * 4. All Destinations with advanced filtering
  * 
  * All styling uses CSS custom properties from design system.
  * Typography: Lora (serif) for headings, Noto Sans (sans-serif) for body.
+ * Now uses PageShell for centralized breadcrumbs + hero.
  * 
  * @module DestinationsArchiveEnhanced
  * @category pages
  */
 
 import { useState, useMemo } from "react";
-import { Link } from "react-router";
-import { Search, Grid3x3, Grid2x2, List, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
+import { AppLink as Link } from "../components/common/AppLink";
+import { MagnifyingGlass as Search, GridNine as Grid3x3, GridFour as Grid2x2, List, MapPin, CaretLeft as ChevronLeft, CaretRight as ChevronRight } from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
+import { PageShell } from "../components/parts/PageShell";
 import { DESTINATIONS, CONTINENTS } from "../data/mock";
 
 const ITEMS_PER_PAGE = 12;
@@ -45,7 +40,7 @@ function FeaturedCountryCard({ destination }: { destination: any }) {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       <div className="absolute inset-0 flex flex-col justify-end p-6">
-        <h3 className="text-2xl font-serif font-medium text-white mb-2">{destination.title}</h3>
+        <h3 className="text-white mb-2">{destination.title}</h3>
         <p className="text-white/90 text-sm line-clamp-2">{destination.excerpt}</p>
         <div className="mt-3 flex items-center gap-2 text-white/80 text-sm">
           <MapPin size={16} />
@@ -73,9 +68,9 @@ function FeaturedRegionCard({ destination }: { destination: any }) {
         />
       </div>
       <div className="p-4">
-        <h3 className="text-xl font-serif font-medium mb-2 group-hover:text-primary transition-colors">
+        <h4 className="mb-2 group-hover:text-primary transition-colors">
           {destination.title}
-        </h3>
+        </h4>
         <p className="text-sm text-muted-foreground line-clamp-2">{destination.excerpt}</p>
         <div className="mt-3 flex items-center gap-2 text-muted-foreground text-sm">
           <MapPin size={16} />
@@ -104,9 +99,9 @@ function DestinationCard({ destination, viewMode }: { destination: any; viewMode
           />
         </div>
         <div className="flex-1 p-4">
-          <h3 className="text-xl font-serif font-medium mb-2 group-hover:text-primary transition-colors">
+          <h4 className="mb-2 group-hover:text-primary transition-colors">
             {destination.title}
-          </h3>
+          </h4>
           <p className="text-muted-foreground mb-3 line-clamp-2">{destination.excerpt}</p>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-1">
@@ -132,9 +127,9 @@ function DestinationCard({ destination, viewMode }: { destination: any; viewMode
         />
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-serif font-medium mb-2 group-hover:text-primary transition-colors">
+        <h4 className="mb-2 group-hover:text-primary transition-colors">
           {destination.title}
-        </h3>
+        </h4>
         <p className="text-sm text-muted-foreground line-clamp-2">{destination.excerpt}</p>
         <div className="mt-3 text-sm text-muted-foreground flex items-center gap-1">
           <MapPin size={16} />
@@ -164,24 +159,18 @@ function DestinationsArchiveEnhanced() {
   // Filter destinations
   const filteredDestinations = useMemo(() => {
     return DESTINATIONS.filter((dest) => {
-      // Search filter
       if (searchTerm && !dest.title.toLowerCase().includes(searchTerm.toLowerCase())) {
         return false;
       }
-
-      // Type filter
       if (typeFilter === "countries" && dest.type !== "country") {
         return false;
       }
       if (typeFilter === "regions" && dest.type === "country") {
         return false;
       }
-
-      // Continent filter
       if (continentFilter !== "all" && dest.continentId !== continentFilter) {
         return false;
       }
-
       return true;
     });
   }, [searchTerm, typeFilter, continentFilter]);
@@ -193,41 +182,13 @@ function DestinationsArchiveEnhanced() {
     currentPage * ITEMS_PER_PAGE
   );
 
-  // Reset to page 1 when filters change
   const handleFilterChange = (filterFn: () => void) => {
     filterFn();
     setCurrentPage(1);
   };
 
   return (
-    <>
-      {/* Breadcrumbs */}
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Destinations", isCurrent: true },
-        ]}
-        fullWidth={true}
-      />
-
-      {/* Hero Section */}
-      <Hero
-        title="Explore Our Territories"
-        subtitle="Discover incredible places across the globe, from vibrant cities to remote wilderness"
-        height="large"
-        overlay="medium"
-        image="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200"
-        primaryCTA={{
-          label: "View All Tours",
-          onClick: () => window.location.href = "/tours"
-        }}
-        secondaryCTA={{
-          label: "Plan My Trip",
-          onClick: () => window.location.href = "/trip-planner",
-          variant: "outline"
-        }}
-      />
-
+    <PageShell context="destinations-archive">
       {/* Featured Countries Section */}
       {featuredCountries.length > 0 && (
         <section className="py-section-md bg-background">
@@ -272,7 +233,6 @@ function DestinationsArchiveEnhanced() {
             <div className="flex flex-col gap-4">
               {/* Search + View Mode */}
               <div className="flex flex-col sm:flex-row gap-4 justify-between">
-                {/* Search */}
                 <div className="relative flex-1 max-w-md">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
                   <input
@@ -284,7 +244,6 @@ function DestinationsArchiveEnhanced() {
                   />
                 </div>
 
-                {/* View Mode Toggle */}
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setViewMode("3col")}
@@ -324,7 +283,6 @@ function DestinationsArchiveEnhanced() {
 
               {/* Type + Continent Filters */}
               <div className="flex flex-col sm:flex-row gap-4">
-                {/* Type Filter */}
                 <select
                   value={typeFilter}
                   onChange={(e) => handleFilterChange(() => setTypeFilter(e.target.value))}
@@ -335,7 +293,6 @@ function DestinationsArchiveEnhanced() {
                   <option value="regions">Regions & Cities</option>
                 </select>
 
-                {/* Continent Filter */}
                 <select
                   value={continentFilter}
                   onChange={(e) => handleFilterChange(() => setContinentFilter(e.target.value))}
@@ -349,7 +306,6 @@ function DestinationsArchiveEnhanced() {
                   ))}
                 </select>
 
-                {/* Clear Filters */}
                 {(searchTerm || typeFilter !== "all" || continentFilter !== "all") && (
                   <button
                     onClick={() => {
@@ -358,7 +314,7 @@ function DestinationsArchiveEnhanced() {
                       setContinentFilter("all");
                       setCurrentPage(1);
                     }}
-                    className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Clear filters
                   </button>
@@ -427,7 +383,7 @@ function DestinationsArchiveEnhanced() {
             /* Empty State */
             <div className="text-center py-12">
               <MapPin size={48} className="mx-auto text-muted-foreground mb-4" />
-              <h3 className="text-xl font-serif font-medium mb-2">No destinations found</h3>
+              <h3 className="mb-2">No destinations found</h3>
               <p className="text-muted-foreground mb-6">
                 Try adjusting your filters or search term
               </p>
@@ -438,7 +394,7 @@ function DestinationsArchiveEnhanced() {
                   setContinentFilter("all");
                   setCurrentPage(1);
                 }}
-                className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
               >
                 Clear all filters
               </button>
@@ -446,7 +402,7 @@ function DestinationsArchiveEnhanced() {
           )}
         </Container>
       </section>
-    </>
+    </PageShell>
   );
 }
 

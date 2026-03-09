@@ -2,24 +2,22 @@
  * Sustainability & Conservation Page
  * 
  * Showcases the tour operator's commitment to conservation and community development.
- * Adheres strictly to the design system and BEM naming.
+ * Now uses PageShell for centralized breadcrumbs + hero.
  * 
  * @module SustainabilityPage
  * @category pages
  */
 
 import { Container } from "../components/common/Container";
-import { Hero } from "../components/patterns/Hero";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
+import { PageShell } from "../components/parts/PageShell";
 import { SustainabilityPattern } from "../components/patterns/SustainabilityPattern";
-import { CONSERVATION_PROJECTS, SUSTAINABILITY_COMMITMENTS, SUSTAINABILITY_HERO } from "../data/sustainability";
+import { CONSERVATION_PROJECTS, SUSTAINABILITY_COMMITMENTS } from "../data/sustainability";
 import { getPageSectionFAQs } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
-import { Heart, Compass, Shield, Users, Leaf, Globe } from "lucide-react";
+import { Heart, Shield, Users, Leaf } from "@phosphor-icons/react";
 import { motion } from "motion/react";
-import { cn } from "../lib/utils";
 
 export default function SustainabilityPage() {
   const { navigateTo } = useNavigation();
@@ -33,25 +31,7 @@ export default function SustainabilityPage() {
   ];
 
   return (
-    <article className="wp-template-page bg-background">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Sustainability", isCurrent: true }
-          ]}
-        />
-      </Container>
-
-      <Hero
-        title={SUSTAINABILITY_HERO.title}
-        intro={SUSTAINABILITY_HERO.description}
-        image={SUSTAINABILITY_HERO.image}
-        height="large"
-        overlay="medium"
-        animated
-      />
-
+    <PageShell context="sustainability">
       {/* Impact Statistics */}
       <section className="py-section-lg border-b border-border/50 bg-muted/20">
         <Container>
@@ -71,7 +51,7 @@ export default function SustainabilityPage() {
                     <Icon className="size-8" />
                   </div>
                   <p className="text-fluid-4xl text-primary mb-2">{stat.value}</p>
-                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground m-0">{stat.suffix}</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground m-0">{stat.suffix}</p>
                 </motion.div>
               );
             })}
@@ -119,7 +99,7 @@ export default function SustainabilityPage() {
               </p>
               <div className="flex items-center justify-center gap-4">
                 <div className="h-px w-12 bg-primary" />
-                <span className="font-bold text-xs uppercase tracking-widest text-primary">Signed, The Leadership Team</span>
+                <span className="text-xs uppercase tracking-widest text-primary">Signed, The Leadership Team</span>
                 <div className="h-px w-12 bg-primary" />
               </div>
             </motion.div>
@@ -146,6 +126,6 @@ export default function SustainabilityPage() {
           onClick: () => navigateTo("/destinations")
         }}
       />
-    </article>
+    </PageShell>
   );
 }

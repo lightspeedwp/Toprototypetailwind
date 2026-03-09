@@ -12,7 +12,7 @@ import { useState } from "react";
 import { Container } from "../../components/common/Container";
 import { DevToolsBreadcrumbs } from "../../components/common/DevToolsBreadcrumbs";
 import { analyzeComponentQuality, type CodeQualityMetrics, type CodeQualityIssue } from "../../utils/codeQualityAnalyzer";
-import { Code2, TrendingUp, AlertCircle, CheckCircle, Info, XCircle } from "lucide-react";
+import { Code as Code2, TrendUp as TrendingUp, WarningCircle as AlertCircle, CheckCircle as CircleCheck, Info, XCircle as CircleX } from "@phosphor-icons/react";
 
 // Sample component code for demo
 const SAMPLE_CODE = `import { cn } from "../../lib/utils";
@@ -86,7 +86,7 @@ export default function CodeQualityDashboard() {
   const getSeverityIcon = (severity: CodeQualityIssue['severity']) => {
     switch (severity) {
       case 'critical':
-        return <XCircle className="w-5 h-5 text-destructive" />;
+        return <CircleX className="w-5 h-5 text-destructive" />;
       case 'warning':
         return <AlertCircle className="w-5 h-5 text-destructive" />;
       case 'info':

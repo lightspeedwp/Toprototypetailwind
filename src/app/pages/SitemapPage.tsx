@@ -1,25 +1,23 @@
 /**
  * Sitemap Page — visual index of all routes in the prototype.
+ * Now uses PageShell for centralized breadcrumbs + hero.
  */
 
-import { Link } from "react-router";
+import { AppLink as Link } from "../components/common/AppLink";
 import { Container } from "../components/common/Container";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
-import { Hero } from "../components/patterns/Hero";
+import { PageShell } from "../components/parts/PageShell";
 import { HeadingBlock } from "../components/blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../components/blocks/core/ParagraphBlock";
 import {
   Compass,
-  Hotel,
+  Buildings as Hotel,
   Users,
   BookOpen,
   FileText,
-  ChevronRight,
-  MapPin,
-  Sparkles
-} from "lucide-react";
+  CaretRight as ChevronRight,
+  Sparkle as Sparkles
+} from "@phosphor-icons/react";
 import { useNavigation } from "../contexts/NavigationContext";
-import { cn } from "../lib/utils";
 
 interface SitemapLink {
   label: string;
@@ -116,24 +114,7 @@ export function SitemapPage() {
   const { navigateTo } = useNavigation();
 
   return (
-    <article className="wp-template-page">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Sitemap", isCurrent: true }
-          ]}
-        />
-      </Container>
-
-      <Hero
-        title="Explore the Territory"
-        intro="A complete structural map of our African safari collection and expert travel resources."
-        height="small"
-        overlay="medium"
-        image="https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1200"
-      />
-
+    <PageShell context="sitemap">
       <section className="py-section-lg bg-card">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
@@ -145,7 +126,7 @@ export function SitemapPage() {
                     <div className="p-2 rounded-lg bg-primary/10 text-primary">
                       <Icon className="size-5" />
                     </div>
-                    <HeadingBlock level={3} className="mb-0 text-2xl">{section.title}</HeadingBlock>
+                    <h3 className="mb-0">{section.title}</h3>
                   </div>
                   
                   <ul className="space-y-8 list-none p-0 m-0">
@@ -153,10 +134,10 @@ export function SitemapPage() {
                       <li key={link.href} className="m-0 group">
                         <Link 
                           to={link.href}
-                          className="flex items-center text-lg font-bold text-foreground hover:text-primary transition-all duration-300 no-underline"
+                          className="flex items-center text-foreground hover:text-primary transition-all duration-300 no-underline"
                         >
                           <ChevronRight className="size-4 mr-3 text-primary/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                          <span className="font-serif">{link.label}</span>
+                          <span>{link.label}</span>
                         </Link>
                         
                         {link.children && (
@@ -165,7 +146,7 @@ export function SitemapPage() {
                               <li key={child.label} className="m-0">
                                 <Link 
                                   to={child.href}
-                                  className="text-sm font-bold text-muted-foreground hover:text-primary transition-colors no-underline block"
+                                  className="text-sm text-muted-foreground hover:text-primary transition-colors no-underline block"
                                 >
                                   {child.label}
                                 </Link>
@@ -190,15 +171,15 @@ export function SitemapPage() {
             <div className="size-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8">
               <Sparkles className="size-8 text-primary" />
             </div>
-            <HeadingBlock level={2}>Can't find what you're looking for?</HeadingBlock>
-            <ParagraphBlock className="text-muted-foreground text-lg">
+            <h2>Can't find what you're looking for?</h2>
+            <ParagraphBlock className="text-muted-foreground">
               Our safari designers are masters of the continent. If you have a specific request 
               or can't find a destination, reach out and we'll map it for you.
             </ParagraphBlock>
             <div className="pt-4">
               <Link 
                 to="/contact" 
-                className="inline-flex items-center gap-2 font-bold text-primary hover:underline underline-offset-8"
+                className="inline-flex items-center gap-2 text-primary hover:underline underline-offset-8"
               >
                 Connect with a Specialist <ChevronRight className="size-4" />
               </Link>
@@ -206,7 +187,7 @@ export function SitemapPage() {
           </div>
         </Container>
       </section>
-    </article>
+    </PageShell>
   );
 }
 

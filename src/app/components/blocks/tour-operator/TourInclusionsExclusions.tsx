@@ -14,7 +14,7 @@
  */
 
 import './TourInclusionsExclusions.css';
-import { CheckCircle, XCircle } from 'lucide-react';
+import { CheckCircle, XCircle } from '@phosphor-icons/react';
 
 export interface TourInclusionsExclusionsProps {
   /** Items included in the tour price */
@@ -45,14 +45,14 @@ export function TourInclusionsExclusions({
       {/* Included Column */}
       <div className="lsx-tour-inclusions__column">
         <div className="lsx-tour-inclusions__header">
-          <CheckCircle size={22} className="lsx-tour-inclusions__header-icon--included" aria-hidden="true" />
+          <CheckCircle size={22} weight="fill" className="lsx-tour-inclusions__header-icon--included" aria-hidden="true" />
           <h3 className="mb-0">What's Included</h3>
         </div>
         {included && included.length > 0 ? (
           <ul className="lsx-tour-inclusions__list">
             {included.map((item, index) => (
               <li key={index} className="lsx-tour-inclusions__item">
-                <CheckCircle size={16} className="lsx-tour-inclusions__item-icon--included" aria-hidden="true" />
+                <CheckCircle size={16} weight="fill" className="lsx-tour-inclusions__item-icon--included" aria-hidden="true" />
                 <span>{item}</span>
               </li>
             ))}
@@ -65,14 +65,14 @@ export function TourInclusionsExclusions({
       {/* Excluded Column */}
       <div className="lsx-tour-inclusions__column">
         <div className="lsx-tour-inclusions__header">
-          <XCircle size={22} className="lsx-tour-inclusions__header-icon--excluded" aria-hidden="true" />
+          <XCircle size={22} weight="fill" className="lsx-tour-inclusions__header-icon--excluded" aria-hidden="true" />
           <h3 className="mb-0">What's Not Included</h3>
         </div>
         {excluded && excluded.length > 0 ? (
           <ul className="lsx-tour-inclusions__list">
             {excluded.map((item, index) => (
               <li key={index} className="lsx-tour-inclusions__item">
-                <XCircle size={16} className="lsx-tour-inclusions__item-icon--excluded" aria-hidden="true" />
+                <XCircle size={16} weight="fill" className="lsx-tour-inclusions__item-icon--excluded" aria-hidden="true" />
                 <span>{item}</span>
               </li>
             ))}

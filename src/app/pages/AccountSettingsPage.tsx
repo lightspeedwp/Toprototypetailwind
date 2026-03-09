@@ -32,21 +32,21 @@
 import { useState } from "react";
 import { Container } from "../components/common/Container";
 import {
-  Settings,
-  Lock,
+  Gear as Settings,
+  LockKey as Lock,
   Shield,
   Bell,
   Globe,
   Eye,
-  Mail,
-  Smartphone,
-  Trash2,
-  Save,
-  CheckCircle,
-  AlertTriangle,
+  EnvelopeSimple as Mail,
+  DeviceMobile as Smartphone,
+  Trash as Trash2,
+  FloppyDisk as Save,
+  CheckCircle as CircleCheck,
+  Warning as AlertTriangle,
   Key,
   User,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 import { toast } from "sonner";
 import { useNavigation } from "../contexts/NavigationContext";

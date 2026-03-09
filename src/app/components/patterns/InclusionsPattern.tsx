@@ -8,7 +8,7 @@
 import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
-import { Check, X, ShieldCheck, AlertCircle } from "lucide-react";
+import { Check, X, ShieldCheck, WarningCircle as AlertCircle } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 export interface InclusionsPatternProps {

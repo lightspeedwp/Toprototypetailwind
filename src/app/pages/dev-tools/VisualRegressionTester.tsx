@@ -21,7 +21,7 @@ import {
   type ComponentSnapshot,
   type SnapshotComparison,
 } from "../../utils/visualRegressionTester";
-import { Camera, GitCompare, Trash2, Download, CheckCircle, AlertTriangle } from "lucide-react";
+import { Camera, GitDiff as GitCompare, Trash as Trash2, DownloadSimple as Download, CheckCircle as CircleCheck, Warning as AlertTriangle } from "@phosphor-icons/react";
 
 export default function VisualRegressionTester() {
   const [snapshots, setSnapshots] = useState<ComponentSnapshot[]>(getAllSnapshots());
@@ -245,7 +245,7 @@ export default function VisualRegressionTester() {
                     {comparison.hasChanges ? (
                       <AlertTriangle className="w-6 h-6 text-destructive" />
                     ) : (
-                      <CheckCircle className="w-6 h-6 text-primary" />
+                      <CircleCheck className="w-6 h-6 text-primary" />
                     )}
                   </div>
 

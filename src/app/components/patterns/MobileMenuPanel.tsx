@@ -31,7 +31,7 @@
  */
 
 import { useState, useEffect } from "react";
-import { ChevronDown, X, Search, Phone, Mail, MapPin, Sun, Moon } from "lucide-react";
+import { CaretDown as ChevronDown, X, MagnifyingGlass as Search, Phone, EnvelopeSimple as Mail, MapPin, Sun, Moon } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { SiteLogo } from "../blocks/theme/SiteLogo";
 import { Button } from "../blocks/design/Button";

@@ -23,7 +23,7 @@
  */
 
 import { useState, useEffect } from "react";
-import { X, Download, RefreshCw, Check, AlertTriangle, XCircle } from "lucide-react";
+import { X, DownloadSimple as Download, ArrowsClockwise as RefreshCw, Check, Warning as AlertTriangle, XCircle as CircleX } from "@phosphor-icons/react";
 import { runAccessibilityAudit } from "../../utils/accessibilityAuditor";
 import { runKeyboardNavigationTest } from "../../utils/keyboardNavigationTester";
 import { runScreenReaderCheck } from "../../utils/screenReaderChecker";
@@ -224,7 +224,7 @@ export function AccessibilityDashboard() {
                       </div>
                       <div className="p-4 rounded-lg border border-border bg-card">
                         <div className="flex items-center gap-2 mb-2">
-                          <XCircle className="text-destructive" size={20} />
+                          <CircleX className="text-destructive" size={20} />
                           <span className="text-sm text-muted-foreground">Critical Issues</span>
                         </div>
                         <div className="font-serif text-fluid-2xl">{auditResults.stats.criticalIssues}</div>

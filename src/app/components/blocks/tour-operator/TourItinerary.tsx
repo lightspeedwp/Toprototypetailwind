@@ -18,7 +18,7 @@
  */
 
 import './TourItinerary.css';
-import { Utensils, Building, CheckCircle } from 'lucide-react';
+import { ForkKnife as Utensils, Buildings as Building, CheckCircle as CircleCheck } from '@phosphor-icons/react';
 
 /** Individual itinerary day structure. */
 export interface ItineraryDay {
@@ -84,7 +84,7 @@ export function TourItinerary({ days, title = 'Day-by-Day Itinerary', className 
               <ul className="lsx-tour-itinerary__activities-list">
                 {day.activities.map((activity, idx) => (
                   <li key={idx} className="lsx-tour-itinerary__activity-item">
-                    <CheckCircle size={14} className="lsx-tour-itinerary__activity-bullet" aria-hidden="true" />
+                    <CircleCheck size={14} className="lsx-tour-itinerary__activity-bullet" aria-hidden="true" />
                     <span>{activity}</span>
                   </li>
                 ))}

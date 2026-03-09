@@ -26,7 +26,7 @@
  * @category patterns
  */
 
-import { Facebook, Twitter, Linkedin, Mail, Link2, MessageCircle, Check } from "lucide-react";
+import { FacebookLogo as Facebook, TwitterLogo as Twitter, LinkedinLogo as Linkedin, EnvelopeSimple as Mail, Link as Link2, ChatCircle as MessageCircle, Check } from "@phosphor-icons/react";
 import { useState } from "react";
 import { cn } from "../../lib/utils";
 import { toast } from "sonner";

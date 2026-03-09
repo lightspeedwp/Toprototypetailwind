@@ -19,7 +19,7 @@
  * @wordpressPart header
  */
 
-import { Sun, Moon, Search as SearchIcon, X } from "lucide-react";
+import { Sun, Moon, MagnifyingGlass as SearchIcon, X } from "@phosphor-icons/react";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Container } from "../common/Container";

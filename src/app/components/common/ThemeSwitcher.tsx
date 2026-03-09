@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon } from '@phosphor-icons/react';
 
 export function ThemeSwitcher() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');

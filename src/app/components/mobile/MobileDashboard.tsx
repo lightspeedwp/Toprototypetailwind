@@ -16,7 +16,7 @@
  */
 
 import { useState, useEffect } from "react";
-import { X, RefreshCw, Download, Smartphone, Wifi, Zap } from "lucide-react";
+import { X, ArrowsClockwise as RefreshCw, DownloadSimple as Download, DeviceMobile as Smartphone, WifiHigh as Wifi, Lightning as Zap } from "@phosphor-icons/react";
 import { runMobilePerformanceTests } from "../../utils/mobilePerformanceTester";
 import { isPWA, isOnline, isInstallPromptAvailable, showInstallPrompt } from "../../utils/pwa";
 import { cn } from "../../lib/utils";

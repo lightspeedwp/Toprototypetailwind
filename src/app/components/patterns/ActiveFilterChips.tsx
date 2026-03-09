@@ -22,7 +22,7 @@
  * @category patterns
  */
 
-import { X } from "lucide-react";
+import { X } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { FilterCriteria } from "./AdvancedFilterPanel";
 import { Button } from "../blocks/design/Button";

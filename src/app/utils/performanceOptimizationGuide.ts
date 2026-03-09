@@ -201,7 +201,7 @@ build: {
     output: {
       manualChunks: {
         react: ['react', 'react-dom'],
-        ui: ['lucide-react', '@radix-ui'],
+        ui: ['@phosphor-icons/react', '@radix-ui'],
       },
     },
   },
@@ -218,8 +218,8 @@ build: {
         effort: '2 hours',
         implementation: `
 // Import only what you need
-import { MapPin } from 'lucide-react'; // Good
-// import * as Icons from 'lucide-react'; // Bad
+import { MapPin } from '@phosphor-icons/react'; // Good
+// import * as Icons from '@phosphor-icons/react'; // Bad
 
 // Use ES modules
 import { formatDate } from './utils'; // Good

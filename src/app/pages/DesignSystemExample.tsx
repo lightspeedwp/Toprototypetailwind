@@ -19,16 +19,16 @@
 import { Container } from "../components/common/Container";
 import { FeatureCard } from "../components/patterns/FeatureCard";
 import { 
-  Zap, 
+  Lightning as Zap, 
   Shield, 
   Heart, 
   Palette, 
   Code, 
-  Settings,
-  CheckCircle,
+  Gear as Settings,
+  CheckCircle as CircleCheck,
   ArrowRight,
   Star
-} from "lucide-react";
+} from "@phosphor-icons/react";
 
 export function DesignSystemExample() {
   return (
@@ -194,35 +194,35 @@ export function DesignSystemExample() {
               <h2 className="mb-6">Everything You Need</h2>
               <ul className="space-y-4">
                 <li className="wp-feature-list-item">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                  <CircleCheck className="w-5 h-5 text-success flex-shrink-0" />
                   <span>All colors via CSS variables</span>
                 </li>
                 <li className="wp-feature-list-item">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                  <CircleCheck className="w-5 h-5 text-success flex-shrink-0" />
                   <span>Only 3 font families (Lora, Noto Sans, Courier New)</span>
                 </li>
                 <li className="wp-feature-list-item">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                  <CircleCheck className="w-5 h-5 text-success flex-shrink-0" />
                   <span>BEM naming convention throughout</span>
                 </li>
                 <li className="wp-feature-list-item">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                  <CircleCheck className="w-5 h-5 text-success flex-shrink-0" />
                   <span>No inline styles anywhere</span>
                 </li>
                 <li className="wp-feature-list-item">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                  <CircleCheck className="w-5 h-5 text-success flex-shrink-0" />
                   <span>Automatic dark mode (no dark: classes)</span>
                 </li>
                 <li className="wp-feature-list-item">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                  <CircleCheck className="w-5 h-5 text-success flex-shrink-0" />
                   <span>Fluid spacing and typography</span>
                 </li>
                 <li className="wp-feature-list-item">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                  <CircleCheck className="w-5 h-5 text-success flex-shrink-0" />
                   <span>WCAG AA accessible</span>
                 </li>
                 <li className="wp-feature-list-item">
-                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
+                  <CircleCheck className="w-5 h-5 text-success flex-shrink-0" />
                   <span>Complete documentation</span>
                 </li>
               </ul>

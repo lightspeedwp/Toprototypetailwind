@@ -15,7 +15,7 @@
 
 import { FeaturedSection } from "../FeaturedSection";
 import { DestinationCard } from "../DestinationCard";
-import { MapPin } from "lucide-react";
+import { MapPin } from "@phosphor-icons/react";
 import type { Destination } from "../../../data/types";
 
 /**

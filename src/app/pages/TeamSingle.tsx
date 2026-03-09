@@ -20,7 +20,7 @@ import { TOURS, FAQ_GENERAL } from "../data/mock";
 import { ALL_TEAM } from "../data/mockExpanded";
 import { getPageSectionFAQs } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
-import { Mail, Phone, Award, Globe, Calendar, Users, Star } from "lucide-react";
+import { EnvelopeSimple as Mail, Phone, Medal as Award, Globe, Calendar, Users, Star } from "@phosphor-icons/react";
 
 /**
  * Team Member Single Page Component

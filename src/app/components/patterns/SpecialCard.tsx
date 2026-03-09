@@ -50,7 +50,7 @@
  * @see /guidelines/patterns/card-grid-patterns.md
  */
 
-import { Calendar, Percent } from "lucide-react";
+import { Calendar, Percent } from "@phosphor-icons/react";
 import type { Special } from "../../data/types";
 import { cn } from "../../lib/utils";
 

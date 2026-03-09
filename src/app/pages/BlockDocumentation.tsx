@@ -24,7 +24,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/blocks/u
 import { Badge } from "../components/blocks/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/blocks/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/blocks/ui/accordion";
-import { Code, Package, Layers, CheckCircle2, AlertCircle } from "lucide-react";
+import { Code, Package, Layers, CheckCircle as CircleCheck, WarningCircle as AlertCircle } from "@phosphor-icons/react";
 
 /**
  * Block documentation structure
@@ -637,7 +637,7 @@ export default function BlockDocumentation() {
 
                   <CardContent>
                     <Tabs defaultValue="props" className="w-full">
-                      <TabsList className="grid w-full grid-cols-5">
+                      <TabsList style={{ display: "grid", width: "100%", gridTemplateColumns: "repeat(5, minmax(0, 1fr))" }}>
                         <TabsTrigger value="props">Props</TabsTrigger>
                         <TabsTrigger value="example">Example</TabsTrigger>
                         <TabsTrigger value="usage">Usage</TabsTrigger>
@@ -695,7 +695,7 @@ export default function BlockDocumentation() {
                         <div className="space-y-4">
                           <div>
                             <h4 className="mb-2 flex items-center gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-success" />
+                              <CircleCheck className="h-4 w-4 text-success" />
                               Best Practices
                             </h4>
                             <p className="text-sm text-muted-foreground">{block.usage}</p>

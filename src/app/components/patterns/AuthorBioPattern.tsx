@@ -11,7 +11,7 @@
 import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
-import { Mail, Globe, Linkedin, Twitter, Instagram } from "lucide-react";
+import { EnvelopeSimple as Mail, Globe, LinkedinLogo as Linkedin, TwitterLogo as Twitter, InstagramLogo as Instagram } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 export interface AuthorSocial {

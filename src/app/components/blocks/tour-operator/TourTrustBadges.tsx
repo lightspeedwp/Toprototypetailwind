@@ -14,11 +14,11 @@
  */
 
 import './TourTrustBadges.css';
-import { Shield, type LucideIcon } from 'lucide-react';
+import { Shield, type Icon as PhosphorIcon } from '@phosphor-icons/react';
 
 /** A single trust badge entry. */
 export interface TrustBadge {
-  icon: LucideIcon;
+  icon: PhosphorIcon;
   text: string;
 }
 

@@ -9,7 +9,7 @@ import { useState } from "react";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
 import { Container } from "../common/Container";
-import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { PaperPlaneRight as Send, CheckCircle as CircleCheck, WarningCircle as AlertCircle, Spinner as LoaderCircle } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 export interface ContactFormData {
@@ -95,7 +95,7 @@ export function ContactFormPattern({
 
       {submitStatus === "success" && (
         <div className="p-6 rounded-xl bg-primary/10 border border-primary/20 flex items-start gap-4 mb-8">
-          <CheckCircle className="size-6 text-primary shrink-0" />
+          <CircleCheck className="size-6 text-primary shrink-0" />
           <p className="text-primary font-bold m-0">{successMessage}</p>
         </div>
       )}
@@ -197,7 +197,7 @@ export function ContactFormPattern({
         >
           {isSubmitting ? (
             <>
-              <Loader2 className="size-5 animate-spin" />
+              <LoaderCircle className="size-5 animate-spin" />
               <span>Transmitting...</span>
             </>
           ) : (

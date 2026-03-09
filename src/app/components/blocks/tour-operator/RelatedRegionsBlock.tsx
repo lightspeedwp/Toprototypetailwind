@@ -18,7 +18,7 @@
  * @see /guidelines/blocks/related-regions.md
  */
 
-import { MapPin } from "lucide-react";
+import { MapPin } from "@phosphor-icons/react";
 import './RelatedRegionsBlock.css';
 import { Container } from "../../common/Container";
 import { DESTINATIONS } from "../../../data/mock";

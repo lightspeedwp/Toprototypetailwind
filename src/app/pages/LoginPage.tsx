@@ -30,7 +30,7 @@
 
 import { useState } from "react";
 import { Container } from "../components/common/Container";
-import { Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle } from "lucide-react";
+import { EnvelopeSimple as Mail, LockKey as Lock, Eye, EyeClosed as EyeOff, WarningCircle as AlertCircle, CheckCircle as CircleCheck } from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 import { toast } from "sonner";
 import { useNavigation } from "../contexts/NavigationContext";
@@ -367,32 +367,32 @@ export default function LoginPage({ onNavigate }: LoginPageProps) {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Quick Booking",
                   description: "Save time with pre-filled passenger details and payment methods",
                 },
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Booking History",
                   description: "Access all your past and upcoming bookings in one place",
                 },
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Exclusive Deals",
                   description: "Get early access to special offers and member-only discounts",
                 },
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Saved Preferences",
                   description: "Store dietary requirements and special needs for faster booking",
                 },
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Wishlist",
                   description: "Save your favorite tours and get notified of price drops",
                 },
                 {
-                  icon: CheckCircle,
+                  icon: CircleCheck,
                   title: "Priority Support",
                   description: "Get faster responses from our customer support team",
                 },

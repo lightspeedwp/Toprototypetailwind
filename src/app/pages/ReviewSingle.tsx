@@ -15,7 +15,7 @@ import { EditorialContent } from "../components/patterns/EditorialContent";
 import { ALL_REVIEWS } from "../data/mockExpanded";
 import { getPageSectionFAQs, TOURS } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
-import { Star, MapPin, Calendar, Clock, Users, ThumbsUp, ShieldCheck, Quote } from "lucide-react";
+import { Star, MapPin, Calendar, Clock, Users, ThumbsUp, ShieldCheck, Quotes as Quote } from "@phosphor-icons/react";
 
 /**
  * Review Single Page Component
@@ -67,7 +67,7 @@ export function ReviewSingle() {
           {/* Reviewer Meta */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 pb-8 border-b border-border/50">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl font-serif font-bold">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl font-bold">
                 {review.author.charAt(0)}
               </div>
               <div>
@@ -100,7 +100,7 @@ export function ReviewSingle() {
             content={`
               <div class="relative pt-8">
                 <span class="absolute top-0 left-0 text-primary/10"><Quote size={64} /></span>
-                <p class="text-xl leading-relaxed italic text-foreground/90 font-serif">
+                <p class="text-xl leading-relaxed italic text-foreground/90">
                   "${review.content}"
                 </p>
               </div>
@@ -110,7 +110,7 @@ export function ReviewSingle() {
           {/* Aspect Ratings */}
           {review.aspectRatings && (
             <div className="mt-12 p-8 rounded-2xl bg-muted/30 border border-border/50">
-              <h3 className="text-lg font-serif font-semibold mb-6">Detailed Ratings</h3>
+              <h3 className="text-lg font-semibold mb-6">Detailed Ratings</h3>
               <div className="grid gap-6">
                 {Object.entries(review.aspectRatings).map(([label, value]) => (
                   <div key={label} className="space-y-2">

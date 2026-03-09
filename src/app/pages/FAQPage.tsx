@@ -1,14 +1,15 @@
 /**
  * FAQ Page Component.
+ * 
+ * Now uses PageShell for centralized breadcrumbs + hero.
  */
 
-import { Hero } from "../components/patterns/Hero";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
 import { TableOfContentsPattern } from "../components/patterns/TableOfContentsPattern";
 import { SearchFilterPattern } from "../components/patterns/SearchFilterPattern";
 import { EmptyStatePattern } from "../components/patterns/EmptyStatePattern";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
+import { PageShell } from "../components/parts/PageShell";
 import { Container } from "../components/common/Container";
 import { useState, useMemo } from "react";
 import { 
@@ -18,7 +19,6 @@ import {
   FAQ_ACCOMMODATION,
   FAQ_BOOKING,
   FAQ_TRAVEL_LOGISTICS,
-  getHeroContent
 } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
 
@@ -26,8 +26,6 @@ export function FAQPage() {
   const { navigateTo } = useNavigation();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
-
-  const heroData = getHeroContent("faq");
 
   const categories = useMemo(() => [
     { id: "general", title: "General Enquiries", items: FAQ_GENERAL },
@@ -54,32 +52,7 @@ export function FAQPage() {
   }, [categories, searchQuery, selectedCategory]);
 
   return (
-    <article className="wp-template-page">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "FAQs", isCurrent: true }
-        ]}
-        fullWidth={true}
-      />
-
-      <Hero
-        title={heroData?.title || "How Can We Help?"}
-        intro={heroData?.description || "Find expert answers to common questions about planning your safari."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200"}
-        height="small"
-        overlay="medium"
-        primaryCTA={{
-          label: "Contact Support",
-          onClick: () => navigateTo("/contact")
-        }}
-        secondaryCTA={{
-          label: "Trip Planner",
-          onClick: () => navigateTo("/trip-planner"),
-          variant: "outline"
-        }}
-      />
-
+    <PageShell context="faq">
       <TableOfContentsPattern
         title="Browse by Category"
         sections={categories.map(c => ({ id: c.id, label: c.title }))}
@@ -156,7 +129,7 @@ export function FAQPage() {
           onClick: () => navigateTo("/trip-planner")
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

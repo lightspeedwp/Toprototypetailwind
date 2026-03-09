@@ -5,7 +5,7 @@
  * Strictly adheres to design system tokens and BEM naming.
  */
 
-import { Star, Quote } from "lucide-react";
+import { Star, Quote } from "@phosphor-icons/react";
 import type { Review } from "../../data/types";
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";

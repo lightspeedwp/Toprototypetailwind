@@ -26,7 +26,7 @@
  * @wordpressPattern lightspeed/secure-payment-indicators
  */
 
-import { Shield, Lock, Award, CheckCircle2, CreditCard, Verified } from "lucide-react";
+import { Shield, Lock, Medal as Award, CheckCircle as CircleCheck, CreditCard, SealCheck as Verified } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**
@@ -75,7 +75,7 @@ const SECURITY_INDICATORS: SecurityIndicator[] = [
   },
   {
     id: "verified",
-    icon: CheckCircle2,
+    icon: CircleCheck,
     title: "Verified Secure",
     description: "Regularly audited and monitored",
   },
@@ -265,19 +265,19 @@ export function SecurePaymentIndicators({
             </p>
             <ul className="space-y-1 text-muted-foreground">
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <CircleCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                 <span>All transactions are encrypted with 256-bit SSL</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <CircleCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                 <span>We never store your full card number</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <CircleCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                 <span>PCI-DSS Level 1 certified payment processing</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <CircleCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                 <span>Regular security audits and monitoring</span>
               </li>
             </ul>

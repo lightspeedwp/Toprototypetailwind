@@ -7,8 +7,8 @@
 
 import { useParams } from "react-router";
 import {
-  MapPin, Hotel, Star, Wifi, Coffee, Tv, Shield, Wind, Utensils, Waves, Heart, Mail, Calendar, Compass, ShieldCheck, Award
-} from "lucide-react";
+  MapPin, Buildings as Hotel, Star, WifiHigh as Wifi, Coffee, Television as Tv, Shield, Wind, ForkKnife as Utensils, Waves, Heart, EnvelopeSimple as Mail, Calendar, Compass, ShieldCheck, Medal as Award
+} from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
 import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
 import { Hero } from "../components/patterns/Hero";

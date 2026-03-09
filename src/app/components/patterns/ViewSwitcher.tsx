@@ -5,7 +5,7 @@
  * Strictly adheres to design system tokens and BEM naming.
  */
 
-import { LayoutList, Grid2x2, Grid3x3 } from "lucide-react";
+import { List as LayoutList, SquaresFour as Grid2x2, GridNine as Grid3x3 } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 export type ViewMode = "list" | "grid-2" | "grid-3";

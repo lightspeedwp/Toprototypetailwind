@@ -10,23 +10,21 @@
  */
 
 import { useMemo } from "react";
-import { Search, Globe } from "lucide-react";
+import { MagnifyingGlass as Search, Globe } from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
 import { SectionHeader } from "../components/common/SectionHeader";
-import { Hero } from "../components/patterns/Hero";
+import { PageShell } from "../components/parts/PageShell";
 import { DestinationCollectionBlock } from "../components/blocks/DestinationCollectionBlock";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
 import { ALL_DESTINATIONS, ALL_CONTINENTS } from "../data/mockExpanded";
-import { getHeroContent, getPageSectionFAQs } from "../data/mock";
+import { getPageSectionFAQs } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
 import { useDestinationFilters } from "../hooks/useDestinationFilters";
 import { motion as Motion } from "motion/react";
 import "../../styles/templates/archive-destinations.css";
 
 export function ArchiveDestinationTemplate() {
-  const heroData = getHeroContent("destinations-archive");
   const faqData = getPageSectionFAQs("destinations-archive");
   const { navigateToDestination, navigateTo } = useNavigation();
 
@@ -46,32 +44,22 @@ export function ArchiveDestinationTemplate() {
   ];
 
   return (
-    <main className="wp-template-archive-destination">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Our Territories", isCurrent: true },
-        ]}
-        fullWidth={true}
-      />
-
-      <Hero
-        title={heroData?.title || "Legendary Territories"}
-        intro={heroData?.description || "Explore the world's most evocative landscapes, from the untamed Serengeti to the hidden gems of the Southern Cape."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200"}
-        height="medium"
-        animated
-        primaryCTA={{
+    <PageShell
+      context="destinations-archive"
+      as="main"
+      className="wp-template-archive-destination"
+      heroProps={{
+        primaryCTA: {
           label: "Browse Destinations",
           onClick: () => navigateTo("/destinations")
-        }}
-        secondaryCTA={{
+        },
+        secondaryCTA: {
           label: "View All Tours",
           onClick: () => navigateTo("/tours"),
           variant: "outline"
-        }}
-      />
-
+        }
+      }}
+    >
       {/* Continent Navigation Bar */}
       <section className="wp-template-archive-destination__nav-bar">
         <Container>
@@ -186,7 +174,7 @@ export function ArchiveDestinationTemplate() {
           onClick: () => navigateTo("/tours"),
         }}
       />
-    </main>
+    </PageShell>
   );
 }
 

@@ -9,7 +9,7 @@ import { TourCard } from '../patterns/TourCard';
 import { CardGrid } from '../patterns/CardGrid';
 import { SectionHeaderPattern } from '../patterns/SectionHeaderPattern';
 import { Container } from '../common/Container';
-import { Compass } from 'lucide-react';
+import { Compass } from '@phosphor-icons/react';
 import type { Tour } from '../../data/types';
 
 interface DestinationRelatedToursBlockProps {

@@ -2,31 +2,28 @@
  * Destination Guides Hub Page - Conversion Optimization Page
  * 
  * Comprehensive destination guides with downloadable PDFs and expert travel advice.
+ * Now uses PageShell for centralized breadcrumbs + hero.
  */
 
 import { useState } from "react";
-import { Hero } from "../components/patterns/Hero";
 import { Container } from "../components/common/Container";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
 import { SectionHeaderPattern } from "../components/patterns/SectionHeaderPattern";
 import { StatisticsMetricsPattern } from "../components/patterns/StatisticsMetricsPattern";
 import { HighlightsGridPattern } from "../components/patterns/HighlightsGridPattern";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
-import { CardGrid } from "../components/patterns/CardGrid";
+import { PageShell } from "../components/parts/PageShell";
 import { Button } from "../components/blocks/design/Button";
 import { 
   Download, 
   MapPin, 
   BookOpen, 
-  Video,
   FileText,
   Calendar,
   Star,
-  CheckCircle,
-  TrendingUp,
-  Loader2
-} from "lucide-react";
+  CheckCircle as CircleCheck,
+  Spinner as LoaderCircle
+} from "@phosphor-icons/react";
 import { useNavigation } from "../contexts/NavigationContext";
 
 const GUIDES = [
@@ -88,24 +85,7 @@ export function DestinationGuidesHubPage() {
   };
 
   return (
-    <article className="wp-template-page">
-      {/* Breadcrumbs */}
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Destination Guides" }
-        ]}
-      />
-
-      {/* Hero */}
-      <Hero
-        title="Expert Destination Guides"
-        intro="Download our comprehensive safari guides to help you plan the journey of a lifetime. Insights from specialists with 20+ years of experience."
-        image="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800"
-        height="medium"
-        overlay="medium"
-      />
-
+    <PageShell context="destination-guides">
       {/* Stats */}
       <StatisticsMetricsPattern
         statistics={[
@@ -129,7 +109,7 @@ export function DestinationGuidesHubPage() {
               <div key={guide.id} className="group flex flex-col bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img src={guide.image} alt={guide.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">
+                  <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-xs uppercase tracking-widest px-2 py-1 rounded">
                     Free Download
                   </div>
                 </div>
@@ -138,13 +118,13 @@ export function DestinationGuidesHubPage() {
                     <MapPin size={12} className="text-primary" />
                     <span>{guide.destination}</span>
                   </div>
-                  <h3 className="text-lg font-serif font-bold mb-3">{guide.title}</h3>
+                  <h4 className="mb-3">{guide.title}</h4>
                   <p className="text-sm text-muted-foreground line-clamp-2 mb-6">{guide.description}</p>
                   
                   <div className="mt-auto space-y-4">
                     <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border/50 pt-4">
                       <span className="flex items-center gap-1"><FileText size={12} /> {guide.pages} pages</span>
-                      <span className="flex items-center gap-1 font-bold text-foreground">{guide.fileSize}</span>
+                      <span className="flex items-center gap-1 text-foreground">{guide.fileSize}</span>
                     </div>
                     <Button
                       variant="primary"
@@ -153,7 +133,7 @@ export function DestinationGuidesHubPage() {
                       disabled={downloadingId === guide.id}
                       onClick={() => handleDownload(guide.id)}
                     >
-                      {downloadingId === guide.id ? <Loader2 className="animate-spin" /> : <><Download size={16} className="mr-2" /> Get My Guide</>}
+                      {downloadingId === guide.id ? <LoaderCircle className="animate-spin" /> : <><Download size={16} className="mr-2" /> Get My Guide</>}
                     </Button>
                   </div>
                 </div>
@@ -168,7 +148,7 @@ export function DestinationGuidesHubPage() {
         title="Why Use Our Guides?"
         description="We put our heart and soul into creating the most accurate safari resources on the web."
         highlights={[
-          { id: "v1", title: "Expert Vetted", description: "Every guide is written and reviewed by specialists who spend 3 months a year in the field.", icon: CheckCircle },
+          { id: "v1", title: "Expert Vetted", description: "Every guide is written and reviewed by specialists who spend 3 months a year in the field.", icon: CircleCheck },
           { id: "v2", title: "Fresh Content", description: "Our guides are updated quarterly to reflect the latest park fees and animal migration patterns.", icon: Calendar },
           { id: "v3", title: "Practical Logic", description: "From visa requirements to exact packing lists, we handle the logistics so you don't have to.", icon: BookOpen }
         ]}
@@ -194,7 +174,7 @@ export function DestinationGuidesHubPage() {
         primaryAction={{ label: "Talk to a Specialist", onClick: () => navigateTo("/contact") }}
         secondaryAction={{ label: "Explore Safari Tours", onClick: () => navigateTo("/tours") }}
       />
-    </article>
+    </PageShell>
   );
 }
 

@@ -31,31 +31,31 @@ import { Button } from '../components/blocks/design/Button';
 import {
   // Travel Icons
   MapPin,
-  Map,
-  Plane,
-  Ship,
-  Car,
+  MapTrifold as Map,
+  AirplaneTilt as Plane,
+  Boat as Ship,
+  CarProfile as Car,
   Train,
   Compass,
   Globe,
-  Mountain,
-  Palmtree,
+  Mountains as Mountain,
+  TreePalm as Palmtree,
   Tent,
-  Hotel,
+  Buildings as Hotel,
   Binoculars,
   Camera,
   Backpack,
   Ticket,
-  Luggage,
+  Suitcase as Luggage,
   // Interface Icons
-  Search,
-  Filter,
-  Menu,
+  MagnifyingGlass as Search,
+  Faders as Filter,
+  List as Menu,
   X,
-  ChevronRight,
-  ChevronLeft,
-  ChevronUp,
-  ChevronDown,
+  CaretRight as ChevronRight,
+  CaretLeft as ChevronLeft,
+  CaretUp as ChevronUp,
+  CaretDown as ChevronDown,
   ArrowRight,
   ArrowLeft,
   ArrowUp,
@@ -63,35 +63,35 @@ import {
   Plus,
   Minus,
   Check,
-  AlertCircle,
+  WarningCircle as AlertCircle,
   Info,
-  HelpCircle,
-  Settings,
+  Question as HelpCircle,
+  Gear as Settings,
   // Communication Icons
-  Mail,
+  EnvelopeSimple as Mail,
   Phone,
-  MessageSquare,
-  MessageCircle,
-  Send,
-  Share2,
+  ChatText as MessageSquare,
+  ChatCircle as MessageCircle,
+  PaperPlaneRight as Send,
+  ShareNetwork as Share2,
   Heart,
   Star,
   ThumbsUp,
   // Content Icons
   Image,
-  Video,
+  VideoCamera as Video,
   File,
   FileText,
-  Download,
-  Upload,
+  DownloadSimple as Download,
+  UploadSimple as Upload,
   Eye,
-  EyeOff,
+  EyeSlash as EyeOff,
   Copy,
-  ExternalLink,
+  ArrowSquareOut as ExternalLink,
   // Commerce Icons
   ShoppingCart,
   CreditCard,
-  DollarSign,
+  CurrencyDollar as DollarSign,
   Tag,
   Gift,
   Percent,
@@ -100,22 +100,22 @@ import {
   Users,
   UserPlus,
   UserCheck,
-  Lock,
-  Unlock,
-  LogIn,
-  LogOut,
+  LockKey as Lock,
+  LockKeyOpen as Unlock,
+  SignIn as LogIn,
+  SignOut as LogOut,
   Shield,
   // Time & Calendar Icons
   Calendar,
   Clock,
   Timer,
-  CalendarDays,
+  CalendarBlank as CalendarDays,
   // Navigation & Layout Icons
-  Home,
+  House as Home,
   Layout,
-  Grid3X3,
-  Layers,
-  Sidebar,
+  GridNine as Grid3X3,
+  Stack as Layers,
+  SidebarSimple as Sidebar,
   Columns,
   Rows,
   // Media & Editing Icons
@@ -123,24 +123,24 @@ import {
   Pause,
   SkipForward,
   SkipBack,
-  Volume2,
-  VolumeX,
-  Maximize,
-  Minimize,
-  Edit,
-  Trash2,
-  Save,
-  Undo,
-  Redo,
+  SpeakerHigh as Volume2,
+  SpeakerX as VolumeX,
+  ArrowsOut as Maximize,
+  ArrowsIn as Minimize,
+  PencilSimple as Edit,
+  Trash as Trash2,
+  FloppyDisk as Save,
+  ArrowUUpLeft as Undo,
+  ArrowUUpRight as Redo,
   // Status Icons
-  CheckCircle2,
-  XCircle,
-  AlertTriangle,
-  Loader2,
-  Zap,
-  TrendingUp,
-  TrendingDown,
-} from 'lucide-react';
+  CheckCircle as CircleCheck,
+  XCircle as CircleX,
+  Warning as AlertTriangle,
+  Spinner as LoaderCircle,
+  Lightning as Zap,
+  TrendUp as TrendingUp,
+  TrendDown as TrendingDown,
+} from '@phosphor-icons/react';
 
 interface IconData {
   name: string;
@@ -263,10 +263,10 @@ const ICONS: IconData[] = [
   { name: 'Redo', component: Redo, category: 'Media & Editing', keywords: ['forward', 'repeat', 'restore'] },
   
   // Status Icons
-  { name: 'CheckCircle2', component: CheckCircle2, category: 'Status', keywords: ['success', 'done', 'complete', 'verified'] },
-  { name: 'XCircle', component: XCircle, category: 'Status', keywords: ['error', 'fail', 'cancel', 'wrong'] },
+  { name: 'CircleCheck', component: CircleCheck, category: 'Status', keywords: ['success', 'done', 'complete', 'verified'] },
+  { name: 'CircleX', component: CircleX, category: 'Status', keywords: ['error', 'fail', 'cancel', 'wrong'] },
   { name: 'AlertTriangle', component: AlertTriangle, category: 'Status', keywords: ['warning', 'caution', 'alert'] },
-  { name: 'Loader2', component: Loader2, category: 'Status', keywords: ['loading', 'spinner', 'progress', 'waiting'] },
+  { name: 'LoaderCircle', component: LoaderCircle, category: 'Status', keywords: ['loading', 'spinner', 'progress', 'waiting'] },
   { name: 'Zap', component: Zap, category: 'Status', keywords: ['fast', 'quick', 'energy', 'power'] },
   { name: 'TrendingUp', component: TrendingUp, category: 'Status', keywords: ['growth', 'increase', 'chart'] },
   { name: 'TrendingDown', component: TrendingDown, category: 'Status', keywords: ['decline', 'decrease', 'chart'] },
@@ -290,7 +290,7 @@ export default function IconLibrary() {
   });
 
   const handleCopyImport = (iconName: string) => {
-    const importCode = `import { ${iconName} } from 'lucide-react';`;
+    const importCode = `import { ${iconName} } from '@phosphor-icons/react';`;
     navigator.clipboard.writeText(importCode);
     setCopiedIcon(iconName);
     setTimeout(() => setCopiedIcon(null), 2000);
@@ -346,7 +346,7 @@ export default function IconLibrary() {
           </div>
 
           {/* Icon Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-6">
             {filteredIcons.map((icon) => {
               const IconComponent = icon.component;
               return (
@@ -407,7 +407,7 @@ export default function IconLibrary() {
                 <h3 className="mb-2">Example</h3>
                 <pre className="p-4 bg-background rounded border border-border overflow-x-auto">
                   <code className="text-xs">
-{`import { MapPin } from 'lucide-react';
+{`import { MapPin } from '@phosphor-icons/react';
 
 <MapPin className="w-6 h-6 text-primary" />`}
                   </code>
@@ -416,7 +416,7 @@ export default function IconLibrary() {
               <div>
                 <h3 className="mb-2">Important Notes</h3>
                 <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                  <li>Always verify icons exist in lucide-react before importing</li>
+                  <li>Always verify icons exist in @phosphor-icons/react before importing</li>
                   <li>Use semantic icon names (e.g., MapPin not Mappin)</li>
                   <li>Check icon guidelines in /guidelines/icons/</li>
                   <li>Use appropriate sizing (w-4 h-4, w-6 h-6, etc.)</li>

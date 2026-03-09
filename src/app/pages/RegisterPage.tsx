@@ -30,7 +30,7 @@
 
 import { useState } from "react";
 import { Container } from "../components/common/Container";
-import { User, Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, Shield } from "lucide-react";
+import { User, EnvelopeSimple as Mail, LockKey as Lock, Eye, EyeClosed as EyeOff, WarningCircle as AlertCircle, CheckCircle as CircleCheck, Shield } from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 import { toast } from "sonner";
 import { useNavigation } from "../contexts/NavigationContext";
@@ -435,7 +435,7 @@ export default function RegisterPage({ onNavigate }: RegisterPageProps) {
                     formData.password === formData.confirmPassword &&
                     !errors.confirmPassword && (
                       <div className="flex items-center gap-1.5 mt-2 text-sm text-primary">
-                        <CheckCircle className="w-4 h-4 flex-shrink-0" />
+                        <CircleCheck className="w-4 h-4 flex-shrink-0" />
                         <span>Passwords match</span>
                       </div>
                     )}
@@ -619,25 +619,25 @@ export default function RegisterPage({ onNavigate }: RegisterPageProps) {
                 <h3 className="mb-3">Your Privacy is Protected</h3>
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <p className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <CircleCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                     <span>
                       Your personal information is encrypted and stored securely
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <CircleCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                     <span>
                       We'll never share your data with third parties without your consent
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <CircleCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                     <span>
                       You can update or delete your account at any time
                     </span>
                   </p>
                   <p className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <CircleCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                     <span>
                       We're GDPR compliant and follow industry best practices
                     </span>

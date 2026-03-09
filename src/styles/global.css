@@ -29,6 +29,7 @@
    Styles for common utility components
    ============================================ */
 @import './common/logo.css';
+@import './common/container.css';
 @import './common/template-browser.css';
 @import './common/back-to-top.css';
 @import './common/page-nav.css';
@@ -46,6 +47,7 @@
    ============================================ */
 @import './parts/header.css';
 @import './parts/footer.css';
+@import './parts/page-shell.css';
 
 /* ============================================
    COMPONENT STYLES
@@ -90,6 +92,8 @@
 @import './patterns/why-choose-us.css';
 @import './patterns/statistics.css';
 @import './patterns/newsletter.css';
+@import './patterns/enquiry-modal.css';
+@import './common/social-links.css';
 
 /* ============================================
    COMMON COMPONENT STYLES (ADDITIONAL)
@@ -389,6 +393,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   gap: var(--spacing-element-xs);
   font-family: var(--font-family-noto-sans);
   font-size: var(--text-base);
@@ -401,6 +407,10 @@ body {
   transition: all var(--transition-base);
   text-decoration: none;
   min-height: 44px; /* WCAG touch target */
+}
+
+.wp-block-button svg, .button svg {
+  flex-shrink: 0;
 }
 
 .wp-block-button__link,

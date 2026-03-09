@@ -1,31 +1,20 @@
 /**
- * Back to Top Button component.
+ * Back to Top Button Component.
+ *
+ * Floating button that appears when user scrolls down.
+ * Smoothly scrolls back to top of page on click.
  * 
- * Provides a floating button that appears after scrolling down and smoothly
- * scrolls the user back to the top of the page when clicked. The button
- * only appears after scrolling past 300px to avoid cluttering the viewport
- * on short pages.
- * 
- * **Behavior:**
- * - Hidden by default
- * - Appears after scrolling down 300px
- * - Fades in/out smoothly
- * - Smooth scroll animation to top
- * - Fixed position (bottom-right corner)
- * 
- * **Accessibility:**
- * - Keyboard accessible
- * - Clear ARIA label
- * - Focus visible ring indicator
- * - Removed from tab order when hidden
- * 
+ * All styling uses CSS custom properties from the design system.
+ * Typography: Lora (serif) for headings, Noto Sans (sans-serif) for body/UI.
+ *
+ * UPDATED: March 2026 - Migrated to Phosphor Icons for better styling options
+ *
  * @module BackToTopButton
  * @category common
- * @see /guidelines/components/ScrollBackToTop.md
  */
 
 import { useState, useEffect } from "react";
-import { ChevronUp } from "lucide-react";
+import { CaretUp } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**
@@ -106,13 +95,12 @@ export function BackToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={cn(
-        "wp-common-back-to-top",
-        isVisible ? "wp-common-back-to-top--visible" : "wp-common-back-to-top--hidden"
-      )}
-      aria-label="Scroll to top"
+      className={cn("wp-back-to-top", { "wp-back-to-top--visible": isVisible })}
+      aria-label="Back to top"
     >
-      <ChevronUp className="h-6 w-6" />
+      <CaretUp size={20} weight="bold" />
     </button>
   );
 }
+
+BackToTopButton.displayName = "BackToTopButton";

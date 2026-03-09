@@ -18,7 +18,7 @@
  */
 
 import React from 'react';
-import { HeartPulse } from 'lucide-react';
+import { Heartbeat as HeartPulse } from '@phosphor-icons/react';
 
 /**
  * Health block props.

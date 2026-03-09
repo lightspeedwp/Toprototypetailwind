@@ -28,7 +28,7 @@
  */
 
 import { useState, useEffect, useRef, FormEvent } from "react";
-import { Search, X, Clock, TrendingUp } from "lucide-react";
+import { MagnifyingGlass, X, Clock, TrendUp as TrendingUp } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**
@@ -245,7 +245,7 @@ export function SearchBar({
         <div className="wp-pattern-search__input-group">
           {/* Search Input */}
           <div className="wp-pattern-search__input-wrapper">
-            <Search className="wp-pattern-search__search-icon" />
+            <MagnifyingGlass className="wp-pattern-search__search-icon" />
             <input
               ref={inputRef}
               type="text"

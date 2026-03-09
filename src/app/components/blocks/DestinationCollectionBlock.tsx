@@ -7,7 +7,7 @@
  */
 
 import { useState, useMemo } from 'react';
-import { Search, Globe, Compass } from 'lucide-react';
+import { MagnifyingGlass as Search, Globe, Compass } from '@phosphor-icons/react';
 import { DestinationCard } from '../patterns/DestinationCard';
 import { CardGrid } from '../patterns/CardGrid';
 import { Button } from '../blocks/design/Button';

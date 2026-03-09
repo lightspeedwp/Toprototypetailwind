@@ -6,7 +6,7 @@
  */
 
 import { useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X } from '@phosphor-icons/react';
 
 interface ModalTourPartProps {
   isOpen: boolean;

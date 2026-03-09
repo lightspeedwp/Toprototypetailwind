@@ -1,5 +1,5 @@
 import { cn } from "../../../lib/utils";
-import { Check, X, ChevronRight } from "lucide-react";
+import { Check, X, CaretRight as ChevronRight } from "@phosphor-icons/react";
 
 /**
  * ListBlock - Semantic list component

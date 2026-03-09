@@ -25,14 +25,14 @@ import {
   Minus,
   Calendar,
   MapPin,
-  DollarSign,
+  CurrencyDollar as DollarSign,
   Heart,
-  Share2,
+  ShareNetwork as Share2,
   ArrowRight,
   Plus,
   Users,
-  Award,
-} from "lucide-react";
+  Medal as Award,
+} from "@phosphor-icons/react";
 import { toast } from "sonner";
 import { TOURS } from "../data/mock";
 import type { Tour } from "../data/types";

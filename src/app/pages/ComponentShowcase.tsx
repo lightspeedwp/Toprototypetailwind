@@ -58,7 +58,7 @@ import { Switch } from "../components/blocks/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/blocks/ui/select";
 import { Button } from "../components/blocks/design/Button";
 import { Badge } from "../components/blocks/ui/badge";
-import { Monitor, Tablet, Smartphone, Copy, Check, Search } from "lucide-react";
+import { Monitor, DeviceTablet as Tablet, DeviceMobile as Smartphone, Copy, Check, MagnifyingGlass as Search } from "@phosphor-icons/react";
 import { TOURS, DESTINATIONS, BLOG_POSTS, TRAVEL_STYLES, FAQ_GENERAL, ACCOMMODATION, SPECIALS, TEAM } from "../data/mock";
 
 /**
@@ -739,7 +739,7 @@ export default function ComponentShowcase() {
         </div>
 
         <Container>
-          <div className="grid gap-6 py-8 lg:grid-cols-[320px_1fr]">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "var(--spacing-gap-lg)", paddingBlock: "var(--spacing-section-sm)" }}>
             {/* Sidebar - Component Selector */}
             <aside className="space-y-6">
               {/* Search and Filter */}
@@ -855,7 +855,7 @@ export default function ComponentShowcase() {
             {/* Main Content - Preview & Controls */}
             <div className="space-y-6">
               <Tabs defaultValue="preview" className="w-full">
-                <TabsList className="grid w-full grid-cols-3">
+                <TabsList style={{ display: "grid", width: "100%", gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}>
                   <TabsTrigger value="preview">Preview</TabsTrigger>
                   <TabsTrigger value="props">Props</TabsTrigger>
                   <TabsTrigger value="code">Code</TabsTrigger>
@@ -1039,7 +1039,7 @@ export default function ComponentShowcase() {
               {/* Footer - Quick Links */}
               <Card className="mt-6">
                 <CardContent className="p-6">
-                  <div className="grid gap-4 md:grid-cols-2">
+                  <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-2">
                     <div>
                       <h3 className="mb-2">
                         Component Stats

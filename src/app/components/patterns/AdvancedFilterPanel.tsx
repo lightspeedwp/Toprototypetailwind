@@ -26,7 +26,7 @@
  */
 
 import { useState, useEffect } from "react";
-import { X, ChevronDown, ChevronUp, SlidersHorizontal } from "lucide-react";
+import { X, CaretDown as ChevronDown, CaretUp as ChevronUp, SlidersHorizontal } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { Button } from "../blocks/design/Button";
 

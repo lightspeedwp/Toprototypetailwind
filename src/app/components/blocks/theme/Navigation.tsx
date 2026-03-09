@@ -28,7 +28,7 @@
  * @see /guidelines/blocks/theme/navigation.md
  */
 
-import { Menu, X, ChevronDown } from "lucide-react";
+import { List as Menu, X, CaretDown as ChevronDown } from "@phosphor-icons/react";
 import { cn } from "../../../lib/utils";
 import { useState, useEffect } from "react";
 

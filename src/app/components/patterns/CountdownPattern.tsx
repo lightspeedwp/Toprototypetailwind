@@ -3,7 +3,7 @@ import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
 import { Button } from "../blocks/design/Button";
-import { Clock } from "lucide-react";
+import { Clock } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**

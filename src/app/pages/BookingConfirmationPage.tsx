@@ -20,7 +20,7 @@
  * @wordpressTemplate page-booking-confirmation.php
  */
 
-import { Check, Calendar, Users, Mail, Phone, Printer, Download, Share2, MapPin, Clock } from "lucide-react";
+import { Check, Calendar, Users, EnvelopeSimple as Mail, Phone, Printer, DownloadSimple as Download, ShareNetwork as Share2, MapPin, Clock } from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
 import { CTA } from "../components/patterns/CTA";
 import { GroupBlock } from "../components/blocks/design/GroupBlock";

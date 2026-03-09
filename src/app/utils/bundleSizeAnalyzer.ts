@@ -68,7 +68,7 @@ const LIBRARY_SIZES: Record<string, number> = {
   'react-router-dom': 50,
   
   // UI libraries
-  'lucide-react': 15, // per icon ~1KB
+  '@phosphor-icons/react': 15, // per icon ~1KB
   '@radix-ui/react-dialog': 20,
   '@radix-ui/react-dropdown-menu': 25,
   '@radix-ui/react-accordion': 18,
@@ -164,7 +164,7 @@ function estimateDependencySize(importPath: string): number {
   }
   
   // Special handling for Lucide icons (each ~1KB)
-  if (packageName === 'lucide-react') {
+  if (packageName === '@phosphor-icons/react') {
     return 1;
   }
   
@@ -191,7 +191,7 @@ function isTreeShakeable(importPath: string): boolean {
   
   // Known tree-shakeable libraries
   const treeShakeableLibs = [
-    'lucide-react',
+    '@phosphor-icons/react',
     'date-fns',
     'lodash-es',
     '@radix-ui',

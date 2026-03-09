@@ -26,7 +26,7 @@
  */
 
 import { useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { CaretLeft as ChevronLeft, CaretRight as ChevronRight, Pause, Play } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { Lightbox, LightboxImage, useLightbox } from "../common/Lightbox";
 

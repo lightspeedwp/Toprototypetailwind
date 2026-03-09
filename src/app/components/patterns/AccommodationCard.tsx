@@ -5,7 +5,7 @@
  * Strictly adheres to design system tokens and BEM naming.
  */
 
-import { MapPin, Star, ArrowRight, ShieldCheck } from "lucide-react";
+import { MapPin, Star, ArrowRight, ShieldCheck } from "@phosphor-icons/react";
 import type { Accommodation } from "../../data/types";
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";

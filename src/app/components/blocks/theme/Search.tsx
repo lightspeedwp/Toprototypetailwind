@@ -28,7 +28,7 @@
  * @see /guidelines/blocks/theme/search.md
  */
 
-import { Search as SearchIcon } from "lucide-react";
+import { MagnifyingGlass as SearchIcon } from "@phosphor-icons/react";
 import { cn } from "../../../lib/utils";
 import { useState, FormEvent } from "react";
 

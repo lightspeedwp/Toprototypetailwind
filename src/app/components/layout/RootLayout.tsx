@@ -13,7 +13,7 @@
  */
 
 import { Suspense } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router";
+import { useOutlet, useLocation, useNavigate } from "react-router";
 import { Header } from "../parts/Header";
 import { FooterNew } from "../parts/FooterNew";
 import { BackToTopButton } from "../common/BackToTopButton";
@@ -34,10 +34,15 @@ import { resolveNavigationPath } from "../../lib/navigation";
  * 
  * Renders the complete page structure with providers, header, footer,
  * and an Outlet for child route content.
+ * 
+ * NOTE: Uses useOutlet() hook instead of <Outlet /> component because
+ * Outlet is a forwardRef component that causes {$$typeof, render} errors
+ * in the Figma Make iframe environment (same issue as ScrollRestoration).
  */
 export function RootLayout() {
   const location = useLocation();
   const navigate = useNavigate();
+  const outlet = useOutlet();
 
   /**
    * Router-based navigation handler.
@@ -70,19 +75,19 @@ export function RootLayout() {
             {/* Main Content */}
             <main id="main-content" className="flex-1" tabIndex={-1}>
               <Suspense fallback={
-                <div className="flex items-center justify-center min-h-[50vh]">
+                <div className="section container flex flex--items-center flex--justify-center min-h-[50vh]">
                   <div className="text-center">
                     <div
-                      className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent"
+                      className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid has-primary-color border-r-transparent"
                       role="status"
                     >
                       <span className="sr-only">Loading...</span>
                     </div>
-                    <p className="mt-4 text-muted-foreground">Loading page...</p>
+                    <p className="wp-block-paragraph has-muted-foreground-color">Loading page...</p>
                   </div>
                 </div>
               }>
-                <Outlet />
+                {outlet}
               </Suspense>
             </main>
             

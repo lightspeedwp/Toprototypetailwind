@@ -29,7 +29,7 @@
  */
 
 import { useState } from "react";
-import { Plus, Trash2, User, Calendar, Globe, AlertCircle, Check } from "lucide-react";
+import { Plus, Trash as Trash2, User, Calendar, Globe, WarningCircle as AlertCircle, Check } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**

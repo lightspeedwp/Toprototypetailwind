@@ -14,7 +14,7 @@
  */
 
 import './TourOverview.css';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle } from '@phosphor-icons/react';
 
 export interface TourOverviewProps {
   /** Section title */
@@ -59,7 +59,7 @@ export function TourOverview({
           <ul className="lsx-tour-overview__highlights-list">
             {highlights.map((highlight, index) => (
               <li key={index} className="lsx-tour-overview__highlight-item">
-                <CheckCircle size={18} className="lsx-tour-overview__highlight-icon" aria-hidden="true" />
+                <CheckCircle size={18} weight="fill" className="lsx-tour-overview__highlight-icon" aria-hidden="true" />
                 <span>{highlight}</span>
               </li>
             ))}

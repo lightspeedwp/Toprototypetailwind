@@ -11,30 +11,31 @@
  */
 
 import { useState, useMemo } from "react";
-import { Link } from "react-router";
+import { AppLink as Link } from "../components/common/AppLink";
 import { Container } from "../components/common/Container";
 import { Breadcrumbs } from "../components/common/Breadcrumbs";
+import { resolveNavigationPath } from "../lib/navigation";
 import {
   ArrowRight,
-  Map,
+  MapTrifold as Map,
   Globe,
-  Hotel,
+  Buildings as Hotel,
   Users,
   Gift,
   Star,
   FileText,
   Target,
-  Search,
+  MagnifyingGlass as Search,
   Tag,
   Wrench,
-  CheckCircle,
-  LayoutGrid,
-  LayoutList,
-  Sparkles,
-  Zap,
-  ChevronRight,
+  SquaresFour as LayoutGrid,
+  List as LayoutList,
+  Sparkle as Sparkles,
+  Lightning as Zap,
+  CaretRight as ChevronRight,
   Compass,
-} from "lucide-react";
+  CheckCircle as CircleCheck,
+} from "@phosphor-icons/react";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -326,7 +327,7 @@ export function TemplateTester({ onNavigate, currentPage }: TemplateTesterProps)
           <div className="flex items-center justify-center gap-4 md:gap-6 flex-wrap max-w-3xl mx-auto">
             {[
               { value: totalTemplates, label: "Total", icon: <LayoutGrid className="w-4 h-4" /> },
-              { value: activeTemplates, label: "Active", icon: <CheckCircle className="w-4 h-4" /> },
+              { value: activeTemplates, label: "Active", icon: <CircleCheck className="w-4 h-4" /> },
               { value: CATEGORIES.length, label: "Categories", icon: <Tag className="w-4 h-4" /> },
             ].map((stat) => (
               <div
@@ -459,7 +460,7 @@ export function TemplateTester({ onNavigate, currentPage }: TemplateTesterProps)
 
                   {/* Template cards */}
                   {viewMode === "grid" ? (
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-3">
                       {category.templates.map((template) => {
                         const isActive = currentPage === template.id;
                         const isLegacy = template.status === "legacy";
@@ -535,7 +536,7 @@ export function TemplateTester({ onNavigate, currentPage }: TemplateTesterProps)
                         return (
                           <Link
                             key={template.id}
-                            to={template.route}
+                            to={resolveNavigationPath(template.route)}
                             className={sharedClassName}
                           >
                             {cardContent}
@@ -597,7 +598,7 @@ export function TemplateTester({ onNavigate, currentPage }: TemplateTesterProps)
                         return (
                           <Link
                             key={template.id}
-                            to={template.route}
+                            to={resolveNavigationPath(template.route)}
                             className={sharedListClassName}
                           >
                             {listContent}
@@ -630,7 +631,7 @@ export function TemplateTester({ onNavigate, currentPage }: TemplateTesterProps)
             </div>
 
             {/* Progress cards */}
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
+            <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-3 has-margin-bottom-8">
               {[
                 { label: "Overall Progress", value: "95%", width: "w-[95%]" },
                 { label: "Templates Complete", value: `${activeTemplates}/${totalTemplates}`, width: "w-[91%]" },
@@ -652,12 +653,12 @@ export function TemplateTester({ onNavigate, currentPage }: TemplateTesterProps)
             <div className="bg-card border border-border rounded-xl p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-success/10 flex items-center justify-center text-success">
-                  <CheckCircle className="w-5 h-5" />
+                  <CircleCheck className="w-5 h-5" />
                 </div>
                 <h4 className="mb-0">Completed Milestones</h4>
               </div>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-4">
                 {[
                   {
                     title: "Core Templates",
@@ -681,7 +682,7 @@ export function TemplateTester({ onNavigate, currentPage }: TemplateTesterProps)
                     <ul className="space-y-2">
                       {section.items.map((item) => (
                         <li key={item} className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-3.5 h-3.5 text-success flex-shrink-0 mt-0.5" />
+                          <CircleCheck className="w-3.5 h-3.5 text-success flex-shrink-0 mt-0.5" />
                           <span className="text-muted-foreground">{item}</span>
                         </li>
                       ))}

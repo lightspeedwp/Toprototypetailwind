@@ -10,25 +10,25 @@
  */
 
 import { useState } from "react";
-import { Link } from "react-router";
+import { AppLink as Link } from "../../components/common/AppLink";
 import { Container } from "../../components/common/Container";
 import { Breadcrumbs } from "../../components/common/Breadcrumbs";
 import {
   Palette,
-  Activity,
+  Pulse as Activity,
   Eye,
   FileText,
   Gauge,
   Shield,
   Rocket,
-  BarChart3,
+  ChartBar as BarChart3,
   Play,
   Wrench,
   BookOpen,
-  CheckCircle,
-  Code2,
+  CheckCircle as CircleCheck,
+  Code as Code2,
   ArrowRight,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -152,7 +152,7 @@ const CATEGORY_FILTERS = [
   { id: "all", name: "All Tools", icon: Wrench },
   { id: "design", name: "Design", icon: Palette },
   { id: "performance", name: "Performance", icon: Gauge },
-  { id: "testing", name: "Testing", icon: CheckCircle },
+  { id: "testing", name: "Testing", icon: CircleCheck },
   { id: "deployment", name: "Deployment", icon: Rocket },
   { id: "analytics", name: "Analytics", icon: BarChart3 },
   { id: "documentation", name: "Documentation", icon: BookOpen },
@@ -291,7 +291,7 @@ export default function DevToolsHub() {
                     <div className="space-y-1.5 mb-4">
                       {tool.features.slice(0, 3).map((feature, idx) => (
                         <div key={idx} className="flex items-start gap-2 text-sm">
-                          <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                          <CircleCheck className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
                           <span className="text-muted-foreground">{feature}</span>
                         </div>
                       ))}

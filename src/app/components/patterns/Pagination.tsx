@@ -42,7 +42,7 @@
  * @wordpressPattern lightspeed/pagination
  */
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { Container } from "../common/Container";
 import { cn } from "../../lib/utils";
 
@@ -196,7 +196,7 @@ export function Pagination({
                   currentPage === 1 && "wp-pattern-pagination__link--disabled"
                 )}
               >
-                <ChevronLeft className="wp-pattern-pagination__icon" />
+                <CaretLeft className="wp-pattern-pagination__icon" />
                 <span>Previous</span>
               </button>
             </li>
@@ -240,7 +240,7 @@ export function Pagination({
                 )}
               >
                 <span>Next</span>
-                <ChevronRight className="wp-pattern-pagination__icon" />
+                <CaretRight className="wp-pattern-pagination__icon" />
               </button>
             </li>
           </ul>

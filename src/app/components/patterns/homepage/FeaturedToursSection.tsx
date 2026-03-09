@@ -15,7 +15,7 @@
 
 import { FeaturedSection } from "../FeaturedSection";
 import { TourCard } from "../TourCard";
-import { Compass } from "lucide-react";
+import { Compass } from "@phosphor-icons/react";
 import type { Tour } from "../../../data/types";
 
 /**

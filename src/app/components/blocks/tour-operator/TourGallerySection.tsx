@@ -15,7 +15,7 @@
  */
 
 import './TourGallerySection.css';
-import { Camera } from 'lucide-react';
+import { Camera } from '@phosphor-icons/react';
 
 export interface GalleryImage {
   id: string;

@@ -8,7 +8,7 @@
 import { useState, useEffect } from "react";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { Container } from "../common/Container";
-import { List, ChevronRight } from "lucide-react";
+import { List, CaretRight as ChevronRight } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 export interface ToCSection {

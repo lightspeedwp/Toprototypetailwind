@@ -6,7 +6,7 @@
  */
 
 import { useState, useMemo } from "react";
-import { Hero } from "../components/patterns/Hero";
+import { PageShell } from "../components/parts/PageShell";
 import { TaxonomyNav } from "../components/patterns/TaxonomyNav";
 import { BlogCard } from "../components/patterns/BlogCard";
 import { CardGrid } from "../components/patterns/CardGrid";
@@ -18,16 +18,15 @@ import { EmptyStatePattern } from "../components/patterns/EmptyStatePattern";
 import { FAQ } from "../components/patterns/FAQ";
 import { Container } from "../components/common/Container";
 import { SectionHeader } from "../components/common/SectionHeader";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
 import { NewsletterSignupPattern } from "../components/patterns/NewsletterSignupPattern";
 import { 
   ALL_BLOG_POSTS, 
   ALL_BLOG_CATEGORIES 
 } from "../data/mockExpanded";
-import { getHeroContent, getPageSectionFAQs } from "../data/mock";
+import { getPageSectionFAQs } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
 import { useBlogFilters } from "../hooks/useBlogFilters";
-import { Newspaper } from "lucide-react";
+import { Newspaper } from "@phosphor-icons/react";
 
 export function ArchiveBlogTemplate() {
   const [viewMode, setViewMode] = useState<ViewMode>("grid-3");
@@ -46,39 +45,12 @@ export function ArchiveBlogTemplate() {
     resetFilters
   } = useBlogFilters(ALL_BLOG_POSTS, ITEMS_PER_PAGE);
 
-  const heroData = getHeroContent("blog-archive");
   const faqData = getPageSectionFAQs("blog-archive");
 
   const { navigateToBlogPost, navigateTo } = useNavigation();
 
   return (
-    <main className="wp-template-archive-blog">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Blog", isCurrent: true },
-        ]}
-        fullWidth={true}
-      />
-
-      <Hero
-        title={heroData?.title || "Safari Chronicles"}
-        intro={heroData?.description || "Expert guides, photography tips, and deep dives into Africa's most legendary wilderness territories."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200"}
-        height="medium"
-        overlay="medium"
-        animated
-        primaryCTA={{
-          label: "Explore Destinations",
-          onClick: () => navigateTo("/destinations")
-        }}
-        secondaryCTA={{
-          label: "Why Choose Us?",
-          onClick: () => navigateTo("/why-book-with-us"),
-          variant: "outline"
-        }}
-      />
-
+    <PageShell context="blog-archive" as="main" className="wp-template-archive-blog">
       <TaxonomyNav
         label="Subject"
         terms={ALL_BLOG_CATEGORIES}
@@ -126,7 +98,7 @@ export function ArchiveBlogTemplate() {
               message="We couldn't find any articles matching your search. Try different keywords or browse a different category."
               primaryAction={{
                 label: "Browse All Stories",
-                onClick: handleClearFilters,
+                onClick: resetFilters,
               }}
             />
           )}
@@ -177,7 +149,7 @@ export function ArchiveBlogTemplate() {
           onClick: () => navigateTo("/trip-planner"),
         }}
       />
-    </main>
+    </PageShell>
   );
 }
 

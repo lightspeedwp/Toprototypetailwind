@@ -11,7 +11,7 @@
 import { Container } from "../../components/common/Container";
 import { DevToolsBreadcrumbs } from "../../components/common/DevToolsBreadcrumbs";
 import { useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check } from "@phosphor-icons/react";
 
 interface TokenCategory {
   name: string;

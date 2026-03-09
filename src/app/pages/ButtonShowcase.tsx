@@ -28,14 +28,14 @@ import { Button } from '../components/blocks/design/Button';
 import { Buttons } from '../components/blocks/design/Buttons';
 import { 
   ArrowRight, 
-  Download, 
+  DownloadSimple as Download, 
   Heart, 
-  Mail, 
-  ExternalLink,
+  EnvelopeSimple as Mail, 
+  ArrowSquareOut as ExternalLink,
   Check,
   X,
-  Loader2
-} from 'lucide-react';
+  Spinner as LoaderCircle
+} from '@phosphor-icons/react';
 
 export default function ButtonShowcase() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -70,7 +70,7 @@ export default function ButtonShowcase() {
           {/* Design System Compliance Badge */}
           <div className="mb-12 p-6 rounded-lg bg-card border border-border">
             <h2 className="mb-4">Design System Compliance</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-2">
               <div className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                 <div>
@@ -207,7 +207,7 @@ export default function ButtonShowcase() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-2">
               {/* Primary Variant */}
               <div className="p-6 rounded-lg bg-card border border-border">
                 <div className="mb-4">
@@ -279,7 +279,7 @@ export default function ButtonShowcase() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-2">
               {/* Icons Left */}
               <div className="p-6 rounded-lg bg-card border border-border">
                 <div className="mb-4">
@@ -420,7 +420,7 @@ export default function ButtonShowcase() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-2">
               {/* Disabled State */}
               <div className="p-6 rounded-lg bg-card border border-border">
                 <div className="mb-4">
@@ -501,7 +501,7 @@ export default function ButtonShowcase() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-3">
               {/* Touch Targets */}
               <div className="p-6 rounded-lg bg-card border border-border">
                 <h3 className="mb-3">Touch Targets</h3>
@@ -674,7 +674,7 @@ export default function ButtonShowcase() {
           <section className="mb-16">
             <div className="p-8 rounded-lg bg-primary/5 border border-primary/20">
               <h2 className="mb-4">Verification Summary ✅</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="wp-pattern-card-grid__container wp-pattern-card-grid__container--cols-2">
                 <div>
                   <h3 className="mb-3">Components Verified</h3>
                   <ul className="space-y-2 text-sm">

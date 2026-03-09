@@ -7,7 +7,7 @@
 
 import { useState } from "react";
 import { Container } from "../common/Container";
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { MagnifyingGlass as Search, SlidersHorizontal, X } from "@phosphor-icons/react";
 import { Input } from "../blocks/ui/input";
 import { Label } from "../blocks/ui/label";
 import { Button } from "../blocks/design/Button";

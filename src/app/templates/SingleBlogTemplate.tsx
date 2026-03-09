@@ -7,8 +7,8 @@
 
 import { useParams } from "react-router";
 import { 
-  Calendar, User, Tag, Clock, Share2, MessageSquare, Mail, ArrowRight, Compass, Hash
-} from "lucide-react";
+  Calendar, User, Tag, Clock, ShareNetwork as Share2, ChatCircle as MessageSquare, EnvelopeSimple as Mail, ArrowRight, Compass, Hash
+} from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
 import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
 import { Hero } from "../components/patterns/Hero";

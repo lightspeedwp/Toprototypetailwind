@@ -15,7 +15,7 @@ import {
   generateComponentDocumentation,
   type ComponentDocumentation,
 } from "../../utils/componentDocGenerator";
-import { FileText, Copy, Download, Check } from "lucide-react";
+import { FileText, Copy, DownloadSimple as Download, Check } from "@phosphor-icons/react";
 
 // Sample component for demo
 const SAMPLE_CODE = `import { cn } from "../../lib/utils";

@@ -12,7 +12,7 @@ import { useState } from "react";
 import { Container } from "../../components/common/Container";
 import { DevToolsBreadcrumbs } from "../../components/common/DevToolsBreadcrumbs";
 import { runUserFlow, type UserFlowConfig, type IntegrationTestResult, logIntegrationTestResults } from "../../utils/integrationTestHelper";
-import { Play, CheckCircle, XCircle, Clock, AlertTriangle } from "lucide-react";
+import { Play, CheckCircle as CircleCheck, XCircle as CircleX, Clock, Warning as AlertTriangle } from "@phosphor-icons/react";
 
 // Sample user flows for demonstration
 const SAMPLE_FLOWS: UserFlowConfig[] = [
@@ -171,9 +171,9 @@ export default function IntegrationTester() {
 
   const getStatusIcon = (passed: boolean) => {
     return passed ? (
-      <CheckCircle className="w-5 h-5 text-primary" />
+      <CircleCheck className="w-5 h-5 text-primary" />
     ) : (
-      <XCircle className="w-5 h-5 text-destructive" />
+      <CircleX className="w-5 h-5 text-destructive" />
     );
   };
 

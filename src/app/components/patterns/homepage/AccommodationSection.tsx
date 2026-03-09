@@ -15,7 +15,7 @@
 
 import { FeaturedSection } from "../FeaturedSection";
 import { AccommodationCard } from "../AccommodationCard";
-import { Hotel } from "lucide-react";
+import { Buildings as Hotel } from "@phosphor-icons/react";
 import type { Accommodation } from "../../../data/types";
 
 /**

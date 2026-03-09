@@ -1,5 +1,6 @@
 /**
  * Newsletter Signup Page - Conversion Optimization Page
+ * Now uses PageShell for centralized breadcrumbs + hero.
  */
 
 import { useState } from "react";
@@ -7,25 +8,23 @@ import { Hero } from "../components/patterns/Hero";
 import { Container } from "../components/common/Container";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
+import { PageShell } from "../components/parts/PageShell";
 import { StatisticsMetricsPattern } from "../components/patterns/StatisticsMetricsPattern";
 import { SectionHeaderPattern } from "../components/patterns/SectionHeaderPattern";
 import { HighlightsGridPattern } from "../components/patterns/HighlightsGridPattern";
 import { Button } from "../components/blocks/design/Button";
 import { 
-  Mail, 
-  CheckCircle,
+  EnvelopeSimple as Mail, 
+  CheckCircle as CircleCheck,
   Users,
   Globe,
-  Zap,
-  Sparkles,
+  Lightning as Zap,
+  Sparkle as Sparkles,
   Gift,
   Calendar,
-  Loader2,
-  BookOpen,
+  Spinner as LoaderCircle,
   Shield,
-  Star
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { useNavigation } from "../contexts/NavigationContext";
 
 const BENEFITS = [
@@ -97,18 +96,17 @@ export function NewsletterSignupPage() {
     return (
       <article className="wp-template-page">
         <Hero
+          context="newsletter"
           title="Welcome to the Community!"
           intro="You're now subscribed to our safari newsletter. A world of adventure awaits in your inbox."
-          image="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800"
-          height="medium"
         />
         <section className="py-section-md">
           <Container maxWidth="narrow">
             <div className="text-center">
               <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-success/10 text-success mb-8">
-                <CheckCircle size={40} />
+                <CircleCheck size={40} />
               </div>
-              <h2 className="text-3xl font-serif font-semibold mb-6">Check Your Inbox</h2>
+              <h2 className="mb-6">Check Your Inbox</h2>
               <p className="text-muted-foreground mb-12">We've sent you a confirmation email with your free welcome gift: our 48-page African Safari Planning Guide.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="primary" size="lg" onClick={() => navigateTo("/tours")}>Browse All Tours</Button>
@@ -122,22 +120,7 @@ export function NewsletterSignupPage() {
   }
 
   return (
-    <article className="wp-template-page">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Newsletter" }
-        ]}
-      />
-
-      <Hero
-        title="Join Our Safari Community"
-        intro="Receive bi-weekly inspiration, expert travel advice, and exclusive offers delivered straight to your inbox."
-        image="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800"
-        height="medium"
-        overlay="medium"
-      />
-
+    <PageShell context="newsletter">
       <StatisticsMetricsPattern
         statistics={[
           { value: "12k+", label: "Happy Subscribers", icon: Users },
@@ -168,11 +151,11 @@ export function NewsletterSignupPage() {
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-primary/60">{item.date}</span>
-                  <h4 className="text-lg font-serif font-bold mt-2 mb-4">{item.title}</h4>
+                  <span className="text-xs uppercase tracking-widest text-primary/60">{item.date}</span>
+                  <h4 className="mt-2 mb-4">{item.title}</h4>
                   <div className="flex flex-wrap gap-2">
                     {item.topics.map(t => (
-                      <span key={t} className="px-2 py-0.5 rounded bg-muted text-[10px] font-medium">{t}</span>
+                      <span key={t} className="px-2 py-0.5 rounded bg-muted text-xs">{t}</span>
                     ))}
                   </div>
                 </div>
@@ -191,7 +174,7 @@ export function NewsletterSignupPage() {
             </div>
             
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Start Your Subscription</h2>
+              <h2 className="mb-4">Start Your Subscription</h2>
               <p className="text-muted-foreground mb-8">Join thousands of travelers who get the best of Africa in their inbox. Free to join, easy to leave.</p>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -202,7 +185,7 @@ export function NewsletterSignupPage() {
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full h-14 rounded-xl border border-border bg-background px-6 text-lg focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                    className="w-full h-14 rounded-xl border border-border bg-background px-6 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                   />
                 </div>
                 <Button
@@ -210,9 +193,9 @@ export function NewsletterSignupPage() {
                   variant="primary"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full h-14 text-lg rounded-xl"
+                  className="w-full h-14 rounded-xl"
                 >
-                  {isSubmitting ? <Loader2 className="animate-spin" /> : "Subscribe for Free"}
+                  {isSubmitting ? <LoaderCircle className="animate-spin" /> : "Subscribe for Free"}
                 </Button>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground justify-center">
                   <Shield size={12} />
@@ -241,7 +224,7 @@ export function NewsletterSignupPage() {
         primaryAction={{ label: "Explore Tours", onClick: () => navigateTo("/tours") }}
         secondaryAction={{ label: "View Destinations", onClick: () => navigateTo("/destinations") }}
       />
-    </article>
+    </PageShell>
   );
 }
 

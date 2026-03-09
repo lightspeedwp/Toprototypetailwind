@@ -36,13 +36,13 @@ import {
   CloudRain,
   Compass,
   Users,
-  Award,
+  Medal as Award,
   Camera,
-  Map,
-  TrendingUp,
+  MapTrifold as Map,
+  TrendUp as TrendingUp,
   Heart,
-  Mail,
-} from "lucide-react";
+  EnvelopeSimple as Mail,
+} from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
 import { Hero } from "../components/patterns/Hero";
 import { EditorialContent } from "../components/patterns/EditorialContent";

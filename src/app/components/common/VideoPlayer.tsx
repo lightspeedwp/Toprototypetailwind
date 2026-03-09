@@ -26,7 +26,7 @@
  */
 
 import { useState } from "react";
-import { Play } from "lucide-react";
+import { Play } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**

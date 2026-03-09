@@ -11,12 +11,16 @@
  * This page shows developers how to use CSS variables correctly
  * and allows users to verify customization by editing CSS files.
  * 
+ * UPDATED: March 2026 - Added StatsDisplay component, migrated to Phosphor Icons
+ * 
  * @module DesignSystemShowcase
  * @category pages
  */
 
 import { Container } from "../components/common/Container";
-import { Check, Info, Palette, Type, Ruler, Circle } from "lucide-react";
+import { StatsDisplay } from "../components/common/StatsDisplay";
+import { getStatsForContext } from "../data/stats";
+import * as PhosphorIcons from "@phosphor-icons/react";
 
 export function DesignSystemShowcase() {
   return (
@@ -34,12 +38,26 @@ export function DesignSystemShowcase() {
         </Container>
       </section>
 
+      {/* Stats Section */}
+      <section className="relative -mt-6 z-10 pb-12">
+        <StatsDisplay
+          stats={[
+            { value: "120", label: "CSS Variables", description: "Design tokens", icon: "Sliders" },
+            { value: "34", label: "Colors", description: "Semantic tokens", icon: "Palette" },
+            { value: "3", label: "Font Families", description: "Lora, Noto Sans, Courier", icon: "TextT" },
+            { value: "24", label: "Spacing", description: "Fluid scale", icon: "Ruler" },
+          ]}
+          columns={{ mobile: 2, tablet: 2, desktop: 4 }}
+          useContainer={true}
+        />
+      </section>
+
       {/* Color Palette Section */}
       <section className="py-16">
         <Container>
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <Palette className="w-6 h-6 text-primary" />
+              <PhosphorIcons.Palette className="w-6 h-6 text-primary" />
               <h2>Color Palette</h2>
             </div>
             <p className="text-muted-foreground">
@@ -157,7 +175,7 @@ export function DesignSystemShowcase() {
         <Container>
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <Type className="w-6 h-6 text-primary" />
+              <PhosphorIcons.TextT className="w-6 h-6 text-primary" />
               <h2>Typography Scale</h2>
             </div>
             <p className="text-muted-foreground">
@@ -269,7 +287,7 @@ const theme = {
         <Container>
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <Ruler className="w-6 h-6 text-primary" />
+              <PhosphorIcons.Ruler className="w-6 h-6 text-primary" />
               <h2>Spacing Scale</h2>
             </div>
             <p className="text-muted-foreground">
@@ -330,7 +348,7 @@ const theme = {
         <Container>
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <Circle className="w-6 h-6 text-primary" />
+              <PhosphorIcons.Circle className="w-6 h-6 text-primary" />
               <h2>Border Radius Scale</h2>
             </div>
             <p className="text-muted-foreground">
@@ -352,7 +370,7 @@ const theme = {
         <Container>
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <Check className="w-6 h-6 text-primary" />
+              <PhosphorIcons.Check className="w-6 h-6 text-primary" />
               <h2>Component Examples</h2>
             </div>
             <p className="text-muted-foreground">
@@ -405,7 +423,7 @@ const theme = {
               <div className="space-y-3">
                 <div className="bg-success/10 border border-success/20 rounded-lg p-4">
                   <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-success" />
+                    <PhosphorIcons.Check className="w-4 h-4 text-success" />
                     <p className="text-sm font-medium text-success-foreground">
                       Success message
                     </p>
@@ -413,7 +431,7 @@ const theme = {
                 </div>
                 <div className="bg-warning/10 border border-warning/20 rounded-lg p-4">
                   <div className="flex items-center gap-2">
-                    <Info className="w-4 h-4 text-warning" />
+                    <PhosphorIcons.Info className="w-4 h-4 text-warning" />
                     <p className="text-sm font-medium text-warning-foreground">
                       Warning message
                     </p>
@@ -421,7 +439,7 @@ const theme = {
                 </div>
                 <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4">
                   <div className="flex items-center gap-2">
-                    <Info className="w-4 h-4 text-destructive" />
+                    <PhosphorIcons.Info className="w-4 h-4 text-destructive" />
                     <p className="text-sm font-medium text-destructive-foreground">
                       Error message
                     </p>

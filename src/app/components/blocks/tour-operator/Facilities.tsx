@@ -18,7 +18,7 @@
  */
 
 import React from 'react';
-import { Check } from 'lucide-react';
+import { Check } from '@phosphor-icons/react';
 
 /**
  * Facilities props.

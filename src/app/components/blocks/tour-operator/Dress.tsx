@@ -18,7 +18,7 @@
  */
 
 import React from 'react';
-import { ShirtIcon } from 'lucide-react';
+import { TShirt } from '@phosphor-icons/react';
 
 /**
  * Dress block props.
@@ -72,7 +72,7 @@ export function Dress({
       {/* Title */}
       <div className="flex items-center gap-2 mb-3">
         {showIcon && (
-          <ShirtIcon className="w-5 h-5 text-muted-foreground flex-shrink-0" aria-hidden="true" />
+          <TShirt className="w-5 h-5 text-muted-foreground flex-shrink-0" aria-hidden="true" />
         )}
         <h3>
           {title}

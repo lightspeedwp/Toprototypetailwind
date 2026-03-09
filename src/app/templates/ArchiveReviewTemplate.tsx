@@ -9,7 +9,7 @@
  */
 
 import { useState } from "react";
-import { Hero } from "../components/patterns/Hero";
+import { PageShell } from "../components/parts/PageShell";
 import { CTA } from "../components/patterns/CTA";
 import { Pagination } from "../components/patterns/Pagination";
 import { SearchFilterPattern } from "../components/patterns/SearchFilterPattern";
@@ -20,12 +20,11 @@ import { StatisticsMetricsPattern } from "../components/patterns/StatisticsMetri
 import { FAQ } from "../components/patterns/FAQ";
 import { Container } from "../components/common/Container";
 import { SectionHeader } from "../components/common/SectionHeader";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
 import { ALL_REVIEWS } from "../data/mockExpanded";
-import { getHeroContent, getPageSectionFAQs } from "../data/mock";
+import { getPageSectionFAQs } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
 import { useReviewFilters } from "../hooks/useReviewFilters";
-import { MessageSquare, Star, ThumbsUp, Award } from "lucide-react";
+import { ChatCircle as MessageSquare, Star, ThumbsUp, Medal as Award } from "@phosphor-icons/react";
 
 /**
  * ArchiveReviewTemplate Component.
@@ -53,7 +52,6 @@ export function ArchiveReviewTemplate() {
   const { navigateTo, navigateToReview } = useNavigation();
 
   // Centralized hero and FAQ data
-  const heroData = getHeroContent("reviews-archive");
   const faqData = getPageSectionFAQs("reviews-archive");
 
   // Calculate review statistics
@@ -72,34 +70,7 @@ export function ArchiveReviewTemplate() {
   };
 
   return (
-    <article className="wp-template-archive-review">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Traveler Reviews", isCurrent: true }
-        ]}
-        fullWidth={true}
-      />
-
-      {/* Hero */}
-      <Hero
-        title={heroData?.title || "Traveler Stories"}
-        intro={heroData?.description || "Authentic experiences and honest feedback from our community of safari enthusiasts."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800"}
-        height="medium"
-        overlay="medium"
-        animated
-        primaryCTA={{
-          label: "Submit a Review",
-          onClick: () => navigateTo("/contact")
-        }}
-        secondaryCTA={{
-          label: "Browse Expeditions",
-          onClick: () => navigateTo("/tours"),
-          variant: "outline"
-        }}
-      />
-
+    <PageShell context="reviews-archive" as="article" className="wp-template-archive-review">
       {/* Statistics */}
       <StatisticsMetricsPattern
         title="Trusted by Travelers"
@@ -230,7 +201,7 @@ export function ArchiveReviewTemplate() {
           onClick: () => navigateTo("/tours"),
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

@@ -33,23 +33,23 @@ import { useState } from "react";
 import { Container } from "../components/common/Container";
 import {
   User,
-  Mail,
+  EnvelopeSimple as Mail,
   Phone,
   MapPin,
   Calendar,
-  Settings,
-  LogOut,
-  Edit,
+  Gear as Settings,
+  SignOut as LogOut,
+  PencilSimple as Edit,
   Heart,
   Users,
   CreditCard,
   Shield,
   Bell,
-  ChevronRight,
-  Award,
-  Plane,
+  CaretRight as ChevronRight,
+  Medal as Award,
+  AirplaneTilt as Plane,
   Star,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 import { toast } from "sonner";
 import { useNavigation } from "../contexts/NavigationContext";

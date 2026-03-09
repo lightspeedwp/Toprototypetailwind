@@ -13,7 +13,7 @@ import { Container } from "../../components/common/Container";
 import { DevToolsBreadcrumbs } from "../../components/common/DevToolsBreadcrumbs";
 import { runDeploymentReadinessCheck, logDeploymentReadinessReport, generateDeploymentChecklist, type DeploymentReadinessReport } from "../../utils/deploymentReadinessChecker";
 import { analyzeSEO, logSEOAnalysis, type SEOAnalysisReport } from "../../utils/seoAnalyzer";
-import { Rocket, CheckCircle, XCircle, AlertTriangle, Download } from "lucide-react";
+import { Rocket, CheckCircle as CircleCheck, XCircle as CircleX, Warning as AlertTriangle, DownloadSimple as Download } from "@phosphor-icons/react";
 
 export default function DeploymentReadiness() {
   const [report, setReport] = useState<DeploymentReadinessReport | null>(null);
@@ -63,15 +63,15 @@ export default function DeploymentReadiness() {
   };
 
   const getStatusIcon = (status: string) => {
-    if (status === 'ready') return <CheckCircle className="w-6 h-6 text-primary" />;
+    if (status === 'ready') return <CircleCheck className="w-6 h-6 text-primary" />;
     if (status === 'needs-attention') return <AlertTriangle className="w-6 h-6 text-muted-foreground" />;
-    return <XCircle className="w-6 h-6 text-destructive" />;
+    return <CircleX className="w-6 h-6 text-destructive" />;
   };
 
   const getCategoryIcon = (score: number) => {
-    if (score >= 90) return <CheckCircle className="w-5 h-5 text-primary" />;
+    if (score >= 90) return <CircleCheck className="w-5 h-5 text-primary" />;
     if (score >= 70) return <AlertTriangle className="w-5 h-5 text-muted-foreground" />;
-    return <XCircle className="w-5 h-5 text-destructive" />;
+    return <CircleX className="w-5 h-5 text-destructive" />;
   };
 
   return (
@@ -206,7 +206,7 @@ export default function DeploymentReadiness() {
             {report.blockers.length > 0 && (
               <div className="bg-destructive/10 border border-destructive/20 p-6 rounded-lg">
                 <div className="flex items-center gap-2 mb-4">
-                  <XCircle className="w-5 h-5 text-destructive" />
+                  <CircleX className="w-5 h-5 text-destructive" />
                   <h3 className="text-destructive">Deployment Blockers ({report.blockers.length})</h3>
                 </div>
 

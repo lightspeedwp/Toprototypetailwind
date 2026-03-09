@@ -14,7 +14,7 @@ import { useState } from "react";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
 import { Button } from "../blocks/design/Button";
-import { Mail, CheckCircle2, ArrowRight } from "lucide-react";
+import { Envelope, CheckCircle, ArrowRight } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -67,7 +67,7 @@ export function NewsletterSignupPattern({
             className="wp-pattern-newsletter__success"
           >
             <div className="wp-pattern-newsletter__success-icon-wrapper">
-              <CheckCircle2 className="wp-pattern-newsletter__success-icon" />
+              <CheckCircle className="wp-pattern-newsletter__success-icon" weight="fill" />
             </div>
             <h3 className="wp-pattern-newsletter__success-title">Welcome to the Collection</h3>
             <p className="wp-pattern-newsletter__success-message">
@@ -87,7 +87,7 @@ export function NewsletterSignupPattern({
 
             <form onSubmit={handleSubmit} className="wp-pattern-newsletter__form">
               <div className="wp-pattern-newsletter__input-wrapper">
-                <Mail className="wp-pattern-newsletter__input-icon" />
+                <Envelope className="wp-pattern-newsletter__input-icon" />
                 <input
                   type="email"
                   value={email}

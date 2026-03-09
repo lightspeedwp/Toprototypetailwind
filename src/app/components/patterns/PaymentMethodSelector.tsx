@@ -30,14 +30,14 @@
 import { useState } from "react";
 import { 
   CreditCard, 
-  Building2, 
-  Smartphone,
+  Buildings as Building2, 
+  DeviceMobile as Smartphone,
   Wallet,
   Shield,
   Lock,
-  CheckCircle2,
+  CheckCircle as CircleCheck,
   Info
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**
@@ -215,7 +215,7 @@ export function PaymentMethodSelector({
                     </div>
                   </div>
                   {activeMethod === "credit-card" && (
-                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <CircleCheck className="w-5 h-5 text-primary" />
                   )}
                 </div>
               </button>
@@ -272,7 +272,7 @@ export function PaymentMethodSelector({
                       )}
                     </div>
                     {isSelected && (
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                      <CircleCheck className="w-5 h-5 text-primary flex-shrink-0" />
                     )}
                   </div>
                   

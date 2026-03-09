@@ -14,7 +14,7 @@ import { Container } from "../../common/Container";
 import { HeadingBlock } from "../../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../../blocks/core/ParagraphBlock";
 import { Button } from "../../blocks/design/Button";
-import { Heart, Shield, Leaf, Globe, ArrowRight } from "lucide-react";
+import { Heart, Shield, Leaf, Globe, ArrowRight } from "@phosphor-icons/react";
 import { motion as Motion } from "motion/react";
 
 interface ConservationSectionProps {

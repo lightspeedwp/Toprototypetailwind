@@ -12,21 +12,21 @@ import { Container } from "../components/common/Container";
 import { FeatureCard } from "../components/patterns/FeatureCard";
 import { 
   Palette, 
-  Type, 
+  TextT as Type, 
   Layout, 
-  Box,
+  Package as Box,
   Circle,
   Square,
-  Zap,
+  Lightning as Zap,
   Shield,
   Heart,
-  CheckCircle,
-  AlertCircle,
+  CheckCircle as CircleCheck,
+  WarningCircle as AlertCircle,
   Info,
-  AlertTriangle,
+  Warning as AlertTriangle,
   Star,
   ArrowRight
-} from "lucide-react";
+} from "@phosphor-icons/react";
 
 export function ComponentLibrary() {
   return (
@@ -354,7 +354,7 @@ export function ComponentLibrary() {
                 </div>
 
                 <div className="wp-alert wp-alert--success">
-                  <CheckCircle className="w-5 h-5" />
+                  <CircleCheck className="w-5 h-5" />
                   <div>
                     <h4 className="wp-alert__title">Success</h4>
                     <p className="wp-alert__description">Your changes have been saved successfully.</p>
@@ -381,7 +381,7 @@ export function ComponentLibrary() {
 
             <div className="wp-component-showcase__code">
               <pre><code>{`<div className="wp-alert wp-alert--success">
-  <CheckCircle className="w-5 h-5" />
+  <CircleCheck className="w-5 h-5" />
   <div>
     <h4 className="wp-alert__title">Success</h4>
     <p className="wp-alert__description">Message</p>
@@ -420,7 +420,7 @@ export function ComponentLibrary() {
                   <span>Featured</span>
                 </span>
                 <span className="wp-badge wp-badge--success">
-                  <CheckCircle className="w-3 h-3" />
+                  <CircleCheck className="w-3 h-3" />
                   <span>Verified</span>
                 </span>
               </div>
@@ -430,7 +430,7 @@ export function ComponentLibrary() {
               <pre><code>{`<span className="wp-badge">Default</span>
 <span className="wp-badge wp-badge--primary">Primary</span>
 <span className="wp-badge wp-badge--success">
-  <CheckCircle className="w-3 h-3" />
+  <CircleCheck className="w-3 h-3" />
   <span>Verified</span>
 </span>`}</code></pre>
             </div>

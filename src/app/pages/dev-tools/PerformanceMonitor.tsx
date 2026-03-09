@@ -18,7 +18,14 @@ import {
   getPerformanceRating,
   PERFORMANCE_THRESHOLDS,
 } from "../../utils/performanceProfiler";
-import { Activity, RefreshCw, Trash2, TrendingUp, TrendingDown, Zap } from "lucide-react";
+import {
+  Pulse as Activity,
+  ArrowsClockwise as RefreshCw,
+  Trash as Trash2,
+  TrendUp as TrendingUp,
+  TrendDown as TrendingDown,
+  Lightning as Zap,
+} from "@phosphor-icons/react";
 
 export default function PerformanceMonitor() {
   const [metrics, setMetrics] = useState(getAllPerformanceMetrics());

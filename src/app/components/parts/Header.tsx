@@ -1,29 +1,27 @@
 /**
- * Site Header
- * 
- * Premium navigation experience with mega-menus and theme control.
- * Strictly adheres to design system tokens and BEM naming.
+ * Site Header — WordPress Template Part
+ *
+ * Premium navigation experience with theme control.
+ * Consumes navigation data from the centralized data file
+ * (`/src/app/data/content/navigation.ts`) — no hardcoded links.
+ *
+ * WordPress Mapping: parts/header.html
+ * CSS: /src/styles/parts/header.css (BEM: .wp-part-header__*)
+ *
+ * @module Header
+ * @category parts
  */
 
 import {
-  Menu, X, ChevronDown, Sun, Moon, Search, Compass, ShieldCheck, Mail, ArrowRight, Globe
-} from "lucide-react";
-import { useState, useEffect, useCallback } from "react";
+  List, X, Sun, Moon, Compass, ShieldCheck, Envelope, ArrowRight, Globe
+} from "@phosphor-icons/react";
+import { useState, useEffect } from "react";
 import { Logo } from "../common/Logo";
-import { MobileMenuPattern, type MobileMenuSection } from "../patterns/MobileMenuPattern";
 import { Container } from "../common/Container";
 import { cn } from "../../lib/utils";
 import { motion as Motion, AnimatePresence } from "motion/react";
 import { useTheme } from "../../contexts/ThemeContext";
-
-const NAV_LINKS = [
-  { label: "Expeditions", href: "/tours" },
-  { label: "Territories", href: "/destinations" },
-  { label: "Sanctuaries", href: "/accommodation" },
-  { label: "Chronicles", href: "/blog" },
-  { label: "Conservation", href: "/sustainability" },
-  { label: "The Studio", href: "/about" },
-];
+import { PRIMARY_NAV, HEADER_CTA } from "../../data/content/navigation";
 
 export function Header({ currentPage = "/", onNavigate }: { currentPage?: string; onNavigate?: (path: string) => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,24 +41,23 @@ export function Header({ currentPage = "/", onNavigate }: { currentPage?: string
 
   return (
     <>
-      <header className={cn(
-        "wp-part-header fixed top-0 left-0 right-0 z-[50] transition-all duration-500",
-        isScrolled 
-          ? "py-4 bg-background/80 backdrop-blur-xl border-b-2 border-border/50 shadow-xl" 
-          : "py-8 bg-transparent"
-      )}>
+      <header className={cn("wp-part-header fixed top-0 left-0 right-0 z-[50] transition-all duration-500 py-[12px]", isScrolled
+    ? "bg-background/80 backdrop-blur-xl border-b-2 border-border/50 shadow-xl"
+    : "bg-transparent")}>
         <Container>
           <div className="flex items-center justify-between gap-12">
             {/* Brand Section */}
-            <button onClick={() => handleNav("/")} className="group relative z-10">
-              <Logo size="sm" bare className="h-8 md:h-10 transition-transform duration-500 group-hover:scale-105" />
-            </button>
+            <Logo 
+              size="sm" 
+              onClick={() => handleNav("/")}
+              className="h-8 md:h-10 transition-transform duration-500 hover:scale-105 cursor-pointer relative z-10 block" 
+            />
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-10">
-              {NAV_LINKS.map(link => (
+              {PRIMARY_NAV.map(link => (
                 <button
-                  key={link.label}
+                  key={link.id}
                   onClick={() => handleNav(link.href)}
                   className={cn(
                     "text-xs font-bold uppercase tracking-wider transition-all relative py-2 group",
@@ -87,25 +84,23 @@ export function Header({ currentPage = "/", onNavigate }: { currentPage?: string
               </button>
 
               <button 
-                onClick={() => handleNav("/contact")}
+                onClick={() => handleNav(HEADER_CTA.href)}
                 className="hidden md:flex items-center gap-3 px-6 py-2.5 rounded-md bg-primary text-primary-foreground font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-primary/20 transition-all hover:-translate-y-0.5 active:translate-y-0"
               >
-                <Compass className="size-4" /> Begin Journey
+                <Compass className="size-4" /> {HEADER_CTA.label}
               </button>
 
               <button 
                 onClick={() => setMobileMenuOpen(true)}
                 className="lg:hidden size-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center shadow-md"
               >
-                <Menu className="size-5" />
+                <List className="size-5" />
               </button>
             </div>
           </div>
         </Container>
       </header>
 
-      {/* Spacer to prevent layout shift if header isn't transparent (handled in PageLayout) */}
-      
       <AnimatePresence>
         {mobileMenuOpen && (
           <Motion.div 
@@ -124,12 +119,12 @@ export function Header({ currentPage = "/", onNavigate }: { currentPage?: string
               </div>
 
               <nav className="flex-1 space-y-8">
-                {NAV_LINKS.map((link, idx) => (
+                {PRIMARY_NAV.map((link, idx) => (
                   <Motion.button
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    key={link.label}
+                    key={link.id}
                     onClick={() => handleNav(link.href)}
                     className="w-full text-left flex items-center justify-between group"
                   >
@@ -147,9 +142,15 @@ export function Header({ currentPage = "/", onNavigate }: { currentPage?: string
                   Start Trip Planner
                 </button>
                 <div className="flex justify-center gap-8 mt-12 text-muted-foreground">
-                  <Globe className="size-5" />
-                  <ShieldCheck className="size-5" />
-                  <Mail className="size-5" />
+                  <button onClick={() => handleNav("/destinations")} aria-label="Destinations" className="hover:text-primary transition-colors">
+                    <Globe className="size-5" />
+                  </button>
+                  <button onClick={() => handleNav("/about")} aria-label="About Us" className="hover:text-primary transition-colors">
+                    <ShieldCheck className="size-5" />
+                  </button>
+                  <button onClick={() => handleNav("/contact")} aria-label="Contact Us" className="hover:text-primary transition-colors">
+                    <Envelope className="size-5" />
+                  </button>
                 </div>
               </div>
             </Container>

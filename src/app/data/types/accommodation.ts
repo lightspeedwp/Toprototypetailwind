@@ -218,7 +218,7 @@ export interface Facility {
   description: string;
 
   /**
-   * Optional lucide-react icon name.
+   * Optional Phosphor icon name.
    * @example "Waves" | "Wifi" | "Coffee"
    */
   icon?: string;

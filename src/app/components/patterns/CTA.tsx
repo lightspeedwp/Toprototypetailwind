@@ -7,7 +7,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Compass, Mail, Calendar } from "lucide-react";
+import { ArrowRight, Compass, Envelope, Calendar } from "@phosphor-icons/react";
 import { Container } from "../common/Container";
 import { EnquiryModal } from "./EnquiryModal";
 import { cn } from "../../lib/utils";
@@ -49,11 +49,7 @@ export function CTA({
 
   return (
     <>
-      <section className={cn(
-        "wp-pattern-cta",
-        `wp-pattern-cta--${variant}`,
-        className
-      )}>
+      <section className={cn("wp-pattern-cta px-[24px] py-[40px]", `wp-pattern-cta--${variant}`, className)}>
         {/* Background Image/Pattern */}
         {backgroundImage && (
           <div className="wp-pattern-cta__background">

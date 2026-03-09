@@ -8,7 +8,7 @@
 import { Container } from "../common/Container";
 import { HeadingBlock } from "../blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../blocks/core/ParagraphBlock";
-import { Cloud, Droplets, Sun, ThermometerSun, Calendar, Info } from "lucide-react";
+import { Cloud, Drop as Droplets, Sun, Thermometer as ThermometerSun, Calendar, Info } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";
 

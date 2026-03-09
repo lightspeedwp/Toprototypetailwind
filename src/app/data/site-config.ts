@@ -8,7 +8,7 @@
  * @category data
  */
 
-import { Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
+import { FacebookLogo as Facebook, InstagramLogo as Instagram, TwitterLogo as Twitter, LinkedinLogo as Linkedin, YoutubeLogo as Youtube } from "@phosphor-icons/react";
 
 export const SITE_CONFIG = {
   name: "LightSpeed Tours",

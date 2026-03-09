@@ -15,7 +15,7 @@
  */
 
 import { useState, useEffect } from "react";
-import { X, RefreshCw, Download, TrendingUp, Zap, Package } from "lucide-react";
+import { X, ArrowsClockwise as RefreshCw, DownloadSimple as Download, TrendUp as TrendingUp, Lightning as Zap, Package } from "@phosphor-icons/react";
 import { runBundleAnalysis } from "../../utils/bundleAnalyzer";
 import { runLighthouseAudit } from "../../utils/lighthouseAudit";
 import { cn } from "../../lib/utils";

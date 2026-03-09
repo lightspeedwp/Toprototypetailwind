@@ -18,7 +18,7 @@
  */
 
 import React from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin } from '@phosphor-icons/react';
 
 /**
  * Destination to accommodation props.

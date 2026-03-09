@@ -1,14 +1,13 @@
 /**
  * Terms & Conditions Page - WordPress Template
+ * Now uses PageShell for centralized breadcrumbs + hero.
  */
 
-import { Hero } from "../components/patterns/Hero";
 import { EditorialContent } from "../components/patterns/EditorialContent";
 import { CTA } from "../components/patterns/CTA";
 import { TableOfContentsPattern } from "../components/patterns/TableOfContentsPattern";
 import { ContactInfoPattern } from "../components/patterns/ContactInfoPattern";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
-import { Container } from "../components/common/Container";
+import { PageShell } from "../components/parts/PageShell";
 import { useNavigation } from "../contexts/NavigationContext";
 
 export function TermsConditionsPage() {
@@ -67,24 +66,7 @@ export function TermsConditionsPage() {
   `;
 
   return (
-    <article className="wp-template-page">
-      <Container className="py-4">
-        <BreadcrumbsPattern
-          items={[
-            { label: "Home", href: "/", onClick: () => navigateTo("/") },
-            { label: "Terms & Conditions", isCurrent: true }
-          ]}
-        />
-      </Container>
-
-      <Hero
-        title="Terms & Conditions"
-        intro="The foundation of our service and your travel agreement."
-        height="small"
-        overlay="medium"
-        image="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200"
-      />
-
+    <PageShell context="terms-conditions">
       <TableOfContentsPattern
         title="Agreement Details"
         sections={sections}
@@ -122,7 +104,7 @@ export function TermsConditionsPage() {
           onClick: () => navigateTo("/privacy-policy"),
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

@@ -5,7 +5,7 @@
  * Quick reference facts for tour details
  */
 
-import { Calendar, MapPin, Users, DollarSign, TrendingUp, Sun } from 'lucide-react';
+import { Calendar, MapPin, Users, CurrencyDollar as DollarSign, TrendUp as TrendingUp, Sun } from '@phosphor-icons/react';
 import type { Tour } from '../../data/types';
 
 interface FastFactsTourPartProps {

@@ -2,18 +2,17 @@
  * Packing Lists & Safari Guides Page
  * 
  * Comprehensive packing lists, preparation guides, and safari planning
- * resources to help travelers prepare and increase booking confidence.
+ * resources. Now uses PageShell for centralized breadcrumbs + hero.
  */
 
 import { useState } from "react";
-import { Hero } from "../components/patterns/Hero";
 import { Container } from "../components/common/Container";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
 import { HighlightsGridPattern } from "../components/patterns/HighlightsGridPattern";
 import { StatisticsMetricsPattern } from "../components/patterns/StatisticsMetricsPattern";
 import { SectionHeaderPattern } from "../components/patterns/SectionHeaderPattern";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
+import { PageShell } from "../components/parts/PageShell";
 import { Button } from "../components/blocks/design/Button";
 import { 
   Download, 
@@ -21,13 +20,12 @@ import {
   Camera,
   Heart,
   Sun,
-  FileText,
-  Loader2,
+  Spinner as LoaderCircle,
   Star,
-  TrendingUp,
+  TrendUp as TrendingUp,
   ShieldCheck,
-  CheckCircle2
-} from "lucide-react";
+  CheckCircle as CircleCheck
+} from "@phosphor-icons/react";
 import {
   PACKING_LISTS
 } from "../data/mock";
@@ -51,24 +49,7 @@ export function PackingGuidesPage() {
   ];
 
   return (
-    <article className="wp-template-page">
-      {/* Breadcrumbs */}
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Packing Guides" }
-        ]}
-      />
-
-      {/* Hero */}
-      <Hero
-        title="Safari Essentials & Packing Lists"
-        intro="Be fully prepared for the wild. From specialized camera gear to climate-appropriate clothing, our expert guides ensure you have everything you need."
-        image="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800"
-        height="medium"
-        overlay="medium"
-      />
-
+    <PageShell context="packing-guides">
       <StatisticsMetricsPattern statistics={stats} />
 
       {/* Popular Lists */}
@@ -86,11 +67,11 @@ export function PackingGuidesPage() {
                 <div className="w-12 h-12 rounded-xl bg-primary/5 text-primary flex items-center justify-center mb-6">
                   <Package size={24} />
                 </div>
-                <h3 className="text-xl font-serif font-bold mb-3">{list.title}</h3>
+                <h3 className="mb-3">{list.title}</h3>
                 <p className="text-sm text-muted-foreground mb-8 flex-1">{list.description}</p>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border/50 pt-4">
-                    <span className="font-bold text-foreground">{list.items.length} Points</span>
+                    <span className="text-foreground">{list.items.length} Points</span>
                     <span>{list.downloads.toLocaleString()} downloads</span>
                   </div>
                   <Button
@@ -100,7 +81,7 @@ export function PackingGuidesPage() {
                     disabled={downloadingId === list.id}
                     onClick={() => handleDownload(list.id)}
                   >
-                    {downloadingId === list.id ? <Loader2 className="animate-spin" /> : "Download PDF"}
+                    {downloadingId === list.id ? <LoaderCircle className="animate-spin" /> : "Download PDF"}
                   </Button>
                 </div>
               </div>
@@ -139,8 +120,8 @@ export function PackingGuidesPage() {
               "Ethical photography equipment guidelines"
             ].map((promise, i) => (
               <div key={i} className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border/50 m-0">
-                <CheckCircle2 size={20} className="text-primary" />
-                <span className="font-medium">{promise}</span>
+                <CircleCheck size={20} className="text-primary" />
+                <span>{promise}</span>
               </div>
             ))}
           </div>
@@ -165,7 +146,7 @@ export function PackingGuidesPage() {
         primaryAction={{ label: "Browse Safari Collection", onClick: () => navigateTo("/tours") }}
         secondaryAction={{ label: "Request a Tailored Quote", onClick: () => navigateTo("/contact") }}
       />
-    </article>
+    </PageShell>
   );
 }
 

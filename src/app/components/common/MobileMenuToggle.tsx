@@ -1,14 +1,19 @@
 /**
- * Mobile Menu Toggle Component
+ * Mobile Menu Toggle Button.
+ *
+ * Button that toggles mobile menu open/closed state.
+ * Shows hamburger icon when closed, X icon when open.
  * 
- * Simple hamburger/close button for mobile menu toggle.
- * Designed to be placed in the header actions area.
- * 
+ * All styling uses CSS custom properties from the design system.
+ * Typography: Lora (serif) for headings, Noto Sans (sans-serif) for body/UI.
+ *
+ * UPDATED: March 2026 - Migrated to Phosphor Icons for better styling options
+ *
  * @module MobileMenuToggle
  * @category common
  */
 
-import { Menu, X } from "lucide-react";
+import { List, X } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 interface MobileMenuToggleProps {
@@ -41,23 +46,17 @@ export function MobileMenuToggle({ isOpen, onToggle, className }: MobileMenuTogg
   return (
     <button
       onClick={onToggle}
-      aria-label="Toggle navigation"
+      className={cn("wp-mobile-menu-toggle", className)}
+      aria-label={isOpen ? "Close menu" : "Open menu"}
       aria-expanded={isOpen}
-      className={cn(
-        "mobile-menu-toggle",
-        "p-2 rounded-md",
-        "bg-muted",
-        "hover:bg-muted/80",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-        "transition-colors",
-        className
-      )}
     >
       {isOpen ? (
-        <X className="h-6 w-6" />
+        <X size={24} weight="bold" aria-hidden="true" />
       ) : (
-        <Menu className="h-6 w-6" />
+        <List size={24} weight="bold" aria-hidden="true" />
       )}
     </button>
   );
 }
+
+MobileMenuToggle.displayName = "MobileMenuToggle";

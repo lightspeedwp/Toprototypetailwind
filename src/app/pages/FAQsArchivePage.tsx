@@ -3,17 +3,16 @@
  * 
  * Main FAQ archive page with search form, category filters,
  * and expandable FAQ accordions.
+ * Now uses PageShell for centralized breadcrumbs + hero.
  */
 
 import { useState, useMemo } from "react";
-import { Hero } from "../components/patterns/Hero";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
 import { SearchFilterPattern } from "../components/patterns/SearchFilterPattern";
 import { EmptyStatePattern } from "../components/patterns/EmptyStatePattern";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
-import { Container } from "../components/common/Container";
-import { FAQS, FAQ_CATEGORIES, searchFAQs, getFAQsByCategory } from "../data/faqs";
+import { PageShell } from "../components/parts/PageShell";
+import { FAQS, FAQ_CATEGORIES, searchFAQs } from "../data/faqs";
 import { useNavigation } from "../contexts/NavigationContext";
 
 /**
@@ -61,24 +60,7 @@ export function FAQsArchivePage() {
   };
 
   return (
-    <article className="wp-template-page">
-      {/* Breadcrumbs */}
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "FAQs" }
-        ]}
-      />
-
-      {/* Hero */}
-      <Hero
-        title="Knowledge Base"
-        intro="Find comprehensive answers to everything from booking logistics to what to pack for your safari."
-        context="Customer Support"
-        height="small"
-        overlay="medium"
-      />
-
+    <PageShell context="faqs-archive">
       {/* Search & Filter */}
       <SearchFilterPattern
         filters={[
@@ -149,7 +131,7 @@ export function FAQsArchivePage() {
           onClick: () => navigateTo("/contact"),
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

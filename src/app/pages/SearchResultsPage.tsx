@@ -2,10 +2,10 @@
  * Search Results Page - WordPress Template
  * 
  * Global search results page showing tours, destinations, accommodations, and blog posts.
+ * Uses PageShell for centralized breadcrumbs + hero with dynamic title/intro overrides.
  */
 
 import { useState, useEffect } from "react";
-import { Hero } from "../components/patterns/Hero";
 import { CTA } from "../components/patterns/CTA";
 import { CardGrid } from "../components/patterns/CardGrid";
 import { TourCard } from "../components/patterns/TourCard";
@@ -14,7 +14,7 @@ import { AccommodationCard } from "../components/patterns/AccommodationCard";
 import { BlogCard } from "../components/patterns/BlogCard";
 import { Pagination } from "../components/patterns/Pagination";
 import { EmptyStatePattern } from "../components/patterns/EmptyStatePattern";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
+import { PageShell } from "../components/parts/PageShell";
 import { SearchFilterPattern } from "../components/patterns/SearchFilterPattern";
 import { Container } from "../components/common/Container";
 import { useSearch } from "../hooks/useSearch";
@@ -77,33 +77,13 @@ export function SearchResultsPage() {
   };
 
   return (
-    <article className="wp-template-page">
-      {/* Breadcrumbs */}
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Search Results", isCurrent: true }
-        ]}
-        fullWidth={true}
-      />
-
-      {/* Hero */}
-      <Hero
-        title={hasSearched && query ? `Results for "${query}"` : "Global Search"}
-        intro={hasSearched ? `We found ${totalResults} matches for your search across our collection.` : "Discover tours, destinations, and expert travel insights."}
-        height="small"
-        overlay="medium"
-        primaryCTA={{
-          label: "View All Tours",
-          onClick: () => navigateTo("/tours")
-        }}
-        secondaryCTA={{
-          label: "Need Help?",
-          onClick: () => navigateTo("/contact"),
-          variant: "outline"
-        }}
-      />
-
+    <PageShell
+      context="search"
+      heroProps={{
+        title: hasSearched && query ? `Results for "${query}"` : undefined,
+        intro: hasSearched ? `We found ${totalResults} matches for your search across our collection.` : undefined,
+      }}
+    >
       {/* Search Bar & Filter */}
       <SearchFilterPattern
         searchPlaceholder="Try 'Kruger Safari', 'Luxury Lodges', or 'Cape Town'..."
@@ -130,7 +110,7 @@ export function SearchResultsPage() {
                   setActiveTab(tab.id as any);
                   setCurrentPage(1);
                 }}
-                className={`px-4 py-2 rounded-full whitespace-nowrap text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-full whitespace-nowrap text-sm transition-all ${
                   activeTab === tab.id
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "bg-background text-muted-foreground hover:text-foreground hover:bg-muted border border-border/50"
@@ -154,7 +134,7 @@ export function SearchResultsPage() {
           ) : paginatedResults.length > 0 ? (
             <>
               <div className="mb-12 border-b border-border/50 pb-6">
-                <h2 className="text-2xl font-serif font-semibold">
+                <h2>
                   {activeTab === 'all' ? 'All Matches' : activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
                 </h2>
                 <p className="text-muted-foreground">Showing {paginatedResults.length} of {activeResults.length} relevant results</p>
@@ -212,7 +192,7 @@ export function SearchResultsPage() {
           onClick: () => navigateTo("/contact"),
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

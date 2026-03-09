@@ -6,7 +6,7 @@
  */
 
 import { useState, useMemo } from "react";
-import { Search, Grid3x3, Grid2x2, List, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
+import { MagnifyingGlass as Search, GridNine as Grid3x3, GridFour as Grid2x2, List, MapPin, CaretLeft as ChevronLeft, CaretRight as ChevronRight } from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
 import { ArchiveHeader } from "../components/patterns/ArchiveHeader";
 import { DestinationCard } from "../components/patterns/DestinationCard";
@@ -243,7 +243,7 @@ function DestinationsArchiveSimple() {
             /* Empty State */
             <div className="text-center py-12">
               <MapPin size={48} className="mx-auto text-muted-foreground mb-4" />
-              <h3 className="text-xl font-serif font-medium mb-2">No destinations found</h3>
+              <h3 className="text-xl font-medium mb-2">No destinations found</h3>
               <p className="text-muted-foreground mb-6">
                 Try adjusting your filters or search term
               </p>

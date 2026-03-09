@@ -42,7 +42,7 @@
  */
 
 import { motion } from "motion/react";
-import { Clock } from "lucide-react";
+import { Clock } from "@phosphor-icons/react";
 import { Container } from "../common/Container";
 import { cn } from "../../lib/utils";
 

@@ -15,7 +15,7 @@
  */
 
 import { useState, useRef, useEffect } from "react";
-import { X } from "lucide-react";
+import { X } from "@phosphor-icons/react";
 import { usePan } from "../../hooks/use-touch-gestures";
 import { cn } from "../../lib/utils";
 

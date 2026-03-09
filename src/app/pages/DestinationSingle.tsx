@@ -22,7 +22,7 @@ import { Container } from "../components/common/Container";
 import { ToursForDestinationBlock } from "../components/blocks/tour-operator/ToursForDestinationBlock";
 import { RelatedRegionsBlock } from "../components/blocks/tour-operator/RelatedRegionsBlock";
 import { DESTINATIONS, TOURS, FAQ_DESTINATION, REVIEWS } from "../data/mock";
-import { MapPin, Sun, Languages, Banknote, Clock, Camera, Mountain, Compass, Globe } from "lucide-react";
+import { MapPin, Sun, Translate as Languages, Money as Banknote, Clock, Camera, Mountains as Mountain, Compass, Globe } from "@phosphor-icons/react";
 import { useNavigation } from "../contexts/NavigationContext";
 import { motion } from "motion/react";
 

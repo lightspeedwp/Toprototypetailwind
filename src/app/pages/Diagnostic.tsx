@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { AppLink as Link } from "../components/common/AppLink";
 import { cn } from "../lib/utils";
 
 /**

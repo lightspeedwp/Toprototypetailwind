@@ -24,7 +24,7 @@
  */
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Calendar } from "lucide-react";
+import { CaretLeft, CaretRight, Calendar } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**
@@ -272,7 +272,7 @@ export function DatePicker({
                 className="flex h-8 w-8 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted"
                 aria-label="Previous month"
               >
-                <ChevronLeft size={20} />
+                <CaretLeft size={20} />
               </button>
 
               <h3 className="text-foreground">
@@ -288,7 +288,7 @@ export function DatePicker({
                 className="flex h-8 w-8 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted"
                 aria-label="Next month"
               >
-                <ChevronRight size={20} />
+                <CaretRight size={20} />
               </button>
             </div>
 

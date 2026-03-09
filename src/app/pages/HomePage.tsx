@@ -41,32 +41,31 @@ import {
   BLOG_POSTS,
   TEAM,
   REVIEWS,
-  getHeroContent,
   getPageSectionFAQs,
   HOMEPAGE_CONTENT,
   getHomepageSection,
 } from "../data/mock";
 
 import { useNavigation } from "../contexts/NavigationContext";
-import type { LucideIcon } from "lucide-react";
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
 import {
   MapPin,
   Compass,
-  Hotel,
+  Bed as Hotel,
   Users,
-  TrendingUp,
+  TrendUp as TrendingUp,
   Shield,
   Heart,
   ArrowRight,
   Globe,
-  Award,
-} from "lucide-react";
+  Trophy as Award,
+} from "@phosphor-icons/react";
 
 // ----------------------------------------------------------------
 // Icon map — maps string keys stored in data to actual React icons.
 // This keeps the data layer free of React imports.
 // ----------------------------------------------------------------
-const ICON_MAP: Record<string, LucideIcon> = {
+const ICON_MAP: Record<string, PhosphorIcon> = {
   MapPin,
   Compass,
   Hotel,
@@ -79,8 +78,8 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Award,
 };
 
-/** Safely resolve an icon name to a lucide-react component. */
-function resolveIcon(name: string): LucideIcon {
+/** Safely resolve an icon name to a phosphor-react component. */
+function resolveIcon(name: string): PhosphorIcon {
   return ICON_MAP[name] ?? Compass;
 }
 
@@ -111,7 +110,6 @@ export function HomePage({ onNavigate }: HomePageProps) {
   const featuredTestimonials = REVIEWS.slice(0, 3);
 
   // ----- Centralized content -----
-  const heroData = getHeroContent("home");
   const faqData = getPageSectionFAQs("home");
 
   // Homepage content bundle — ALL section copy lives here
@@ -131,29 +129,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
   return (
     <main className="wp-template-home">
       {/* Hero Section */}
-      <Hero
-        title={heroData?.title || "Discover Your Next Adventure"}
-        description={
-          heroData?.description ||
-          "Unforgettable tours across the world's most breathtaking destinations."
-        }
-        image={
-          heroData?.image ||
-          "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
-        }
-        primaryCTA={{
-          label: heroData?.primaryCTALabel || "Explore Tours",
-          href: heroData?.primaryCTAHref || "/tours",
-          onClick: () => nav(heroData?.primaryCTAHref || "/tours"),
-        }}
-        secondaryCTA={{
-          label: heroData?.secondaryCTALabel || "View Destinations",
-          href: heroData?.secondaryCTAHref || "/destinations",
-          onClick: () => nav(heroData?.secondaryCTAHref || "/destinations"),
-        }}
-        height={heroData?.height || "large"}
-        overlay={heroData?.overlay || "medium"}
-      />
+      <Hero context="home" />
 
       {/* Featured Tours */}
       <FeaturedToursSection

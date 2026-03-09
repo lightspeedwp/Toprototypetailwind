@@ -104,15 +104,15 @@ These items MUST be manually verified in a browser at the specified viewport wid
 - [ ] Verify hero overlay contrast at 1920px (dark mode) — same check at max width
 - [ ] Verify card borders are visible on dark backgrounds
 - [ ] Verify muted-foreground text meets 4.5:1 contrast on muted background in dark mode
-- [ ] Verify primary CTA button contrast in both modes
+- [x] Verify primary CTA button contrast in both modes
 
 ### 3.3 Component-Specific Checks
 
 - [ ] **Header:** Verify sticky header height unchanged after margin removal
 - [ ] **Footer:** Verify footer section spacing preserved after margin → gap migration
-- [ ] **Hero:** Verify hero title + CTA spacing on mobile after any margin changes
+- [x] **Hero:** Verify hero title + CTA spacing on mobile after any margin changes
 - [ ] **Card Grid:** Verify card spacing and alignment at each column count
-- [ ] **FAQ Accordion:** Verify question/answer spacing after margin changes
+- [x] **FAQ Accordion:** Verify question/answer spacing after margin changes
 - [ ] **Editorial Content:** Verify prose rhythm (blockquote, lists, tables) unchanged
 
 ---

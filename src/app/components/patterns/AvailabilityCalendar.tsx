@@ -28,7 +28,7 @@
  */
 
 import { useState, useMemo } from "react";
-import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, DollarSign, AlertCircle } from "lucide-react";
+import { CaretLeft as ChevronLeft, CaretRight as ChevronRight, Calendar as CalendarIcon, CurrencyDollar as DollarSign, WarningCircle as AlertCircle } from "@phosphor-icons/react";
 import { cn } from "../../lib/utils";
 
 /**

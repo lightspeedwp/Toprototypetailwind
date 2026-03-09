@@ -3,71 +3,42 @@
  * 
  * High-conversion trust-building page that addresses customer objections,
  * showcases differentiators, and builds confidence in booking.
+ * Now uses PageShell for centralized breadcrumbs + hero.
+ *
+ * @module WhyBookWithUsPage
+ * @category pages
  */
 
 import { Container } from "../components/common/Container";
-import { Hero } from "../components/patterns/Hero";
 import { CTA } from "../components/patterns/CTA";
 import { FAQ } from "../components/patterns/FAQ";
 import { StatisticsMetricsPattern } from "../components/patterns/StatisticsMetricsPattern";
 import { WhyChooseUsPattern } from "../components/patterns/WhyChooseUsPattern";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
+import { PageShell } from "../components/parts/PageShell";
 import { HeadingBlock } from "../components/blocks/core/HeadingBlock";
 import { ParagraphBlock } from "../components/blocks/core/ParagraphBlock";
-import { getHeroContent } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
 import { 
   Shield, 
-  Award, 
+  Medal as Award, 
   Users, 
   Clock, 
   Globe, 
   Heart,
-  TrendingUp,
   Star,
   ShieldCheck,
   Check,
-  Zap,
-  Leaf
-} from "lucide-react";
+  Lightning as Zap,
+  Leaf,
+  MapPin,
+  CheckCircle as CircleCheck
+} from "@phosphor-icons/react";
 
 export function WhyBookWithUsPage() {
   const { navigateTo } = useNavigation();
-  const heroData = getHeroContent("why-book-with-us");
-
-  const trustBadges = [
-    { text: "Fully Bonded", icon: ShieldCheck },
-    { text: "Sustainable Certified", icon: Leaf },
-    { text: "Expert Guidance", icon: Award },
-  ];
 
   return (
-    <article className="wp-template-page">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Why Choose Us", isCurrent: true }
-        ]}
-        fullWidth={true}
-      />
-
-      <Hero
-        title={heroData?.title || "Absolute Confidence in Every Mile"}
-        intro={heroData?.description || "Two decades of expertise, award-winning guides, and a commitment to your safety and the continent's preservation."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600"}
-        height="medium"
-        overlay="medium"
-        primaryCTA={{
-          label: "Request a Proposal",
-          onClick: () => navigateTo("/contact")
-        }}
-        secondaryCTA={{
-          label: "Explore Tours",
-          onClick: () => navigateTo("/tours"),
-          variant: "outline"
-        }}
-      />
-
+    <PageShell context="why-book-with-us">
       {/* Trust Pillars */}
       <section className="py-section-lg bg-card border-b border-border/50">
         <Container>
@@ -76,21 +47,21 @@ export function WhyBookWithUsPage() {
               <div className="size-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-8">
                 <Shield className="size-8" />
               </div>
-              <h3 className="text-2xl font-bold font-serif mb-4">Financial Protection</h3>
+              <h3 className="mb-4">Financial Protection</h3>
               <p className="text-muted-foreground leading-relaxed">Your investment is 100% protected through our comprehensive bonding and secure trust accounts.</p>
             </div>
             <div className="text-center p-10 rounded-3xl bg-muted/20 border-2 border-border/50 hover:border-primary transition-all duration-500">
               <div className="size-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-8">
                 <Award className="size-8" />
               </div>
-              <h3 className="text-2xl font-bold font-serif mb-4">Field Expertise</h3>
+              <h3 className="mb-4">Field Expertise</h3>
               <p className="text-muted-foreground leading-relaxed">Speak directly with designers who spend months each year in the African bush personally vetting every lodge.</p>
             </div>
             <div className="text-center p-10 rounded-3xl bg-muted/20 border-2 border-border/50 hover:border-primary transition-all duration-500">
               <div className="size-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-8">
                 <Users className="size-8" />
               </div>
-              <h3 className="text-2xl font-bold font-serif mb-4">Verified Excellence</h3>
+              <h3 className="mb-4">Verified Excellence</h3>
               <p className="text-muted-foreground leading-relaxed">A consistent 4.9/5 satisfaction rating from our global community of over 15,000 happy travelers.</p>
             </div>
           </div>
@@ -103,7 +74,7 @@ export function WhyBookWithUsPage() {
         description="We don't just book trips; we architect memories. Here is how we ensure your journey is extraordinary."
         features={[
           {
-            title: "native Narratives",
+            title: "Native Narratives",
             description: "Our guides are storytellers and educators, providing deep context on ecology and local culture.",
             icon: Globe,
           },
@@ -145,10 +116,10 @@ export function WhyBookWithUsPage() {
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2 space-y-8">
               <div className="p-3 rounded-xl bg-primary/10 text-primary w-fit">
-                <CheckCircle2 className="size-6" />
+                <CircleCheck className="size-6" />
               </div>
-              <HeadingBlock level={2} className="text-4xl md:text-5xl">Our Unwavering Promises</HeadingBlock>
-              <ParagraphBlock className="text-muted-foreground text-lg">
+              <h2>Our Unwavering Promises</h2>
+              <ParagraphBlock className="text-muted-foreground">
                 When you entrust us with your time and resources, we make these four commitments 
                 the bedrock of our relationship.
               </ParagraphBlock>
@@ -164,7 +135,7 @@ export function WhyBookWithUsPage() {
                       <Check className="size-3" />
                     </div>
                     <div>
-                      <p className="font-bold text-foreground mb-1 font-serif text-lg">{p.t}</p>
+                      <h5 className="text-foreground mb-1">{p.t}</h5>
                       <p className="text-muted-foreground text-sm leading-relaxed">{p.d}</p>
                     </div>
                   </div>
@@ -181,8 +152,8 @@ export function WhyBookWithUsPage() {
               </div>
               <div className="absolute -bottom-8 -left-8 p-8 rounded-2xl bg-primary text-primary-foreground shadow-xl hidden md:block max-w-xs">
                 <Star className="size-8 mb-4 fill-primary-foreground" />
-                <p className="text-xl font-serif italic mb-2">"The attention to detail was beyond anything we've experienced in 30 years of travel."</p>
-                <p className="text-xs font-bold uppercase tracking-widest opacity-80">— The Harrison Family</p>
+                <p className="italic mb-2">"The attention to detail was beyond anything we've experienced in 30 years of travel."</p>
+                <p className="text-xs uppercase tracking-widest opacity-80">— The Harrison Family</p>
               </div>
             </div>
           </div>
@@ -221,7 +192,7 @@ export function WhyBookWithUsPage() {
           onClick: () => navigateTo("/trip-planner")
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

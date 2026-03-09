@@ -1,7 +1,8 @@
 /**
  * Contact Page Component.
  * 
- * Now using WordPress BEM CSS classes and design system tokens.
+ * Now using PageShell for centralized breadcrumbs + hero.
+ * Passes custom hero CTA props via heroProps override.
  */
 
 import { FAQ } from "../components/patterns/FAQ";
@@ -9,48 +10,34 @@ import { CTA } from "../components/patterns/CTA";
 import { ContactFormPattern } from "../components/patterns/ContactFormPattern";
 import { ContactInfoPattern } from "../components/patterns/ContactInfoPattern";
 import { MapSectionPattern } from "../components/patterns/MapSectionPattern";
-import { Hero } from "../components/patterns/Hero";
-import { BreadcrumbsPattern } from "../components/patterns/BreadcrumbsPattern";
+import { PageShell } from "../components/parts/PageShell";
 import { Container } from "../components/common/Container";
-import { getHeroContent, getPageSectionFAQs } from "../data/mock";
-import { Clock, MessageSquare, Building2, ShieldCheck, Headphones } from "lucide-react";
+import { getPageSectionFAQs } from "../data/mock";
+import { Clock, Buildings as Building2, ShieldCheck, Headphones } from "@phosphor-icons/react";
 import { useNavigation } from "../contexts/NavigationContext";
 
 export function ContactPage() {
-  const heroData = getHeroContent("contact");
   const faqData = getPageSectionFAQs("contact");
   const { navigateTo } = useNavigation();
 
   return (
-    <article className="wp-template-page">
-      <BreadcrumbsPattern
-        items={[
-          { label: "Home", href: "/", onClick: () => navigateTo("/") },
-          { label: "Contact Us", isCurrent: true }
-        ]}
-        fullWidth={true}
-      />
-
-      <Hero
-        title={heroData?.title || "How Can We Help?"}
-        intro={heroData?.description || "Our team of safari specialists is ready to help you plan an unforgettable journey."}
-        image={heroData?.image || "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=1200"}
-        height="small"
-        overlay="medium"
-        primaryCTA={{
+    <PageShell
+      context="contact"
+      heroProps={{
+        primaryCTA: {
           label: "Send an Inquiry",
           onClick: () => {
             const el = document.getElementById('contact-form');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }
-        }}
-        secondaryCTA={{
+        },
+        secondaryCTA: {
           label: "Trip Planner",
           onClick: () => navigateTo("/trip-planner"),
           variant: "outline"
-        }}
-      />
-
+        }
+      }}
+    >
       {/* Trust & Support Highlights */}
       <section className="wp-template-page__stats border-b border-border/50">
         <Container>
@@ -111,15 +98,15 @@ export function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="font-bold text-foreground">Monday - Friday</span>
+                    <span className="text-foreground">Monday - Friday</span>
                     <span className="text-muted-foreground">08:00 - 18:00 (SAST)</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="font-bold text-foreground">Saturday</span>
+                    <span className="text-foreground">Saturday</span>
                     <span className="text-muted-foreground">09:00 - 13:00 (SAST)</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="font-bold text-foreground">Sunday</span>
+                    <span className="text-foreground">Sunday</span>
                     <span className="text-muted-foreground">Closed</span>
                   </div>
                 </div>
@@ -173,7 +160,7 @@ export function ContactPage() {
           onClick: () => navigateTo("/tours") 
         }}
       />
-    </article>
+    </PageShell>
   );
 }
 

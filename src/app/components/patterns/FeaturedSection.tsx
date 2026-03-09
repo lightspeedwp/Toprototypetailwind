@@ -10,7 +10,7 @@ import { Container } from "../common/Container";
 import { SectionHeader } from "../common/SectionHeader";
 import { ViewAllButton } from "../common/ViewAllButton";
 import { cn } from "../../lib/utils";
-import type { LucideIcon } from "lucide-react";
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
 
 /**
  * Props for the FeaturedSection component.
@@ -23,7 +23,7 @@ interface FeaturedSectionProps<T extends { id: string | number }> {
     eyebrow?: string;
     title: string;
     description: string;
-    icon?: LucideIcon;
+    icon?: PhosphorIcon;
     prefix?: string;
   };
   /** Array of items to display in the grid. */

@@ -20,7 +20,7 @@ import {
   SelectValue,
 } from "../../components/blocks/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/blocks/ui/tabs";
-import { Copy, Check, Eye, Code } from "lucide-react";
+import { Copy, Check, Eye, Code } from "@phosphor-icons/react";
 
 type ColorPalette = 'background' | 'card' | 'primary' | 'secondary' | 'muted' | 'accent' | 'destructive';
 type SpacingSize = '2' | '4' | '6' | '8' | '12' | '16';

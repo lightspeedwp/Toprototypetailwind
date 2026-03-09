@@ -32,20 +32,20 @@ import { useState } from "react";
 import { 
   Calendar, 
   Users, 
-  DollarSign, 
+  CurrencyDollar as DollarSign, 
   MapPin,
-  Filter,
-  ChevronDown,
+  Faders as Filter,
+  CaretDown as ChevronDown,
   Eye,
   Printer,
   Download,
-  XCircle,
-  Edit,
-  CheckCircle,
+  XCircle as CircleX,
+  PencilSimple as Edit,
+  CheckCircle as CircleCheck,
   Clock,
-  AlertCircle,
-  Search
-} from "lucide-react";
+  WarningCircle as AlertCircle,
+  MagnifyingGlass as Search
+} from "@phosphor-icons/react";
 import { Container } from "../components/common/Container";
 import { cn } from "../lib/utils";
 import { toast } from "sonner";
@@ -156,17 +156,17 @@ export default function BookingManagementPage({ onNavigate }: BookingManagementP
       upcoming: {
         bg: "wp-bg-primary-light",
         text: "",
-        icon: CheckCircle,
+        icon: CircleCheck,
       },
       completed: {
         bg: "bg-muted",
         text: "text-muted-foreground",
-        icon: CheckCircle,
+        icon: CircleCheck,
       },
       cancelled: {
         bg: "wp-bg-destructive-light",
         text: "",
-        icon: XCircle,
+        icon: CircleX,
       },
       pending: {
         bg: "wp-bg-accent-medium",
@@ -467,7 +467,7 @@ export default function BookingManagementPage({ onNavigate }: BookingManagementP
                                   "focus:outline-none focus:ring-2 focus:ring-ring"
                                 )}
                               >
-                                <XCircle className="w-3.5 h-3.5" />
+                                <CircleX className="w-3.5 h-3.5" />
                                 Cancel
                               </button>
                             </>

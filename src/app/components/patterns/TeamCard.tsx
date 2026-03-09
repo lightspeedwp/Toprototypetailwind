@@ -5,7 +5,7 @@
  * Strictly adheres to design system tokens and BEM naming.
  */
 
-import { Mail, Phone, ArrowUpRight } from "lucide-react";
+import { Envelope, Phone, ArrowUpRight } from "@phosphor-icons/react";
 import type { TeamMember } from "../../data/types";
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";
@@ -87,7 +87,7 @@ export function TeamCard({ member, onClick, layout = "card" }: TeamCardProps) {
         <div className="wp-card__footer">
           <div className="wp-card__contact-item">
             <div className="wp-card__contact-icon-wrapper">
-              <Mail className="wp-card__contact-icon" />
+              <Envelope className="wp-card__contact-icon" />
             </div>
             <span className="wp-card__contact-label">{member.email}</span>
           </div>
