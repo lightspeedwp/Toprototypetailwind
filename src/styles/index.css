@@ -54,6 +54,7 @@
 @import './templates/home.css';
 @import './templates/archive.css';
 @import './templates/archive-tours.css';
+@import './templates/archive-destinations.css';
 @import './templates/single.css';
 @import './templates/single-tour.css';
 @import './templates/page.css';
@@ -110,6 +111,10 @@
 @import './patterns/why-choose-us.css';
 @import './patterns/statistics.css';
 @import './patterns/newsletter.css';
+@import './patterns/inclusions.css';
+@import './patterns/pricing.css';
+@import './patterns/view-switcher.css';
+@import './patterns/sort-dropdown.css';
 
 /* ── 12. Common component styles ─────────────────────────────────── */
 @import './common/logo.css';

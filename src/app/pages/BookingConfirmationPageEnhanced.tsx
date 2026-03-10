@@ -481,7 +481,7 @@ export default function BookingConfirmationPageEnhanced({ onNavigate }: BookingC
                     <p className="font-medium">{booking.confirmationEmail}</p>
                     <button
                       onClick={handleResendEmail}
-                      className="text-sm text-primary hover:underline mt-1 print:hidden"
+                      className="text-sm text-primary hover:underline print:hidden"
                     >
                       Resend confirmation email
                     </button>

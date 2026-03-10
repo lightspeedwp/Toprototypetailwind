@@ -18,6 +18,7 @@
  * @see /guidelines/blocks/related-regions.md
  */
 
+import React from "react";
 import { MapPin } from "@phosphor-icons/react";
 import './RelatedRegionsBlock.css';
 import { Container } from "../../common/Container";
@@ -63,23 +64,23 @@ function RegionListItem({
     <li>
       <button
         onClick={onClick}
-        className="flex items-center gap-3 w-full p-4 bg-card border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all group"
+        className="wp-block-lts-related-regions__list-btn"
       >
-        <div className="wp-icon-container-primary wp-bg-primary-hover rounded-full transition-colors">
-          <MapPin className="h-5 w-5 text-primary" />
+        <div className="wp-icon-container-primary wp-bg-primary-hover">
+          <MapPin />
         </div>
-        <div className="flex-1 text-left">
-          <h3 className="text-base group-hover:text-primary transition-colors">
+        <div className="wp-block-lts-related-regions__list-content">
+          <h3 className="wp-block-lts-related-regions__list-title">
             {region.name}
           </h3>
           {region.tagline && (
-            <p className="text-sm text-muted-foreground line-clamp-1">
+            <p className="wp-block-lts-related-regions__list-tagline">
               {region.tagline}
             </p>
           )}
         </div>
         <svg
-          className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all"
+          className="wp-block-lts-related-regions__list-arrow"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -110,18 +111,18 @@ function RegionGridItem({
     <article>
       <button
         onClick={onClick}
-        className="w-full h-full bg-card border border-border rounded-lg p-6 hover:border-primary hover:shadow-md transition-all group text-left"
+        className="wp-block-lts-related-regions__grid-btn"
       >
-        <div className="flex items-start gap-4">
+        <div className="wp-block-lts-related-regions__grid-content-wrapper">
           <div className="wp-icon-container-primary-hover">
-            <MapPin className="h-6 w-6 text-primary" />
+            <MapPin />
           </div>
-          <div className="flex-1">
-            <h3 className="mb-2 group-hover:text-primary transition-colors">
+          <div className="wp-block-lts-related-regions__grid-content">
+            <h3 className="wp-block-lts-related-regions__grid-title">
               {region.name}
             </h3>
             {region.tagline && (
-              <p className="text-sm text-muted-foreground line-clamp-2">
+              <p className="wp-block-lts-related-regions__grid-tagline">
                 {region.tagline}
               </p>
             )}
@@ -164,20 +165,20 @@ export function RelatedRegionsBlock({
   }
 
   return (
-    <section className={`section-content-supporting ${className}`}>
+    <section className={`section-content-supporting wp-block-lts-related-regions ${className}`}>
       <Container>
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2>{title}</h2>
-          <div className="mt-4 w-20 h-0.5 bg-border mx-auto" />
-          <p className="mt-4 text-muted-foreground">
+        <div className="wp-block-lts-related-regions__header">
+          <h2 className="wp-block-lts-related-regions__title">{title}</h2>
+          <div className="wp-block-lts-related-regions__divider" />
+          <p className="wp-block-lts-related-regions__subtitle">
             {regions.length} {regions.length === 1 ? "region" : "regions"} to explore
           </p>
         </div>
 
         {/* Regions List/Grid */}
         {layout === "list" ? (
-          <ul className="space-y-4 max-w-3xl mx-auto">
+          <ul className="wp-block-lts-related-regions__list">
             {regions.map((region) => (
               <RegionListItem
                 key={region.id}
@@ -188,7 +189,7 @@ export function RelatedRegionsBlock({
           </ul>
         ) : (
           <div
-            className="grid gap-6"
+            className="wp-block-lts-related-regions__grid"
             style={{
               '--grid-columns': Math.min(columns, 4),
             } as React.CSSProperties}

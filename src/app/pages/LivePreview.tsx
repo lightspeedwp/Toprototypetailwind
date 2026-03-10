@@ -197,7 +197,7 @@ export default function LivePreview() {
                         variant={viewMode === 'desktop' ? 'default' : 'outline'}
                         size="sm"
                       >
-                        <Monitor className="w-4 h-4 mr-2" />
+                        <Monitor className="w-4 h-4" />
                         Desktop
                       </Button>
                       <Button
@@ -205,7 +205,7 @@ export default function LivePreview() {
                         variant={viewMode === 'mobile' ? 'default' : 'outline'}
                         size="sm"
                       >
-                        <Smartphone className="w-4 h-4 mr-2" />
+                        <Smartphone className="w-4 h-4" />
                         Mobile
                       </Button>
                     </div>
@@ -226,11 +226,11 @@ export default function LivePreview() {
               <Tabs defaultValue="controls">
                 <TabsList>
                   <TabsTrigger value="controls">
-                    <Eye className="w-4 h-4 mr-2" />
+                    <Eye className="w-4 h-4" />
                     Controls
                   </TabsTrigger>
                   <TabsTrigger value="code">
-                    <Code className="w-4 h-4 mr-2" />
+                    <Code className="w-4 h-4" />
                     Code
                   </TabsTrigger>
                 </TabsList>
@@ -254,12 +254,12 @@ export default function LivePreview() {
                         <Button onClick={handleCopyCode} size="sm">
                           {copiedCode ? (
                             <>
-                              <Check className="w-4 h-4 mr-2" />
+                              <Check className="w-4 h-4" />
                               Copied!
                             </>
                           ) : (
                             <>
-                              <Copy className="w-4 h-4 mr-2" />
+                              <Copy className="w-4 h-4" />
                               Copy Code
                             </>
                           )}

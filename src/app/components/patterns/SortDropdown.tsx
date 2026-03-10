@@ -131,19 +131,19 @@ export function SortDropdown({
   const currentOption = options.find((opt) => opt.value === value);
 
   return (
-    <div className={cn("relative", className)} ref={dropdownRef}>
+    <div className={cn("wp-pattern-lts-sort-dropdown", className)} ref={dropdownRef}>
       {/* Dropdown Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         onKeyDown={handleKeyDown}
         className={cn(
-          "flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-          isOpen && "bg-muted"
+          "wp-pattern-lts-sort-dropdown__button",
+          isOpen && "wp-pattern-lts-sort-dropdown__button--open"
         )}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        <ArrowUpDown size={16} className="text-muted-foreground" />
+        <ArrowUpDown className="wp-pattern-lts-sort-dropdown__icon" />
         <span>
           {label}: {currentOption?.label || 'Select'}
         </span>
@@ -152,7 +152,7 @@ export function SortDropdown({
       {/* Dropdown Menu */}
       {isOpen && (
         <div
-          className="absolute right-0 z-50 mt-2 w-64 rounded-md border border-border bg-background shadow-lg"
+          className="wp-pattern-lts-sort-dropdown__menu"
           role="listbox"
         >
           <div className="p-1">
@@ -163,24 +163,24 @@ export function SortDropdown({
                   key={option.value}
                   onClick={() => handleSelect(option.value)}
                   className={cn(
-                    "flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm transition-colors hover:bg-muted focus:bg-muted focus:outline-none",
-                    isSelected && "wp-bg-primary-light"
+                    "wp-pattern-lts-sort-dropdown__option",
+                    isSelected && "wp-pattern-lts-sort-dropdown__option--selected"
                   )}
                   role="option"
                   aria-selected={isSelected}
                 >
-                  <div className="flex-1">
-                    <div className="font-medium text-foreground">
+                  <div className="wp-pattern-lts-sort-dropdown__option-content">
+                    <div className="wp-pattern-lts-sort-dropdown__option-label">
                       {option.label}
                     </div>
                     {option.description && (
-                      <div className="text-xs text-muted-foreground">
+                      <div className="wp-pattern-lts-sort-dropdown__option-description">
                         {option.description}
                       </div>
                     )}
                   </div>
                   {isSelected && (
-                    <Check size={16} className="text-primary" />
+                    <Check className="wp-pattern-lts-sort-dropdown__check-icon" />
                   )}
                 </button>
               );

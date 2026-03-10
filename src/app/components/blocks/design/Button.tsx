@@ -214,7 +214,7 @@ export function Button({
       {icon && iconPosition === 'left' && (
         <span className={cn(iconSizeClass[size], 'shrink-0')}>{icon}</span>
       )}
-      {children && <span>{children}</span>}
+      {children && <span className="whitespace-nowrap">{children}</span>}
       {icon && iconPosition === 'right' && (
         <span className={cn(iconSizeClass[size], 'shrink-0')}>{icon}</span>
       )}

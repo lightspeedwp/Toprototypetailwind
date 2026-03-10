@@ -242,7 +242,7 @@ export default function DesignTokensReference() {
                         
                         <button
                           onClick={() => copyToClipboard(token.class)}
-                          className="flex items-center gap-2 bg-background px-3 py-2 rounded border border-border hover:bg-accent hover:text-accent-foreground transition-colors mb-2"
+                          className="flex items-center gap-2 bg-background px-3 py-2 rounded border border-border hover:bg-accent hover:text-accent-foreground transition-colors"
                         >
                           <code className="text-sm">{token.class}</code>
                           {copiedToken === token.class ? (
@@ -306,7 +306,7 @@ export default function DesignTokensReference() {
   <p className="text-muted-foreground mt-2">
     Description text
   </p>
-  <button className="bg-primary text-primary-foreground px-6 py-3 rounded-lg mt-4">
+  <button className="bg-primary text-primary-foreground px-6 py-3 rounded-lg">
     Call to Action
   </button>
 </div>`}

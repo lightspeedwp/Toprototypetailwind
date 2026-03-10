@@ -20,7 +20,7 @@
    ============================================ */
 
 .wp-template-archive-destination__nav-bar {
-  padding-block: var(--spacing-section-sm);
+  padding-block: 0;
   background-color: var(--background);
   border-bottom: 2px solid var(--border-subtle);
   position: sticky;
@@ -220,7 +220,7 @@
 
 .wp-template-archive-destination__archetype-card:hover {
   border-color: var(--primary);
-  box-shadow: var(--elevation-2xl);
+  box-shadow: var(--elevation-xl);
   transform: translateY(-4px);
 }
 

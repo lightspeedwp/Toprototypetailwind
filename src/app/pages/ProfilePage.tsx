@@ -130,80 +130,73 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
       {/* ================================================================
           HERO - Profile header
           ================================================================ */}
-      <section className="py-section-sm md:py-section-md bg-gradient-to-br from-primary/10 via-accent/5 to-background">
+      <section className="wp-pattern-profile__hero">
         <Container>
-          <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-              {/* Avatar */}
-              <div className="relative group">
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-primary/10 border-4 border-border flex items-center justify-center overflow-hidden">
-                  {user.avatar ? (
-                    <img
-                      src={user.avatar}
-                      alt={`${user.firstName} ${user.lastName}`}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <User className="w-12 h-12 md:w-16 md:h-16 text-primary" />
-                  )}
+          <div className="wp-pattern-profile__hero-content max-w-5xl mx-auto">
+            {/* Avatar */}
+            <div className="wp-pattern-profile__avatar-container">
+              <div className="wp-pattern-profile__avatar">
+                {user.avatar ? (
+                  <img
+                    src={user.avatar}
+                    alt={`${user.firstName} ${user.lastName}`}
+                    className="wp-pattern-profile__avatar-img"
+                  />
+                ) : (
+                  <User className="wp-pattern-profile__avatar-icon" />
+                )}
+              </div>
+              <button
+                onClick={handleAvatarUpload}
+                className="wp-pattern-profile__avatar-edit"
+                aria-label="Upload avatar"
+              >
+                <Edit className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* User Info */}
+            <div className="wp-pattern-profile__info">
+              <div className="wp-pattern-profile__info-header">
+                <div>
+                  <h1 className="mb-2">
+                    {user.firstName} {user.lastName}
+                  </h1>
+                  <div className="wp-pattern-profile__meta">
+                    <span className="wp-pattern-profile__meta-item">
+                      <Mail className="w-4 h-4" />
+                      {user.email}
+                    </span>
+                    <span className="wp-pattern-profile__meta-item">
+                      <MapPin className="w-4 h-4" />
+                      {user.location}
+                    </span>
+                  </div>
                 </div>
                 <button
-                  onClick={handleAvatarUpload}
-                  className="absolute bottom-0 right-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                  aria-label="Upload avatar"
+                  onClick={handleEditProfile}
+                  className="wp-pattern-profile__btn-edit"
                 >
-                  <Edit className="w-5 h-5" />
+                  <Edit className="w-4 h-4" />
+                  <span>Edit Profile</span>
                 </button>
               </div>
 
-              {/* User Info */}
-              <div className="flex-1">
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <h1 className="mb-2">
-                      {user.firstName} {user.lastName}
-                    </h1>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1.5">
-                        <Mail className="w-4 h-4" />
-                        {user.email}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <MapPin className="w-4 h-4" />
-                        {user.location}
-                      </span>
-                    </div>
-                  </div>
-                  <button
-                    onClick={handleEditProfile}
-                    className={cn(
-                      "inline-flex items-center gap-2 px-4 py-2 rounded-md",
-                      "bg-primary text-primary-foreground",
-                      "hover:bg-primary/90 transition-colors",
-                      "focus:outline-none focus:ring-2 focus:ring-ring"
-                    )}
-                  >
-                    <Edit className="w-4 h-4" />
-                    <span>Edit Profile</span>
-                  </button>
-                </div>
-
-                {/* Membership Badge */}
-                <div className="wp-badge-accent-bordered">
-                  <Award className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium">{user.membership.tier} Member</span>
-                  <span className="text-xs text-muted-foreground">
-                    Level {user.membership.level}
-                  </span>
-                </div>
-
-                <p className="text-sm text-muted-foreground mt-3">
-                  Member since {memberSince.toLocaleDateString("en-US", { 
-                    month: "long", 
-                    year: "numeric" 
-                  })}
-                </p>
+              {/* Membership Badge */}
+              <div className="wp-badge-accent-bordered inline-flex items-center gap-2">
+                <Award className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium">{user.membership.tier} Member</span>
+                <span className="text-xs text-muted-foreground">
+                  Level {user.membership.level}
+                </span>
               </div>
+
+              <p className="text-sm text-muted-foreground mt-3">
+                Member since {memberSince.toLocaleDateString("en-US", { 
+                  month: "long", 
+                  year: "numeric" 
+                })}
+              </p>
             </div>
           </div>
         </Container>
@@ -212,77 +205,78 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
       {/* ================================================================
           QUICK STATS - Dashboard statistics
           ================================================================ */}
-      <section className="py-8 bg-background border-y border-border">
+      <section className="wp-pattern-profile__stats-section">
         <Container>
           <div className="max-w-5xl mx-auto">
             <div className="wp-pattern-profile__stats-grid">
-              <div className="bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-colors">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Plane className="w-5 h-5 text-primary" />
+              <div className="wp-pattern-profile__stat-card">
+                <div className="wp-pattern-profile__stat-content">
+                  <div className="wp-pattern-profile__stat-icon-wrapper">
+                    <Plane className="wp-pattern-profile__stat-icon" />
                   </div>
                   <div>
-                    <p className="text-2xl font-medium">{user.stats.totalBookings}</p>
-                    <p className="text-xs text-muted-foreground">Total Trips</p>
+                    <p className="wp-pattern-profile__stat-value">{user.stats.totalBookings}</p>
+                    <p className="wp-pattern-profile__stat-label">Total Trips</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-colors">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Calendar className="w-5 h-5 text-primary" />
+              <div className="wp-pattern-profile__stat-card">
+                <div className="wp-pattern-profile__stat-content">
+                  <div className="wp-pattern-profile__stat-icon-wrapper">
+                    <Calendar className="wp-pattern-profile__stat-icon" />
                   </div>
                   <div>
-                    <p className="text-2xl font-medium">{user.stats.upcomingTrips}</p>
-                    <p className="text-xs text-muted-foreground">Upcoming</p>
+                    <p className="wp-pattern-profile__stat-value">{user.stats.upcomingTrips}</p>
+                    <p className="wp-pattern-profile__stat-label">Upcoming</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-colors">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Star className="w-5 h-5 text-primary" />
+              <div className="wp-pattern-profile__stat-card">
+                <div className="wp-pattern-profile__stat-content">
+                  <div className="wp-pattern-profile__stat-icon-wrapper">
+                    <Star className="wp-pattern-profile__stat-icon" />
                   </div>
                   <div>
-                    <p className="text-2xl font-medium">{user.stats.rewardPoints.toLocaleString()}</p>
-                    <p className="text-xs text-muted-foreground">Points</p>
+                    <p className="wp-pattern-profile__stat-value">{user.stats.rewardPoints.toLocaleString()}</p>
+                    <p className="wp-pattern-profile__stat-label">Points</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-colors">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Heart className="w-5 h-5 text-primary" />
+              <div className="wp-pattern-profile__stat-card">
+                <div className="wp-pattern-profile__stat-content">
+                  <div className="wp-pattern-profile__stat-icon-wrapper">
+                    <Heart className="wp-pattern-profile__stat-icon" />
                   </div>
                   <div>
-                    <p className="text-2xl font-medium">{user.stats.savedTours}</p>
-                    <p className="text-xs text-muted-foreground">Saved</p>
+                    <p className="wp-pattern-profile__stat-value">{user.stats.savedTours}</p>
+                    <p className="wp-pattern-profile__stat-label">Saved</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Membership Progress */}
-            <div className="mt-6 bg-card border border-border rounded-lg p-4">
-              <div className="flex items-center justify-between mb-3">
+            <div className="wp-pattern-profile__membership-progress">
+              <div className="wp-pattern-profile__progress-header">
                 <div>
-                  <p className="text-sm font-medium">
+                  <p className="wp-pattern-profile__progress-title">
                     {user.membership.pointsToNext} points to {user.membership.nextTier}
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="wp-pattern-profile__progress-subtitle">
                     Current: {user.stats.rewardPoints.toLocaleString()} points
                   </p>
                 </div>
-                <Award className="w-8 h-8 text-primary" />
+                <Award className="wp-pattern-profile__progress-icon" />
               </div>
-              <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+              <div className="has-width-full has-height-2 has-muted-background-color has-border-radius-full wp-block-lts-layout--overflow-hidden">
                 <div
-                  className="h-full bg-primary transition-all duration-500"
+                  className="has-height-full has-primary-background-color"
                   style={{
                     width: `${(user.stats.rewardPoints / (user.stats.rewardPoints + user.membership.pointsToNext)) * 100}%`,
+                    transition: "all 500ms"
                   }}
                 />
               </div>
@@ -294,17 +288,17 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
       {/* ================================================================
           MAIN CONTENT - Profile sections & quick actions
           ================================================================ */}
-      <section className="py-section-sm md:py-section-md bg-background">
+      <section className="wp-pattern-profile__main-section">
         <Container>
-          <div className="max-w-5xl mx-auto grid gap-8 lg:grid-cols-3">
+          <div className="wp-pattern-profile__layout-grid max-w-5xl mx-auto">
             {/* Left Column - Quick Actions */}
-            <div className="lg:col-span-1 space-y-6">
+            <div className="wp-pattern-profile__sidebar">
               {/* Account Menu */}
-              <div className="bg-card border border-border rounded-lg overflow-hidden">
-                <div className="p-4 border-b border-border">
-                  <h3>Account</h3>
+              <div className="wp-pattern-profile__menu">
+                <div className="wp-pattern-profile__menu-header">
+                  <h3 className="m-0 text-lg">Account</h3>
                 </div>
-                <nav className="divide-y divide-border">
+                <nav className="wp-pattern-profile__menu-list">
                   {[
                     {
                       icon: User,
@@ -347,13 +341,13 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
                       <button
                         key={index}
                         onClick={item.onClick}
-                        className="w-full flex items-center justify-between p-4 hover:bg-accent transition-colors text-left"
+                        className="wp-pattern-profile__menu-item"
                       >
-                        <div className="flex items-center gap-3">
-                          <Icon className="w-5 h-5 text-primary" />
+                        <div className="wp-pattern-profile__menu-item-content">
+                          <Icon className="wp-pattern-profile__menu-icon" />
                           <span>{item.label}</span>
                         </div>
-                        <ChevronRight className="w-5 h-5 text-muted-foreground" />
+                        <ChevronRight className="wp-pattern-profile__menu-arrow" />
                       </button>
                     );
                   })}
@@ -363,12 +357,7 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
               {/* Logout Button */}
               <button
                 onClick={handleLogout}
-                className={cn(
-                  "w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md",
-                  "border-2 border-destructive text-destructive",
-                  "hover:bg-destructive/10 transition-colors",
-                  "focus:outline-none focus:ring-2 focus:ring-ring"
-                )}
+                className="wp-pattern-profile__logout-btn"
               >
                 <LogOut className="w-5 h-5" />
                 <span>Log Out</span>
@@ -376,19 +365,19 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
             </div>
 
             {/* Right Column - Recent Activity */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="wp-pattern-profile__content">
               {/* Recent Bookings */}
-              <div className="bg-card border border-border rounded-lg overflow-hidden">
-                <div className="p-4 border-b border-border flex items-center justify-between">
-                  <h3>Recent Bookings</h3>
+              <div className="wp-pattern-profile__card">
+                <div className="wp-pattern-profile__card-header">
+                  <h3 className="wp-pattern-profile__card-title">Recent Bookings</h3>
                   <button
                     onClick={() => nav("/booking/management")}
-                    className="text-sm text-primary hover:underline"
+                    className="wp-pattern-profile__card-action"
                   >
                     View all
                   </button>
                 </div>
-                <div className="divide-y divide-border">
+                <div className="wp-pattern-profile__booking-list">
                   {[
                     {
                       id: "BK-2024-001234",
@@ -403,19 +392,21 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
                       status: "Confirmed",
                     },
                   ].map((booking) => (
-                    <div key={booking.id} className="p-4 hover:bg-accent transition-colors">
-                      <div className="flex items-center justify-between mb-2">
-                        <p className="font-medium">{booking.tour}</p>
-                        <span className="wp-badge-primary text-xs">
-                          {booking.status}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-1.5">
-                          <Calendar className="w-4 h-4" />
-                          {booking.date}
-                        </span>
-                        <span className="font-mono text-xs">{booking.id}</span>
+                    <div key={booking.id} className="wp-pattern-profile__booking-item">
+                      <div className="wp-pattern-profile__booking-content">
+                        <div className="flex items-center justify-between mb-2">
+                          <p className="wp-pattern-profile__booking-title">{booking.tour}</p>
+                          <span className="wp-pattern-profile__booking-status">
+                            {booking.status}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                          <span className="flex items-center gap-1.5">
+                            <Calendar className="w-4 h-4" />
+                            {booking.date}
+                          </span>
+                          <span className="font-mono text-xs">{booking.id}</span>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -423,54 +414,60 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
               </div>
 
               {/* Security Info */}
-              <div className="bg-card border border-border rounded-lg p-6">
-                <div className="flex items-start gap-4">
-                  <Shield className="w-6 h-6 text-primary flex-shrink-0" />
-                  <div>
-                    <h4 className="mb-2">Account Security</h4>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Keep your account secure with two-factor authentication and regular
-                      password updates
-                    </p>
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-muted-foreground">Two-Factor Auth</span>
-                        <span className="text-destructive">Not enabled</span>
+              <div className="wp-pattern-profile__card">
+                <div className="wp-pattern-profile__card-body">
+                  <div className="flex items-start gap-4">
+                    <Shield className="w-6 h-6 text-primary flex-shrink-0" />
+                    <div className="flex-1">
+                      <h4 className="mb-2">Account Security</h4>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Keep your account secure with two-factor authentication and regular
+                        password updates
+                      </p>
+                      <div className="wp-pattern-profile__form-group mb-2">
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-muted-foreground">Two-Factor Auth</span>
+                          <span className="text-destructive">Not enabled</span>
+                        </div>
                       </div>
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-muted-foreground">Last password change</span>
-                        <span>3 months ago</span>
+                      <div className="wp-pattern-profile__form-group">
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-muted-foreground">Last password change</span>
+                          <span>3 months ago</span>
+                        </div>
                       </div>
+                      <button
+                        onClick={() => nav("/profile/settings")}
+                        className="wp-pattern-profile__card-action mt-4"
+                      >
+                        Review security settings →
+                      </button>
                     </div>
-                    <button
-                      onClick={() => nav("/profile/settings")}
-                      className="mt-4 text-sm text-primary hover:underline"
-                    >
-                      Review security settings →
-                    </button>
                   </div>
                 </div>
               </div>
 
               {/* Quick Stats Details */}
-              <div className="bg-card border border-border rounded-lg p-6">
-                <h4 className="mb-4">Travel Statistics</h4>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Countries Visited</p>
-                    <p className="text-2xl font-medium">15</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Total Distance</p>
-                    <p className="text-2xl font-medium">125,000 km</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Favorite Destination</p>
-                    <p className="text-lg font-medium">Iceland</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Next Adventure</p>
-                    <p className="text-lg font-medium">45 days</p>
+              <div className="wp-pattern-profile__card">
+                <div className="wp-pattern-profile__card-body">
+                  <h4 className="mb-4">Travel Statistics</h4>
+                  <div className="wp-pattern-profile__form-grid">
+                    <div className="wp-pattern-profile__form-group">
+                      <p className="wp-pattern-profile__form-label">Countries Visited</p>
+                      <p className="wp-pattern-profile__form-value text-2xl font-medium m-0">15</p>
+                    </div>
+                    <div className="wp-pattern-profile__form-group">
+                      <p className="wp-pattern-profile__form-label">Total Distance</p>
+                      <p className="wp-pattern-profile__form-value text-2xl font-medium m-0">125,000 km</p>
+                    </div>
+                    <div className="wp-pattern-profile__form-group">
+                      <p className="wp-pattern-profile__form-label">Favorite Destination</p>
+                      <p className="wp-pattern-profile__form-value text-lg font-medium m-0">Iceland</p>
+                    </div>
+                    <div className="wp-pattern-profile__form-group">
+                      <p className="wp-pattern-profile__form-label">Next Adventure</p>
+                      <p className="wp-pattern-profile__form-value text-lg font-medium m-0">45 days</p>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -204,4 +204,28 @@
   --z-modal:    400;
   --z-toast:    500;
   --z-tooltip:  600;
+
+  /* ============================================================
+     GLASSMORPHISM / OVERLAY TOKENS
+     Used for hero sections and elements rendered over dark
+     image backgrounds. These are theme-agnostic because the
+     overlay itself is always dark regardless of light/dark mode.
+     ============================================================ */
+
+  --glass-bg:            rgba(255, 255, 255, 0.12);
+  --glass-bg-hover:      rgba(255, 255, 255, 0.22);
+  --glass-bg-subtle:     rgba(255, 255, 255, 0.1);
+  --glass-border:        rgba(255, 255, 255, 0.3);
+  --glass-inset-glow:    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --glass-inset-glow-md: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --glass-blur:          12px;
+  --glass-blur-sm:       8px;
+  --glass-ring:          0 0 0 1px rgba(0, 0, 0, 0.05);
+
+  /* Hero text shadows — ensure readability over image backgrounds */
+  --hero-text-shadow:        0 2px 8px rgba(0, 0, 0, 0.3);
+  --hero-text-shadow-subtle: 0 1px 6px rgba(0, 0, 0, 0.25);
+
+  /* Hero overlay gradient — default dark overlay */
+  --hero-overlay-bg: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
 }

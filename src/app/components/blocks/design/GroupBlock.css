@@ -11,12 +11,14 @@
 /* Background image via CSS variable */
 [style*="--group-bg-image"] {
   background-image: var(--group-bg-image);
+  background-size: cover;
+  background-position: center;
 }
 
 /* Background overlay using CSS variable for opacity */
 .wp-group-block__overlay {
   position: absolute;
   inset: 0;
-  background-color: #000000;
+  background-color: var(--color-black, #000);
   opacity: var(--overlay-opacity, 0.5);
 }

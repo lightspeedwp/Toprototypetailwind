@@ -320,7 +320,7 @@ export function MobileMenuPanel({
             size="lg"
             className="w-full text-lg py-6"
           >
-            <Phone className="h-5 w-5 mr-2" />
+            <Phone className="h-5 w-5" />
             Request a Quote
           </Button>
         </div>

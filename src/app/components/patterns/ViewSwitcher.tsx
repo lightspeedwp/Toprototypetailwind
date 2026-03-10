@@ -31,15 +31,15 @@ export function ViewSwitcher({
 }: ViewSwitcherProps) {
   return (
     <div
-      className={cn("wp-pattern-lts-view-switcher flex items-center gap-4", className)}
+      className={cn("wp-pattern-lts-view-switcher", className)}
       role="group"
       aria-label={label}
     >
-      <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground hidden sm:block">
+      <span className="wp-pattern-lts-view-switcher__label">
         {label}
       </span>
 
-      <div className="inline-flex rounded-xl border-2 border-border bg-card p-1 shadow-sm">
+      <div className="wp-pattern-lts-view-switcher__group">
         {VIEW_MODES.map(({ mode, label: ariaLabel, Icon }) => {
           const isActive = currentView === mode;
           return (
@@ -48,15 +48,15 @@ export function ViewSwitcher({
               type="button"
               onClick={() => onViewChange(mode)}
               className={cn(
-                "size-10 flex items-center justify-center rounded-lg transition-all duration-300",
+                "wp-pattern-lts-view-switcher__btn",
                 isActive
-                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-105"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  ? "wp-pattern-lts-view-switcher__btn--active"
+                  : "wp-pattern-lts-view-switcher__btn--inactive"
               )}
               aria-label={ariaLabel}
               aria-pressed={isActive}
             >
-              <Icon className="size-4" />
+              <Icon />
             </button>
           );
         })}

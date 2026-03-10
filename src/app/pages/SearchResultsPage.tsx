@@ -116,7 +116,7 @@ export function SearchResultsPage() {
                     : "bg-background text-muted-foreground hover:text-foreground hover:bg-muted border border-border/50"
                 }`}
               >
-                {tab.label} <span className="ml-1 opacity-60">({tab.count})</span>
+                {tab.label} <span className="opacity-60">({tab.count})</span>
               </button>
             ))}
           </div>

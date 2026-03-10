@@ -5,10 +5,11 @@
  * Strictly adheres to design system tokens and BEM naming.
  */
 
+import { useRef } from "react";
 import { Globe, Compass, ArrowRight, MapPin } from "@phosphor-icons/react";
 import type { Destination } from "../../data/types";
 import { cn } from "../../lib/utils";
-import { motion as Motion } from "motion/react";
+import { motion as Motion, useScroll, useTransform } from "motion/react";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { useNavigate } from "react-router";
 
@@ -21,6 +22,14 @@ interface DestinationCardProps {
 
 export function DestinationCard({ destination, onClick, layout = "card", animated = false }: DestinationCardProps) {
   const navigate = useNavigate();
+  const cardRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
   const handleClick = () => {
     if (onClick) {
@@ -46,6 +55,7 @@ export function DestinationCard({ destination, onClick, layout = "card", animate
 
   const cardContent = (
     <article 
+      ref={cardRef}
       className={cn(
         "wp-card wp-card--destination group",
         layout === "horizontal" && "wp-card--horizontal",
@@ -59,17 +69,22 @@ export function DestinationCard({ destination, onClick, layout = "card", animate
     >
       {/* Media Section */}
       <div className="wp-card__image-wrapper">
-        <ImageWithFallback
-          src={destination.featuredImage}
-          alt={destination.title}
-          className="wp-card__image"
-        />
+        <Motion.div 
+          className="wp-card__parallax-layer"
+          style={{ y, scale: 1.3 }}
+        >
+          <ImageWithFallback
+            src={destination.featuredImage}
+            alt={destination.title}
+            className="wp-card__image"
+          />
+        </Motion.div>
         
         {/* Floating Metadata */}
         <div className="wp-card__image-overlay">
           <div className="wp-card__badge-container">
             <div className="wp-card__badge wp-card__badge--category">
-              <Globe className="size-3" /> {region}
+              <Globe className="wp-card__badge-icon" /> {region}
             </div>
           </div>
         </div>
@@ -81,7 +96,7 @@ export function DestinationCard({ destination, onClick, layout = "card", animate
               {destination.title}
             </h3>
             <div className="wp-card__meta-item">
-              <Compass className="size-3" /> {tourCount} {tourCount === 1 ? 'Adventure' : 'Adventures'} Waiting
+              <Compass className="wp-card__meta-icon--small" /> {tourCount} {tourCount === 1 ? 'Adventure' : 'Adventures'} Waiting
             </div>
           </div>
         )}

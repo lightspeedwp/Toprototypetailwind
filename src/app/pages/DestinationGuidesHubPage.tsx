@@ -133,7 +133,7 @@ export function DestinationGuidesHubPage() {
                       disabled={downloadingId === guide.id}
                       onClick={() => handleDownload(guide.id)}
                     >
-                      {downloadingId === guide.id ? <LoaderCircle className="animate-spin" /> : <><Download size={16} className="mr-2" /> Get My Guide</>}
+                      {downloadingId === guide.id ? <LoaderCircle className="animate-spin" /> : <><Download size={16} /> Get My Guide</>}
                     </Button>
                   </div>
                 </div>

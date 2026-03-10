@@ -22,7 +22,6 @@ import { getPageSectionFAQs } from "../data/mock";
 import { useNavigation } from "../contexts/NavigationContext";
 import { useDestinationFilters } from "../hooks/useDestinationFilters";
 import { motion as Motion } from "motion/react";
-import "../../styles/templates/archive-destinations.css";
 
 export function ArchiveDestinationTemplate() {
   const faqData = getPageSectionFAQs("destinations-archive");

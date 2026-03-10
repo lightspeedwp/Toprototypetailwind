@@ -73,7 +73,7 @@ export function NotFoundPage() {
                 Our safari designers are available 24/7 to help you find what you need. 
                 <button 
                   onClick={() => navigateTo("/contact")}
-                  className="text-primary font-bold hover:underline ml-2"
+                  className="text-primary font-bold hover:underline"
                 >
                   Contact Support
                 </button>

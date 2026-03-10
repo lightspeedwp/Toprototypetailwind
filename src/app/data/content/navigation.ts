@@ -64,6 +64,7 @@ export const FOOTER_NAV: NavSection[] = [
     items: [
       { id: "ft-accommodation", label: "Estate Collection",   href: "/accommodation" },
       { id: "ft-about",         label: "Sustainable Impact",  href: "/about" },
+      { id: "ft-studio",        label: "The Studio",          href: "/about" },
       { id: "ft-blog",          label: "The Chronicles",      href: "/blog" },
       { id: "ft-contact",       label: "Expert Concierge",    href: "/contact" },
     ],

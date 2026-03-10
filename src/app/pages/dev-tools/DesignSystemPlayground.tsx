@@ -165,9 +165,9 @@ export default function DesignSystemPlayground() {
                       onClick={() => copyCode(generateCardCode())}
                     >
                       {copiedCode === generateCardCode() ? (
-                        <Check className="w-4 h-4 mr-2" />
+                        <Check className="w-4 h-4" />
                       ) : (
-                        <Copy className="w-4 h-4 mr-2" />
+                        <Copy className="w-4 h-4" />
                       )}
                       Copy
                     </Button>
@@ -250,9 +250,9 @@ export default function DesignSystemPlayground() {
                       onClick={() => copyCode(generateButtonCode())}
                     >
                       {copiedCode === generateButtonCode() ? (
-                        <Check className="w-4 h-4 mr-2" />
+                        <Check className="w-4 h-4" />
                       ) : (
-                        <Copy className="w-4 h-4 mr-2" />
+                        <Copy className="w-4 h-4" />
                       )}
                       Copy
                     </Button>
@@ -316,7 +316,7 @@ export default function DesignSystemPlayground() {
                       size="sm"
                       onClick={() => copyCode('<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">\n  {/* Grid items */}\n</div>')}
                     >
-                      <Copy className="w-4 h-4 mr-2" />
+                      <Copy className="w-4 h-4" />
                       Copy Code
                     </Button>
                   </div>
@@ -342,7 +342,7 @@ export default function DesignSystemPlayground() {
                       size="sm"
                       onClick={() => copyCode('<section className="bg-gradient-to-b from-muted/50 to-background py-section-lg">\n  <div className="container">\n    <div className="max-w-3xl mx-auto text-center">\n      <h1>Hero Title</h1>\n      <p className="text-muted-foreground mt-4">Description</p>\n    </div>\n  </div>\n</section>')}
                     >
-                      <Copy className="w-4 h-4 mr-2" />
+                      <Copy className="w-4 h-4" />
                       Copy Code
                     </Button>
                   </div>
@@ -372,7 +372,7 @@ export default function DesignSystemPlayground() {
                       size="sm"
                       onClick={() => copyCode('<div className="bg-card p-6 rounded-lg border border-border">\n  <img src="/image.jpg" alt="Description" className="w-full h-48 object-cover rounded-lg" />\n  <h3 className="mt-4">Card Title</h3>\n  <p className="text-muted-foreground mt-2">Description</p>\n</div>')}
                     >
-                      <Copy className="w-4 h-4 mr-2" />
+                      <Copy className="w-4 h-4" />
                       Copy Code
                     </Button>
                   </div>
@@ -385,7 +385,7 @@ export default function DesignSystemPlayground() {
                     <p className="text-muted-foreground mt-2">
                       Card description goes here with more details about the content.
                     </p>
-                    <Button className="w-full mt-4">View Details</Button>
+                    <Button className="w-full">View Details</Button>
                   </div>
                 </div>
               </div>

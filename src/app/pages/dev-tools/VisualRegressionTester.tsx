@@ -179,7 +179,7 @@ export default function VisualRegressionTester() {
                   <p className="text-muted-foreground mt-2">
                     This card demonstrates the visual regression testing capabilities.
                   </p>
-                  <button className="mt-4 px-4 py-2 rounded-lg bg-primary text-primary-foreground">
+                  <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground">
                     Sample Button
                   </button>
                 </div>

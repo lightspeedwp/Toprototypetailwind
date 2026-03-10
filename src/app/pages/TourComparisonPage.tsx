@@ -264,7 +264,7 @@ export function TourComparisonPage() {
                               onClick={() => navigateToTour(tour.slug)}
                               className="button button--primary button--sm"
                             >
-                              View Tour <ArrowRight className="size-3 ml-1" />
+                              View Tour <ArrowRight className="size-3" />
                             </button>
                           </div>
                         </th>
@@ -344,7 +344,7 @@ export function TourComparisonPage() {
                 onClick={() => navigateTo("/tours")}
                 className="button button--primary button--lg"
               >
-                Browse Expeditions <ArrowRight className="size-5 ml-2" />
+                Browse Expeditions <ArrowRight className="size-5" />
               </button>
             </div>
           )}

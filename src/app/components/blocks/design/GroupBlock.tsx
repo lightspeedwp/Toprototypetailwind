@@ -1,3 +1,4 @@
+import React from "react";
 import { cn } from "../../../lib/utils";
 import './GroupBlock.css';
 
@@ -72,8 +73,8 @@ export function GroupBlock({
   id,
 }: GroupBlockProps) {
   const paddingClasses = {
-    top: paddingTop ? `pt-${paddingMap[paddingTop]}` : '',
-    bottom: paddingBottom ? `pb-${paddingMap[paddingBottom]}` : '',
+    top: paddingTop ? `has-padding-top-${paddingMap[paddingTop]}` : '',
+    bottom: paddingBottom ? `has-padding-bottom-${paddingMap[paddingBottom]}` : '',
   };
   
   return (
@@ -83,14 +84,14 @@ export function GroupBlock({
         // Section style (primary styling source)
         sectionStyle,
         // Background color (semantic token)
-        backgroundColor && `bg-${backgroundColor}`,
+        backgroundColor && `has-${backgroundColor}-background-color`,
         // Padding overrides
         paddingClasses.top,
         paddingClasses.bottom,
         // Full width
-        fullWidth && 'w-full',
+        fullWidth && 'has-width-full',
         // Background image positioning
-        backgroundImage && 'relative bg-cover bg-center',
+        backgroundImage && 'wp-block-lts-layout--relative',
         // Custom classes
         className
       )}
@@ -110,7 +111,7 @@ export function GroupBlock({
       
       {/* Content */}
       <div className={cn(
-        backgroundImage && "relative z-10"
+        backgroundImage && "wp-block-lts-layout--relative wp-block-lts-layout--z-10"
       )}>
         {children}
       </div>

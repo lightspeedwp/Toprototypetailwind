@@ -41,7 +41,7 @@ export function Header({ currentPage = "/", onNavigate }: { currentPage?: string
 
   return (
     <>
-      <header className={cn("wp-part-header fixed top-0 left-0 right-0 z-[50] transition-all duration-500 py-[12px]", isScrolled
+      <header className={cn("wp-part-header fixed top-0 left-0 right-0 z-[50] transition-all duration-500 px-[0px] pt-[12px] pb-[16px] py-[16px]", isScrolled
     ? "bg-background/80 backdrop-blur-xl border-b-2 border-border/50 shadow-xl"
     : "bg-transparent")}>
         <Container>
@@ -55,7 +55,7 @@ export function Header({ currentPage = "/", onNavigate }: { currentPage?: string
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-10">
-              {PRIMARY_NAV.map(link => (
+              {PRIMARY_NAV.filter(link => link.id !== "nav-about").map(link => (
                 <button
                   key={link.id}
                   onClick={() => handleNav(link.href)}

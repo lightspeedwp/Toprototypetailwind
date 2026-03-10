@@ -61,18 +61,18 @@ export function PricingSectionPattern({
     <section className={cn("wp-pattern-lts-pricing has-section-padding-md", className)}>
       <Container>
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-12">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                <Tag className="size-5" />
+        <div className="wp-pattern-lts-pricing__header">
+          <div className="wp-pattern-lts-pricing__header-content">
+            <div className="wp-pattern-lts-pricing__title-wrapper">
+              <div className="wp-pattern-lts-pricing__icon-wrapper">
+                <Tag />
               </div>
-              <HeadingBlock level={2} className="mb-0">
+              <HeadingBlock level={2} className="wp-pattern-lts-pricing__title">
                 {title}
               </HeadingBlock>
             </div>
             {description && (
-              <ParagraphBlock className="text-muted-foreground text-lg m-0">
+              <ParagraphBlock className="wp-pattern-lts-pricing__description">
                 {description}
               </ParagraphBlock>
             )}
@@ -81,47 +81,47 @@ export function PricingSectionPattern({
 
         {/* Pricing Display */}
         {variant === 'table' ? (
-          <div className="wp-pattern-lts-pricing__table-container bg-card border-2 border-border rounded-3xl overflow-hidden shadow-sm">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-muted border-b-2 border-border">
-                    <th className="px-8 py-6 font-serif font-bold text-foreground text-lg">Travel Period</th>
-                    <th className="px-8 py-6 font-serif font-bold text-foreground text-lg text-right">Investment</th>
-                    <th className="px-8 py-6 font-serif font-bold text-foreground text-lg text-center">Status</th>
+          <div className="wp-pattern-lts-pricing__table-container">
+            <div className="wp-pattern-lts-pricing__table-scroll">
+              <table className="wp-pattern-lts-pricing__table">
+                <thead className="wp-pattern-lts-pricing__table-head">
+                  <tr>
+                    <th className="wp-pattern-lts-pricing__th">Travel Period</th>
+                    <th className="wp-pattern-lts-pricing__th wp-pattern-lts-pricing__th--right">Investment</th>
+                    <th className="wp-pattern-lts-pricing__th wp-pattern-lts-pricing__th--center">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-border/50">
+                <tbody className="wp-pattern-lts-pricing__tbody">
                   {prices.map((row, index) => (
-                    <tr key={index} className="hover:bg-muted/30 transition-colors group">
-                      <td className="px-8 py-6">
-                        <div className="flex items-center gap-4">
-                          <div className="size-10 rounded-xl bg-background border border-border flex items-center justify-center text-muted-foreground group-hover:text-primary transition-colors">
-                            <Calendar className="size-5" />
+                    <tr key={index} className="wp-pattern-lts-pricing__tr">
+                      <td className="wp-pattern-lts-pricing__td">
+                        <div className="wp-pattern-lts-pricing__period-cell">
+                          <div className="wp-pattern-lts-pricing__period-icon-wrapper">
+                            <Calendar />
                           </div>
                           <div>
-                            <p className="font-bold text-foreground mb-1">{row.period}</p>
+                            <p className="wp-pattern-lts-pricing__period-title">{row.period}</p>
                             {row.note && (
-                              <p className="text-xs text-muted-foreground m-0 flex items-center gap-1">
-                                <Info className="size-3" /> {row.note}
+                              <p className="wp-pattern-lts-pricing__period-note">
+                                <Info weight="bold" /> {row.note}
                               </p>
                             )}
                           </div>
                         </div>
                       </td>
-                      <td className="px-8 py-6 text-right">
-                        <div className="text-primary font-serif font-bold text-2xl">
+                      <td className="wp-pattern-lts-pricing__td wp-pattern-lts-pricing__td--right">
+                        <div className="wp-pattern-lts-pricing__price-amount">
                           {currency}{row.price}
                         </div>
-                        <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-1">
+                        <div className="wp-pattern-lts-pricing__price-unit">
                           {priceUnit}
                         </div>
                       </td>
-                      <td className="px-8 py-6 text-center">
+                      <td className="wp-pattern-lts-pricing__td wp-pattern-lts-pricing__td--center">
                         {row.availability && (
                           <span className={cn(
-                            "inline-flex items-center px-4 py-1 rounded-full text-xs font-bold border",
-                            availabilityClasses[row.availability]
+                            "wp-pattern-lts-pricing__availability-badge",
+                            `wp-pattern-lts-pricing--${row.availability}`
                           )}>
                             {availabilityLabels[row.availability]}
                           </span>
@@ -134,41 +134,41 @@ export function PricingSectionPattern({
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="wp-pattern-lts-pricing__grid">
             {prices.map((row, index) => (
               <div 
                 key={index} 
-                className="wp-pattern-lts-pricing__card bg-card border-2 border-border rounded-3xl p-8 hover:border-primary transition-all duration-500 shadow-sm hover:shadow-xl group"
+                className="wp-pattern-lts-pricing__card"
               >
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="size-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-                    <Calendar className="size-6" />
+                <div className="wp-pattern-lts-pricing__card-header">
+                  <div className="wp-pattern-lts-pricing__card-icon-wrapper">
+                    <Calendar weight="bold" />
                   </div>
-                  <h3 className="text-xl font-bold font-serif mb-0">
+                  <h3 className="wp-pattern-lts-pricing__card-title">
                     {row.period}
                   </h3>
                 </div>
                 
-                <div className="mb-8 p-6 rounded-2xl bg-muted/30 border border-border/50">
-                  <div className="text-primary font-serif font-bold text-4xl mb-1">
+                <div className="wp-pattern-lts-pricing__card-price-box">
+                  <div className="wp-pattern-lts-pricing__card-price-amount">
                     {currency}{row.price}
                   </div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground m-0">
+                  <p className="wp-pattern-lts-pricing__card-price-unit">
                     {priceUnit}
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-4">
+                <div className="wp-pattern-lts-pricing__card-actions">
                   {row.availability && (
                     <div className={cn(
-                      "text-center py-2 rounded-xl text-sm font-bold border",
-                      availabilityClasses[row.availability]
+                      "wp-pattern-lts-pricing__card-availability",
+                      `wp-pattern-lts-pricing--${row.availability}`
                     )}>
                       {availabilityLabels[row.availability]}
                     </div>
                   )}
                   {row.note && (
-                    <p className="text-xs text-muted-foreground text-center italic m-0">
+                    <p className="wp-pattern-lts-pricing__card-note">
                       * {row.note}
                     </p>
                   )}
@@ -180,12 +180,11 @@ export function PricingSectionPattern({
 
         {/* CTA Button */}
         {cta && (
-          <div className="mt-12 text-center">
+          <div className="wp-pattern-lts-pricing__cta">
             <Button
               variant="primary"
               size="lg"
               onClick={cta.onClick}
-              className="rounded-xl px-12"
             >
               {cta.label}
             </Button>

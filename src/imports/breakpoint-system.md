@@ -43,7 +43,7 @@ The portfolio uses a **three-tier breakpoint system** optimized for makeup artis
 
 ## 📱 Visual Breakpoint Reference
 
-```
+```text
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        RESPONSIVE BREAKPOINTS                           │
 └────────────────────────────────────────────────────────────────────────┘

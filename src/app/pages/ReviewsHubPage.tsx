@@ -233,7 +233,7 @@ export function ReviewsHubPage() {
 
                   <div className="wp-review-entry__actions">
                     <button className="button button--ghost button--sm text-muted-foreground">
-                      <ThumbsUp className="size-4 mr-2" />
+                      <ThumbsUp className="size-4" />
                       Helpful ({review.helpful})
                     </button>
                     <button className="button button--ghost button--sm text-muted-foreground">Report</button>
@@ -245,7 +245,7 @@ export function ReviewsHubPage() {
 
           <div className="text-center mt-12">
             <Button variant="outline" size="lg">
-              Load More Reviews <ArrowRight className="ml-2 size-4" />
+              Load More Reviews <ArrowRight className="size-4" />
             </Button>
           </div>
         </Container>

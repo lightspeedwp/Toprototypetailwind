@@ -10,135 +10,24 @@
  * - .is-* for state modifiers
  * - Semantic class names for common patterns
  * 
- * NOTE: Theme variables (colors, typography, spacing) are imported via
- * theme.css and fonts.css in index.css. Do not re-import here.
+ * NOTE: All component, pattern, template, page, and common CSS
+ * imports are managed centrally by index.css (sections 8-12).
+ * This file only imports CSS files that are NOT in index.css.
+ * Do NOT add @import statements here that duplicate index.css.
  * 
- * @version 2.0 - WordPress Utility Classes Added
+ * @version 3.0 - Deduped imports (all managed by index.css)
  */
 
 /* ============================================
-   WORDPRESS UTILITY CLASSES IMPORT
-   Comprehensive utility classes for WordPress
-   theme.json alignment and design system compliance
+   IMPORTS UNIQUE TO THIS FILE
+   (Not present in index.css — safe to keep here)
    ============================================ */
 @import './wordpress-classes.css';
 @import './wordpress-color-utilities.css';
-
-/* ============================================
-   COMMON COMPONENT STYLES
-   Styles for common utility components
-   ============================================ */
-@import './common/logo.css';
 @import './common/container.css';
-@import './common/template-browser.css';
-@import './common/back-to-top.css';
-@import './common/page-nav.css';
-@import './common/view-all.css';
-
-/* ============================================
-   BLOCK UI COMPONENT STYLES
-   Styles for WordPress block UI components (shadcn/ui)
-   ============================================ */
-@import './blocks/ui-components.css';
-
-/* ============================================
-   TEMPLATE PART STYLES
-   Styles for WordPress template parts
-   ============================================ */
-@import './parts/header.css';
-@import './parts/footer.css';
 @import './parts/page-shell.css';
-
-/* ============================================
-   COMPONENT STYLES
-   Reusable UI component styles
-   ============================================ */
-@import './components/button.css';
-@import './components/form.css';
-@import './components/card.css';
-@import './components/alert.css';
-@import './components/badge.css';
-
-/* ============================================
-   PATTERN STYLES
-   Styles for WordPress block patterns
-   ============================================ */
-
-/* Navigation Patterns */
-@import './patterns/mobile-menu.css';
-@import './patterns/taxonomy-nav.css';
-@import './patterns/breadcrumbs.css';
-
-/* Content Patterns */
-@import './patterns/hero.css';
-@import './patterns/archive-header.css';
-@import './patterns/card-grid.css';
-@import './patterns/cards.css';
-@import './patterns/editorial-content.css';
-@import './patterns/fast-facts.css';
-@import './patterns/related-content.css';
-@import './patterns/pagination.css';
-@import './patterns/faq.css';
-@import './patterns/cta.css';
-@import './patterns/author-bio.css';
-@import './patterns/search-filter.css';
-@import './patterns/sitemap-grid.css';
-@import './patterns/feature-card.css';
-@import './patterns/notification-banner.css';
-@import './patterns/featured-section.css';
-@import './patterns/team-card.css';
-@import './patterns/blog-card.css';
-@import './patterns/conservation-section.css';
-@import './patterns/why-choose-us.css';
-@import './patterns/statistics.css';
-@import './patterns/newsletter.css';
 @import './patterns/enquiry-modal.css';
 @import './common/social-links.css';
-
-/* ============================================
-   COMMON COMPONENT STYLES (ADDITIONAL)
-   ============================================ */
-@import './common/section-header.css';
-
-/* ============================================
-   TEMPLATE STYLES
-   Styles for WordPress page templates
-   ============================================ */
-
-/* Core Templates */
-@import './templates/home.css';
-@import './templates/archive.css';
-@import './templates/archive-tours.css';
-@import './templates/single.css';
-@import './templates/single-tour.css';
-
-/* Utility Pages */
-@import './templates/page-about.css';
-@import './templates/page-contact.css';
-@import './templates/template-tester.css';
-@import './templates/devtools.css';
-@import './templates/page-faq.css';
-@import './templates/page-utility.css';
-
-/* Showcase Pages */
-@import './pages/design-system-showcase.css';
-@import './pages/design-system-example.css';
-@import './pages/component-library.css';
-@import './pages/booking.css';
-@import './pages/why-book.css';
-@import './pages/newsletter.css';
-@import './pages/trip-planner.css';
-@import './pages/destination-guides.css';
-@import './pages/wishlist.css';
-@import './pages/packing-guides.css';
-@import './pages/travel-insurance.css';
-@import './pages/quote-request.css';
-@import './pages/profile.css';
-@import './pages/sitemap.css';
-@import './pages/not-found.css';
-@import './pages/reviews-hub.css';
-@import './pages/saved-passengers.css';
-@import './pages/tour-comparison.css';
 
 /* ============================================
    CSS RESET & BASE STYLES
@@ -147,12 +36,14 @@
    ============================================ */
 
 html {
+  position: relative;
   font-size: var(--font-size);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
+  position: relative;
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-family-noto-sans);
@@ -691,13 +582,6 @@ body {
 .text-uppercase { text-transform: uppercase; }
 .text-lowercase { text-transform: lowercase; }
 .text-capitalize { text-transform: capitalize; }
-
-/* ============================================
-   NOTE: Removed .transition, .transition-colors, .transition-opacity,
-   .transition-transform, .hover\:*, .cursor-*, .opacity-*, 
-   .pointer-events-none, .aspect-*, .object-* classes.
-   These are all handled by Tailwind utility classes.
-   ============================================ */
 
 /* ============================================
    PRINT STYLES

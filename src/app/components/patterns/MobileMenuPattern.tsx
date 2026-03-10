@@ -371,7 +371,7 @@ export function MobileMenuPattern({
               >
                 <Mail size={18} />
                 <span>Enquire Now</span>
-                <ArrowRight size={18} className="ml-1" />
+                <ArrowRight size={18} />
               </button>
               
               {/* Quick Contact Info */}

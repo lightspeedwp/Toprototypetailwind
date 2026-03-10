@@ -96,7 +96,7 @@ export default function CardInteractions() {
                 }`}
               >
                 {ct.label}
-                <span className="ml-2 text-xs opacity-75">({ct.count})</span>
+                <span className="text-xs opacity-75">({ct.count})</span>
               </button>
             ))}
           </div>

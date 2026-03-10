@@ -245,7 +245,7 @@ export function createRouteSplits<T extends Record<string, () => Promise<any>>>(
 export function supportsCodeSplitting(): boolean {
   try {
     // Check if dynamic import is supported
-    new Function('import("")');
+    // Removed new Function('import("")') to avoid Vite errors
     return true;
   } catch {
     return false;

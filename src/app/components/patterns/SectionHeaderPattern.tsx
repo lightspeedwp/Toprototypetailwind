@@ -184,12 +184,12 @@ export function SectionHeaderPattern({
   const HeadingTag = level;
   
   return (
-    <div className={centered ? 'text-center max-w-3xl mx-auto mb-8 md:mb-12' : 'mb-8 md:mb-12'}>
-      <HeadingTag className="mb-3">
+    <div className={`wp-section-header ${centered ? 'wp-section-header--centered' : ''}`}>
+      <HeadingTag className="wp-section-title">
         {title}
       </HeadingTag>
       {description && (
-        <p className="text-muted-foreground">
+        <p className="wp-section-description">
           {description}
         </p>
       )}

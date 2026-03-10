@@ -169,7 +169,7 @@ export default function TripPlannerPage() {
           onClick={() => setCurrentStep(currentStep - 1)}
           className="flex-1"
         >
-          <ChevronLeft className="size-4 mr-2" />
+          <ChevronLeft className="size-4" />
           Back
         </Button>
       )}
@@ -180,7 +180,7 @@ export default function TripPlannerPage() {
           className="flex-1"
         >
           Continue
-          <ChevronRight className="size-4 ml-2" />
+          <ChevronRight className="size-4" />
         </Button>
       ) : (
         <Button
@@ -190,7 +190,7 @@ export default function TripPlannerPage() {
           variant="primary"
         >
           Create My Safari
-          <ArrowRight className="size-4 ml-2" />
+          <ArrowRight className="size-4" />
         </Button>
       )}
     </div>

@@ -52,7 +52,7 @@ export function ViewAllButton({ href, label = "View All", onClick, className, ..
       {...props}
     >
       {label}
-      <ArrowRight size={16} weight="bold" className="ml-1" />
+      <ArrowRight size={16} weight="bold" />
     </Button>
   );
 }

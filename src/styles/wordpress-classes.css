@@ -458,6 +458,7 @@
 
 /* Height */
 .has-height-auto { height: auto; }
+.has-height-2 { height: 0.5rem; }
 .has-height-full { height: 100%; }
 .has-height-screen { height: 100vh; }
 .has-height-min { height: min-content; }
