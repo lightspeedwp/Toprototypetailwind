@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Sun, Moon } from '@phosphor-icons/react';
+import './ThemeSwitcher.css';
 
 export function ThemeSwitcher() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -33,7 +34,7 @@ export function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-primary text-primary-foreground shadow-sm hover:shadow-md transition-all"
+      className="wp-theme-switcher z-50 rounded-full bg-primary text-primary-foreground shadow-sm hover:shadow-md transition-all"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       {theme === 'light' ? (

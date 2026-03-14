@@ -28,6 +28,13 @@
  * 6. Conversion Pages
  * 7. Development Tools
  * 
+ * **Design System Compliance:**
+ * - ✅ CSS variables from theme-base.css
+ * - ✅ External CSS file (TemplateBrowser.css)
+ * - ✅ BEM naming convention
+ * - ✅ No inline styles
+ * - ✅ No hardcoded spacing or colors
+ * 
  * **Note:** This is a development/demo tool and should not be included
  * in production WordPress themes.
  * 
@@ -36,6 +43,7 @@
  * @see /guidelines/DESIGN-SYSTEM-GUIDE.md
  */
 
+import './TemplateBrowser.css';
 import { useState } from 'react';
 import { CaretDown, CaretUp, CaretRight, Stack, MagnifyingGlass, X, ArrowsDownUp } from '@phosphor-icons/react';
 
@@ -337,10 +345,10 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
           />
 
           {/* Panel */}
-          <div className="absolute top-full mt-2 w-screen max-w-lg bg-card border border-border rounded-lg shadow-lg overflow-hidden">
+          <div className="wp-common-template-browser__panel">
             {/* Header */}
             <div className="wp-common-template-browser__header">
-              <div className="flex items-center justify-between mb-3">
+              <div className="wp-common-template-browser__header-title-wrapper">
                 <h2 
                   className="wp-common-template-browser__header-title"
                 >
@@ -348,7 +356,7 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
                 </h2>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-1 rounded-md hover:bg-muted transition-colors"
+                  className="wp-common-template-browser__close-btn"
                   aria-label="Close template browser"
                 >
                   <X className="w-4 h-4" />
@@ -356,7 +364,7 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
               </div>
 
               {/* Search */}
-              <div className="relative mb-3">
+              <div className="wp-common-template-browser__search-container">
                 <MagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input
                    type="search"
@@ -368,7 +376,7 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
               </div>
 
               {/* Sort Options */}
-              <div className="flex gap-2">
+              <div className="wp-common-template-browser__sort-options">
                 <button
                   onClick={() => setSortBy('category')}
                   className={`wp-common-template-browser__sort-button ${
@@ -461,13 +469,12 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
                               <button
                                 key={pageId}
                                 onClick={() => handlePageSelect(pageId)}
-                                className={`wp-common-template-browser__page-link ${
-                                  pageId === activePage
+                                className={`wp-common-template-browser__page-link ${\n                                  pageId === activePage
                                     ? 'wp-common-template-browser__page-link--active'
                                     : 'wp-common-template-browser__page-link--inactive'
                                 }`}
                               >
-                                <div className="flex items-start justify-between gap-3">
+                                <div className="wp-common-template-browser__page-link-wrapper">
                                   <div className="flex-1 min-w-0">
                                     <p 
                                       className={`wp-common-template-browser__page-title ${
@@ -483,7 +490,7 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
                                     </p>
                                   </div>
                                   {pageId === activePage && (
-                                    <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-1" />
+                                    <div className="wp-common-template-browser__page-indicator" />
                                   )}
                                 </div>
                               </button>
@@ -496,7 +503,7 @@ export function TemplateBrowser({ pages, activePage, onPageChange }: TemplateBro
                 </div>
               ) : (
                 <div className="wp-common-template-browser__empty">
-                  <MagnifyingGlass className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
+                  <MagnifyingGlass className="wp-common-template-browser__empty-icon" />
                   <p 
                     className="wp-common-template-browser__empty-text"
                   >

@@ -115,11 +115,11 @@ export function BreadcrumbsPattern({
   const content = (
     <nav
       aria-label="Breadcrumb"
-      className={cn("wp-pattern-breadcrumbs px-[24px] py-[8px]", className)}
+      className={cn("wp-pattern-breadcrumbs alignwide wp-container wp-container--xl", className)}
     >
       <ol className="wp-pattern-breadcrumbs__list">
         {items.map((item, index) => (
-          <li key={index} className="wp-pattern-breadcrumbs__item m-[0px]">
+          <li key={index} className="wp-pattern-breadcrumbs__item">
             {item.isCurrent ? (
               <span
                 className="wp-pattern-breadcrumbs__current"

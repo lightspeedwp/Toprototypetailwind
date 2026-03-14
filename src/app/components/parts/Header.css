@@ -1,0 +1,41 @@
+/**
+ * Header Styles
+ * 
+ * Component: Header.tsx
+ * Purpose: Site header with navigation, branding, and actions
+ * 
+ * Design System Compliance:
+ * - All spacing uses CSS variables from theme-base.css
+ * - Typography uses fluid CSS variables
+ * - Colors via CSS variables (automatic dark mode)
+ * - No hardcoded values
+ * 
+ * BEM Structure:
+ * .wp-header
+ * .wp-header__container
+ * 
+ * @version 1.0
+ * @last-modified 2026-03-13
+ */
+
+/* ================================================================
+   HEADER CONTAINER SPACING
+   Adds vertical spacing around header content.
+   ================================================================ */
+
+/**
+ * Header container with vertical padding
+ * 
+ * Spacing:
+ * - Top: 16px (var(--spacing-element-md))
+ * - Bottom: 16px (var(--spacing-element-md))
+ * 
+ * Purpose:
+ * - Creates breathing room above and below header content
+ * - Prevents header from touching viewport edges
+ * - Maintains consistent vertical rhythm
+ */
+.wp-header__container {
+  padding-top: var(--spacing-element-md); /* 16px */
+  padding-bottom: var(--spacing-element-md); /* 16px */
+}

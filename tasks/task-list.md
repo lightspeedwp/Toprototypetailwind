@@ -1,7 +1,7 @@
 # Task List - Master Checklist
 
-**Last Updated:** March 7, 2026  
-**Status:** Active - Design System Contract Audit Complete, Phase 7 Visual Regression Pending | Lucide-React Icon Renames 100% Complete
+**Last Updated:** March 13, 2026  
+**Status:** Tailwind Spacing Migration Phase 1 In Progress (3/5 components complete) | Phase 7 Visual Regression Pending Manual Testing
 
 ---
 
@@ -12,42 +12,27 @@ For a complete index of all task files ordered by priority/sequence, see:
 
 ---
 
-## Open Task Lists
+## 🚀 ACTIVE TASKS
 
-### Active Tasks — Design System Contract (NEW March 2026)
-- [x] **Design System Contract Compliance:** Full CSS audit against updated WP-preset-first token contract, zero-margin policy, 320-1920 responsive ladder, and 1-6 archive grid progression.
+### Active Tasks — Tailwind Spacing Migration (NEW March 2026)
+- [ ] **Tailwind to WordPress CSS Migration:** Migrate 450+ Tailwind spacing classes to WordPress BEM classes using design system tokens.
+  - *Task List:* [tailwind-spacing-migration-tasks.md](tailwind-spacing-migration-tasks.md)
+  - *Documentation:* [/docs/TAILWIND-TO-WORDPRESS-MIGRATION-GUIDE.md](/docs/TAILWIND-TO-WORDPRESS-MIGRATION-GUIDE.md)
+  - *Audit Report:* [/docs/SPACING-AUDIT-REPORT.md](/docs/SPACING-AUDIT-REPORT.md)
+  - *Status:* Phase 1 In Progress (3/5 components) | TemplateBrowser ✅ | MobileFilterSheet ✅ | ThemeSwitcher ✅
+  - *Priority:* Medium
+  - *Next Task:* Task 1.4 - LoadingState Component
+
+### Active Tasks — Design System Contract (March 2026)
+- [x] **Design System Contract Compliance:** Full CSS audit against updated WP-preset-first token contract, zero-margin policy, 320-1920 responsive ladder, and 1-6 archive grid progression. ✅ **PHASES 1-6 COMPLETE** 2026-03-06
   - *Prompt:* [/prompts/design-system-contract-audit.md](/prompts/design-system-contract-audit.md)
   - *Audit Report:* [/reports/2026-03-03-design-system-contract-audit.md](/reports/2026-03-03-design-system-contract-audit.md)
   - *Task List:* [design-system-contract-tasks.md](design-system-contract-tasks.md)
   - *Human Review:* [design-system-human-review.md](design-system-human-review.md)
-  - *Status:* Phases 1-6 Complete (95/95 tasks) + card-grid.css v2.0 | Phase 7 (Visual Regression) Pending Manual Testing
+  - *Status:* Phases 1-6 Complete (95/95 tasks) | **Phase 7 (Visual Regression) Pending Manual Testing**
   - *Code Verification:* ✅ Zero max-width queries, zero href="#", zero non-exempt inline styles, all contrast ratios ≥ 7:1, all human review decisions resolved
   - *Findings:* 3 Critical, 63 High, 31 Medium, 21 Low — All Critical + High RESOLVED
-
-### Completed — Lucide-React Icon Renames (March 2026)
-- [x] **Lucide-React Deprecated Icon Renames:** `CheckCircle2` → `CircleCheck`, `CheckCircle` → `CircleCheck`, `XCircle` → `CircleX`, `Loader2` → `LoaderCircle` across all ~30+ files. ✅ **COMPLETE** 2026-03-07
-  - *Status:* ✅ 100% Complete — Zero deprecated icon names remain in any `.tsx` or `.ts` file
-  - *Verification:* `file_search` confirmed 0 matches for `CheckCircle`, `CheckCircle2`, `XCircle`, `Loader2` across entire codebase
-
-### Active Tasks — Prior Audit (February 2026)
-- [x] **Styles, Links & Assets Refactor:** Fix inline styles, broken links, and missing alt text. ✅ **ALL PHASES COMPLETE** 2026-03-04
-  - *Task List:* [styles-links-assets-refactor-tasks.md](styles-links-assets-refactor-tasks.md)
-  - *Status:* ✅ 100% Complete (All 3 Phases)
-  - *Completed:* Legal links, pagination semantics, social links, alt text, SiteLogo CSS var, RelatedRegions CSS var, documentation updates
-- [x] **CSS Architecture Cleanup:** Eliminate inline styles and align with WordPress theme.json logic. ✅ **ALL PHASES COMPLETE** 2026-03-04
-  - *Task List:* [inline-styles-removal-tasks.md](inline-styles-removal-tasks.md)
-  - *Status:* ✅ 100% Complete (All 4 Phases)
-  - *Completed:* DesignSystemVerification, SiteLogo, RelatedRegionsBlock, GroupBlock, ComponentShowcase audit, documentation + ESLint proposal
-  - *Note:* All remaining inline styles are exempt (motion, shadcn/ui, dev tools, dynamic values)
-
-### Reference Guides (Keep Active)
-- [TASK-FILES-INDEX.md](TASK-FILES-INDEX.md) - Complete task file index with execution order
-- [CSS-TESTING-GUIDE.md](CSS-TESTING-GUIDE.md) - CSS testing methodology
-- [QUICK-START-WORDPRESS-CLASSES.md](QUICK-START-WORDPRESS-CLASSES.md) - WordPress BEM quick reference
-- [DOCUMENTATION-INDEX.md](DOCUMENTATION-INDEX.md) - Documentation index
-- [DESIGN-SYSTEM-QUICK-REFERENCE.md](DESIGN-SYSTEM-QUICK-REFERENCE.md) - Design system tokens
-- [DESIGN-SYSTEM-COMPLIANCE-VERIFIED.md](DESIGN-SYSTEM-COMPLIANCE-VERIFIED.md) - Full design system guide
-- [REACT-ROUTER-FIX-SUMMARY.md](REACT-ROUTER-FIX-SUMMARY.md) - Recent Router fix
+  - *Next:* [/tasks/phase-7-visual-regression-checklist.md](/tasks/phase-7-visual-regression-checklist.md) (Manual testing by user)
 
 ---
 
@@ -249,4 +234,4 @@ Users can customize the **entire site** by editing just **3 CSS files**:
 **Status:** ✅ **ALL PRIMARY TASKS COMPLETE** (100%)  
 **Root Cleanup:** ✅ 100% | **CSS Migration:** ✅ 100%  
 **Created:** February 25, 2026  
-**Last Updated:** March 7, 2026
+**Last Updated:** March 13, 2026

@@ -197,7 +197,24 @@ export default function DesignTokensReference() {
     ]
   };
 
-  const categories = [colorTokens, spacingTokens, typographyTokens, borderTokens, shadowTokens];
+  const wpPresetTokens: TokenCategory = {
+    name: "WordPress Presets (CSS Variables)",
+    description: "WordPress theme.json equivalents used for global design token references.",
+    tokens: [
+      { name: "Global Content Size", class: "var(--wp--style--global--content-size)", description: "Max width for standard content" },
+      { name: "Global Wide Size", class: "var(--wp--style--global--wide-size)", description: "Max width for wide/alignwide content" },
+      { name: "Spacing 60", class: "var(--wp--preset--spacing--60)", description: "Maps to section-sm" },
+      { name: "Spacing 70", class: "var(--wp--preset--spacing--70)", description: "Maps to section-md" },
+      { name: "Font Size Heading 1", class: "var(--wp--preset--font-size--heading-1)", description: "Maps to text-6xl" },
+      { name: "Font Size Micro", class: "var(--wp--preset--font-size--micro)", description: "10px size for labels and tags" },
+      { name: "Touch Target Default", class: "var(--wp--custom--touch-target--default)", description: "Standard 44px WCAG AA touch target" },
+      { name: "Radius Medium", class: "var(--wp--preset--radius--md)", description: "Standard rounding" },
+      { name: "Shadow Medium", class: "var(--wp--preset--shadow--md)", description: "Standard elevation" },
+      { name: "Color Primary", class: "var(--wp--preset--color--primary)", description: "Core brand color" },
+    ]
+  };
+
+  const categories = [colorTokens, spacingTokens, typographyTokens, borderTokens, shadowTokens, wpPresetTokens];
 
   return (
     <div className="bg-background text-foreground min-h-screen">

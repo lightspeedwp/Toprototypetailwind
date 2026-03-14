@@ -22,6 +22,7 @@ import { cn } from "../../lib/utils";
 import { motion as Motion, AnimatePresence } from "motion/react";
 import { useTheme } from "../../contexts/ThemeContext";
 import { PRIMARY_NAV, HEADER_CTA } from "../../data/content/navigation";
+import "./Header.css";
 
 export function Header({ currentPage = "/", onNavigate }: { currentPage?: string; onNavigate?: (path: string) => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,10 +42,10 @@ export function Header({ currentPage = "/", onNavigate }: { currentPage?: string
 
   return (
     <>
-      <header className={cn("wp-part-header fixed top-0 left-0 right-0 z-[50] transition-all duration-500 px-[0px] pt-[12px] pb-[16px] py-[16px]", isScrolled
+      <header className={cn("wp-part-header fixed top-0 left-0 right-0 z-[50] transition-all duration-500", isScrolled
     ? "bg-background/80 backdrop-blur-xl border-b-2 border-border/50 shadow-xl"
     : "bg-transparent")}>
-        <Container>
+        <Container className="wp-header__container">
           <div className="flex items-center justify-between gap-12">
             {/* Brand Section */}
             <Logo 

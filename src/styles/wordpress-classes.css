@@ -144,11 +144,23 @@
 
 /* ============================================
    SPACING UTILITIES
-   Padding, margin, gap using fluid tokens
+   Padding, margin, gap using design system tokens
+   
+   WordPress naming convention: .has-{property}-{size}
+   Aligns with CSS variables from theme-base.css
    ============================================ */
 
-/* Padding - All sides */
+/* Padding - All sides (using element spacing tokens) */
 .has-padding-0 { padding: 0; }
+.has-padding-xs { padding: var(--spacing-element-xs); }   /* 0.5rem / 8px */
+.has-padding-sm { padding: var(--spacing-element-sm); }   /* 0.75rem / 12px */
+.has-padding-md { padding: var(--spacing-element-md); }   /* 1rem / 16px */
+.has-padding-lg { padding: var(--spacing-element-lg); }   /* 1.5rem / 24px */
+.has-padding-xl { padding: var(--spacing-element-xl); }   /* 2rem / 32px */
+.has-padding-2xl { padding: var(--spacing-element-2xl); } /* 3rem / 48px */
+.has-padding-3xl { padding: var(--spacing-element-3xl); } /* 4rem / 64px */
+
+/* Legacy numeric padding (kept for backwards compatibility) */
 .has-padding-2 { padding: 0.5rem; }
 .has-padding-4 { padding: 1rem; }
 .has-padding-6 { padding: 1.5rem; }
@@ -158,6 +170,15 @@
 
 /* Padding - Vertical (block) */
 .has-vertical-padding-0 { padding-block: 0; }
+.has-vertical-padding-xs { padding-block: var(--spacing-element-xs); }
+.has-vertical-padding-sm { padding-block: var(--spacing-element-sm); }
+.has-vertical-padding-md { padding-block: var(--spacing-element-md); }
+.has-vertical-padding-lg { padding-block: var(--spacing-element-lg); }
+.has-vertical-padding-xl { padding-block: var(--spacing-element-xl); }
+.has-vertical-padding-2xl { padding-block: var(--spacing-element-2xl); }
+.has-vertical-padding-3xl { padding-block: var(--spacing-element-3xl); }
+
+/* Legacy numeric vertical padding */
 .has-vertical-padding-2 { padding-block: 0.5rem; }
 .has-vertical-padding-4 { padding-block: 1rem; }
 .has-vertical-padding-6 { padding-block: 1.5rem; }
@@ -167,6 +188,15 @@
 
 /* Padding - Horizontal (inline) */
 .has-horizontal-padding-0 { padding-inline: 0; }
+.has-horizontal-padding-xs { padding-inline: var(--spacing-element-xs); }
+.has-horizontal-padding-sm { padding-inline: var(--spacing-element-sm); }
+.has-horizontal-padding-md { padding-inline: var(--spacing-element-md); }
+.has-horizontal-padding-lg { padding-inline: var(--spacing-element-lg); }
+.has-horizontal-padding-xl { padding-inline: var(--spacing-element-xl); }
+.has-horizontal-padding-2xl { padding-inline: var(--spacing-element-2xl); }
+.has-horizontal-padding-3xl { padding-inline: var(--spacing-element-3xl); }
+
+/* Legacy numeric horizontal padding */
 .has-horizontal-padding-2 { padding-inline: 0.5rem; }
 .has-horizontal-padding-4 { padding-inline: 1rem; }
 .has-horizontal-padding-6 { padding-inline: 1.5rem; }
@@ -176,6 +206,15 @@
 
 /* Padding - Top */
 .has-padding-top-0 { padding-top: 0; }
+.has-padding-top-xs { padding-top: var(--spacing-element-xs); }
+.has-padding-top-sm { padding-top: var(--spacing-element-sm); }
+.has-padding-top-md { padding-top: var(--spacing-element-md); }
+.has-padding-top-lg { padding-top: var(--spacing-element-lg); }
+.has-padding-top-xl { padding-top: var(--spacing-element-xl); }
+.has-padding-top-2xl { padding-top: var(--spacing-element-2xl); }
+.has-padding-top-3xl { padding-top: var(--spacing-element-3xl); }
+
+/* Legacy numeric padding-top */
 .has-padding-top-2 { padding-top: 0.5rem; }
 .has-padding-top-4 { padding-top: 1rem; }
 .has-padding-top-6 { padding-top: 1.5rem; }
@@ -185,6 +224,15 @@
 
 /* Padding - Bottom */
 .has-padding-bottom-0 { padding-bottom: 0; }
+.has-padding-bottom-xs { padding-bottom: var(--spacing-element-xs); }
+.has-padding-bottom-sm { padding-bottom: var(--spacing-element-sm); }
+.has-padding-bottom-md { padding-bottom: var(--spacing-element-md); }
+.has-padding-bottom-lg { padding-bottom: var(--spacing-element-lg); }
+.has-padding-bottom-xl { padding-bottom: var(--spacing-element-xl); }
+.has-padding-bottom-2xl { padding-bottom: var(--spacing-element-2xl); }
+.has-padding-bottom-3xl { padding-bottom: var(--spacing-element-3xl); }
+
+/* Legacy numeric padding-bottom */
 .has-padding-bottom-2 { padding-bottom: 0.5rem; }
 .has-padding-bottom-4 { padding-bottom: 1rem; }
 .has-padding-bottom-6 { padding-bottom: 1.5rem; }
@@ -194,36 +242,72 @@
 
 /* Margin - All sides */
 .has-margin-0 { margin: 0; }
+.has-margin-xs { margin: var(--spacing-element-xs); }
+.has-margin-sm { margin: var(--spacing-element-sm); }
+.has-margin-md { margin: var(--spacing-element-md); }
+.has-margin-lg { margin: var(--spacing-element-lg); }
+.has-margin-xl { margin: var(--spacing-element-xl); }
+.has-margin-2xl { margin: var(--spacing-element-2xl); }
+.has-margin-3xl { margin: var(--spacing-element-3xl); }
+.has-margin-auto { margin: auto; }
+
+/* Legacy numeric margin */
 .has-margin-2 { margin: 0.5rem; }
 .has-margin-4 { margin: 1rem; }
 .has-margin-6 { margin: 1.5rem; }
 .has-margin-8 { margin: 2rem; }
 .has-margin-12 { margin: 3rem; }
 .has-margin-16 { margin: 4rem; }
-.has-margin-auto { margin: auto; }
 
 /* Margin - Vertical (block) */
 .has-vertical-margin-0 { margin-block: 0; }
+.has-vertical-margin-xs { margin-block: var(--spacing-element-xs); }
+.has-vertical-margin-sm { margin-block: var(--spacing-element-sm); }
+.has-vertical-margin-md { margin-block: var(--spacing-element-md); }
+.has-vertical-margin-lg { margin-block: var(--spacing-element-lg); }
+.has-vertical-margin-xl { margin-block: var(--spacing-element-xl); }
+.has-vertical-margin-2xl { margin-block: var(--spacing-element-2xl); }
+.has-vertical-margin-3xl { margin-block: var(--spacing-element-3xl); }
+.has-vertical-margin-auto { margin-block: auto; }
+
+/* Legacy numeric vertical margin */
 .has-vertical-margin-2 { margin-block: 0.5rem; }
 .has-vertical-margin-4 { margin-block: 1rem; }
 .has-vertical-margin-6 { margin-block: 1.5rem; }
 .has-vertical-margin-8 { margin-block: 2rem; }
 .has-vertical-margin-12 { margin-block: 3rem; }
 .has-vertical-margin-16 { margin-block: 4rem; }
-.has-vertical-margin-auto { margin-block: auto; }
 
 /* Margin - Horizontal (inline) */
 .has-horizontal-margin-0 { margin-inline: 0; }
+.has-horizontal-margin-xs { margin-inline: var(--spacing-element-xs); }
+.has-horizontal-margin-sm { margin-inline: var(--spacing-element-sm); }
+.has-horizontal-margin-md { margin-inline: var(--spacing-element-md); }
+.has-horizontal-margin-lg { margin-inline: var(--spacing-element-lg); }
+.has-horizontal-margin-xl { margin-inline: var(--spacing-element-xl); }
+.has-horizontal-margin-2xl { margin-inline: var(--spacing-element-2xl); }
+.has-horizontal-margin-3xl { margin-inline: var(--spacing-element-3xl); }
+.has-horizontal-margin-auto { margin-inline: auto; }
+
+/* Legacy numeric horizontal margin */
 .has-horizontal-margin-2 { margin-inline: 0.5rem; }
 .has-horizontal-margin-4 { margin-inline: 1rem; }
 .has-horizontal-margin-6 { margin-inline: 1.5rem; }
 .has-horizontal-margin-8 { margin-inline: 2rem; }
 .has-horizontal-margin-12 { margin-inline: 3rem; }
 .has-horizontal-margin-16 { margin-inline: 4rem; }
-.has-horizontal-margin-auto { margin-inline: auto; }
 
 /* Margin - Bottom (most common for vertical rhythm) */
 .has-margin-bottom-0 { margin-bottom: 0; }
+.has-margin-bottom-xs { margin-bottom: var(--spacing-element-xs); }
+.has-margin-bottom-sm { margin-bottom: var(--spacing-element-sm); }
+.has-margin-bottom-md { margin-bottom: var(--spacing-element-md); }
+.has-margin-bottom-lg { margin-bottom: var(--spacing-element-lg); }
+.has-margin-bottom-xl { margin-bottom: var(--spacing-element-xl); }
+.has-margin-bottom-2xl { margin-bottom: var(--spacing-element-2xl); }
+.has-margin-bottom-3xl { margin-bottom: var(--spacing-element-3xl); }
+
+/* Legacy numeric margin-bottom */
 .has-margin-bottom-2 { margin-bottom: 0.5rem; }
 .has-margin-bottom-4 { margin-bottom: 1rem; }
 .has-margin-bottom-6 { margin-bottom: 1.5rem; }
@@ -233,6 +317,15 @@
 
 /* Margin - Top */
 .has-margin-top-0 { margin-top: 0; }
+.has-margin-top-xs { margin-top: var(--spacing-element-xs); }
+.has-margin-top-sm { margin-top: var(--spacing-element-sm); }
+.has-margin-top-md { margin-top: var(--spacing-element-md); }
+.has-margin-top-lg { margin-top: var(--spacing-element-lg); }
+.has-margin-top-xl { margin-top: var(--spacing-element-xl); }
+.has-margin-top-2xl { margin-top: var(--spacing-element-2xl); }
+.has-margin-top-3xl { margin-top: var(--spacing-element-3xl); }
+
+/* Legacy numeric margin-top */
 .has-margin-top-2 { margin-top: 0.5rem; }
 .has-margin-top-4 { margin-top: 1rem; }
 .has-margin-top-6 { margin-top: 1.5rem; }
@@ -240,8 +333,15 @@
 .has-margin-top-12 { margin-top: 3rem; }
 .has-margin-top-16 { margin-top: 4rem; }
 
-/* Gap - Flexbox/Grid spacing */
+/* Gap - Flexbox/Grid spacing (using gap tokens) */
 .has-gap-0 { gap: 0; }
+.has-gap-xs { gap: var(--spacing-gap-xs); }   /* 0.5rem */
+.has-gap-sm { gap: var(--spacing-gap-sm); }   /* 1rem */
+.has-gap-md { gap: var(--spacing-gap-md); }   /* 1.5rem */
+.has-gap-lg { gap: var(--spacing-gap-lg); }   /* 2rem */
+.has-gap-xl { gap: var(--spacing-gap-xl); }   /* 2.5rem */
+
+/* Legacy numeric gap (kept for backwards compatibility) */
 .has-gap-1 { gap: 0.25rem; }
 .has-gap-2 { gap: 0.5rem; }
 .has-gap-3 { gap: 0.75rem; }
@@ -253,6 +353,13 @@
 
 /* Row Gap */
 .has-row-gap-0 { row-gap: 0; }
+.has-row-gap-xs { row-gap: var(--spacing-gap-xs); }
+.has-row-gap-sm { row-gap: var(--spacing-gap-sm); }
+.has-row-gap-md { row-gap: var(--spacing-gap-md); }
+.has-row-gap-lg { row-gap: var(--spacing-gap-lg); }
+.has-row-gap-xl { row-gap: var(--spacing-gap-xl); }
+
+/* Legacy numeric row gap */
 .has-row-gap-2 { row-gap: 0.5rem; }
 .has-row-gap-4 { row-gap: 1rem; }
 .has-row-gap-6 { row-gap: 1.5rem; }
@@ -260,16 +367,23 @@
 
 /* Column Gap */
 .has-col-gap-0 { column-gap: 0; }
+.has-col-gap-xs { column-gap: var(--spacing-gap-xs); }
+.has-col-gap-sm { column-gap: var(--spacing-gap-sm); }
+.has-col-gap-md { column-gap: var(--spacing-gap-md); }
+.has-col-gap-lg { column-gap: var(--spacing-gap-lg); }
+.has-col-gap-xl { column-gap: var(--spacing-gap-xl); }
+
+/* Legacy numeric column gap */
 .has-col-gap-2 { column-gap: 0.5rem; }
 .has-col-gap-4 { column-gap: 1rem; }
 .has-col-gap-6 { column-gap: 1.5rem; }
 .has-col-gap-8 { column-gap: 2rem; }
 
 /* Fluid Section Spacing (using design system tokens) */
-.has-section-padding-sm { padding-block: var(--spacing-section-sm); }
-.has-section-padding-md { padding-block: var(--spacing-section-md); }
-.has-section-padding-lg { padding-block: var(--spacing-section-lg); }
-.has-section-padding-xl { padding-block: var(--spacing-section-xl); }
+.has-section-padding-sm { padding-block: var(--spacing-section-sm); }   /* 2rem / 32px */
+.has-section-padding-md { padding-block: var(--spacing-section-md); }   /* 4rem / 64px */
+.has-section-padding-lg { padding-block: var(--spacing-section-lg); }   /* 6rem / 96px */
+.has-section-padding-xl { padding-block: var(--spacing-section-xl); }   /* 8rem / 128px */
 
 /* ============================================
    COLOR UTILITIES

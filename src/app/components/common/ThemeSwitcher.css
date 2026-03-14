@@ -1,0 +1,123 @@
+/**
+ * Theme Switcher Styles
+ * 
+ * Component: ThemeSwitcher.tsx
+ * Purpose: Floating action button to toggle between light and dark themes
+ * 
+ * Design System Compliance:
+ * - All spacing uses CSS variables from theme-base.css
+ * - Typography uses fluid CSS variables
+ * - Colors via CSS variables (automatic dark mode)
+ * - No hardcoded values
+ * 
+ * BEM Structure:
+ * .wp-theme-switcher
+ * 
+ * @version 1.0
+ * @last-modified 2026-03-13
+ */
+
+/* ================================================================
+   THEME SWITCHER BUTTON
+   Floating action button fixed to bottom-right corner.
+   ================================================================ */
+
+/**
+ * Theme switcher button
+ * Fixed position FAB (Floating Action Button)
+ * 
+ * Position:
+ * - bottom: 24px (var(--spacing-element-lg))
+ * - right: 24px (var(--spacing-element-lg))
+ * 
+ * Padding:
+ * - All sides: 12px (var(--spacing-element-sm))
+ * 
+ * Touch Target:
+ * - Button: 12px padding + 20px icon = 44px total (meets WCAG 44px minimum)
+ */
+.wp-theme-switcher {
+  position: fixed;
+  bottom: var(--spacing-element-lg); /* 24px */
+  right: var(--spacing-element-lg); /* 24px */
+  z-index: 50;
+  padding: var(--spacing-element-sm); /* 12px */
+}
+
+/* ================================================================
+   RESPONSIVE BEHAVIOR
+   Adjust position on smaller screens to avoid overlap.
+   ================================================================ */
+
+/**
+ * Mobile adjustments
+ * Move slightly further from edge on small screens
+ */
+@media (max-width: 768px) {
+  .wp-theme-switcher {
+    bottom: var(--spacing-element-md); /* 16px on mobile */
+    right: var(--spacing-element-md); /* 16px on mobile */
+  }
+}
+
+/* ================================================================
+   DARK MODE
+   Colors automatically switch via CSS variables.
+   No manual dark mode handling required.
+   ================================================================ */
+
+/**
+ * All colors use semantic tokens:
+ * - bg-primary → Button background (green in both modes)
+ * - text-primary-foreground → Icon color (white in both modes)
+ * - shadow-sm → Elevation (automatic in both modes)
+ * 
+ * Icon switches based on theme state (handled in JSX):
+ * - Light mode: Shows Moon icon
+ * - Dark mode: Shows Sun icon
+ */
+
+/* ================================================================
+   ACCESSIBILITY
+   ================================================================ */
+
+/**
+ * Accessibility features:
+ * - Touch target ≥ 44px (verified: 12px padding + 20px icon = 44px)
+ * - ARIA label changes based on current theme
+ * - Screen reader text with sr-only class
+ * - Clear visual feedback on hover (shadow elevation)
+ * - Keyboard accessible (native button element)
+ * - Focus visible (Tailwind ring classes)
+ */
+
+/* ================================================================
+   INTERACTION STATES
+   ================================================================ */
+
+/**
+ * Hover state handled by Tailwind classes:
+ * - hover:shadow-md → Elevation increases on hover
+ * - transition-all → Smooth transitions
+ * 
+ * These are acceptable Tailwind classes (not spacing-related)
+ */
+
+/* ================================================================
+   NOTES
+   ================================================================ */
+
+/**
+ * Position Strategy:
+ * - Fixed positioning keeps button visible during scroll
+ * - Bottom-right corner is conventional for FABs
+ * - Z-index 50 ensures visibility above most content
+ * 
+ * Touch Target Compliance:
+ * - WCAG 2.1 AA requires 44×44px minimum for touch targets
+ * - Button achieves this with padding + icon size
+ * 
+ * Icon Size:
+ * - Icons are 20×20px (w-5 h-5 in Tailwind)
+ * - Combined with padding creates proper touch target
+ */

@@ -50,7 +50,7 @@ export function Container({
 }: ContainerProps) {
   return (
     <Component 
-      className={cn("wp-container", MAX_WIDTH_CLASSES[maxWidth] || MAX_WIDTH_CLASSES.xl, className)}
+      className={cn("wp-container p-[16px]", MAX_WIDTH_CLASSES[maxWidth] || MAX_WIDTH_CLASSES.xl, className)}
     >
       {children}
     </Component>

@@ -1,0 +1,198 @@
+/**
+ * Mobile Filter Sheet Styles
+ * 
+ * Component: MobileFilterSheet.tsx
+ * Purpose: Slide-up filter sheet for mobile archive pages
+ * 
+ * Design System Compliance:
+ * - All spacing uses CSS variables from theme-base.css
+ * - Typography uses fluid CSS variables
+ * - Colors via CSS variables (automatic dark mode)
+ * - No hardcoded values
+ * 
+ * BEM Structure:
+ * .wp-mobile-filter-sheet
+ *   ├── __header
+ *   ├── __header-content
+ *   ├── __close-btn
+ *   ├── __content
+ *   ├── __category
+ *   ├── __category-title
+ *   ├── __options
+ *   ├── __option-btn
+ *   ├── __footer
+ *   ├── __clear-btn
+ *   └── __apply-btn
+ * 
+ * @version 1.0
+ * @last-modified 2026-03-13
+ */
+
+/* ================================================================
+   SHEET HEADER
+   Header bar with title and close button.
+   ================================================================ */
+
+/**
+ * Sheet header container
+ * Contains title, icon, and close button
+ */
+.wp-mobile-filter-sheet__header {
+  padding: var(--spacing-element-md); /* 16px */
+}
+
+/**
+ * Header content wrapper
+ * Contains icon and title with gap
+ */
+.wp-mobile-filter-sheet__header-content {
+  gap: var(--spacing-element-xs); /* 8px */
+}
+
+/**
+ * Close button
+ * Top-right close icon button
+ */
+.wp-mobile-filter-sheet__close-btn {
+  padding: var(--spacing-element-xs); /* 8px */
+}
+
+/* ================================================================
+   FILTER CONTENT
+   Scrollable content area with filter categories and options.
+   ================================================================ */
+
+/**
+ * Content container (scrollable)
+ * Contains all filter categories
+ */
+.wp-mobile-filter-sheet__content {
+  padding: var(--spacing-element-md); /* 16px */
+}
+
+/**
+ * Category spacing
+ * Vertical gap between filter categories
+ */
+.wp-mobile-filter-sheet__category {
+  margin-bottom: var(--spacing-element-xl); /* 24px */
+}
+
+/* Last category should not have bottom margin */
+.wp-mobile-filter-sheet__category:last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * Category title
+ * Filter category heading
+ */
+.wp-mobile-filter-sheet__category-title {
+  margin-bottom: var(--spacing-element-sm); /* 12px */
+}
+
+/**
+ * Options container
+ * Contains filter option buttons with vertical gap
+ */
+.wp-mobile-filter-sheet__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-element-xs); /* 8px */
+}
+
+/**
+ * Option button
+ * Individual filter option with checkbox
+ */
+.wp-mobile-filter-sheet__option-btn {
+  padding: var(--spacing-element-sm); /* 12px */
+}
+
+/* ================================================================
+   FOOTER ACTIONS
+   Footer bar with Clear All and Apply buttons.
+   ================================================================ */
+
+/**
+ * Footer container
+ * Contains Clear All and Apply buttons
+ */
+.wp-mobile-filter-sheet__footer {
+  padding: var(--spacing-element-md); /* 16px */
+  gap: var(--spacing-element-sm); /* 12px */
+}
+
+/**
+ * Clear All button
+ * Resets all selected filters
+ */
+.wp-mobile-filter-sheet__clear-btn {
+  padding-inline: var(--spacing-element-md); /* 16px horizontal */
+  padding-block: var(--spacing-element-sm); /* 12px vertical */
+}
+
+/**
+ * Apply button
+ * Applies filters and closes sheet
+ */
+.wp-mobile-filter-sheet__apply-btn {
+  padding-inline: var(--spacing-element-md); /* 16px horizontal */
+  padding-block: var(--spacing-element-sm); /* 12px vertical */
+}
+
+/* ================================================================
+   RESPONSIVE BEHAVIOR
+   Mobile-only component (hidden on desktop via Tailwind md:hidden)
+   ================================================================ */
+
+/**
+ * Component is mobile-only
+ * Desktop uses sidebar filters instead
+ * Tailwind handles visibility: md:hidden
+ */
+
+/* ================================================================
+   DARK MODE
+   Colors automatically switch via CSS variables.
+   No manual dark mode handling required.
+   ================================================================ */
+
+/**
+ * All colors use semantic tokens:
+ * - bg-background (sheet background)
+ * - border-border (dividers)
+ * - bg-card (option buttons)
+ * - bg-primary (apply button, selected state)
+ * - text-foreground (text)
+ * - text-muted-foreground (counts)
+ * 
+ * These automatically adjust in dark mode via theme-dark.css
+ */
+
+/* ================================================================
+   ACCESSIBILITY
+   ================================================================ */
+
+/**
+ * Accessibility features:
+ * - Touch targets ≥ 44px (p-3 = 12px padding + content = 44px+)
+ * - Clear focus states (Tailwind ring classes)
+ * - ARIA labels on close button
+ * - Proper heading hierarchy (h2, h3)
+ * - Disabled state for Clear All when no filters selected
+ * - Visual feedback for selected state
+ */
+
+/* ================================================================
+   ANIMATION
+   ================================================================ */
+
+/**
+ * Animations handled by motion/react:
+ * - Backdrop fade in/out
+ * - Sheet slide up/down
+ * - Spring physics for natural feel
+ * 
+ * Tailwind transition-colors for hover states
+ */

@@ -19,6 +19,29 @@
 
 ---
 
+## 🔄 **TRIGGER WORD SYSTEM - WORKFLOW SHORTCUTS**
+
+### **Quick Commands for Common Tasks**
+
+The project uses **trigger words** to execute proven workflows instantly:
+
+| Trigger Word | Action | When to Use |
+|--------------|--------|-------------|
+| `cleanup` | Run comprehensive audit & cleanup | Weekly or before major milestones |
+| `continue` | Resume next logical task | Get back on track after interruption |
+| `cleanup continue` | Cleanup THEN continue with next task | Fresh start + progress |
+
+**How it works:**
+- User types trigger word (e.g., `cleanup`)
+- AI reads and executes corresponding prompt from `/prompts/`
+- Follows standardized workflow with completion criteria
+- Presents results and suggests next steps
+
+**📖 Full Documentation:** `/guidelines/PROMPT-SYSTEM-GUIDE.md`  
+**Prompt Files:** `/prompts/cleanup.md`, `/prompts/continue.md`
+
+---
+
 ## 🚨 **CRITICAL: STYLING & COMPLIANCE RULES**
 
 ### **⚠️ ZERO TOLERANCE: INLINE STYLES ⚠️**
