@@ -1,7 +1,7 @@
 
-  # TO Prototype Tailwind
+  # Tour Operator Demo
 
-  This is a code bundle for TO Prototype Tailwind. The original project is available at https://www.figma.com/design/flWmIJxOi5uqlsCRCYZvoo/TO-Prototype-Tailwind.
+  This is a code bundle for Tour Operator Demo. The original project is available at https://www.figma.com/design/flWmIJxOi5uqlsCRCYZvoo/Tour-Operator-Demo.
 
   ## Running the code
 
