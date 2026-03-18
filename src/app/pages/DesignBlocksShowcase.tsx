@@ -16,6 +16,7 @@
 
 import React from 'react';
 import { Container } from '../components/common/Container';
+import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { DevToolsBreadcrumbs } from '../components/common/DevToolsBreadcrumbs';
 import { Button, Buttons, Group, Grid, Stack, Row, Columns, Column } from '../components/blocks/design';
 import { SectionWrapper } from '../components/patterns/SectionWrapper';
